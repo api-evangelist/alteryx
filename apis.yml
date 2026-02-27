@@ -1,0 +1,103 @@
+name: Alteryx
+description: Alteryx is an analytics automation platform that enables data analysts and scientists to break data barriers, deliver insights, and experience the thrill of getting to the answer faster.
+image: https://www.alteryx.com/sites/default/files/alteryx-logo-2021.svg
+url: https://www.alteryx.com
+created: 2024-01-15 00:00:00+00:00
+modified: 2024-01-15 00:00:00+00:00
+specificationVersion: '0.18'
+tags:
+- analytics
+- data science
+- automation
+- ETL
+- machine learning
+- predictive analytics
+apis:
+- name: Alteryx Server API
+  description: REST API for managing workflows, schedules, and jobs on Alteryx Server
+  image: https://www.alteryx.com/sites/default/files/alteryx-logo-2021.svg
+  humanURL: https://help.alteryx.com/developer-help/server-api-overview
+  baseURL: https://your-server/webapi
+  tags:
+  - workflows
+  - automation
+  - scheduling
+  - jobs
+  properties:
+  - type: Documentation
+    url: https://help.alteryx.com/developer-help/server-api-overview
+  - type: OpenAPI
+    url: https://help.alteryx.com/developer-help/server-api-reference
+  - type: Authentication
+    url: https://help.alteryx.com/developer-help/api-authentication
+  contact:
+  - FN: Alteryx Support
+    email: support@alteryx.com
+    url: https://community.alteryx.com
+- name: Alteryx Gallery API
+  description: API for interacting with Alteryx Analytics Gallery for workflow sharing and execution
+  image: https://www.alteryx.com/sites/default/files/alteryx-logo-2021.svg
+  humanURL: https://help.alteryx.com/developer-help/gallery-api-overview
+  baseURL: https://gallery.alteryx.com/api
+  tags:
+  - gallery
+  - workflows
+  - sharing
+  - public API
+  properties:
+  - type: Documentation
+    url: https://help.alteryx.com/developer-help/gallery-api-overview
+  - type: OpenAPI
+    url: https://help.alteryx.com/developer-help/gallery-api-reference
+  - type: Authentication
+    url: https://help.alteryx.com/developer-help/gallery-api-authentication
+  contact:
+  - FN: Alteryx Support
+    email: support@alteryx.com
+    url: https://community.alteryx.com
+- name: Alteryx Connect API
+  description: API for Alteryx Connect data catalog and collaboration platform
+  image: https://www.alteryx.com/sites/default/files/alteryx-logo-2021.svg
+  humanURL: https://help.alteryx.com/developer-help/connect-api
+  baseURL: https://your-connect-server/api
+  tags:
+  - data catalog
+  - metadata
+  - collaboration
+  - governance
+  properties:
+  - type: Documentation
+    url: https://help.alteryx.com/developer-help/connect-api
+  - type: Authentication
+    url: https://help.alteryx.com/developer-help/connect-authentication
+  contact:
+  - FN: Alteryx Support
+    email: support@alteryx.com
+    url: https://community.alteryx.com
+common:
+- type: Portal
+  url: https://help.alteryx.com/developer-help
+- type: Getting Started
+  url: https://help.alteryx.com/developer-help/getting-started
+- type: Authentication
+  url: https://help.alteryx.com/developer-help/api-authentication
+- type: Status
+  url: https://status.alteryx.com
+- type: Support
+  url: https://community.alteryx.com
+- type: Blog
+  url: https://community.alteryx.com/t5/Engine-Works/bg-p/engine-works
+- type: Twitter
+  url: https://twitter.com/alteryx
+- type: LinkedIn
+  url: https://www.linkedin.com/company/alteryx
+- type: GitHub
+  url: https://github.com/alteryx
+- type: Terms of Service
+  url: https://www.alteryx.com/legal
+- type: Privacy Policy
+  url: https://www.alteryx.com/privacy
+maintainers:
+- FN: Alteryx
+  email: developer@alteryx.com
+  url: https://www.alteryx.com
