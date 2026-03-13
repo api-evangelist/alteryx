@@ -1,0 +1,441 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "alteryx": "https://help.alteryx.com/current/en/server/api-overview/alteryx-server-api-v3/server-api-v3-objects/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+
+    "Workflow": {
+      "@id": "alteryx:workflow-endpoints",
+      "@context": {
+        "id": {
+          "@id": "schema:identifier",
+          "@type": "xsd:string"
+        },
+        "sourceAppId": {
+          "@id": "alteryx:sourceAppId",
+          "@type": "xsd:string"
+        },
+        "name": {
+          "@id": "schema:name",
+          "@type": "xsd:string"
+        },
+        "ownerId": {
+          "@id": "alteryx:ownerId",
+          "@type": "xsd:string"
+        },
+        "dateCreated": {
+          "@id": "schema:dateCreated",
+          "@type": "xsd:dateTime"
+        },
+        "publishedVersionNumber": {
+          "@id": "schema:version",
+          "@type": "xsd:integer"
+        },
+        "publishedVersionId": {
+          "@id": "alteryx:publishedVersionId",
+          "@type": "xsd:string"
+        },
+        "isAmp": {
+          "@id": "alteryx:isAmp",
+          "@type": "xsd:boolean"
+        },
+        "executionMode": {
+          "@id": "alteryx:executionMode",
+          "@type": "xsd:string"
+        },
+        "runCount": {
+          "@id": "alteryx:runCount",
+          "@type": "xsd:integer"
+        },
+        "workerTag": {
+          "@id": "alteryx:workerTag",
+          "@type": "xsd:string"
+        },
+        "districtTags": {
+          "@id": "alteryx:districtTags",
+          "@container": "@set"
+        },
+        "comments": {
+          "@id": "schema:comment",
+          "@type": "xsd:string"
+        },
+        "isPublic": {
+          "@id": "alteryx:isPublic",
+          "@type": "xsd:boolean"
+        },
+        "isReadyForMigration": {
+          "@id": "alteryx:isReadyForMigration",
+          "@type": "xsd:boolean"
+        },
+        "othersMayDownload": {
+          "@id": "alteryx:othersMayDownload",
+          "@type": "xsd:boolean"
+        },
+        "othersCanViewHistory": {
+          "@id": "alteryx:othersCanViewHistory",
+          "@type": "xsd:boolean"
+        },
+        "othersCanExecute": {
+          "@id": "alteryx:othersCanExecute",
+          "@type": "xsd:boolean"
+        },
+        "hasPrivateDataExemption": {
+          "@id": "alteryx:hasPrivateDataExemption",
+          "@type": "xsd:boolean"
+        },
+        "workflowCredentialType": {
+          "@id": "alteryx:workflowCredentialType",
+          "@type": "xsd:string"
+        },
+        "credentialId": {
+          "@id": "alteryx:credentialId",
+          "@type": "xsd:string"
+        },
+        "versions": {
+          "@id": "schema:hasPart",
+          "@type": "@id",
+          "@container": "@set"
+        }
+      }
+    },
+
+    "WorkflowVersion": {
+      "@id": "alteryx:workflow-endpoints#version",
+      "@context": {
+        "versionId": {
+          "@id": "schema:identifier",
+          "@type": "xsd:string"
+        },
+        "versionNumber": {
+          "@id": "schema:version",
+          "@type": "xsd:integer"
+        },
+        "dateCreated": {
+          "@id": "schema:dateCreated",
+          "@type": "xsd:dateTime"
+        },
+        "uploadSource": {
+          "@id": "alteryx:uploadSource",
+          "@type": "xsd:string"
+        },
+        "uploadDate": {
+          "@id": "schema:datePublished",
+          "@type": "xsd:dateTime"
+        },
+        "packageWorkflowType": {
+          "@id": "alteryx:packageWorkflowType",
+          "@type": "xsd:string"
+        },
+        "published": {
+          "@id": "alteryx:published",
+          "@type": "xsd:boolean"
+        },
+        "comments": {
+          "@id": "schema:comment",
+          "@type": "xsd:string"
+        },
+        "runDisabled": {
+          "@id": "alteryx:runDisabled",
+          "@type": "xsd:boolean"
+        },
+        "executionMode": {
+          "@id": "alteryx:executionMode",
+          "@type": "xsd:string"
+        },
+        "author": {
+          "@id": "schema:author",
+          "@type": "xsd:string"
+        },
+        "description": {
+          "@id": "schema:description",
+          "@type": "xsd:string"
+        },
+        "fileName": {
+          "@id": "alteryx:fileName",
+          "@type": "xsd:string"
+        },
+        "copyright": {
+          "@id": "schema:copyrightNotice",
+          "@type": "xsd:string"
+        }
+      }
+    },
+
+    "Schedule": {
+      "@id": "alteryx:schedules-endpoints",
+      "@context": {
+        "id": {
+          "@id": "schema:identifier",
+          "@type": "xsd:string"
+        },
+        "name": {
+          "@id": "schema:name",
+          "@type": "xsd:string"
+        },
+        "workflowId": {
+          "@id": "alteryx:workflowId",
+          "@type": "xsd:string"
+        },
+        "versionId": {
+          "@id": "alteryx:versionId",
+          "@type": "xsd:string"
+        },
+        "ownerId": {
+          "@id": "alteryx:ownerId",
+          "@type": "xsd:string"
+        },
+        "runDateTime": {
+          "@id": "alteryx:runDateTime",
+          "@type": "xsd:dateTime"
+        },
+        "comment": {
+          "@id": "schema:comment",
+          "@type": "xsd:string"
+        },
+        "enabled": {
+          "@id": "alteryx:enabled",
+          "@type": "xsd:boolean"
+        },
+        "priority": {
+          "@id": "alteryx:priority",
+          "@type": "xsd:string"
+        },
+        "workerTag": {
+          "@id": "alteryx:workerTag",
+          "@type": "xsd:string"
+        },
+        "status": {
+          "@id": "alteryx:status",
+          "@type": "xsd:string"
+        },
+        "credentialId": {
+          "@id": "alteryx:credentialId",
+          "@type": "xsd:string"
+        },
+        "creationTime": {
+          "@id": "schema:dateCreated",
+          "@type": "xsd:dateTime"
+        },
+        "lastRunTime": {
+          "@id": "alteryx:lastRunTime",
+          "@type": "xsd:dateTime"
+        },
+        "state": {
+          "@id": "alteryx:state",
+          "@type": "xsd:string"
+        },
+        "runCount": {
+          "@id": "alteryx:runCount",
+          "@type": "xsd:integer"
+        },
+        "frequency": {
+          "@id": "alteryx:frequency",
+          "@type": "xsd:string"
+        },
+        "lastError": {
+          "@id": "alteryx:lastError",
+          "@type": "xsd:string"
+        },
+        "cpuName": {
+          "@id": "alteryx:cpuName",
+          "@type": "xsd:string"
+        },
+        "timeZone": {
+          "@id": "alteryx:timeZone",
+          "@type": "xsd:string"
+        },
+        "iteration": {
+          "@id": "alteryx:iteration",
+          "@type": "@id"
+        }
+      }
+    },
+
+    "ScheduleIteration": {
+      "@id": "alteryx:schedules-endpoints#iteration",
+      "@context": {
+        "iterationType": {
+          "@id": "alteryx:iterationType",
+          "@type": "xsd:string"
+        },
+        "startTime": {
+          "@id": "schema:startDate",
+          "@type": "xsd:dateTime"
+        },
+        "endTime": {
+          "@id": "schema:endDate",
+          "@type": "xsd:dateTime"
+        },
+        "cronExpression": {
+          "@id": "alteryx:cronExpression",
+          "@type": "xsd:string"
+        }
+      }
+    },
+
+    "User": {
+      "@id": "alteryx:user-endpoints",
+      "@context": {
+        "id": {
+          "@id": "schema:identifier",
+          "@type": "xsd:string"
+        },
+        "firstName": {
+          "@id": "schema:givenName",
+          "@type": "xsd:string"
+        },
+        "lastName": {
+          "@id": "schema:familyName",
+          "@type": "xsd:string"
+        },
+        "email": {
+          "@id": "schema:email",
+          "@type": "xsd:string"
+        },
+        "role": {
+          "@id": "alteryx:role",
+          "@type": "xsd:string"
+        },
+        "dateCreated": {
+          "@id": "schema:dateCreated",
+          "@type": "xsd:dateTime"
+        },
+        "defaultWorkerTag": {
+          "@id": "alteryx:defaultWorkerTag",
+          "@type": "xsd:string"
+        },
+        "canScheduleJobs": {
+          "@id": "alteryx:canScheduleJobs",
+          "@type": "xsd:boolean"
+        },
+        "canPrioritizeJobs": {
+          "@id": "alteryx:canPrioritizeJobs",
+          "@type": "xsd:boolean"
+        },
+        "canAssignJobs": {
+          "@id": "alteryx:canAssignJobs",
+          "@type": "xsd:boolean"
+        },
+        "canCreateCollections": {
+          "@id": "alteryx:canCreateCollections",
+          "@type": "xsd:boolean"
+        },
+        "isApiEnabled": {
+          "@id": "alteryx:isApiEnabled",
+          "@type": "xsd:boolean"
+        },
+        "defaultCredentialId": {
+          "@id": "alteryx:defaultCredentialId",
+          "@type": "xsd:string"
+        },
+        "isAccountLocked": {
+          "@id": "alteryx:isAccountLocked",
+          "@type": "xsd:boolean"
+        },
+        "isActive": {
+          "@id": "alteryx:isActive",
+          "@type": "xsd:boolean"
+        },
+        "isValidated": {
+          "@id": "alteryx:isValidated",
+          "@type": "xsd:boolean"
+        },
+        "timeZone": {
+          "@id": "alteryx:timeZone",
+          "@type": "xsd:string"
+        },
+        "language": {
+          "@id": "schema:inLanguage",
+          "@type": "xsd:string"
+        }
+      }
+    },
+
+    "Job": {
+      "@id": "alteryx:workflow-endpoints#job",
+      "@context": {
+        "id": {
+          "@id": "schema:identifier",
+          "@type": "xsd:string"
+        },
+        "appId": {
+          "@id": "alteryx:appId",
+          "@type": "xsd:string"
+        },
+        "createDateTime": {
+          "@id": "schema:dateCreated",
+          "@type": "xsd:dateTime"
+        },
+        "status": {
+          "@id": "alteryx:status",
+          "@type": "xsd:string"
+        },
+        "disposition": {
+          "@id": "alteryx:disposition",
+          "@type": "xsd:string"
+        },
+        "priority": {
+          "@id": "alteryx:priority",
+          "@type": "xsd:string"
+        },
+        "workerTag": {
+          "@id": "alteryx:workerTag",
+          "@type": "xsd:string"
+        },
+        "runWithE2": {
+          "@id": "alteryx:runWithE2",
+          "@type": "xsd:boolean"
+        },
+        "outputs": {
+          "@id": "alteryx:outputs",
+          "@type": "@id",
+          "@container": "@set"
+        },
+        "messages": {
+          "@id": "alteryx:messages",
+          "@type": "@id",
+          "@container": "@set"
+        }
+      }
+    },
+
+    "Credential": {
+      "@id": "alteryx:credential-endpoints",
+      "@context": {
+        "id": {
+          "@id": "schema:identifier",
+          "@type": "xsd:string"
+        },
+        "username": {
+          "@id": "alteryx:username",
+          "@type": "xsd:string"
+        }
+      }
+    },
+
+    "Collection": {
+      "@id": "alteryx:collection-endpoints",
+      "@context": {
+        "id": {
+          "@id": "schema:identifier",
+          "@type": "xsd:string"
+        },
+        "name": {
+          "@id": "schema:name",
+          "@type": "xsd:string"
+        },
+        "ownerId": {
+          "@id": "alteryx:ownerId",
+          "@type": "xsd:string"
+        },
+        "dateCreated": {
+          "@id": "schema:dateCreated",
+          "@type": "xsd:dateTime"
+        }
+      }
+    }
+  }
+}

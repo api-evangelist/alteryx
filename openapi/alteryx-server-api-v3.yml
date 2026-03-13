@@ -1,0 +1,2747 @@
+openapi: 3.1.0
+info:
+  title: Alteryx Server API V3
+  description: >-
+    The Alteryx Server API V3 provides administrative capabilities for managing
+    workflows, schedules, users, user groups, credentials, collections, and
+    server connections. It uses OAuth 2 authentication and implements POST, PUT,
+    GET, DELETE, and PATCH operations so administrators can automate tasks and
+    integrate Server with existing API automation tools.
+  version: 3.0.0
+  contact:
+    name: Alteryx Support
+    email: support@alteryx.com
+    url: https://community.alteryx.com
+  license:
+    name: Proprietary
+    url: https://www.alteryx.com/terms-and-conditions
+  termsOfService: https://www.alteryx.com/terms-and-conditions
+  x-logo:
+    url: https://www.alteryx.com/sites/default/files/alteryx-logo-2021.svg
+externalDocs:
+  description: Alteryx Server API V3 Documentation
+  url: https://help.alteryx.com/current/en/server/api-overview/alteryx-server-api-v3.html
+servers:
+  - url: https://{serverHostname}/webapi
+    description: Alteryx Server instance
+    variables:
+      serverHostname:
+        default: your-server.example.com
+        description: Hostname of your Alteryx Server instance
+security:
+  - oauth2: []
+tags:
+  - name: Workflows
+    description: Manage workflows including upload, retrieval, update, deletion, versioning, and job execution
+  - name: Schedules
+    description: Create, retrieve, update, and delete workflow execution schedules
+  - name: Users
+    description: Manage user accounts, permissions, and asset transfers
+  - name: User Groups
+    description: Manage user groups and group membership
+  - name: Credentials
+    description: Manage stored credentials and credential sharing
+  - name: Collections
+    description: Manage collections of workflows, schedules, users, and user groups
+  - name: Server Connections
+    description: Manage server data connections
+  - name: Jobs
+    description: Manage and monitor workflow execution jobs
+paths:
+  /v3/workflows:
+    post:
+      operationId: uploadWorkflow
+      summary: Upload a new workflow
+      description: Upload a new workflow package (YXZP file) to the Alteryx Server.
+      tags:
+        - Workflows
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required:
+                - file
+                - name
+                - ownerId
+                - isPublic
+                - isReadyForMigration
+                - othersMayDownload
+                - othersCanExecute
+                - executionMode
+                - workflowCredentialType
+              properties:
+                file:
+                  type: string
+                  format: binary
+                  description: The YXZP workflow package file
+                name:
+                  type: string
+                  description: Name of the workflow
+                ownerId:
+                  type: string
+                  description: ID of the user who will own the workflow
+                workerTag:
+                  type: string
+                  description: Worker tag for execution routing
+                districtTags:
+                  type: string
+                  description: JSON array of district tags
+                comments:
+                  type: string
+                  description: Comments about the workflow
+                isPublic:
+                  type: boolean
+                  description: Whether the workflow is publicly accessible
+                isReadyForMigration:
+                  type: boolean
+                  description: Whether the workflow is ready for migration
+                sourceAppId:
+                  type: string
+                  description: Source application ID for migration tracking
+                othersMayDownload:
+                  type: boolean
+                  description: Whether other users may download the workflow
+                othersCanExecute:
+                  type: boolean
+                  description: Whether other users can execute the workflow
+                executionMode:
+                  type: string
+                  enum:
+                    - Safe
+                    - SemiSafe
+                    - Standard
+                  description: The execution mode for the workflow
+                hasPrivateDataExemption:
+                  type: boolean
+                  description: Whether the workflow has a private data exemption
+                workflowCredentialType:
+                  type: string
+                  enum:
+                    - Default
+                    - Required
+                    - Specific
+                  description: Type of credential used for workflow execution
+                credentialId:
+                  type: string
+                  description: ID of the credential to use when workflowCredentialType is Specific
+                collectionIds:
+                  type: string
+                  description: JSON array of collection IDs to add the workflow to
+                bypassWorkflowVersionCheck:
+                  type: boolean
+                  description: Whether to bypass workflow version compatibility checking
+      responses:
+        '200':
+          description: Workflow uploaded successfully
+          content:
+            application/json:
+              schema:
+                type: string
+                description: The ID of the newly created workflow
+        '400':
+          description: Bad request - invalid parameters
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized - invalid or missing authentication
+    get:
+      operationId: getWorkflows
+      summary: Retrieve all workflows
+      description: Retrieve information about all workflow records with optional filtering.
+      tags:
+        - Workflows
+      parameters:
+        - name: view
+          in: query
+          description: Level of detail in the response
+          schema:
+            type: string
+            enum:
+              - Default
+              - Full
+            default: Default
+        - name: name
+          in: query
+          description: Filter workflows by name
+          schema:
+            type: string
+        - name: ownerId
+          in: query
+          description: Filter workflows by owner ID
+          schema:
+            type: string
+        - name: createdAfter
+          in: query
+          description: Filter workflows created after this date (ISO 8601 format)
+          schema:
+            type: string
+            format: date-time
+        - name: createdBefore
+          in: query
+          description: Filter workflows created before this date (ISO 8601 format)
+          schema:
+            type: string
+            format: date-time
+      responses:
+        '200':
+          description: List of workflow records
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/WorkflowSummary'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized
+  /v3/workflows/{workflowId}:
+    get:
+      operationId: getWorkflow
+      summary: Retrieve a specific workflow
+      description: Retrieve detailed information about a specific workflow record.
+      tags:
+        - Workflows
+      parameters:
+        - $ref: '#/components/parameters/workflowId'
+      responses:
+        '200':
+          description: Workflow details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkflowDetail'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Workflow not found
+    put:
+      operationId: updateWorkflow
+      summary: Update an existing workflow
+      description: Update the properties of an existing workflow.
+      tags:
+        - Workflows
+      parameters:
+        - $ref: '#/components/parameters/workflowId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateWorkflowContract'
+      responses:
+        '200':
+          description: Workflow updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkflowDetail'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Workflow not found
+    delete:
+      operationId: deleteWorkflow
+      summary: Delete a workflow
+      description: Delete a specific workflow from the server.
+      tags:
+        - Workflows
+      parameters:
+        - $ref: '#/components/parameters/workflowId'
+        - name: force
+          in: query
+          description: Force deletion even if workflow has dependencies
+          schema:
+            type: boolean
+            default: false
+      responses:
+        '200':
+          description: Workflow deleted successfully
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Workflow not found
+  /v3/workflows/{workflowId}/versions:
+    post:
+      operationId: uploadWorkflowVersion
+      summary: Upload a new version of an existing workflow
+      description: Upload a new version of an existing workflow package.
+      tags:
+        - Workflows
+      parameters:
+        - $ref: '#/components/parameters/workflowId'
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required:
+                - file
+                - name
+                - ownerId
+                - othersMayDownload
+                - othersCanExecute
+                - executionMode
+                - makePublished
+                - workflowCredentialType
+              properties:
+                file:
+                  type: string
+                  format: binary
+                  description: The YXZP workflow package file
+                name:
+                  type: string
+                  description: Name of the workflow version
+                ownerId:
+                  type: string
+                  description: ID of the workflow owner
+                othersMayDownload:
+                  type: boolean
+                  description: Whether other users may download
+                othersCanExecute:
+                  type: boolean
+                  description: Whether other users can execute
+                executionMode:
+                  type: string
+                  enum:
+                    - Safe
+                    - SemiSafe
+                    - Standard
+                hasPrivateDataExemption:
+                  type: boolean
+                comments:
+                  type: string
+                makePublished:
+                  type: boolean
+                  description: Whether to make this version the published version
+                workflowCredentialType:
+                  type: string
+                  enum:
+                    - Default
+                    - Required
+                    - Specific
+                credentialId:
+                  type: string
+                bypassWorkflowVersionCheck:
+                  type: boolean
+      responses:
+        '200':
+          description: Workflow version uploaded successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkflowDetail'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Workflow not found
+  /v3/workflows/{workflowId}/package:
+    get:
+      operationId: downloadWorkflowPackage
+      summary: Download a workflow package
+      description: Download the YXZP package file for a specific workflow.
+      tags:
+        - Workflows
+      parameters:
+        - $ref: '#/components/parameters/workflowId'
+        - name: versionId
+          in: query
+          description: Specific version ID to download
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Workflow package file
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+        '400':
+          description: Invalid version ID
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Workflow not found
+  /v3/workflows/{workflowId}/questions:
+    get:
+      operationId: getWorkflowQuestions
+      summary: Retrieve analytic app questions
+      description: Retrieve question (input) information for an analytic app workflow.
+      tags:
+        - Workflows
+      parameters:
+        - $ref: '#/components/parameters/workflowId'
+        - name: versionId
+          in: query
+          description: Specific version ID
+          schema:
+            type: string
+      responses:
+        '200':
+          description: List of workflow questions
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/WorkflowQuestion'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Workflow not found
+  /v3/workflows/{workflowId}/jobs:
+    get:
+      operationId: getWorkflowJobs
+      summary: Get jobs for a workflow
+      description: Retrieve execution jobs associated with a specific workflow.
+      tags:
+        - Jobs
+      parameters:
+        - $ref: '#/components/parameters/workflowId'
+        - name: sortField
+          in: query
+          description: Field to sort results by
+          schema:
+            type: string
+        - name: direction
+          in: query
+          description: Sort direction
+          schema:
+            type: string
+            enum:
+              - asc
+              - desc
+        - name: offset
+          in: query
+          description: Number of records to skip for pagination
+          schema:
+            type: string
+        - name: limit
+          in: query
+          description: Maximum number of records to return
+          schema:
+            type: string
+        - name: status
+          in: query
+          description: Filter by job status
+          schema:
+            type: string
+            enum:
+              - Complete
+              - Error
+              - Running
+              - Queued
+        - name: resultCode
+          in: query
+          description: Filter by result code
+          schema:
+            type: string
+            enum:
+              - Success
+              - Warning
+              - Error
+      responses:
+        '200':
+          description: List of jobs
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/JobSummary'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Workflow not found
+    post:
+      operationId: createJob
+      summary: Create a new job for a workflow
+      description: Queue a new execution job for a specific workflow.
+      tags:
+        - Jobs
+      parameters:
+        - $ref: '#/components/parameters/workflowId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateJobContract'
+      responses:
+        '200':
+          description: Job created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobDetail'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Workflow not found
+  /v3/workflows/{workflowId}/transfer:
+    put:
+      operationId: transferWorkflow
+      summary: Transfer workflow ownership
+      description: Transfer a specific workflow to a different owner, optionally including associated schedules.
+      tags:
+        - Workflows
+      parameters:
+        - $ref: '#/components/parameters/workflowId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - ownerId
+                - transferSchedules
+              properties:
+                ownerId:
+                  type: string
+                  description: ID of the new owner
+                transferSchedules:
+                  type: boolean
+                  description: Whether to also transfer associated schedules
+      responses:
+        '200':
+          description: Workflow transferred successfully
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Workflow not found
+        '500':
+          description: Internal server error
+  /v3/schedules:
+    post:
+      operationId: createSchedule
+      summary: Create a new schedule
+      description: Create a new execution schedule for a workflow.
+      tags:
+        - Schedules
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateScheduleContract'
+      responses:
+        '201':
+          description: Schedule created successfully
+          content:
+            application/json:
+              schema:
+                type: string
+                description: The ID of the newly created schedule
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized
+    get:
+      operationId: getSchedules
+      summary: Retrieve all schedules
+      description: Retrieve information about all schedules with optional filtering.
+      tags:
+        - Schedules
+      parameters:
+        - name: view
+          in: query
+          description: Level of detail in the response
+          schema:
+            type: string
+            enum:
+              - Default
+              - Full
+            default: Default
+        - name: ownerId
+          in: query
+          description: Filter by schedule owner
+          schema:
+            type: string
+        - name: workflowId
+          in: query
+          description: Filter by associated workflow
+          schema:
+            type: string
+        - name: runsAfter
+          in: query
+          description: Filter schedules that run after this date (ISO 8601, max 45-day range)
+          schema:
+            type: string
+            format: date-time
+        - name: runsBefore
+          in: query
+          description: Filter schedules that run before this date (ISO 8601, max 45-day range)
+          schema:
+            type: string
+            format: date-time
+      responses:
+        '200':
+          description: List of schedules
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ScheduleSummary'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+  /v3/schedules/{scheduleId}:
+    get:
+      operationId: getSchedule
+      summary: Retrieve a specific schedule
+      description: Retrieve detailed information about a specific schedule.
+      tags:
+        - Schedules
+      parameters:
+        - $ref: '#/components/parameters/scheduleId'
+      responses:
+        '200':
+          description: Schedule details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ScheduleDetail'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Schedule not found
+    put:
+      operationId: updateSchedule
+      summary: Update a schedule
+      description: Update all properties of an existing schedule. All required fields must be provided.
+      tags:
+        - Schedules
+      parameters:
+        - $ref: '#/components/parameters/scheduleId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateScheduleContract'
+      responses:
+        '200':
+          description: Schedule updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ScheduleDetail'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Schedule not found
+    patch:
+      operationId: patchSchedule
+      summary: Partially update a schedule
+      description: Update specific properties of an existing schedule without requiring all fields.
+      tags:
+        - Schedules
+      parameters:
+        - $ref: '#/components/parameters/scheduleId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchScheduleContract'
+      responses:
+        '200':
+          description: Schedule updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ScheduleDetail'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Schedule not found
+    delete:
+      operationId: deleteSchedule
+      summary: Delete a schedule
+      description: Remove a schedule from the system.
+      tags:
+        - Schedules
+      parameters:
+        - $ref: '#/components/parameters/scheduleId'
+      responses:
+        '200':
+          description: Schedule deleted successfully
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Schedule not found
+  /v3/users:
+    post:
+      operationId: createUser
+      summary: Create a new user
+      description: Create a new user account on the Alteryx Server. Requires Curator role.
+      tags:
+        - Users
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateUserContract'
+      responses:
+        '201':
+          description: User created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserDetail'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden - insufficient permissions
+    get:
+      operationId: getUsers
+      summary: Retrieve all users
+      description: Retrieve information about all user records with optional filtering. Requires Curator role.
+      tags:
+        - Users
+      parameters:
+        - name: view
+          in: query
+          description: Level of detail in the response
+          schema:
+            type: string
+            enum:
+              - Default
+              - Full
+            default: Default
+        - name: active
+          in: query
+          description: Filter by active status
+          schema:
+            type: boolean
+        - name: email
+          in: query
+          description: Filter by email address
+          schema:
+            type: string
+        - name: role
+          in: query
+          description: Filter by user role
+          schema:
+            type: string
+            enum:
+              - NoAccess
+              - Viewer
+              - Member
+              - Artisan
+              - Curator
+              - Evaluated
+        - name: firstName
+          in: query
+          description: Filter by first name
+          schema:
+            type: string
+        - name: lastName
+          in: query
+          description: Filter by last name
+          schema:
+            type: string
+        - name: createdAfter
+          in: query
+          description: Filter users created after this date (ISO 8601)
+          schema:
+            type: string
+            format: date-time
+        - name: createdBefore
+          in: query
+          description: Filter users created before this date (ISO 8601)
+          schema:
+            type: string
+            format: date-time
+      responses:
+        '200':
+          description: List of user records
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserDetail'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+  /v3/users/{userId}:
+    get:
+      operationId: getUser
+      summary: Retrieve a specific user
+      description: Retrieve detailed information about a specific user. Requires Curator role.
+      tags:
+        - Users
+      parameters:
+        - $ref: '#/components/parameters/userId'
+      responses:
+        '200':
+          description: User details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserDetail'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: User not found
+    put:
+      operationId: updateUser
+      summary: Update a user
+      description: Update user account details and permissions. Requires Curator role.
+      tags:
+        - Users
+      parameters:
+        - $ref: '#/components/parameters/userId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateUserContract'
+      responses:
+        '200':
+          description: User updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserDetail'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: User not found
+    delete:
+      operationId: deleteUser
+      summary: Delete a user
+      description: >-
+        Delete a user from the system. The user must not own any assets or
+        belong to any groups. Requires Curator role.
+      tags:
+        - Users
+      parameters:
+        - $ref: '#/components/parameters/userId'
+      responses:
+        '200':
+          description: User deleted successfully
+        '400':
+          description: Bad request - user owns assets or belongs to groups
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: User not found
+  /v3/users/{userId}/deactivate:
+    post:
+      operationId: deactivateUser
+      summary: Deactivate a user
+      description: Deactivate a user account and remove them from all user groups. Requires Curator role.
+      tags:
+        - Users
+      parameters:
+        - $ref: '#/components/parameters/userId'
+      responses:
+        '200':
+          description: User deactivated successfully
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+                description: Array of user group IDs from which the user was removed
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: User not found
+  /v3/users/{userId}/passwordReset:
+    post:
+      operationId: resetUserPassword
+      summary: Send password reset email
+      description: >-
+        Send a password reset email to the user. Not available for Windows
+        or SAML authentication methods. Requires Curator role.
+      tags:
+        - Users
+      parameters:
+        - $ref: '#/components/parameters/userId'
+      responses:
+        '200':
+          description: Password reset email sent successfully
+        '400':
+          description: Bad request - authentication method not supported
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: User not found
+  /v3/users/{userId}/assets:
+    get:
+      operationId: getUserAssets
+      summary: Retrieve user assets
+      description: List all assets (workflows, schedules, collections) owned by a specific user. Requires Curator role.
+      tags:
+        - Users
+      parameters:
+        - $ref: '#/components/parameters/userId'
+        - name: assetType
+          in: query
+          description: Filter by asset type
+          schema:
+            type: string
+            default: All
+      responses:
+        '200':
+          description: List of user assets
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserAsset'
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: User not found
+  /v3/users/{userId}/assetTransfer:
+    put:
+      operationId: transferUserAssets
+      summary: Transfer user assets
+      description: >-
+        Transfer all assets (workflows, schedules, and collections) owned by
+        one user to another. The receiving user must have Artisan or Curator
+        role. Requires Curator role.
+      tags:
+        - Users
+      parameters:
+        - $ref: '#/components/parameters/userId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - ownerId
+                - transferWorkflows
+                - transferSchedules
+                - transferCollections
+              properties:
+                ownerId:
+                  type: string
+                  description: ID of the user receiving the assets
+                transferWorkflows:
+                  type: boolean
+                  description: Whether to transfer workflows
+                transferSchedules:
+                  type: boolean
+                  description: Whether to transfer schedules
+                transferCollections:
+                  type: boolean
+                  description: Whether to transfer collections
+      responses:
+        '200':
+          description: Assets transferred successfully
+        '400':
+          description: Bad request - receiving user lacks required role
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: User not found
+  /v3/credentials:
+    get:
+      operationId: getCredentials
+      summary: Retrieve all credentials
+      description: Retrieve all accessible credential records. Requires Curator role.
+      tags:
+        - Credentials
+      parameters:
+        - name: view
+          in: query
+          schema:
+            type: string
+            enum:
+              - Default
+              - Full
+            default: Default
+        - name: userId
+          in: query
+          description: Filter by user
+          schema:
+            type: string
+        - name: userGroupId
+          in: query
+          description: Filter by user group
+          schema:
+            type: string
+      responses:
+        '200':
+          description: List of credentials
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Credential'
+        '401':
+          description: Unauthorized
+    post:
+      operationId: createCredential
+      summary: Create a new credential
+      description: Create a new credential record. Requires Curator role.
+      tags:
+        - Credentials
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - username
+                - password
+              properties:
+                username:
+                  type: string
+                  description: Windows login username
+                password:
+                  type: string
+                  format: password
+                  description: User password
+      responses:
+        '201':
+          description: Credential created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Credential'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+  /v3/credentials/{credentialId}:
+    get:
+      operationId: getCredential
+      summary: Retrieve a specific credential
+      description: Retrieve details for a specific credential record.
+      tags:
+        - Credentials
+      parameters:
+        - $ref: '#/components/parameters/credentialId'
+      responses:
+        '200':
+          description: Credential details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Credential'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Credential not found
+    put:
+      operationId: updateCredential
+      summary: Update a credential
+      description: Update an existing credential record. Requires Curator role.
+      tags:
+        - Credentials
+      parameters:
+        - $ref: '#/components/parameters/credentialId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - username
+                - NewPassword
+              properties:
+                username:
+                  type: string
+                  description: Windows login username
+                NewPassword:
+                  type: string
+                  format: password
+                  description: Replacement password
+      responses:
+        '200':
+          description: Credential updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Credential'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Credential not found
+    delete:
+      operationId: deleteCredential
+      summary: Delete a credential
+      description: Delete a credential from the system. Requires Curator role.
+      tags:
+        - Credentials
+      parameters:
+        - $ref: '#/components/parameters/credentialId'
+        - name: force
+          in: query
+          description: Force deletion with share cleanup
+          schema:
+            type: boolean
+            default: false
+      responses:
+        '200':
+          description: Credential deleted successfully
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Credential not found
+  /v3/credentials/{credentialId}/users:
+    post:
+      operationId: shareCredentialWithUser
+      summary: Share credential with a user
+      description: Grant a user access to a specific credential. Requires Curator role.
+      tags:
+        - Credentials
+      parameters:
+        - $ref: '#/components/parameters/credentialId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - userId
+              properties:
+                userId:
+                  type: string
+                  description: ID of the user to share with
+      responses:
+        '200':
+          description: Credential shared successfully
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+  /v3/credentials/{credentialId}/users/{userId}:
+    delete:
+      operationId: removeCredentialUserAccess
+      summary: Remove user access to credential
+      description: Remove a user's access to a specific credential. Requires Curator role.
+      tags:
+        - Credentials
+      parameters:
+        - $ref: '#/components/parameters/credentialId'
+        - $ref: '#/components/parameters/userId'
+      responses:
+        '200':
+          description: User access removed
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+  /v3/credentials/{credentialId}/userGroups:
+    post:
+      operationId: shareCredentialWithUserGroup
+      summary: Share credential with a user group
+      description: Grant a user group access to a specific credential. Requires Curator role.
+      tags:
+        - Credentials
+      parameters:
+        - $ref: '#/components/parameters/credentialId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - userGroupId
+              properties:
+                userGroupId:
+                  type: string
+                  description: ID of the user group to share with
+      responses:
+        '200':
+          description: Credential shared successfully
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+  /v3/credentials/{credentialId}/userGroups/{userGroupId}:
+    delete:
+      operationId: removeCredentialUserGroupAccess
+      summary: Remove user group access to credential
+      description: Remove a user group's access to a specific credential. Requires Curator role.
+      tags:
+        - Credentials
+      parameters:
+        - $ref: '#/components/parameters/credentialId'
+        - name: userGroupId
+          in: path
+          required: true
+          description: Unique identifier of the user group
+          schema:
+            type: string
+      responses:
+        '200':
+          description: User group access removed
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+  /v3/collections:
+    post:
+      operationId: createCollection
+      summary: Create a new collection
+      description: Create a new collection. Requires Curator role.
+      tags:
+        - Collections
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - name
+              properties:
+                name:
+                  type: string
+                  description: Name of the collection
+      responses:
+        '201':
+          description: Collection created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Collection'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+    get:
+      operationId: getCollections
+      summary: Retrieve all collections
+      description: Retrieve all collections with optional view level.
+      tags:
+        - Collections
+      parameters:
+        - name: view
+          in: query
+          schema:
+            type: string
+            enum:
+              - Default
+              - Full
+            default: Default
+      responses:
+        '200':
+          description: List of collections
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Collection'
+        '401':
+          description: Unauthorized
+  /v3/collections/{collectionId}:
+    get:
+      operationId: getCollection
+      summary: Retrieve a specific collection
+      description: Retrieve detailed information about a specific collection.
+      tags:
+        - Collections
+      parameters:
+        - $ref: '#/components/parameters/collectionId'
+      responses:
+        '200':
+          description: Collection details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Collection'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Collection not found
+    put:
+      operationId: updateCollection
+      summary: Update a collection
+      description: Update collection name and owner.
+      tags:
+        - Collections
+      parameters:
+        - $ref: '#/components/parameters/collectionId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - name
+                - ownerId
+              properties:
+                name:
+                  type: string
+                ownerId:
+                  type: string
+      responses:
+        '200':
+          description: Collection updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Collection'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Collection not found
+    delete:
+      operationId: deleteCollection
+      summary: Delete a collection
+      description: Delete a collection from the system.
+      tags:
+        - Collections
+      parameters:
+        - $ref: '#/components/parameters/collectionId'
+        - name: forceDelete
+          in: query
+          description: Force deletion
+          schema:
+            type: boolean
+            default: false
+      responses:
+        '200':
+          description: Collection deleted successfully
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Collection not found
+  /v3/collections/{collectionId}/users:
+    post:
+      operationId: addUserToCollection
+      summary: Add a user to a collection
+      description: Add a user to a collection with specified permissions.
+      tags:
+        - Collections
+      parameters:
+        - $ref: '#/components/parameters/collectionId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CollectionUserPermission'
+      responses:
+        '200':
+          description: User added to collection
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+  /v3/collections/{collectionId}/users/{userId}/permissions:
+    put:
+      operationId: updateCollectionUserPermissions
+      summary: Update user permissions in a collection
+      description: Update a user's permission flags within a collection.
+      tags:
+        - Collections
+      parameters:
+        - $ref: '#/components/parameters/collectionId'
+        - $ref: '#/components/parameters/userId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CollectionPermissionFlags'
+      responses:
+        '200':
+          description: Permissions updated
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+  /v3/collections/{collectionId}/users/{userId}:
+    delete:
+      operationId: removeUserFromCollection
+      summary: Remove a user from a collection
+      tags:
+        - Collections
+      parameters:
+        - $ref: '#/components/parameters/collectionId'
+        - $ref: '#/components/parameters/userId'
+      responses:
+        '200':
+          description: User removed from collection
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+  /v3/collections/{collectionId}/userGroups:
+    post:
+      operationId: addUserGroupToCollection
+      summary: Add a user group to a collection
+      tags:
+        - Collections
+      parameters:
+        - $ref: '#/components/parameters/collectionId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - userGroupId
+              properties:
+                userGroupId:
+                  type: string
+                isAdmin:
+                  type: boolean
+                  default: false
+                canAddAssets:
+                  type: boolean
+                  default: false
+                canRemoveAssets:
+                  type: boolean
+                  default: false
+                canUpdateAssets:
+                  type: boolean
+                  default: false
+                canAddUsers:
+                  type: boolean
+                  default: false
+                canRemoveUsers:
+                  type: boolean
+                  default: false
+      responses:
+        '200':
+          description: User group added to collection
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+  /v3/collections/{collectionId}/userGroups/{userGroupId}/permissions:
+    put:
+      operationId: updateCollectionUserGroupPermissions
+      summary: Update user group permissions in a collection
+      tags:
+        - Collections
+      parameters:
+        - $ref: '#/components/parameters/collectionId'
+        - name: userGroupId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CollectionPermissionFlags'
+      responses:
+        '200':
+          description: Permissions updated
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+  /v3/collections/{collectionId}/userGroups/{userGroupId}:
+    delete:
+      operationId: removeUserGroupFromCollection
+      summary: Remove a user group from a collection
+      tags:
+        - Collections
+      parameters:
+        - $ref: '#/components/parameters/collectionId'
+        - name: userGroupId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: User group removed from collection
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+  /v3/collections/{collectionId}/workflows:
+    post:
+      operationId: addWorkflowToCollection
+      summary: Add a workflow to a collection
+      tags:
+        - Collections
+      parameters:
+        - $ref: '#/components/parameters/collectionId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - workflowId
+              properties:
+                workflowId:
+                  type: string
+      responses:
+        '200':
+          description: Workflow added to collection
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+  /v3/collections/{collectionId}/workflows/{appId}:
+    delete:
+      operationId: removeWorkflowFromCollection
+      summary: Remove a workflow from a collection
+      tags:
+        - Collections
+      parameters:
+        - $ref: '#/components/parameters/collectionId'
+        - name: appId
+          in: path
+          required: true
+          description: Workflow application ID
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Workflow removed from collection
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+  /v3/collections/{collectionId}/schedules:
+    post:
+      operationId: addScheduleToCollection
+      summary: Add a schedule to a collection
+      tags:
+        - Collections
+      parameters:
+        - $ref: '#/components/parameters/collectionId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - scheduleId
+              properties:
+                scheduleId:
+                  type: string
+      responses:
+        '200':
+          description: Schedule added to collection
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+  /v3/collections/{collectionId}/schedules/{scheduleId}:
+    delete:
+      operationId: removeScheduleFromCollection
+      summary: Remove a schedule from a collection
+      tags:
+        - Collections
+      parameters:
+        - $ref: '#/components/parameters/collectionId'
+        - $ref: '#/components/parameters/scheduleId'
+      responses:
+        '200':
+          description: Schedule removed from collection
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: >-
+        OAuth 2.0 authentication using API Access Key and API Access Secret
+        obtained from the Server User Interface under the Keys section.
+      flows:
+        clientCredentials:
+          tokenUrl: https://{serverHostname}/webapi/oauth2/token
+          scopes: {}
+  parameters:
+    workflowId:
+      name: workflowId
+      in: path
+      required: true
+      description: Unique identifier of the workflow
+      schema:
+        type: string
+    scheduleId:
+      name: scheduleId
+      in: path
+      required: true
+      description: Unique identifier of the schedule
+      schema:
+        type: string
+    userId:
+      name: userId
+      in: path
+      required: true
+      description: Unique identifier of the user
+      schema:
+        type: string
+    credentialId:
+      name: credentialId
+      in: path
+      required: true
+      description: Unique identifier of the credential
+      schema:
+        type: string
+    collectionId:
+      name: collectionId
+      in: path
+      required: true
+      description: Unique identifier of the collection
+      schema:
+        type: string
+  schemas:
+    WorkflowSummary:
+      type: object
+      description: Summary representation of an Alteryx workflow
+      properties:
+        id:
+          type: string
+          description: Unique workflow identifier
+        sourceAppId:
+          type: string
+          description: Source application identifier for migration tracking
+        name:
+          type: string
+          description: Name of the workflow
+        ownerId:
+          type: string
+          description: ID of the workflow owner
+        dateCreated:
+          type: string
+          format: date-time
+          description: Date the workflow was created (ISO 8601)
+        publishedVersionNumber:
+          type: integer
+          description: Version number of the published version
+        isAmp:
+          type: boolean
+          description: Whether the workflow uses AMP engine
+        executionMode:
+          type: string
+          enum:
+            - Safe
+            - SemiSafe
+            - Standard
+          description: Execution mode for the workflow
+    WorkflowDetail:
+      type: object
+      description: Detailed representation of an Alteryx workflow including versions
+      properties:
+        id:
+          type: string
+          description: Unique workflow identifier
+        sourceAppId:
+          type: string
+          description: Source application identifier
+        dateCreated:
+          type: string
+          format: date-time
+          description: Date the workflow was created
+        runCount:
+          type: integer
+          description: Total number of times the workflow has been executed
+        versions:
+          type: array
+          description: List of workflow versions
+          items:
+            $ref: '#/components/schemas/WorkflowVersion'
+        name:
+          type: string
+          description: Name of the workflow
+        ownerId:
+          type: string
+          description: ID of the workflow owner
+        workerTag:
+          type: string
+          description: Worker tag for execution routing
+        districtTags:
+          type: array
+          items:
+            type: string
+          description: District tags assigned to the workflow
+        comments:
+          type: string
+          description: Comments about the workflow
+        isPublic:
+          type: boolean
+          description: Whether the workflow is publicly accessible
+        isReadyForMigration:
+          type: boolean
+          description: Whether the workflow is ready for migration
+        publishedVersionId:
+          type: string
+          description: ID of the currently published version
+        othersMayDownload:
+          type: boolean
+          description: Whether other users may download the workflow
+        othersCanViewHistory:
+          type: boolean
+          description: Whether other users can view execution history
+        othersCanExecute:
+          type: boolean
+          description: Whether other users can execute the workflow
+        hasPrivateDataExemption:
+          type: boolean
+          description: Whether the workflow has a private data exemption
+    WorkflowVersion:
+      type: object
+      description: A specific version of a workflow
+      properties:
+        versionId:
+          type: string
+          description: Unique version identifier
+        versionNumber:
+          type: integer
+          description: Sequential version number
+        dateCreated:
+          type: string
+          format: date-time
+          description: Date the version was created
+        uploadSource:
+          type: string
+          description: Source from which the version was uploaded
+        uploadDate:
+          type: string
+          format: date-time
+          description: Date the version was uploaded
+        packageWorkflowType:
+          type: string
+          description: Type of workflow in the package
+        published:
+          type: boolean
+          description: Whether this version is the published version
+        comments:
+          type: string
+          description: Comments about this version
+        runDisabled:
+          type: boolean
+          description: Whether execution is disabled for this version
+        executionMode:
+          type: string
+          enum:
+            - Safe
+            - SemiSafe
+            - Standard
+        workflowCredentialType:
+          type: string
+          enum:
+            - Default
+            - Required
+            - Specific
+        credentialId:
+          type: string
+          description: Credential ID if workflowCredentialType is Specific
+        hasPrivateDataExemption:
+          type: boolean
+        othersMayDownload:
+          type: boolean
+        othersCanViewHistory:
+          type: boolean
+        details:
+          $ref: '#/components/schemas/WorkflowVersionDetails'
+    WorkflowVersionDetails:
+      type: object
+      description: Metadata details for a workflow version
+      properties:
+        isAmp:
+          type: boolean
+          description: Whether the version uses AMP engine
+        fileName:
+          type: string
+          description: Name of the workflow file
+        author:
+          type: string
+          description: Author of the workflow
+        copyright:
+          type: string
+          description: Copyright information
+        description:
+          type: string
+          description: Description of the workflow
+        name:
+          type: string
+          description: Display name of the workflow
+        noOutputFilesMessage:
+          type: string
+          description: Message shown when no output files are generated
+        outputMessage:
+          type: string
+          description: Message shown with output files
+        url:
+          type: string
+          format: uri
+          description: Related URL
+        urlText:
+          type: string
+          description: Display text for the related URL
+    UpdateWorkflowContract:
+      type: object
+      description: Contract for updating an existing workflow
+      required:
+        - name
+        - versionId
+        - ownerId
+        - workerTag
+        - districtTags
+        - comments
+      properties:
+        name:
+          type: string
+          description: Updated workflow name
+        versionId:
+          type: string
+          description: Version ID to update
+        makePublished:
+          type: boolean
+          description: Whether to make the specified version published
+        ownerId:
+          type: string
+          description: Updated owner ID
+        workerTag:
+          type: string
+          description: Updated worker tag
+        districtTags:
+          type: array
+          items:
+            type: string
+          description: Updated district tags
+        comments:
+          type: string
+          description: Updated comments
+        isPublic:
+          type: boolean
+        isReadyForMigration:
+          type: boolean
+        othersMayDownload:
+          type: boolean
+        othersCanExecute:
+          type: boolean
+        executionMode:
+          type: string
+          enum:
+            - Safe
+            - SemiSafe
+            - Standard
+        hasPrivateDataExemption:
+          type: boolean
+        workflowCredentialType:
+          type: string
+          enum:
+            - Default
+            - Required
+            - Specific
+        credentialId:
+          type: string
+    WorkflowQuestion:
+      type: object
+      description: An analytic app question (input parameter)
+      properties:
+        name:
+          type: string
+          description: Name of the question
+        questionType:
+          type: string
+          description: Type of the question input
+        description:
+          type: string
+          description: Description of the question
+        value:
+          type: string
+          description: Default value
+        multiple:
+          type: boolean
+          description: Whether multiple selections are allowed
+        items:
+          type: array
+          description: Available options for the question
+          items:
+            type: object
+            properties:
+              key:
+                type: string
+              value:
+                type: string
+    ScheduleSummary:
+      type: object
+      description: Summary representation of a schedule
+      properties:
+        id:
+          type: string
+          description: Unique schedule identifier
+        name:
+          type: string
+          description: Name of the schedule
+        workflowId:
+          type: string
+          description: ID of the associated workflow
+        ownerId:
+          type: string
+          description: ID of the schedule owner
+        runDateTime:
+          type: string
+          format: date-time
+          description: Next scheduled run date and time
+        timeZone:
+          type: string
+          description: Time zone for the schedule
+    ScheduleDetail:
+      type: object
+      description: Detailed representation of a schedule
+      properties:
+        id:
+          type: string
+          description: Unique schedule identifier
+        name:
+          type: string
+          description: Name of the schedule
+        workflowId:
+          type: string
+          description: ID of the associated workflow
+        versionId:
+          type: string
+          description: Specific workflow version ID
+        ownerId:
+          type: string
+          description: ID of the schedule owner
+        runDateTime:
+          type: string
+          format: date-time
+          description: Next scheduled run date and time
+        comment:
+          type: string
+          description: Comments about the schedule
+        enabled:
+          type: boolean
+          description: Whether the schedule is active
+        priority:
+          type: string
+          enum:
+            - Low
+            - Medium
+            - High
+            - Critical
+          description: Execution priority
+        workerTag:
+          type: string
+          description: Worker tag for execution routing
+        status:
+          type: string
+          description: Current status of the schedule
+        credentialId:
+          type: string
+          description: Credential used for execution
+        creationTime:
+          type: string
+          format: date-time
+          description: When the schedule was created
+        lastRunTime:
+          type: string
+          format: date-time
+          description: When the schedule last executed
+        state:
+          type: string
+          description: Current state of the schedule
+        runCount:
+          type: integer
+          description: Total number of times the schedule has executed
+        iteration:
+          $ref: '#/components/schemas/ScheduleIteration'
+        frequency:
+          type: string
+          description: Human-readable frequency description
+        lastError:
+          type: string
+          description: Last error message if any
+        cpuName:
+          type: string
+          description: Name of the worker node
+        lastModifiedId:
+          type: string
+          description: ID of the user who last modified the schedule
+        lastModifiedDate:
+          type: string
+          format: date-time
+          description: Date of last modification
+        canEdit:
+          type: boolean
+          description: Whether the current user can edit this schedule
+        timeZone:
+          type: string
+          description: Time zone for the schedule
+        questions:
+          type: array
+          description: Analytic app question values
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              value:
+                type: string
+    ScheduleIteration:
+      type: object
+      description: Schedule iteration configuration defining when and how often a schedule runs
+      required:
+        - iterationType
+        - startTime
+      properties:
+        iterationType:
+          type: string
+          enum:
+            - Once
+            - Hourly
+            - Daily
+            - Weekly
+            - Monthly
+            - Custom
+            - Cron
+          description: The frequency pattern for the schedule
+        startTime:
+          type: string
+          format: date-time
+          description: Start date and time (ISO 8601, must be in the future)
+        endTime:
+          type: string
+          format: date-time
+          description: End date and time (ISO 8601)
+        hourlyContract:
+          type: object
+          description: Configuration for hourly iteration
+          properties:
+            hours:
+              type: integer
+              description: Number of hours between executions
+            minutes:
+              type: integer
+              description: Number of minutes between executions
+        dailyContract:
+          type: object
+          description: Configuration for daily iteration
+          properties:
+            runOnlyWorkWeek:
+              type: boolean
+              description: Whether to run only on workdays (Monday-Friday)
+        weeklyContract:
+          type: object
+          description: Configuration for weekly iteration
+          properties:
+            daysOfWeek:
+              type: array
+              items:
+                type: string
+              description: Days of the week to run
+        monthlyContract:
+          type: object
+          description: Configuration for monthly iteration
+          properties:
+            simpleDayOfMonth:
+              type: boolean
+              description: Whether to use a simple day-of-month pattern
+            dayOfMonth:
+              type: string
+              description: Day of the month to run
+            occurrence:
+              type: string
+              description: Occurrence pattern (First, Second, Third, Fourth, Last)
+            dayOfWeek:
+              type: integer
+              description: Day of the week (0=Sunday, 6=Saturday)
+        customContract:
+          type: object
+          description: Configuration for custom iteration
+          properties:
+            daysOfMonth:
+              type: array
+              items:
+                type: integer
+              description: Specific days of the month to run
+            months:
+              type: array
+              items:
+                type: integer
+              description: Specific months to run (1-12)
+        cronContract:
+          type: object
+          description: Configuration for cron-based iteration
+          properties:
+            cronExpression:
+              type: string
+              description: >-
+                Cron expression with 5 mandatory fields: minute, hour,
+                day-of-month, month, day-of-week
+    CreateScheduleContract:
+      type: object
+      description: Contract for creating a new schedule
+      required:
+        - workflowId
+        - iteration
+      properties:
+        workflowId:
+          type: string
+          description: ID of the workflow to schedule
+        iteration:
+          $ref: '#/components/schemas/ScheduleIteration'
+        name:
+          type: string
+          description: Name of the schedule
+        comment:
+          type: string
+          description: Comments about the schedule
+        priority:
+          type: string
+          enum:
+            - Low
+            - Medium
+            - High
+            - Critical
+          default: Low
+          description: Execution priority
+        workerTag:
+          type: string
+          default: none
+          description: Worker tag for execution routing
+        credentialId:
+          type: string
+          description: Credential to use for execution
+        timeZone:
+          type: string
+          default: UTC
+          description: Time zone for the schedule (defaults to UTC-0)
+        questions:
+          type: array
+          description: Analytic app question values
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              value:
+                type: string
+    UpdateScheduleContract:
+      type: object
+      description: Contract for fully updating a schedule (all required fields must be provided)
+      required:
+        - workflowId
+        - ownerId
+        - iteration
+        - name
+        - comment
+        - workerTag
+        - credentialId
+      properties:
+        workflowId:
+          type: string
+        ownerId:
+          type: string
+        iteration:
+          $ref: '#/components/schemas/ScheduleIteration'
+        name:
+          type: string
+        comment:
+          type: string
+        priority:
+          type: string
+          enum:
+            - Low
+            - Medium
+            - High
+            - Critical
+          default: Low
+        workerTag:
+          type: string
+        enabled:
+          type: boolean
+        credentialId:
+          type: string
+        timeZone:
+          type: string
+        questions:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              value:
+                type: string
+    PatchScheduleContract:
+      type: object
+      description: Contract for partially updating a schedule
+      properties:
+        ownerId:
+          type: string
+        iteration:
+          $ref: '#/components/schemas/ScheduleIteration'
+        name:
+          type: string
+        comment:
+          type: string
+        priority:
+          type: string
+          enum:
+            - Low
+            - Medium
+            - High
+            - Critical
+        workerTag:
+          type: string
+        enabled:
+          type: boolean
+        credentialId:
+          type: string
+        timeZone:
+          type: string
+        questions:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              value:
+                type: string
+    CreateUserContract:
+      type: object
+      description: Contract for creating a new user
+      required:
+        - firstName
+        - lastName
+        - email
+      properties:
+        firstName:
+          type: string
+          description: User's first name
+        lastName:
+          type: string
+          description: User's last name
+        email:
+          type: string
+          format: email
+          description: User's email address
+        role:
+          type: string
+          enum:
+            - NoAccess
+            - Viewer
+            - Member
+            - Artisan
+            - Curator
+            - Evaluated
+          description: User role determining access level
+        defaultWorkerTag:
+          type: string
+          description: Default worker tag for the user
+        canScheduleJobs:
+          type: boolean
+          description: Whether the user can create schedules
+        canPrioritizeJobs:
+          type: boolean
+          description: Whether the user can set job priority
+        canAssignJobs:
+          type: boolean
+          description: Whether the user can assign jobs to workers
+        canCreateCollections:
+          type: boolean
+          description: Whether the user can create collections
+        isApiEnabled:
+          type: boolean
+          description: Whether API access is enabled for the user
+        defaultCredentialId:
+          type: string
+          description: Default credential ID for the user
+        isActive:
+          type: boolean
+          description: Whether the user account is active
+        timeZone:
+          type: string
+          description: User's preferred time zone
+        canCreateAndUpdateDcm:
+          type: boolean
+          description: Whether the user can create and update DCM connections
+        canShareForExecutionDcm:
+          type: boolean
+          description: Whether the user can share DCM connections for execution
+        canShareForCollaborationDcm:
+          type: boolean
+          description: Whether the user can share DCM connections for collaboration
+        canManageGenericVaultsDcm:
+          type: boolean
+          description: Whether the user can manage generic DCM vaults
+    UpdateUserContract:
+      type: object
+      description: Contract for updating an existing user
+      required:
+        - firstName
+        - lastName
+        - email
+        - role
+        - defaultWorkerTag
+        - canScheduleJobs
+        - canPrioritizeJobs
+        - canAssignJobs
+        - isApiEnabled
+        - defaultCredentialId
+        - isActive
+        - isValidated
+        - timeZone
+      properties:
+        id:
+          type: string
+          description: User ID (optional, for verification)
+        firstName:
+          type: string
+        lastName:
+          type: string
+        email:
+          type: string
+          format: email
+        role:
+          type: string
+          enum:
+            - NoAccess
+            - Viewer
+            - Member
+            - Artisan
+            - Curator
+            - Evaluated
+        defaultWorkerTag:
+          type: string
+        canScheduleJobs:
+          type: boolean
+        canPrioritizeJobs:
+          type: boolean
+        canAssignJobs:
+          type: boolean
+        canCreateCollections:
+          type: boolean
+        isApiEnabled:
+          type: boolean
+        defaultCredentialId:
+          type: string
+        isAccountLocked:
+          type: boolean
+          description: Whether the account is locked
+        isActive:
+          type: boolean
+        isValidated:
+          type: boolean
+          description: Whether the user's email has been validated
+        timeZone:
+          type: string
+        language:
+          type: string
+          enum:
+            - de-de
+            - en-us
+            - es-es
+            - fr-fr
+            - it-it
+            - ja-jp
+            - pt-br
+            - zh-cn
+          description: User's preferred language
+        canCreateAndUpdateDcm:
+          type: boolean
+        canShareForExecutionDcm:
+          type: boolean
+        canShareForCollaborationDcm:
+          type: boolean
+        canManageGenericVaultsDcm:
+          type: boolean
+    UserDetail:
+      type: object
+      description: Detailed representation of a user account
+      properties:
+        id:
+          type: string
+          description: Unique user identifier
+        firstName:
+          type: string
+          description: User's first name
+        lastName:
+          type: string
+          description: User's last name
+        email:
+          type: string
+          format: email
+          description: User's email address
+        role:
+          type: string
+          enum:
+            - NoAccess
+            - Viewer
+            - Member
+            - Artisan
+            - Curator
+            - Evaluated
+          description: User role
+        dateCreated:
+          type: string
+          format: date-time
+          description: Date the user was created
+        defaultWorkerTag:
+          type: string
+          description: Default worker tag
+        canScheduleJobs:
+          type: boolean
+        canPrioritizeJobs:
+          type: boolean
+        canAssignJobs:
+          type: boolean
+        canCreateCollections:
+          type: boolean
+        isApiEnabled:
+          type: boolean
+        defaultCredentialId:
+          type: string
+        isAccountLocked:
+          type: boolean
+        isActive:
+          type: boolean
+        isValidated:
+          type: boolean
+        timeZone:
+          type: string
+        language:
+          type: string
+        canCreateAndUpdateDcm:
+          type: boolean
+        canShareForExecutionDcm:
+          type: boolean
+        canShareForCollaborationDcm:
+          type: boolean
+        canManageGenericVaultsDcm:
+          type: boolean
+    UserAsset:
+      type: object
+      description: An asset owned by a user
+      properties:
+        id:
+          type: string
+          description: Asset identifier
+        type:
+          type: string
+          description: Type of asset (workflow, schedule, collection)
+        name:
+          type: string
+          description: Name of the asset
+    JobSummary:
+      type: object
+      description: Summary representation of an execution job
+      properties:
+        id:
+          type: string
+          description: Unique job identifier
+        createDate:
+          type: string
+          format: date-time
+          description: Date the job was created
+        status:
+          type: string
+          description: Current job status
+        priority:
+          type: string
+          enum:
+            - Low
+            - Medium
+            - High
+            - Critical
+          description: Job priority
+        workerTag:
+          type: string
+          description: Worker tag for execution routing
+        runWithE2:
+          type: boolean
+          description: Whether the job runs with AMP engine
+    JobDetail:
+      type: object
+      description: Detailed representation of an execution job
+      properties:
+        id:
+          type: string
+          description: Unique job identifier
+        appId:
+          type: string
+          description: Workflow application ID
+        createDateTime:
+          type: string
+          format: date-time
+          description: Date and time the job was created
+        status:
+          type: string
+          description: Current job status
+        disposition:
+          type: string
+          description: Final disposition of the job
+        outputs:
+          type: array
+          description: Output files generated by the job
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                description: Output identifier
+              availableFormats:
+                type: array
+                items:
+                  type: string
+                description: Available download formats
+              fileName:
+                type: string
+                description: Name of the output file
+        messages:
+          type: array
+          description: Messages generated during execution
+          items:
+            type: object
+            properties:
+              status:
+                type: integer
+                description: Message status code
+              text:
+                type: string
+                description: Message text
+              toolId:
+                type: integer
+                description: ID of the tool that generated the message
+        priority:
+          type: string
+          enum:
+            - Low
+            - Medium
+            - High
+            - Critical
+        workerTag:
+          type: string
+        runWithE2:
+          type: boolean
+    CreateJobContract:
+      type: object
+      description: Contract for creating a new execution job
+      properties:
+        workerTag:
+          type: string
+          default: none
+          description: Worker tag for routing
+        credentialId:
+          type: string
+          description: Credential to use for execution
+        questions:
+          type: array
+          description: Analytic app question values
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              value:
+                type: string
+        priority:
+          type: string
+          enum:
+            - Low
+            - Medium
+            - High
+            - Critical
+          description: Job priority
+    Credential:
+      type: object
+      description: A stored credential for workflow execution
+      properties:
+        id:
+          type: string
+          description: Unique credential identifier
+        username:
+          type: string
+          description: Windows login username
+    Collection:
+      type: object
+      description: A collection of workflows, schedules, and users
+      properties:
+        id:
+          type: string
+          description: Unique collection identifier
+        name:
+          type: string
+          description: Name of the collection
+        ownerId:
+          type: string
+          description: ID of the collection owner
+        dateCreated:
+          type: string
+          format: date-time
+          description: Date the collection was created
+    CollectionUserPermission:
+      type: object
+      description: User permissions within a collection
+      required:
+        - userId
+      properties:
+        userId:
+          type: string
+          description: ID of the user
+        isAdmin:
+          type: boolean
+          default: false
+        canAddAssets:
+          type: boolean
+          default: false
+        canRemoveAssets:
+          type: boolean
+          default: false
+        canUpdateAssets:
+          type: boolean
+          default: false
+        canAddUsers:
+          type: boolean
+          default: false
+        canRemoveUsers:
+          type: boolean
+          default: false
+    CollectionPermissionFlags:
+      type: object
+      description: Permission flags for collection access
+      properties:
+        isAdmin:
+          type: boolean
+        canAddAssets:
+          type: boolean
+        canRemoveAssets:
+          type: boolean
+        canUpdateAssets:
+          type: boolean
+        canAddUsers:
+          type: boolean
+        canRemoveUsers:
+          type: boolean
+    ErrorResponse:
+      type: object
+      description: Standard error response
+      properties:
+        message:
+          type: string
+          description: Human-readable error message
+        errors:
+          type: array
+          description: Detailed error information
+          items:
+            type: object
+            properties:
+              field:
+                type: string
+              message:
+                type: string
