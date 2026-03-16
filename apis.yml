@@ -3,8 +3,8 @@ description: Alteryx is an analytics automation platform that enables data analy
 image: https://www.alteryx.com/sites/default/files/alteryx-logo-2021.svg
 url: https://www.alteryx.com
 created: 2024-01-15 00:00:00+00:00
-modified: 2026-03-03 00:00:00+00:00
-specificationVersion: '0.18'
+modified: '2026-03-16'
+specificationVersion: '0.19'
 tags:
 - analytics
 - data science
