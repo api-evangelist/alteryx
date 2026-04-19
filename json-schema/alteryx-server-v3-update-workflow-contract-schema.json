@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "UpdateWorkflowContract",
+  "type": "object",
+  "description": "Contract for updating an existing workflow",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Updated workflow name"
+    },
+    "versionId": {
+      "type": "string",
+      "description": "Version ID to update"
+    },
+    "makePublished": {
+      "type": "boolean",
+      "description": "Whether to make the specified version published"
+    },
+    "ownerId": {
+      "type": "string",
+      "description": "Updated owner ID"
+    },
+    "workerTag": {
+      "type": "string",
+      "description": "Updated worker tag"
+    },
+    "districtTags": {
+      "type": "array",
+      "description": "Updated district tags"
+    },
+    "comments": {
+      "type": "string",
+      "description": "Updated comments"
+    },
+    "isPublic": {
+      "type": "boolean"
+    },
+    "isReadyForMigration": {
+      "type": "boolean"
+    },
+    "othersMayDownload": {
+      "type": "boolean"
+    },
+    "othersCanExecute": {
+      "type": "boolean"
+    },
+    "executionMode": {
+      "type": "string"
+    },
+    "hasPrivateDataExemption": {
+      "type": "boolean"
+    },
+    "workflowCredentialType": {
+      "type": "string"
+    },
+    "credentialId": {
+      "type": "string"
+    }
+  }
+}

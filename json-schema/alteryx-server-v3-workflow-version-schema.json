@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "WorkflowVersion",
+  "type": "object",
+  "description": "A specific version of a workflow",
+  "properties": {
+    "versionId": {
+      "type": "string",
+      "description": "Unique version identifier"
+    },
+    "versionNumber": {
+      "type": "integer",
+      "description": "Sequential version number"
+    },
+    "dateCreated": {
+      "type": "string",
+      "description": "Date the version was created"
+    },
+    "uploadSource": {
+      "type": "string",
+      "description": "Source from which the version was uploaded"
+    },
+    "uploadDate": {
+      "type": "string",
+      "description": "Date the version was uploaded"
+    },
+    "packageWorkflowType": {
+      "type": "string",
+      "description": "Type of workflow in the package"
+    },
+    "published": {
+      "type": "boolean",
+      "description": "Whether this version is the published version"
+    },
+    "comments": {
+      "type": "string",
+      "description": "Comments about this version"
+    },
+    "runDisabled": {
+      "type": "boolean",
+      "description": "Whether execution is disabled for this version"
+    },
+    "executionMode": {
+      "type": "string"
+    },
+    "workflowCredentialType": {
+      "type": "string"
+    },
+    "credentialId": {
+      "type": "string",
+      "description": "Credential ID if workflowCredentialType is Specific"
+    },
+    "hasPrivateDataExemption": {
+      "type": "boolean"
+    },
+    "othersMayDownload": {
+      "type": "boolean"
+    },
+    "othersCanViewHistory": {
+      "type": "boolean"
+    }
+  }
+}

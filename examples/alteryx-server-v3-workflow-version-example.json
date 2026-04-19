@@ -1,0 +1,17 @@
+{
+  "versionId": "500123",
+  "versionNumber": 10,
+  "dateCreated": "example_value",
+  "uploadSource": "example_value",
+  "uploadDate": "example_value",
+  "packageWorkflowType": "example_value",
+  "published": true,
+  "comments": "example_value",
+  "runDisabled": true,
+  "executionMode": "example_value",
+  "workflowCredentialType": "example_value",
+  "credentialId": "500123",
+  "hasPrivateDataExemption": true,
+  "othersMayDownload": true,
+  "othersCanViewHistory": true
+}

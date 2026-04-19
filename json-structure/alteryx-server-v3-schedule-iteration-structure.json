@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-structure.org/draft/2020-12/schema",
+  "name": "ScheduleIteration",
+  "type": "object",
+  "properties": {
+    "iterationType": {
+      "type": "string"
+    },
+    "startTime": {
+      "type": "string"
+    },
+    "endTime": {
+      "type": "string"
+    },
+    "hourlyContract": {
+      "type": "object"
+    },
+    "dailyContract": {
+      "type": "object"
+    },
+    "weeklyContract": {
+      "type": "object"
+    },
+    "monthlyContract": {
+      "type": "object"
+    },
+    "customContract": {
+      "type": "object"
+    },
+    "cronContract": {
+      "type": "object"
+    }
+  }
+}

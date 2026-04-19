@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "UserDetail",
+  "type": "object",
+  "description": "Detailed representation of a user account",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique user identifier"
+    },
+    "firstName": {
+      "type": "string",
+      "description": "User's first name"
+    },
+    "lastName": {
+      "type": "string",
+      "description": "User's last name"
+    },
+    "email": {
+      "type": "string",
+      "description": "User's email address"
+    },
+    "role": {
+      "type": "string",
+      "description": "User role"
+    },
+    "dateCreated": {
+      "type": "string",
+      "description": "Date the user was created"
+    },
+    "defaultWorkerTag": {
+      "type": "string",
+      "description": "Default worker tag"
+    },
+    "canScheduleJobs": {
+      "type": "boolean"
+    },
+    "canPrioritizeJobs": {
+      "type": "boolean"
+    },
+    "canAssignJobs": {
+      "type": "boolean"
+    },
+    "canCreateCollections": {
+      "type": "boolean"
+    },
+    "isApiEnabled": {
+      "type": "boolean"
+    },
+    "defaultCredentialId": {
+      "type": "string"
+    },
+    "isAccountLocked": {
+      "type": "boolean"
+    },
+    "isActive": {
+      "type": "boolean"
+    },
+    "isValidated": {
+      "type": "boolean"
+    },
+    "timeZone": {
+      "type": "string"
+    },
+    "language": {
+      "type": "string"
+    },
+    "canCreateAndUpdateDcm": {
+      "type": "boolean"
+    },
+    "canShareForExecutionDcm": {
+      "type": "boolean"
+    },
+    "canShareForCollaborationDcm": {
+      "type": "boolean"
+    },
+    "canManageGenericVaultsDcm": {
+      "type": "boolean"
+    }
+  }
+}

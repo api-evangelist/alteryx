@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-structure.org/draft/2020-12/schema",
+  "name": "JobDetail",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "appId": {
+      "type": "string"
+    },
+    "createDateTime": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "disposition": {
+      "type": "string"
+    },
+    "outputs": {
+      "type": "array"
+    },
+    "messages": {
+      "type": "array"
+    },
+    "priority": {
+      "type": "string"
+    },
+    "workerTag": {
+      "type": "string"
+    },
+    "runWithE2": {
+      "type": "boolean"
+    }
+  }
+}

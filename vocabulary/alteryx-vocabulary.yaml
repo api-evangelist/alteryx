@@ -1,0 +1,13 @@
+name: alteryx API Vocabulary
+provider: alteryx
+created: '2026-04-18'
+modified: '2026-04-18'
+operations: 50
+schemas: 24
+tags:
+- Collections
+- Credentials
+- Jobs
+- Schedules
+- Users
+- Workflows

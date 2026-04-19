@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "WorkflowSummary",
+  "type": "object",
+  "description": "Summary representation of an Alteryx workflow",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique workflow identifier"
+    },
+    "sourceAppId": {
+      "type": "string",
+      "description": "Source application identifier for migration tracking"
+    },
+    "name": {
+      "type": "string",
+      "description": "Name of the workflow"
+    },
+    "ownerId": {
+      "type": "string",
+      "description": "ID of the workflow owner"
+    },
+    "dateCreated": {
+      "type": "string",
+      "description": "Date the workflow was created (ISO 8601)"
+    },
+    "publishedVersionNumber": {
+      "type": "integer",
+      "description": "Version number of the published version"
+    },
+    "isAmp": {
+      "type": "boolean",
+      "description": "Whether the workflow uses AMP engine"
+    },
+    "executionMode": {
+      "type": "string",
+      "description": "Execution mode for the workflow"
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ScheduleIteration",
+  "type": "object",
+  "description": "Schedule iteration configuration defining when and how often a schedule runs",
+  "properties": {
+    "iterationType": {
+      "type": "string",
+      "description": "The frequency pattern for the schedule"
+    },
+    "startTime": {
+      "type": "string",
+      "description": "Start date and time (ISO 8601, must be in the future)"
+    },
+    "endTime": {
+      "type": "string",
+      "description": "End date and time (ISO 8601)"
+    },
+    "hourlyContract": {
+      "type": "object",
+      "description": "Configuration for hourly iteration"
+    },
+    "dailyContract": {
+      "type": "object",
+      "description": "Configuration for daily iteration"
+    },
+    "weeklyContract": {
+      "type": "object",
+      "description": "Configuration for weekly iteration"
+    },
+    "monthlyContract": {
+      "type": "object",
+      "description": "Configuration for monthly iteration"
+    },
+    "customContract": {
+      "type": "object",
+      "description": "Configuration for custom iteration"
+    },
+    "cronContract": {
+      "type": "object",
+      "description": "Configuration for cron-based iteration"
+    }
+  }
+}

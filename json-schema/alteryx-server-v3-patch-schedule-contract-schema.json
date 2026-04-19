@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PatchScheduleContract",
+  "type": "object",
+  "description": "Contract for partially updating a schedule",
+  "properties": {
+    "ownerId": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "comment": {
+      "type": "string"
+    },
+    "priority": {
+      "type": "string"
+    },
+    "workerTag": {
+      "type": "string"
+    },
+    "enabled": {
+      "type": "boolean"
+    },
+    "credentialId": {
+      "type": "string"
+    },
+    "timeZone": {
+      "type": "string"
+    },
+    "questions": {
+      "type": "array"
+    }
+  }
+}

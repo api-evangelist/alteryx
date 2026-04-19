@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "WorkflowDetail",
+  "type": "object",
+  "description": "Detailed representation of an Alteryx workflow including versions",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique workflow identifier"
+    },
+    "sourceAppId": {
+      "type": "string",
+      "description": "Source application identifier"
+    },
+    "dateCreated": {
+      "type": "string",
+      "description": "Date the workflow was created"
+    },
+    "runCount": {
+      "type": "integer",
+      "description": "Total number of times the workflow has been executed"
+    },
+    "versions": {
+      "type": "array",
+      "description": "List of workflow versions"
+    },
+    "name": {
+      "type": "string",
+      "description": "Name of the workflow"
+    },
+    "ownerId": {
+      "type": "string",
+      "description": "ID of the workflow owner"
+    },
+    "workerTag": {
+      "type": "string",
+      "description": "Worker tag for execution routing"
+    },
+    "districtTags": {
+      "type": "array",
+      "description": "District tags assigned to the workflow"
+    },
+    "comments": {
+      "type": "string",
+      "description": "Comments about the workflow"
+    },
+    "isPublic": {
+      "type": "boolean",
+      "description": "Whether the workflow is publicly accessible"
+    },
+    "isReadyForMigration": {
+      "type": "boolean",
+      "description": "Whether the workflow is ready for migration"
+    },
+    "publishedVersionId": {
+      "type": "string",
+      "description": "ID of the currently published version"
+    },
+    "othersMayDownload": {
+      "type": "boolean",
+      "description": "Whether other users may download the workflow"
+    },
+    "othersCanViewHistory": {
+      "type": "boolean",
+      "description": "Whether other users can view execution history"
+    },
+    "othersCanExecute": {
+      "type": "boolean",
+      "description": "Whether other users can execute the workflow"
+    },
+    "hasPrivateDataExemption": {
+      "type": "boolean",
+      "description": "Whether the workflow has a private data exemption"
+    }
+  }
+}

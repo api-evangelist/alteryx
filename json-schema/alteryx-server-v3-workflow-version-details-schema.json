@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "WorkflowVersionDetails",
+  "type": "object",
+  "description": "Metadata details for a workflow version",
+  "properties": {
+    "isAmp": {
+      "type": "boolean",
+      "description": "Whether the version uses AMP engine"
+    },
+    "fileName": {
+      "type": "string",
+      "description": "Name of the workflow file"
+    },
+    "author": {
+      "type": "string",
+      "description": "Author of the workflow"
+    },
+    "copyright": {
+      "type": "string",
+      "description": "Copyright information"
+    },
+    "description": {
+      "type": "string",
+      "description": "Description of the workflow"
+    },
+    "name": {
+      "type": "string",
+      "description": "Display name of the workflow"
+    },
+    "noOutputFilesMessage": {
+      "type": "string",
+      "description": "Message shown when no output files are generated"
+    },
+    "outputMessage": {
+      "type": "string",
+      "description": "Message shown with output files"
+    },
+    "url": {
+      "type": "string",
+      "description": "Related URL"
+    },
+    "urlText": {
+      "type": "string",
+      "description": "Display text for the related URL"
+    }
+  }
+}

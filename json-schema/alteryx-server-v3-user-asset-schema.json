@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "UserAsset",
+  "type": "object",
+  "description": "An asset owned by a user",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Asset identifier"
+    },
+    "type": {
+      "type": "string",
+      "description": "Type of asset (workflow, schedule, collection)"
+    },
+    "name": {
+      "type": "string",
+      "description": "Name of the asset"
+    }
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-structure.org/draft/2020-12/schema",
+  "name": "UserDetail",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "firstName": {
+      "type": "string"
+    },
+    "lastName": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "role": {
+      "type": "string"
+    },
+    "dateCreated": {
+      "type": "string"
+    },
+    "defaultWorkerTag": {
+      "type": "string"
+    },
+    "canScheduleJobs": {
+      "type": "boolean"
+    },
+    "canPrioritizeJobs": {
+      "type": "boolean"
+    },
+    "canAssignJobs": {
+      "type": "boolean"
+    },
+    "canCreateCollections": {
+      "type": "boolean"
+    },
+    "isApiEnabled": {
+      "type": "boolean"
+    },
+    "defaultCredentialId": {
+      "type": "string"
+    },
+    "isAccountLocked": {
+      "type": "boolean"
+    },
+    "isActive": {
+      "type": "boolean"
+    },
+    "isValidated": {
+      "type": "boolean"
+    },
+    "timeZone": {
+      "type": "string"
+    },
+    "language": {
+      "type": "string"
+    },
+    "canCreateAndUpdateDcm": {
+      "type": "boolean"
+    },
+    "canShareForExecutionDcm": {
+      "type": "boolean"
+    },
+    "canShareForCollaborationDcm": {
+      "type": "boolean"
+    },
+    "canManageGenericVaultsDcm": {
+      "type": "boolean"
+    }
+  }
+}

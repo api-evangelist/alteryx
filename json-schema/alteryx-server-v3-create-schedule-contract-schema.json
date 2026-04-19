@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CreateScheduleContract",
+  "type": "object",
+  "description": "Contract for creating a new schedule",
+  "properties": {
+    "workflowId": {
+      "type": "string",
+      "description": "ID of the workflow to schedule"
+    },
+    "name": {
+      "type": "string",
+      "description": "Name of the schedule"
+    },
+    "comment": {
+      "type": "string",
+      "description": "Comments about the schedule"
+    },
+    "priority": {
+      "type": "string",
+      "description": "Execution priority"
+    },
+    "workerTag": {
+      "type": "string",
+      "description": "Worker tag for execution routing"
+    },
+    "credentialId": {
+      "type": "string",
+      "description": "Credential to use for execution"
+    },
+    "timeZone": {
+      "type": "string",
+      "description": "Time zone for the schedule (defaults to UTC-0)"
+    },
+    "questions": {
+      "type": "array",
+      "description": "Analytic app question values"
+    }
+  }
+}

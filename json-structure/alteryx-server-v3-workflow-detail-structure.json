@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-structure.org/draft/2020-12/schema",
+  "name": "WorkflowDetail",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "sourceAppId": {
+      "type": "string"
+    },
+    "dateCreated": {
+      "type": "string"
+    },
+    "runCount": {
+      "type": "integer"
+    },
+    "versions": {
+      "type": "array"
+    },
+    "name": {
+      "type": "string"
+    },
+    "ownerId": {
+      "type": "string"
+    },
+    "workerTag": {
+      "type": "string"
+    },
+    "districtTags": {
+      "type": "array"
+    },
+    "comments": {
+      "type": "string"
+    },
+    "isPublic": {
+      "type": "boolean"
+    },
+    "isReadyForMigration": {
+      "type": "boolean"
+    },
+    "publishedVersionId": {
+      "type": "string"
+    },
+    "othersMayDownload": {
+      "type": "boolean"
+    },
+    "othersCanViewHistory": {
+      "type": "boolean"
+    },
+    "othersCanExecute": {
+      "type": "boolean"
+    },
+    "hasPrivateDataExemption": {
+      "type": "boolean"
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-structure.org/draft/2020-12/schema",
+  "name": "WorkflowQuestion",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "questionType": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "value": {
+      "type": "string"
+    },
+    "multiple": {
+      "type": "boolean"
+    },
+    "items": {
+      "type": "array"
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "name": "Example Title",
+  "questionType": "example_value",
+  "description": "A sample description.",
+  "value": "example_value",
+  "multiple": true,
+  "items": []
+}

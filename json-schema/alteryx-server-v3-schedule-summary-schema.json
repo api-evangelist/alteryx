@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ScheduleSummary",
+  "type": "object",
+  "description": "Summary representation of a schedule",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique schedule identifier"
+    },
+    "name": {
+      "type": "string",
+      "description": "Name of the schedule"
+    },
+    "workflowId": {
+      "type": "string",
+      "description": "ID of the associated workflow"
+    },
+    "ownerId": {
+      "type": "string",
+      "description": "ID of the schedule owner"
+    },
+    "runDateTime": {
+      "type": "string",
+      "description": "Next scheduled run date and time"
+    },
+    "timeZone": {
+      "type": "string",
+      "description": "Time zone for the schedule"
+    }
+  }
+}

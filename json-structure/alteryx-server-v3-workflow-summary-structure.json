@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-structure.org/draft/2020-12/schema",
+  "name": "WorkflowSummary",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "sourceAppId": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "ownerId": {
+      "type": "string"
+    },
+    "dateCreated": {
+      "type": "string"
+    },
+    "publishedVersionNumber": {
+      "type": "integer"
+    },
+    "isAmp": {
+      "type": "boolean"
+    },
+    "executionMode": {
+      "type": "string"
+    }
+  }
+}

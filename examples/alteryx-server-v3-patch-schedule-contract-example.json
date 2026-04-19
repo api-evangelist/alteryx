@@ -1,0 +1,11 @@
+{
+  "ownerId": "500123",
+  "name": "Example Title",
+  "comment": "example_value",
+  "priority": "example_value",
+  "workerTag": "example_value",
+  "enabled": true,
+  "credentialId": "500123",
+  "timeZone": "example_value",
+  "questions": []
+}

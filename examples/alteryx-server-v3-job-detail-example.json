@@ -1,0 +1,12 @@
+{
+  "id": "abc123",
+  "appId": "500123",
+  "createDateTime": "example_value",
+  "status": "example_value",
+  "disposition": "example_value",
+  "outputs": [],
+  "messages": [],
+  "priority": "example_value",
+  "workerTag": "example_value",
+  "runWithE2": true
+}

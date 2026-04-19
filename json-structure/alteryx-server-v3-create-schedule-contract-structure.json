@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-structure.org/draft/2020-12/schema",
+  "name": "CreateScheduleContract",
+  "type": "object",
+  "properties": {
+    "workflowId": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "comment": {
+      "type": "string"
+    },
+    "priority": {
+      "type": "string"
+    },
+    "workerTag": {
+      "type": "string"
+    },
+    "credentialId": {
+      "type": "string"
+    },
+    "timeZone": {
+      "type": "string"
+    },
+    "questions": {
+      "type": "array"
+    }
+  }
+}

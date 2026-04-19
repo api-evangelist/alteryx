@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CollectionUserPermission",
+  "type": "object",
+  "description": "User permissions within a collection",
+  "properties": {
+    "userId": {
+      "type": "string",
+      "description": "ID of the user"
+    },
+    "isAdmin": {
+      "type": "boolean"
+    },
+    "canAddAssets": {
+      "type": "boolean"
+    },
+    "canRemoveAssets": {
+      "type": "boolean"
+    },
+    "canUpdateAssets": {
+      "type": "boolean"
+    },
+    "canAddUsers": {
+      "type": "boolean"
+    },
+    "canRemoveUsers": {
+      "type": "boolean"
+    }
+  }
+}

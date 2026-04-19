@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-structure.org/draft/2020-12/schema",
+  "name": "UpdateWorkflowContract",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "versionId": {
+      "type": "string"
+    },
+    "makePublished": {
+      "type": "boolean"
+    },
+    "ownerId": {
+      "type": "string"
+    },
+    "workerTag": {
+      "type": "string"
+    },
+    "districtTags": {
+      "type": "array"
+    },
+    "comments": {
+      "type": "string"
+    },
+    "isPublic": {
+      "type": "boolean"
+    },
+    "isReadyForMigration": {
+      "type": "boolean"
+    },
+    "othersMayDownload": {
+      "type": "boolean"
+    },
+    "othersCanExecute": {
+      "type": "boolean"
+    },
+    "executionMode": {
+      "type": "string"
+    },
+    "hasPrivateDataExemption": {
+      "type": "boolean"
+    },
+    "workflowCredentialType": {
+      "type": "string"
+    },
+    "credentialId": {
+      "type": "string"
+    }
+  }
+}

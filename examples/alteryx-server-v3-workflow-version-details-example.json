@@ -1,0 +1,12 @@
+{
+  "isAmp": true,
+  "fileName": "example_value",
+  "author": "example_value",
+  "copyright": "example_value",
+  "description": "A sample description.",
+  "name": "Example Title",
+  "noOutputFilesMessage": "example_value",
+  "outputMessage": "example_value",
+  "url": "https://www.example.com",
+  "urlText": "https://www.example.com"
+}

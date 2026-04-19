@@ -1,0 +1,19 @@
+{
+  "id": "abc123",
+  "sourceAppId": "500123",
+  "dateCreated": "example_value",
+  "runCount": 10,
+  "versions": [],
+  "name": "Example Title",
+  "ownerId": "500123",
+  "workerTag": "example_value",
+  "districtTags": [],
+  "comments": "example_value",
+  "isPublic": true,
+  "isReadyForMigration": true,
+  "publishedVersionId": "500123",
+  "othersMayDownload": true,
+  "othersCanViewHistory": true,
+  "othersCanExecute": true,
+  "hasPrivateDataExemption": true
+}

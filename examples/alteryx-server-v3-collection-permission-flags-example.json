@@ -1,0 +1,8 @@
+{
+  "isAdmin": true,
+  "canAddAssets": true,
+  "canRemoveAssets": true,
+  "canUpdateAssets": true,
+  "canAddUsers": true,
+  "canRemoveUsers": true
+}

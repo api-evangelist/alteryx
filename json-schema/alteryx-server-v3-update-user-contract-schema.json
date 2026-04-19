@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "UpdateUserContract",
+  "type": "object",
+  "description": "Contract for updating an existing user",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "User ID (optional, for verification)"
+    },
+    "firstName": {
+      "type": "string"
+    },
+    "lastName": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "role": {
+      "type": "string"
+    },
+    "defaultWorkerTag": {
+      "type": "string"
+    },
+    "canScheduleJobs": {
+      "type": "boolean"
+    },
+    "canPrioritizeJobs": {
+      "type": "boolean"
+    },
+    "canAssignJobs": {
+      "type": "boolean"
+    },
+    "canCreateCollections": {
+      "type": "boolean"
+    },
+    "isApiEnabled": {
+      "type": "boolean"
+    },
+    "defaultCredentialId": {
+      "type": "string"
+    },
+    "isAccountLocked": {
+      "type": "boolean",
+      "description": "Whether the account is locked"
+    },
+    "isActive": {
+      "type": "boolean"
+    },
+    "isValidated": {
+      "type": "boolean",
+      "description": "Whether the user's email has been validated"
+    },
+    "timeZone": {
+      "type": "string"
+    },
+    "language": {
+      "type": "string",
+      "description": "User's preferred language"
+    },
+    "canCreateAndUpdateDcm": {
+      "type": "boolean"
+    },
+    "canShareForExecutionDcm": {
+      "type": "boolean"
+    },
+    "canShareForCollaborationDcm": {
+      "type": "boolean"
+    },
+    "canManageGenericVaultsDcm": {
+      "type": "boolean"
+    }
+  }
+}

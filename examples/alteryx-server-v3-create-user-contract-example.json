@@ -1,0 +1,19 @@
+{
+  "firstName": "example_value",
+  "lastName": "example_value",
+  "email": "user@example.com",
+  "role": "example_value",
+  "defaultWorkerTag": "example_value",
+  "canScheduleJobs": true,
+  "canPrioritizeJobs": true,
+  "canAssignJobs": true,
+  "canCreateCollections": true,
+  "isApiEnabled": true,
+  "defaultCredentialId": "500123",
+  "isActive": true,
+  "timeZone": "example_value",
+  "canCreateAndUpdateDcm": true,
+  "canShareForExecutionDcm": true,
+  "canShareForCollaborationDcm": true,
+  "canManageGenericVaultsDcm": true
+}

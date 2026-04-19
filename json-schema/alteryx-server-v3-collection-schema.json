@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Collection",
+  "type": "object",
+  "description": "A collection of workflows, schedules, and users",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique collection identifier"
+    },
+    "name": {
+      "type": "string",
+      "description": "Name of the collection"
+    },
+    "ownerId": {
+      "type": "string",
+      "description": "ID of the collection owner"
+    },
+    "dateCreated": {
+      "type": "string",
+      "description": "Date the collection was created"
+    }
+  }
+}

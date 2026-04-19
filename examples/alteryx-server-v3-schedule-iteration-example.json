@@ -1,0 +1,11 @@
+{
+  "iterationType": "example_value",
+  "startTime": "example_value",
+  "endTime": "example_value",
+  "hourlyContract": "https://www.example.com",
+  "dailyContract": "example_value",
+  "weeklyContract": "example_value",
+  "monthlyContract": "example_value",
+  "customContract": "example_value",
+  "cronContract": "example_value"
+}

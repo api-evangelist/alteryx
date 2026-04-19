@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-structure.org/draft/2020-12/schema",
+  "name": "ScheduleDetail",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "workflowId": {
+      "type": "string"
+    },
+    "versionId": {
+      "type": "string"
+    },
+    "ownerId": {
+      "type": "string"
+    },
+    "runDateTime": {
+      "type": "string"
+    },
+    "comment": {
+      "type": "string"
+    },
+    "enabled": {
+      "type": "boolean"
+    },
+    "priority": {
+      "type": "string"
+    },
+    "workerTag": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "credentialId": {
+      "type": "string"
+    },
+    "creationTime": {
+      "type": "string"
+    },
+    "lastRunTime": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string"
+    },
+    "runCount": {
+      "type": "integer"
+    },
+    "frequency": {
+      "type": "string"
+    },
+    "lastError": {
+      "type": "string"
+    },
+    "cpuName": {
+      "type": "string"
+    },
+    "lastModifiedId": {
+      "type": "string"
+    },
+    "lastModifiedDate": {
+      "type": "string"
+    },
+    "canEdit": {
+      "type": "boolean"
+    },
+    "timeZone": {
+      "type": "string"
+    },
+    "questions": {
+      "type": "array"
+    }
+  }
+}

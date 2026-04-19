@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-structure.org/draft/2020-12/schema",
+  "name": "WorkflowVersion",
+  "type": "object",
+  "properties": {
+    "versionId": {
+      "type": "string"
+    },
+    "versionNumber": {
+      "type": "integer"
+    },
+    "dateCreated": {
+      "type": "string"
+    },
+    "uploadSource": {
+      "type": "string"
+    },
+    "uploadDate": {
+      "type": "string"
+    },
+    "packageWorkflowType": {
+      "type": "string"
+    },
+    "published": {
+      "type": "boolean"
+    },
+    "comments": {
+      "type": "string"
+    },
+    "runDisabled": {
+      "type": "boolean"
+    },
+    "executionMode": {
+      "type": "string"
+    },
+    "workflowCredentialType": {
+      "type": "string"
+    },
+    "credentialId": {
+      "type": "string"
+    },
+    "hasPrivateDataExemption": {
+      "type": "boolean"
+    },
+    "othersMayDownload": {
+      "type": "boolean"
+    },
+    "othersCanViewHistory": {
+      "type": "boolean"
+    }
+  }
+}

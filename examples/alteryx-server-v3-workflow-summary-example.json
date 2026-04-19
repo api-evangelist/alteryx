@@ -1,0 +1,10 @@
+{
+  "id": "abc123",
+  "sourceAppId": "500123",
+  "name": "Example Title",
+  "ownerId": "500123",
+  "dateCreated": "example_value",
+  "publishedVersionNumber": 10,
+  "isAmp": true,
+  "executionMode": "example_value"
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-structure.org/draft/2020-12/schema",
+  "name": "CollectionPermissionFlags",
+  "type": "object",
+  "properties": {
+    "isAdmin": {
+      "type": "boolean"
+    },
+    "canAddAssets": {
+      "type": "boolean"
+    },
+    "canRemoveAssets": {
+      "type": "boolean"
+    },
+    "canUpdateAssets": {
+      "type": "boolean"
+    },
+    "canAddUsers": {
+      "type": "boolean"
+    },
+    "canRemoveUsers": {
+      "type": "boolean"
+    }
+  }
+}

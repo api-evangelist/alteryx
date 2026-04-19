@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "UpdateScheduleContract",
+  "type": "object",
+  "description": "Contract for fully updating a schedule (all required fields must be provided)",
+  "properties": {
+    "workflowId": {
+      "type": "string"
+    },
+    "ownerId": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "comment": {
+      "type": "string"
+    },
+    "priority": {
+      "type": "string"
+    },
+    "workerTag": {
+      "type": "string"
+    },
+    "enabled": {
+      "type": "boolean"
+    },
+    "credentialId": {
+      "type": "string"
+    },
+    "timeZone": {
+      "type": "string"
+    },
+    "questions": {
+      "type": "array"
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "Example Title",
+  "versionId": "500123",
+  "makePublished": true,
+  "ownerId": "500123",
+  "workerTag": "example_value",
+  "districtTags": [],
+  "comments": "example_value",
+  "isPublic": true,
+  "isReadyForMigration": true,
+  "othersMayDownload": true,
+  "othersCanExecute": true,
+  "executionMode": "example_value",
+  "hasPrivateDataExemption": true,
+  "workflowCredentialType": "example_value",
+  "credentialId": "500123"
+}
