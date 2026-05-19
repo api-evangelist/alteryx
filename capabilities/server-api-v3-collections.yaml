@@ -1,0 +1,619 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Alteryx Server API V3 — Collections
+  description: 'Alteryx Server API V3 — Collections. 15 operations. Lead operation: Create a New Collection. Self-contained
+    Naftiko capability covering one Alteryx business surface.'
+  tags:
+  - Alteryx
+  - Collections
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    ALTERYX_API_KEY: ALTERYX_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: server-api-v3-collections
+    baseUri: https://{serverHostname}/webapi
+    description: Alteryx Server API V3 — Collections business capability. Self-contained, no shared references.
+    resources:
+    - name: v3-collections
+      path: /v3/collections
+      operations:
+      - name: createcollection
+        method: POST
+        description: Create a New Collection
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: getcollections
+        method: GET
+        description: Retrieve All Collections
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: view
+          in: query
+          type: string
+    - name: v3-collections-collectionId
+      path: /v3/collections/{collectionId}
+      operations:
+      - name: getcollection
+        method: GET
+        description: Retrieve a Specific Collection
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updatecollection
+        method: PUT
+        description: Update a Collection
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deletecollection
+        method: DELETE
+        description: Delete a Collection
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: forceDelete
+          in: query
+          type: boolean
+          description: Force deletion
+    - name: v3-collections-collectionId-schedules
+      path: /v3/collections/{collectionId}/schedules
+      operations:
+      - name: addscheduletocollection
+        method: POST
+        description: Add a Schedule to a Collection
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: v3-collections-collectionId-schedules-scheduleId
+      path: /v3/collections/{collectionId}/schedules/{scheduleId}
+      operations:
+      - name: removeschedulefromcollection
+        method: DELETE
+        description: Remove a Schedule From a Collection
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v3-collections-collectionId-userGroups
+      path: /v3/collections/{collectionId}/userGroups
+      operations:
+      - name: addusergrouptocollection
+        method: POST
+        description: Add a User Group to a Collection
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: v3-collections-collectionId-userGroups-userGroupId
+      path: /v3/collections/{collectionId}/userGroups/{userGroupId}
+      operations:
+      - name: removeusergroupfromcollection
+        method: DELETE
+        description: Remove a User Group From a Collection
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: userGroupId
+          in: path
+          type: string
+          required: true
+    - name: v3-collections-collectionId-userGroups-userGroupId-permissions
+      path: /v3/collections/{collectionId}/userGroups/{userGroupId}/permissions
+      operations:
+      - name: updatecollectionusergrouppermissions
+        method: PUT
+        description: Update User Group Permissions in a Collection
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: userGroupId
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: v3-collections-collectionId-users
+      path: /v3/collections/{collectionId}/users
+      operations:
+      - name: addusertocollection
+        method: POST
+        description: Add a User to a Collection
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: v3-collections-collectionId-users-userId
+      path: /v3/collections/{collectionId}/users/{userId}
+      operations:
+      - name: removeuserfromcollection
+        method: DELETE
+        description: Remove a User From a Collection
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v3-collections-collectionId-users-userId-permissions
+      path: /v3/collections/{collectionId}/users/{userId}/permissions
+      operations:
+      - name: updatecollectionuserpermissions
+        method: PUT
+        description: Update User Permissions in a Collection
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: v3-collections-collectionId-workflows
+      path: /v3/collections/{collectionId}/workflows
+      operations:
+      - name: addworkflowtocollection
+        method: POST
+        description: Add a Workflow to a Collection
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: v3-collections-collectionId-workflows-appId
+      path: /v3/collections/{collectionId}/workflows/{appId}
+      operations:
+      - name: removeworkflowfromcollection
+        method: DELETE
+        description: Remove a Workflow From a Collection
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: appId
+          in: path
+          type: string
+          description: Workflow application ID
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.ALTERYX_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: server-api-v3-collections-rest
+    port: 8080
+    description: REST adapter for Alteryx Server API V3 — Collections. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/v3/collections
+      name: v3-collections
+      description: REST surface for v3-collections.
+      operations:
+      - method: POST
+        name: createcollection
+        description: Create a New Collection
+        call: server-api-v3-collections.createcollection
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: GET
+        name: getcollections
+        description: Retrieve All Collections
+        call: server-api-v3-collections.getcollections
+        with:
+          view: rest.view
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/collections/{collectionid}
+      name: v3-collections-collectionid
+      description: REST surface for v3-collections-collectionId.
+      operations:
+      - method: GET
+        name: getcollection
+        description: Retrieve a Specific Collection
+        call: server-api-v3-collections.getcollection
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PUT
+        name: updatecollection
+        description: Update a Collection
+        call: server-api-v3-collections.updatecollection
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletecollection
+        description: Delete a Collection
+        call: server-api-v3-collections.deletecollection
+        with:
+          forceDelete: rest.forceDelete
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/collections/{collectionid}/schedules
+      name: v3-collections-collectionid-schedules
+      description: REST surface for v3-collections-collectionId-schedules.
+      operations:
+      - method: POST
+        name: addscheduletocollection
+        description: Add a Schedule to a Collection
+        call: server-api-v3-collections.addscheduletocollection
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/collections/{collectionid}/schedules/{scheduleid}
+      name: v3-collections-collectionid-schedules-scheduleid
+      description: REST surface for v3-collections-collectionId-schedules-scheduleId.
+      operations:
+      - method: DELETE
+        name: removeschedulefromcollection
+        description: Remove a Schedule From a Collection
+        call: server-api-v3-collections.removeschedulefromcollection
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/collections/{collectionid}/usergroups
+      name: v3-collections-collectionid-usergroups
+      description: REST surface for v3-collections-collectionId-userGroups.
+      operations:
+      - method: POST
+        name: addusergrouptocollection
+        description: Add a User Group to a Collection
+        call: server-api-v3-collections.addusergrouptocollection
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/collections/{collectionid}/usergroups/{usergroupid}
+      name: v3-collections-collectionid-usergroups-usergroupid
+      description: REST surface for v3-collections-collectionId-userGroups-userGroupId.
+      operations:
+      - method: DELETE
+        name: removeusergroupfromcollection
+        description: Remove a User Group From a Collection
+        call: server-api-v3-collections.removeusergroupfromcollection
+        with:
+          userGroupId: rest.userGroupId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/collections/{collectionid}/usergroups/{usergroupid}/permissions
+      name: v3-collections-collectionid-usergroups-usergroupid-permissions
+      description: REST surface for v3-collections-collectionId-userGroups-userGroupId-permissions.
+      operations:
+      - method: PUT
+        name: updatecollectionusergrouppermissions
+        description: Update User Group Permissions in a Collection
+        call: server-api-v3-collections.updatecollectionusergrouppermissions
+        with:
+          userGroupId: rest.userGroupId
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/collections/{collectionid}/users
+      name: v3-collections-collectionid-users
+      description: REST surface for v3-collections-collectionId-users.
+      operations:
+      - method: POST
+        name: addusertocollection
+        description: Add a User to a Collection
+        call: server-api-v3-collections.addusertocollection
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/collections/{collectionid}/users/{userid}
+      name: v3-collections-collectionid-users-userid
+      description: REST surface for v3-collections-collectionId-users-userId.
+      operations:
+      - method: DELETE
+        name: removeuserfromcollection
+        description: Remove a User From a Collection
+        call: server-api-v3-collections.removeuserfromcollection
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/collections/{collectionid}/users/{userid}/permissions
+      name: v3-collections-collectionid-users-userid-permissions
+      description: REST surface for v3-collections-collectionId-users-userId-permissions.
+      operations:
+      - method: PUT
+        name: updatecollectionuserpermissions
+        description: Update User Permissions in a Collection
+        call: server-api-v3-collections.updatecollectionuserpermissions
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/collections/{collectionid}/workflows
+      name: v3-collections-collectionid-workflows
+      description: REST surface for v3-collections-collectionId-workflows.
+      operations:
+      - method: POST
+        name: addworkflowtocollection
+        description: Add a Workflow to a Collection
+        call: server-api-v3-collections.addworkflowtocollection
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v3/collections/{collectionid}/workflows/{appid}
+      name: v3-collections-collectionid-workflows-appid
+      description: REST surface for v3-collections-collectionId-workflows-appId.
+      operations:
+      - method: DELETE
+        name: removeworkflowfromcollection
+        description: Remove a Workflow From a Collection
+        call: server-api-v3-collections.removeworkflowfromcollection
+        with:
+          appId: rest.appId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: server-api-v3-collections-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Alteryx Server API V3 — Collections. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: create-new-collection
+      description: Create a New Collection
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: server-api-v3-collections.createcollection
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: retrieve-all-collections
+      description: Retrieve All Collections
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: server-api-v3-collections.getcollections
+      with:
+        view: tools.view
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: retrieve-specific-collection
+      description: Retrieve a Specific Collection
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: server-api-v3-collections.getcollection
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-collection
+      description: Update a Collection
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: server-api-v3-collections.updatecollection
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: delete-collection
+      description: Delete a Collection
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: server-api-v3-collections.deletecollection
+      with:
+        forceDelete: tools.forceDelete
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: add-schedule-collection
+      description: Add a Schedule to a Collection
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: server-api-v3-collections.addscheduletocollection
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: remove-schedule-collection
+      description: Remove a Schedule From a Collection
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: server-api-v3-collections.removeschedulefromcollection
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: add-user-group-collection
+      description: Add a User Group to a Collection
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: server-api-v3-collections.addusergrouptocollection
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: remove-user-group-collection
+      description: Remove a User Group From a Collection
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: server-api-v3-collections.removeusergroupfromcollection
+      with:
+        userGroupId: tools.userGroupId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-user-group-permissions-collection
+      description: Update User Group Permissions in a Collection
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: server-api-v3-collections.updatecollectionusergrouppermissions
+      with:
+        userGroupId: tools.userGroupId
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: add-user-collection
+      description: Add a User to a Collection
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: server-api-v3-collections.addusertocollection
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: remove-user-collection
+      description: Remove a User From a Collection
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: server-api-v3-collections.removeuserfromcollection
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-user-permissions-collection
+      description: Update User Permissions in a Collection
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: server-api-v3-collections.updatecollectionuserpermissions
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: add-workflow-collection
+      description: Add a Workflow to a Collection
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: server-api-v3-collections.addworkflowtocollection
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: remove-workflow-collection
+      description: Remove a Workflow From a Collection
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: server-api-v3-collections.removeworkflowfromcollection
+      with:
+        appId: tools.appId
+      outputParameters:
+      - type: object
+        mapping: $.
