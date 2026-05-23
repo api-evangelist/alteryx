@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/WorkflowVersion",
+  "title": "WorkflowVersion",
+  "type": "object",
+  "description": "A specific version of a workflow",
+  "properties": {
+    "versionId": {
+      "type": "string",
+      "description": "Unique version identifier",
+      "example": "500123"
+    },
+    "versionNumber": {
+      "type": "integer",
+      "description": "Sequential version number",
+      "example": 10
+    },
+    "dateCreated": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Date the version was created",
+      "example": "2026-01-15T10:30:00Z"
+    },
+    "uploadSource": {
+      "type": "string",
+      "description": "Source from which the version was uploaded",
+      "example": "example_value"
+    },
+    "uploadDate": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Date the version was uploaded",
+      "example": "2026-01-15T10:30:00Z"
+    },
+    "packageWorkflowType": {
+      "type": "string",
+      "description": "Type of workflow in the package",
+      "example": "example_value"
+    },
+    "published": {
+      "type": "boolean",
+      "description": "Whether this version is the published version",
+      "example": true
+    },
+    "comments": {
+      "type": "string",
+      "description": "Comments about this version",
+      "example": "example_value"
+    },
+    "runDisabled": {
+      "type": "boolean",
+      "description": "Whether execution is disabled for this version",
+      "example": true
+    },
+    "executionMode": {
+      "type": "string",
+      "enum": [
+        "Safe",
+        "SemiSafe",
+        "Standard"
+      ],
+      "example": "Safe"
+    },
+    "workflowCredentialType": {
+      "type": "string",
+      "enum": [
+        "Default",
+        "Required",
+        "Specific"
+      ],
+      "example": "Default"
+    },
+    "credentialId": {
+      "type": "string",
+      "description": "Credential ID if workflowCredentialType is Specific",
+      "example": "500123"
+    },
+    "hasPrivateDataExemption": {
+      "type": "boolean",
+      "example": true
+    },
+    "othersMayDownload": {
+      "type": "boolean",
+      "example": true
+    },
+    "othersCanViewHistory": {
+      "type": "boolean",
+      "example": true
+    },
+    "details": {
+      "$ref": "#/components/schemas/WorkflowVersionDetails"
+    }
+  }
+}

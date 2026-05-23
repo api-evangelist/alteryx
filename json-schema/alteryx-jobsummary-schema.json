@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/JobSummary",
+  "title": "JobSummary",
+  "type": "object",
+  "description": "Summary representation of an execution job",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique job identifier",
+      "example": "abc123"
+    },
+    "createDate": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Date the job was created",
+      "example": "2026-01-15T10:30:00Z"
+    },
+    "status": {
+      "type": "string",
+      "description": "Current job status",
+      "example": "example_value"
+    },
+    "priority": {
+      "type": "string",
+      "enum": [
+        "Low",
+        "Medium",
+        "High",
+        "Critical"
+      ],
+      "description": "Job priority",
+      "example": "Low"
+    },
+    "workerTag": {
+      "type": "string",
+      "description": "Worker tag for execution routing",
+      "example": "example_value"
+    },
+    "runWithE2": {
+      "type": "boolean",
+      "description": "Whether the job runs with AMP engine",
+      "example": true
+    }
+  }
+}

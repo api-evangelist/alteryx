@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/PatchScheduleContract",
+  "title": "PatchScheduleContract",
+  "type": "object",
+  "description": "Contract for partially updating a schedule",
+  "properties": {
+    "ownerId": {
+      "type": "string",
+      "example": "500123"
+    },
+    "iteration": {
+      "$ref": "#/components/schemas/ScheduleIteration"
+    },
+    "name": {
+      "type": "string",
+      "example": "Example Title"
+    },
+    "comment": {
+      "type": "string",
+      "example": "example_value"
+    },
+    "priority": {
+      "type": "string",
+      "enum": [
+        "Low",
+        "Medium",
+        "High",
+        "Critical"
+      ],
+      "example": "Low"
+    },
+    "workerTag": {
+      "type": "string",
+      "example": "example_value"
+    },
+    "enabled": {
+      "type": "boolean",
+      "example": true
+    },
+    "credentialId": {
+      "type": "string",
+      "example": "500123"
+    },
+    "timeZone": {
+      "type": "string",
+      "example": "example_value"
+    },
+    "questions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "example": []
+    }
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/WorkflowDetail",
+  "title": "WorkflowDetail",
+  "type": "object",
+  "description": "Detailed representation of an Alteryx workflow including versions",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique workflow identifier",
+      "example": "abc123"
+    },
+    "sourceAppId": {
+      "type": "string",
+      "description": "Source application identifier",
+      "example": "500123"
+    },
+    "dateCreated": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Date the workflow was created",
+      "example": "2026-01-15T10:30:00Z"
+    },
+    "runCount": {
+      "type": "integer",
+      "description": "Total number of times the workflow has been executed",
+      "example": 10
+    },
+    "versions": {
+      "type": "array",
+      "description": "List of workflow versions",
+      "items": {
+        "$ref": "#/components/schemas/WorkflowVersion"
+      },
+      "example": []
+    },
+    "name": {
+      "type": "string",
+      "description": "Name of the workflow",
+      "example": "Example Title"
+    },
+    "ownerId": {
+      "type": "string",
+      "description": "ID of the workflow owner",
+      "example": "500123"
+    },
+    "workerTag": {
+      "type": "string",
+      "description": "Worker tag for execution routing",
+      "example": "example_value"
+    },
+    "districtTags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "District tags assigned to the workflow",
+      "example": []
+    },
+    "comments": {
+      "type": "string",
+      "description": "Comments about the workflow",
+      "example": "example_value"
+    },
+    "isPublic": {
+      "type": "boolean",
+      "description": "Whether the workflow is publicly accessible",
+      "example": true
+    },
+    "isReadyForMigration": {
+      "type": "boolean",
+      "description": "Whether the workflow is ready for migration",
+      "example": true
+    },
+    "publishedVersionId": {
+      "type": "string",
+      "description": "ID of the currently published version",
+      "example": "500123"
+    },
+    "othersMayDownload": {
+      "type": "boolean",
+      "description": "Whether other users may download the workflow",
+      "example": true
+    },
+    "othersCanViewHistory": {
+      "type": "boolean",
+      "description": "Whether other users can view execution history",
+      "example": true
+    },
+    "othersCanExecute": {
+      "type": "boolean",
+      "description": "Whether other users can execute the workflow",
+      "example": true
+    },
+    "hasPrivateDataExemption": {
+      "type": "boolean",
+      "description": "Whether the workflow has a private data exemption",
+      "example": true
+    }
+  }
+}

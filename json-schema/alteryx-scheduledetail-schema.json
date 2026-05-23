@@ -1,0 +1,153 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ScheduleDetail",
+  "title": "ScheduleDetail",
+  "type": "object",
+  "description": "Detailed representation of a schedule",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique schedule identifier",
+      "example": "abc123"
+    },
+    "name": {
+      "type": "string",
+      "description": "Name of the schedule",
+      "example": "Example Title"
+    },
+    "workflowId": {
+      "type": "string",
+      "description": "ID of the associated workflow",
+      "example": "500123"
+    },
+    "versionId": {
+      "type": "string",
+      "description": "Specific workflow version ID",
+      "example": "500123"
+    },
+    "ownerId": {
+      "type": "string",
+      "description": "ID of the schedule owner",
+      "example": "500123"
+    },
+    "runDateTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Next scheduled run date and time",
+      "example": "2026-01-15T10:30:00Z"
+    },
+    "comment": {
+      "type": "string",
+      "description": "Comments about the schedule",
+      "example": "example_value"
+    },
+    "enabled": {
+      "type": "boolean",
+      "description": "Whether the schedule is active",
+      "example": true
+    },
+    "priority": {
+      "type": "string",
+      "enum": [
+        "Low",
+        "Medium",
+        "High",
+        "Critical"
+      ],
+      "description": "Execution priority",
+      "example": "Low"
+    },
+    "workerTag": {
+      "type": "string",
+      "description": "Worker tag for execution routing",
+      "example": "example_value"
+    },
+    "status": {
+      "type": "string",
+      "description": "Current status of the schedule",
+      "example": "example_value"
+    },
+    "credentialId": {
+      "type": "string",
+      "description": "Credential used for execution",
+      "example": "500123"
+    },
+    "creationTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the schedule was created",
+      "example": "2026-01-15T10:30:00Z"
+    },
+    "lastRunTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the schedule last executed",
+      "example": "2026-01-15T10:30:00Z"
+    },
+    "state": {
+      "type": "string",
+      "description": "Current state of the schedule",
+      "example": "example_value"
+    },
+    "runCount": {
+      "type": "integer",
+      "description": "Total number of times the schedule has executed",
+      "example": 10
+    },
+    "iteration": {
+      "$ref": "#/components/schemas/ScheduleIteration"
+    },
+    "frequency": {
+      "type": "string",
+      "description": "Human-readable frequency description",
+      "example": "example_value"
+    },
+    "lastError": {
+      "type": "string",
+      "description": "Last error message if any",
+      "example": "example_value"
+    },
+    "cpuName": {
+      "type": "string",
+      "description": "Name of the worker node",
+      "example": "example_value"
+    },
+    "lastModifiedId": {
+      "type": "string",
+      "description": "ID of the user who last modified the schedule",
+      "example": "500123"
+    },
+    "lastModifiedDate": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Date of last modification",
+      "example": "2026-01-15T10:30:00Z"
+    },
+    "canEdit": {
+      "type": "boolean",
+      "description": "Whether the current user can edit this schedule",
+      "example": true
+    },
+    "timeZone": {
+      "type": "string",
+      "description": "Time zone for the schedule",
+      "example": "example_value"
+    },
+    "questions": {
+      "type": "array",
+      "description": "Analytic app question values",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "example": []
+    }
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/WorkflowVersionDetails",
+  "title": "WorkflowVersionDetails",
+  "type": "object",
+  "description": "Metadata details for a workflow version",
+  "properties": {
+    "isAmp": {
+      "type": "boolean",
+      "description": "Whether the version uses AMP engine",
+      "example": true
+    },
+    "fileName": {
+      "type": "string",
+      "description": "Name of the workflow file",
+      "example": "example_value"
+    },
+    "author": {
+      "type": "string",
+      "description": "Author of the workflow",
+      "example": "example_value"
+    },
+    "copyright": {
+      "type": "string",
+      "description": "Copyright information",
+      "example": "example_value"
+    },
+    "description": {
+      "type": "string",
+      "description": "Description of the workflow",
+      "example": "A sample description."
+    },
+    "name": {
+      "type": "string",
+      "description": "Display name of the workflow",
+      "example": "Example Title"
+    },
+    "noOutputFilesMessage": {
+      "type": "string",
+      "description": "Message shown when no output files are generated",
+      "example": "example_value"
+    },
+    "outputMessage": {
+      "type": "string",
+      "description": "Message shown with output files",
+      "example": "example_value"
+    },
+    "url": {
+      "type": "string",
+      "format": "uri",
+      "description": "Related URL",
+      "example": "https://www.example.com"
+    },
+    "urlText": {
+      "type": "string",
+      "description": "Display text for the related URL",
+      "example": "https://www.example.com"
+    }
+  }
+}

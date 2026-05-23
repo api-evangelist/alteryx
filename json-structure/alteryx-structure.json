@@ -1,0 +1,647 @@
+{
+  "provider": "Alteryx",
+  "providerId": "alteryx",
+  "kind": "json-structure",
+  "description": "Structural overview of the Alteryx API surface; extracted from openapi/.",
+  "schemaCount": 24,
+  "operationCount": 50,
+  "schemas": [
+    {
+      "name": "WorkflowSummary",
+      "type": "object",
+      "propertyCount": 8,
+      "required": []
+    },
+    {
+      "name": "WorkflowDetail",
+      "type": "object",
+      "propertyCount": 17,
+      "required": []
+    },
+    {
+      "name": "WorkflowVersion",
+      "type": "object",
+      "propertyCount": 16,
+      "required": []
+    },
+    {
+      "name": "WorkflowVersionDetails",
+      "type": "object",
+      "propertyCount": 10,
+      "required": []
+    },
+    {
+      "name": "UpdateWorkflowContract",
+      "type": "object",
+      "propertyCount": 15,
+      "required": [
+        "name",
+        "versionId",
+        "ownerId",
+        "workerTag",
+        "districtTags",
+        "comments"
+      ]
+    },
+    {
+      "name": "WorkflowQuestion",
+      "type": "object",
+      "propertyCount": 6,
+      "required": []
+    },
+    {
+      "name": "ScheduleSummary",
+      "type": "object",
+      "propertyCount": 6,
+      "required": []
+    },
+    {
+      "name": "ScheduleDetail",
+      "type": "object",
+      "propertyCount": 25,
+      "required": []
+    },
+    {
+      "name": "ScheduleIteration",
+      "type": "object",
+      "propertyCount": 9,
+      "required": [
+        "iterationType",
+        "startTime"
+      ]
+    },
+    {
+      "name": "CreateScheduleContract",
+      "type": "object",
+      "propertyCount": 9,
+      "required": [
+        "workflowId",
+        "iteration"
+      ]
+    },
+    {
+      "name": "UpdateScheduleContract",
+      "type": "object",
+      "propertyCount": 11,
+      "required": [
+        "workflowId",
+        "ownerId",
+        "iteration",
+        "name",
+        "comment",
+        "workerTag",
+        "credentialId"
+      ]
+    },
+    {
+      "name": "PatchScheduleContract",
+      "type": "object",
+      "propertyCount": 10,
+      "required": []
+    },
+    {
+      "name": "CreateUserContract",
+      "type": "object",
+      "propertyCount": 17,
+      "required": [
+        "firstName",
+        "lastName",
+        "email"
+      ]
+    },
+    {
+      "name": "UpdateUserContract",
+      "type": "object",
+      "propertyCount": 21,
+      "required": [
+        "firstName",
+        "lastName",
+        "email",
+        "role",
+        "defaultWorkerTag",
+        "canScheduleJobs",
+        "canPrioritizeJobs",
+        "canAssignJobs",
+        "isApiEnabled",
+        "defaultCredentialId",
+        "isActive",
+        "isValidated",
+        "timeZone"
+      ]
+    },
+    {
+      "name": "UserDetail",
+      "type": "object",
+      "propertyCount": 22,
+      "required": []
+    },
+    {
+      "name": "UserAsset",
+      "type": "object",
+      "propertyCount": 3,
+      "required": []
+    },
+    {
+      "name": "JobSummary",
+      "type": "object",
+      "propertyCount": 6,
+      "required": []
+    },
+    {
+      "name": "JobDetail",
+      "type": "object",
+      "propertyCount": 10,
+      "required": []
+    },
+    {
+      "name": "CreateJobContract",
+      "type": "object",
+      "propertyCount": 4,
+      "required": []
+    },
+    {
+      "name": "Credential",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    },
+    {
+      "name": "Collection",
+      "type": "object",
+      "propertyCount": 4,
+      "required": []
+    },
+    {
+      "name": "CollectionUserPermission",
+      "type": "object",
+      "propertyCount": 7,
+      "required": [
+        "userId"
+      ]
+    },
+    {
+      "name": "CollectionPermissionFlags",
+      "type": "object",
+      "propertyCount": 6,
+      "required": []
+    },
+    {
+      "name": "ErrorResponse",
+      "type": "object",
+      "propertyCount": 2,
+      "required": []
+    }
+  ],
+  "operations": [
+    {
+      "method": "GET",
+      "path": "/v3/workflows",
+      "operationId": "getWorkflows",
+      "summary": "Retrieve All Workflows",
+      "tags": [
+        "Workflows"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/v3/workflows",
+      "operationId": "uploadWorkflow",
+      "summary": "Upload a New Workflow",
+      "tags": [
+        "Workflows"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/workflows/{workflowId}",
+      "operationId": "getWorkflow",
+      "summary": "Retrieve a Specific Workflow",
+      "tags": [
+        "Workflows"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/v3/workflows/{workflowId}",
+      "operationId": "updateWorkflow",
+      "summary": "Update an Existing Workflow",
+      "tags": [
+        "Workflows"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/v3/workflows/{workflowId}",
+      "operationId": "deleteWorkflow",
+      "summary": "Delete a Workflow",
+      "tags": [
+        "Workflows"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/v3/workflows/{workflowId}/versions",
+      "operationId": "uploadWorkflowVersion",
+      "summary": "Upload a New Version of an Existing Workflow",
+      "tags": [
+        "Workflows"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/workflows/{workflowId}/package",
+      "operationId": "downloadWorkflowPackage",
+      "summary": "Download a Workflow Package",
+      "tags": [
+        "Workflows"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/workflows/{workflowId}/questions",
+      "operationId": "getWorkflowQuestions",
+      "summary": "Retrieve Analytic App Questions",
+      "tags": [
+        "Workflows"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/workflows/{workflowId}/jobs",
+      "operationId": "getWorkflowJobs",
+      "summary": "Get Jobs for a Workflow",
+      "tags": [
+        "Jobs"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/v3/workflows/{workflowId}/jobs",
+      "operationId": "createJob",
+      "summary": "Create a New Job for a Workflow",
+      "tags": [
+        "Jobs"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/v3/workflows/{workflowId}/transfer",
+      "operationId": "transferWorkflow",
+      "summary": "Transfer Workflow Ownership",
+      "tags": [
+        "Workflows"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/schedules",
+      "operationId": "getSchedules",
+      "summary": "Retrieve All Schedules",
+      "tags": [
+        "Schedules"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/v3/schedules",
+      "operationId": "createSchedule",
+      "summary": "Create a New Schedule",
+      "tags": [
+        "Schedules"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/schedules/{scheduleId}",
+      "operationId": "getSchedule",
+      "summary": "Retrieve a Specific Schedule",
+      "tags": [
+        "Schedules"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/v3/schedules/{scheduleId}",
+      "operationId": "updateSchedule",
+      "summary": "Update a Schedule",
+      "tags": [
+        "Schedules"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/v3/schedules/{scheduleId}",
+      "operationId": "deleteSchedule",
+      "summary": "Delete a Schedule",
+      "tags": [
+        "Schedules"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/v3/schedules/{scheduleId}",
+      "operationId": "patchSchedule",
+      "summary": "Partially Update a Schedule",
+      "tags": [
+        "Schedules"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/users",
+      "operationId": "getUsers",
+      "summary": "Retrieve All Users",
+      "tags": [
+        "Users"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/v3/users",
+      "operationId": "createUser",
+      "summary": "Create a New User",
+      "tags": [
+        "Users"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/users/{userId}",
+      "operationId": "getUser",
+      "summary": "Retrieve a Specific User",
+      "tags": [
+        "Users"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/v3/users/{userId}",
+      "operationId": "updateUser",
+      "summary": "Update a User",
+      "tags": [
+        "Users"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/v3/users/{userId}",
+      "operationId": "deleteUser",
+      "summary": "Delete a User",
+      "tags": [
+        "Users"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/v3/users/{userId}/deactivate",
+      "operationId": "deactivateUser",
+      "summary": "Deactivate a User",
+      "tags": [
+        "Users"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/v3/users/{userId}/passwordReset",
+      "operationId": "resetUserPassword",
+      "summary": "Send Password Reset Email",
+      "tags": [
+        "Users"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/users/{userId}/assets",
+      "operationId": "getUserAssets",
+      "summary": "Retrieve User Assets",
+      "tags": [
+        "Users"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/v3/users/{userId}/assetTransfer",
+      "operationId": "transferUserAssets",
+      "summary": "Transfer User Assets",
+      "tags": [
+        "Users"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/credentials",
+      "operationId": "getCredentials",
+      "summary": "Retrieve All Credentials",
+      "tags": [
+        "Credentials"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/v3/credentials",
+      "operationId": "createCredential",
+      "summary": "Create a New Credential",
+      "tags": [
+        "Credentials"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/credentials/{credentialId}",
+      "operationId": "getCredential",
+      "summary": "Retrieve a Specific Credential",
+      "tags": [
+        "Credentials"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/v3/credentials/{credentialId}",
+      "operationId": "updateCredential",
+      "summary": "Update a Credential",
+      "tags": [
+        "Credentials"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/v3/credentials/{credentialId}",
+      "operationId": "deleteCredential",
+      "summary": "Delete a Credential",
+      "tags": [
+        "Credentials"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/v3/credentials/{credentialId}/users",
+      "operationId": "shareCredentialWithUser",
+      "summary": "Share Credential With a User",
+      "tags": [
+        "Credentials"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/v3/credentials/{credentialId}/users/{userId}",
+      "operationId": "removeCredentialUserAccess",
+      "summary": "Remove User Access to Credential",
+      "tags": [
+        "Credentials"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/v3/credentials/{credentialId}/userGroups",
+      "operationId": "shareCredentialWithUserGroup",
+      "summary": "Share Credential With a User Group",
+      "tags": [
+        "Credentials"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/v3/credentials/{credentialId}/userGroups/{userGroupId}",
+      "operationId": "removeCredentialUserGroupAccess",
+      "summary": "Remove User Group Access to Credential",
+      "tags": [
+        "Credentials"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/collections",
+      "operationId": "getCollections",
+      "summary": "Retrieve All Collections",
+      "tags": [
+        "Collections"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/v3/collections",
+      "operationId": "createCollection",
+      "summary": "Create a New Collection",
+      "tags": [
+        "Collections"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v3/collections/{collectionId}",
+      "operationId": "getCollection",
+      "summary": "Retrieve a Specific Collection",
+      "tags": [
+        "Collections"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/v3/collections/{collectionId}",
+      "operationId": "updateCollection",
+      "summary": "Update a Collection",
+      "tags": [
+        "Collections"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/v3/collections/{collectionId}",
+      "operationId": "deleteCollection",
+      "summary": "Delete a Collection",
+      "tags": [
+        "Collections"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/v3/collections/{collectionId}/users",
+      "operationId": "addUserToCollection",
+      "summary": "Add a User to a Collection",
+      "tags": [
+        "Collections"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/v3/collections/{collectionId}/users/{userId}/permissions",
+      "operationId": "updateCollectionUserPermissions",
+      "summary": "Update User Permissions in a Collection",
+      "tags": [
+        "Collections"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/v3/collections/{collectionId}/users/{userId}",
+      "operationId": "removeUserFromCollection",
+      "summary": "Remove a User From a Collection",
+      "tags": [
+        "Collections"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/v3/collections/{collectionId}/userGroups",
+      "operationId": "addUserGroupToCollection",
+      "summary": "Add a User Group to a Collection",
+      "tags": [
+        "Collections"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "/v3/collections/{collectionId}/userGroups/{userGroupId}/permissions",
+      "operationId": "updateCollectionUserGroupPermissions",
+      "summary": "Update User Group Permissions in a Collection",
+      "tags": [
+        "Collections"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/v3/collections/{collectionId}/userGroups/{userGroupId}",
+      "operationId": "removeUserGroupFromCollection",
+      "summary": "Remove a User Group From a Collection",
+      "tags": [
+        "Collections"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/v3/collections/{collectionId}/workflows",
+      "operationId": "addWorkflowToCollection",
+      "summary": "Add a Workflow to a Collection",
+      "tags": [
+        "Collections"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/v3/collections/{collectionId}/workflows/{appId}",
+      "operationId": "removeWorkflowFromCollection",
+      "summary": "Remove a Workflow From a Collection",
+      "tags": [
+        "Collections"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/v3/collections/{collectionId}/schedules",
+      "operationId": "addScheduleToCollection",
+      "summary": "Add a Schedule to a Collection",
+      "tags": [
+        "Collections"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/v3/collections/{collectionId}/schedules/{scheduleId}",
+      "operationId": "removeScheduleFromCollection",
+      "summary": "Remove a Schedule From a Collection",
+      "tags": [
+        "Collections"
+      ]
+    }
+  ]
+}

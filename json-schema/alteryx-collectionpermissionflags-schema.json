@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CollectionPermissionFlags",
+  "title": "CollectionPermissionFlags",
+  "type": "object",
+  "description": "Permission flags for collection access",
+  "properties": {
+    "isAdmin": {
+      "type": "boolean",
+      "example": true
+    },
+    "canAddAssets": {
+      "type": "boolean",
+      "example": true
+    },
+    "canRemoveAssets": {
+      "type": "boolean",
+      "example": true
+    },
+    "canUpdateAssets": {
+      "type": "boolean",
+      "example": true
+    },
+    "canAddUsers": {
+      "type": "boolean",
+      "example": true
+    },
+    "canRemoveUsers": {
+      "type": "boolean",
+      "example": true
+    }
+  }
+}

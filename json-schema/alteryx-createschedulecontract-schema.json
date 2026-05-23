@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CreateScheduleContract",
+  "title": "CreateScheduleContract",
+  "type": "object",
+  "description": "Contract for creating a new schedule",
+  "required": [
+    "workflowId",
+    "iteration"
+  ],
+  "properties": {
+    "workflowId": {
+      "type": "string",
+      "description": "ID of the workflow to schedule",
+      "example": "500123"
+    },
+    "iteration": {
+      "$ref": "#/components/schemas/ScheduleIteration"
+    },
+    "name": {
+      "type": "string",
+      "description": "Name of the schedule",
+      "example": "Example Title"
+    },
+    "comment": {
+      "type": "string",
+      "description": "Comments about the schedule",
+      "example": "example_value"
+    },
+    "priority": {
+      "type": "string",
+      "enum": [
+        "Low",
+        "Medium",
+        "High",
+        "Critical"
+      ],
+      "default": "Low",
+      "description": "Execution priority",
+      "example": "Low"
+    },
+    "workerTag": {
+      "type": "string",
+      "default": "none",
+      "description": "Worker tag for execution routing",
+      "example": "example_value"
+    },
+    "credentialId": {
+      "type": "string",
+      "description": "Credential to use for execution",
+      "example": "500123"
+    },
+    "timeZone": {
+      "type": "string",
+      "default": "UTC",
+      "description": "Time zone for the schedule (defaults to UTC-0)",
+      "example": "example_value"
+    },
+    "questions": {
+      "type": "array",
+      "description": "Analytic app question values",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "example": []
+    }
+  }
+}

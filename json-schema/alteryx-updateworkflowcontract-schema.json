@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/UpdateWorkflowContract",
+  "title": "UpdateWorkflowContract",
+  "type": "object",
+  "description": "Contract for updating an existing workflow",
+  "required": [
+    "name",
+    "versionId",
+    "ownerId",
+    "workerTag",
+    "districtTags",
+    "comments"
+  ],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Updated workflow name",
+      "example": "Example Title"
+    },
+    "versionId": {
+      "type": "string",
+      "description": "Version ID to update",
+      "example": "500123"
+    },
+    "makePublished": {
+      "type": "boolean",
+      "description": "Whether to make the specified version published",
+      "example": true
+    },
+    "ownerId": {
+      "type": "string",
+      "description": "Updated owner ID",
+      "example": "500123"
+    },
+    "workerTag": {
+      "type": "string",
+      "description": "Updated worker tag",
+      "example": "example_value"
+    },
+    "districtTags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Updated district tags",
+      "example": []
+    },
+    "comments": {
+      "type": "string",
+      "description": "Updated comments",
+      "example": "example_value"
+    },
+    "isPublic": {
+      "type": "boolean",
+      "example": true
+    },
+    "isReadyForMigration": {
+      "type": "boolean",
+      "example": true
+    },
+    "othersMayDownload": {
+      "type": "boolean",
+      "example": true
+    },
+    "othersCanExecute": {
+      "type": "boolean",
+      "example": true
+    },
+    "executionMode": {
+      "type": "string",
+      "enum": [
+        "Safe",
+        "SemiSafe",
+        "Standard"
+      ],
+      "example": "Safe"
+    },
+    "hasPrivateDataExemption": {
+      "type": "boolean",
+      "example": true
+    },
+    "workflowCredentialType": {
+      "type": "string",
+      "enum": [
+        "Default",
+        "Required",
+        "Specific"
+      ],
+      "example": "Default"
+    },
+    "credentialId": {
+      "type": "string",
+      "example": "500123"
+    }
+  }
+}

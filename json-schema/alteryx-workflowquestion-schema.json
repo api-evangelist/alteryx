@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/WorkflowQuestion",
+  "title": "WorkflowQuestion",
+  "type": "object",
+  "description": "An analytic app question (input parameter)",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Name of the question",
+      "example": "Example Title"
+    },
+    "questionType": {
+      "type": "string",
+      "description": "Type of the question input",
+      "example": "example_value"
+    },
+    "description": {
+      "type": "string",
+      "description": "Description of the question",
+      "example": "A sample description."
+    },
+    "value": {
+      "type": "string",
+      "description": "Default value",
+      "example": "example_value"
+    },
+    "multiple": {
+      "type": "boolean",
+      "description": "Whether multiple selections are allowed",
+      "example": true
+    },
+    "items": {
+      "type": "array",
+      "description": "Available options for the question",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "example": []
+    }
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/WorkflowSummary",
+  "title": "WorkflowSummary",
+  "type": "object",
+  "description": "Summary representation of an Alteryx workflow",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique workflow identifier",
+      "example": "abc123"
+    },
+    "sourceAppId": {
+      "type": "string",
+      "description": "Source application identifier for migration tracking",
+      "example": "500123"
+    },
+    "name": {
+      "type": "string",
+      "description": "Name of the workflow",
+      "example": "Example Title"
+    },
+    "ownerId": {
+      "type": "string",
+      "description": "ID of the workflow owner",
+      "example": "500123"
+    },
+    "dateCreated": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Date the workflow was created (ISO 8601)",
+      "example": "2026-01-15T10:30:00Z"
+    },
+    "publishedVersionNumber": {
+      "type": "integer",
+      "description": "Version number of the published version",
+      "example": 10
+    },
+    "isAmp": {
+      "type": "boolean",
+      "description": "Whether the workflow uses AMP engine",
+      "example": true
+    },
+    "executionMode": {
+      "type": "string",
+      "enum": [
+        "Safe",
+        "SemiSafe",
+        "Standard"
+      ],
+      "description": "Execution mode for the workflow",
+      "example": "Safe"
+    }
+  }
+}

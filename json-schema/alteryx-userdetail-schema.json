@@ -1,0 +1,114 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/UserDetail",
+  "title": "UserDetail",
+  "type": "object",
+  "description": "Detailed representation of a user account",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique user identifier",
+      "example": "abc123"
+    },
+    "firstName": {
+      "type": "string",
+      "description": "User's first name",
+      "example": "example_value"
+    },
+    "lastName": {
+      "type": "string",
+      "description": "User's last name",
+      "example": "example_value"
+    },
+    "email": {
+      "type": "string",
+      "format": "email",
+      "description": "User's email address",
+      "example": "user@example.com"
+    },
+    "role": {
+      "type": "string",
+      "enum": [
+        "NoAccess",
+        "Viewer",
+        "Member",
+        "Artisan",
+        "Curator",
+        "Evaluated"
+      ],
+      "description": "User role",
+      "example": "NoAccess"
+    },
+    "dateCreated": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Date the user was created",
+      "example": "2026-01-15T10:30:00Z"
+    },
+    "defaultWorkerTag": {
+      "type": "string",
+      "description": "Default worker tag",
+      "example": "example_value"
+    },
+    "canScheduleJobs": {
+      "type": "boolean",
+      "example": true
+    },
+    "canPrioritizeJobs": {
+      "type": "boolean",
+      "example": true
+    },
+    "canAssignJobs": {
+      "type": "boolean",
+      "example": true
+    },
+    "canCreateCollections": {
+      "type": "boolean",
+      "example": true
+    },
+    "isApiEnabled": {
+      "type": "boolean",
+      "example": true
+    },
+    "defaultCredentialId": {
+      "type": "string",
+      "example": "500123"
+    },
+    "isAccountLocked": {
+      "type": "boolean",
+      "example": true
+    },
+    "isActive": {
+      "type": "boolean",
+      "example": true
+    },
+    "isValidated": {
+      "type": "boolean",
+      "example": true
+    },
+    "timeZone": {
+      "type": "string",
+      "example": "example_value"
+    },
+    "language": {
+      "type": "string",
+      "example": "example_value"
+    },
+    "canCreateAndUpdateDcm": {
+      "type": "boolean",
+      "example": true
+    },
+    "canShareForExecutionDcm": {
+      "type": "boolean",
+      "example": true
+    },
+    "canShareForCollaborationDcm": {
+      "type": "boolean",
+      "example": true
+    },
+    "canManageGenericVaultsDcm": {
+      "type": "boolean",
+      "example": true
+    }
+  }
+}

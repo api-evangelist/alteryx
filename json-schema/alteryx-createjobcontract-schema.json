@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/CreateJobContract",
+  "title": "CreateJobContract",
+  "type": "object",
+  "description": "Contract for creating a new execution job",
+  "properties": {
+    "workerTag": {
+      "type": "string",
+      "default": "none",
+      "description": "Worker tag for routing",
+      "example": "example_value"
+    },
+    "credentialId": {
+      "type": "string",
+      "description": "Credential to use for execution",
+      "example": "500123"
+    },
+    "questions": {
+      "type": "array",
+      "description": "Analytic app question values",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "example": []
+    },
+    "priority": {
+      "type": "string",
+      "enum": [
+        "Low",
+        "Medium",
+        "High",
+        "Critical"
+      ],
+      "description": "Job priority",
+      "example": "Low"
+    }
+  }
+}

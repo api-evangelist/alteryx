@@ -1,0 +1,131 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/UpdateUserContract",
+  "title": "UpdateUserContract",
+  "type": "object",
+  "description": "Contract for updating an existing user",
+  "required": [
+    "firstName",
+    "lastName",
+    "email",
+    "role",
+    "defaultWorkerTag",
+    "canScheduleJobs",
+    "canPrioritizeJobs",
+    "canAssignJobs",
+    "isApiEnabled",
+    "defaultCredentialId",
+    "isActive",
+    "isValidated",
+    "timeZone"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "User ID (optional, for verification)",
+      "example": "abc123"
+    },
+    "firstName": {
+      "type": "string",
+      "example": "example_value"
+    },
+    "lastName": {
+      "type": "string",
+      "example": "example_value"
+    },
+    "email": {
+      "type": "string",
+      "format": "email",
+      "example": "user@example.com"
+    },
+    "role": {
+      "type": "string",
+      "enum": [
+        "NoAccess",
+        "Viewer",
+        "Member",
+        "Artisan",
+        "Curator",
+        "Evaluated"
+      ],
+      "example": "NoAccess"
+    },
+    "defaultWorkerTag": {
+      "type": "string",
+      "example": "example_value"
+    },
+    "canScheduleJobs": {
+      "type": "boolean",
+      "example": true
+    },
+    "canPrioritizeJobs": {
+      "type": "boolean",
+      "example": true
+    },
+    "canAssignJobs": {
+      "type": "boolean",
+      "example": true
+    },
+    "canCreateCollections": {
+      "type": "boolean",
+      "example": true
+    },
+    "isApiEnabled": {
+      "type": "boolean",
+      "example": true
+    },
+    "defaultCredentialId": {
+      "type": "string",
+      "example": "500123"
+    },
+    "isAccountLocked": {
+      "type": "boolean",
+      "description": "Whether the account is locked",
+      "example": true
+    },
+    "isActive": {
+      "type": "boolean",
+      "example": true
+    },
+    "isValidated": {
+      "type": "boolean",
+      "description": "Whether the user's email has been validated",
+      "example": true
+    },
+    "timeZone": {
+      "type": "string",
+      "example": "example_value"
+    },
+    "language": {
+      "type": "string",
+      "enum": [
+        "de-de",
+        "en-us",
+        "es-es",
+        "fr-fr",
+        "it-it",
+        "ja-jp",
+        "pt-br",
+        "zh-cn"
+      ],
+      "description": "User's preferred language",
+      "example": "de-de"
+    },
+    "canCreateAndUpdateDcm": {
+      "type": "boolean",
+      "example": true
+    },
+    "canShareForExecutionDcm": {
+      "type": "boolean",
+      "example": true
+    },
+    "canShareForCollaborationDcm": {
+      "type": "boolean",
+      "example": true
+    },
+    "canManageGenericVaultsDcm": {
+      "type": "boolean",
+      "example": true
+    }
+  }
+}

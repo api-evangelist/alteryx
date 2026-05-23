@@ -1,0 +1,134 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ScheduleIteration",
+  "title": "ScheduleIteration",
+  "type": "object",
+  "description": "Schedule iteration configuration defining when and how often a schedule runs",
+  "required": [
+    "iterationType",
+    "startTime"
+  ],
+  "properties": {
+    "iterationType": {
+      "type": "string",
+      "enum": [
+        "Once",
+        "Hourly",
+        "Daily",
+        "Weekly",
+        "Monthly",
+        "Custom",
+        "Cron"
+      ],
+      "description": "The frequency pattern for the schedule",
+      "example": "Once"
+    },
+    "startTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Start date and time (ISO 8601, must be in the future)",
+      "example": "2026-01-15T10:30:00Z"
+    },
+    "endTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "End date and time (ISO 8601)",
+      "example": "2026-01-15T10:30:00Z"
+    },
+    "hourlyContract": {
+      "type": "object",
+      "description": "Configuration for hourly iteration",
+      "properties": {
+        "hours": {
+          "type": "integer",
+          "description": "Number of hours between executions"
+        },
+        "minutes": {
+          "type": "integer",
+          "description": "Number of minutes between executions"
+        }
+      },
+      "example": "https://www.example.com"
+    },
+    "dailyContract": {
+      "type": "object",
+      "description": "Configuration for daily iteration",
+      "properties": {
+        "runOnlyWorkWeek": {
+          "type": "boolean",
+          "description": "Whether to run only on workdays (Monday-Friday)"
+        }
+      },
+      "example": "example_value"
+    },
+    "weeklyContract": {
+      "type": "object",
+      "description": "Configuration for weekly iteration",
+      "properties": {
+        "daysOfWeek": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Days of the week to run"
+        }
+      },
+      "example": "example_value"
+    },
+    "monthlyContract": {
+      "type": "object",
+      "description": "Configuration for monthly iteration",
+      "properties": {
+        "simpleDayOfMonth": {
+          "type": "boolean",
+          "description": "Whether to use a simple day-of-month pattern"
+        },
+        "dayOfMonth": {
+          "type": "string",
+          "description": "Day of the month to run"
+        },
+        "occurrence": {
+          "type": "string",
+          "description": "Occurrence pattern (First, Second, Third, Fourth, Last)"
+        },
+        "dayOfWeek": {
+          "type": "integer",
+          "description": "Day of the week (0=Sunday, 6=Saturday)"
+        }
+      },
+      "example": "example_value"
+    },
+    "customContract": {
+      "type": "object",
+      "description": "Configuration for custom iteration",
+      "properties": {
+        "daysOfMonth": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          },
+          "description": "Specific days of the month to run"
+        },
+        "months": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          },
+          "description": "Specific months to run (1-12)"
+        }
+      },
+      "example": "example_value"
+    },
+    "cronContract": {
+      "type": "object",
+      "description": "Configuration for cron-based iteration",
+      "properties": {
+        "cronExpression": {
+          "type": "string",
+          "description": "Cron expression with 5 mandatory fields: minute, hour, day-of-month, month, day-of-week"
+        }
+      },
+      "example": "example_value"
+    }
+  }
+}

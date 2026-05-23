@@ -1,0 +1,21 @@
+name: Alteryx Domain Vocabulary
+provider: Alteryx
+providerId: alteryx
+description: Tag-derived vocabulary for the Alteryx API surface; sourced from openapi/ tags.
+terms:
+- term: Workflows
+  description: Manage workflows including upload, retrieval, update, deletion, versioning, and job execution
+- term: Schedules
+  description: Create, retrieve, update, and delete workflow execution schedules
+- term: Users
+  description: Manage user accounts, permissions, and asset transfers
+- term: User Groups
+  description: Manage user groups and group membership
+- term: Credentials
+  description: Manage stored credentials and credential sharing
+- term: Collections
+  description: Manage collections of workflows, schedules, users, and user groups
+- term: Server Connections
+  description: Manage server data connections
+- term: Jobs
+  description: Manage and monitor workflow execution jobs
