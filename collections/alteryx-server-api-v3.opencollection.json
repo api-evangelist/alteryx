@@ -1,0 +1,1436 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Alteryx Server API V3",
+    "version": "3.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://{serverHostname}/webapi/oauth2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Workflows",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve All Workflows",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{serverHostname}/webapi/v3/workflows",
+            "params": [
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Level of detail in the response"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "Filter workflows by name"
+              },
+              {
+                "name": "ownerId",
+                "value": "",
+                "type": "query",
+                "description": "Filter workflows by owner ID"
+              },
+              {
+                "name": "createdAfter",
+                "value": "",
+                "type": "query",
+                "description": "Filter workflows created after this date (ISO 8601 format)"
+              },
+              {
+                "name": "createdBefore",
+                "value": "",
+                "type": "query",
+                "description": "Filter workflows created before this date (ISO 8601 format)"
+              }
+            ]
+          },
+          "docs": "Retrieve information about all workflow records with optional filtering."
+        },
+        {
+          "info": {
+            "name": "Upload a New Workflow",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{serverHostname}/webapi/v3/workflows",
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "name",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "ownerId",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "workerTag",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "districtTags",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "comments",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "isPublic",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "isReadyForMigration",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "sourceAppId",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "othersMayDownload",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "othersCanExecute",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "executionMode",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "hasPrivateDataExemption",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "workflowCredentialType",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "credentialId",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "collectionIds",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "bypassWorkflowVersionCheck",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Upload a new workflow package (YXZP file) to the Alteryx Server."
+        },
+        {
+          "info": {
+            "name": "Retrieve a Specific Workflow",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{serverHostname}/webapi/v3/workflows/:workflowId",
+            "params": [
+              {
+                "name": "workflowId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the workflow"
+              }
+            ]
+          },
+          "docs": "Retrieve detailed information about a specific workflow record."
+        },
+        {
+          "info": {
+            "name": "Update an Existing Workflow",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{serverHostname}/webapi/v3/workflows/:workflowId",
+            "params": [
+              {
+                "name": "workflowId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the workflow"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the properties of an existing workflow."
+        },
+        {
+          "info": {
+            "name": "Delete a Workflow",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{serverHostname}/webapi/v3/workflows/:workflowId",
+            "params": [
+              {
+                "name": "workflowId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the workflow"
+              },
+              {
+                "name": "force",
+                "value": "",
+                "type": "query",
+                "description": "Force deletion even if workflow has dependencies"
+              }
+            ]
+          },
+          "docs": "Delete a specific workflow from the server."
+        },
+        {
+          "info": {
+            "name": "Upload a New Version of an Existing Workflow",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{serverHostname}/webapi/v3/workflows/:workflowId/versions",
+            "params": [
+              {
+                "name": "workflowId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the workflow"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "name",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "ownerId",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "othersMayDownload",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "othersCanExecute",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "executionMode",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "hasPrivateDataExemption",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "comments",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "makePublished",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "workflowCredentialType",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "credentialId",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "bypassWorkflowVersionCheck",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Upload a new version of an existing workflow package."
+        },
+        {
+          "info": {
+            "name": "Download a Workflow Package",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{serverHostname}/webapi/v3/workflows/:workflowId/package",
+            "params": [
+              {
+                "name": "workflowId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the workflow"
+              },
+              {
+                "name": "versionId",
+                "value": "",
+                "type": "query",
+                "description": "Specific version ID to download"
+              }
+            ]
+          },
+          "docs": "Download the YXZP package file for a specific workflow."
+        },
+        {
+          "info": {
+            "name": "Retrieve Analytic App Questions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{serverHostname}/webapi/v3/workflows/:workflowId/questions",
+            "params": [
+              {
+                "name": "workflowId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the workflow"
+              },
+              {
+                "name": "versionId",
+                "value": "",
+                "type": "query",
+                "description": "Specific version ID"
+              }
+            ]
+          },
+          "docs": "Retrieve question (input) information for an analytic app workflow."
+        },
+        {
+          "info": {
+            "name": "Transfer Workflow Ownership",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{serverHostname}/webapi/v3/workflows/:workflowId/transfer",
+            "params": [
+              {
+                "name": "workflowId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the workflow"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Transfer a specific workflow to a different owner, optionally including associated schedules."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Jobs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Jobs for a Workflow",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{serverHostname}/webapi/v3/workflows/:workflowId/jobs",
+            "params": [
+              {
+                "name": "workflowId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the workflow"
+              },
+              {
+                "name": "sortField",
+                "value": "",
+                "type": "query",
+                "description": "Field to sort results by"
+              },
+              {
+                "name": "direction",
+                "value": "",
+                "type": "query",
+                "description": "Sort direction"
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Number of records to skip for pagination"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of records to return"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "Filter by job status"
+              },
+              {
+                "name": "resultCode",
+                "value": "",
+                "type": "query",
+                "description": "Filter by result code"
+              }
+            ]
+          },
+          "docs": "Retrieve execution jobs associated with a specific workflow."
+        },
+        {
+          "info": {
+            "name": "Create a New Job for a Workflow",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{serverHostname}/webapi/v3/workflows/:workflowId/jobs",
+            "params": [
+              {
+                "name": "workflowId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the workflow"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Queue a new execution job for a specific workflow."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Schedules",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve All Schedules",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{serverHostname}/webapi/v3/schedules",
+            "params": [
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Level of detail in the response"
+              },
+              {
+                "name": "ownerId",
+                "value": "",
+                "type": "query",
+                "description": "Filter by schedule owner"
+              },
+              {
+                "name": "workflowId",
+                "value": "",
+                "type": "query",
+                "description": "Filter by associated workflow"
+              },
+              {
+                "name": "runsAfter",
+                "value": "",
+                "type": "query",
+                "description": "Filter schedules that run after this date (ISO 8601, max 45-day range)"
+              },
+              {
+                "name": "runsBefore",
+                "value": "",
+                "type": "query",
+                "description": "Filter schedules that run before this date (ISO 8601, max 45-day range)"
+              }
+            ]
+          },
+          "docs": "Retrieve information about all schedules with optional filtering."
+        },
+        {
+          "info": {
+            "name": "Create a New Schedule",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{serverHostname}/webapi/v3/schedules",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new execution schedule for a workflow."
+        },
+        {
+          "info": {
+            "name": "Retrieve a Specific Schedule",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{serverHostname}/webapi/v3/schedules/:scheduleId",
+            "params": [
+              {
+                "name": "scheduleId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the schedule"
+              }
+            ]
+          },
+          "docs": "Retrieve detailed information about a specific schedule."
+        },
+        {
+          "info": {
+            "name": "Update a Schedule",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{serverHostname}/webapi/v3/schedules/:scheduleId",
+            "params": [
+              {
+                "name": "scheduleId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the schedule"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update all properties of an existing schedule. All required fields must be provided."
+        },
+        {
+          "info": {
+            "name": "Partially Update a Schedule",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://{serverHostname}/webapi/v3/schedules/:scheduleId",
+            "params": [
+              {
+                "name": "scheduleId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the schedule"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update specific properties of an existing schedule without requiring all fields."
+        },
+        {
+          "info": {
+            "name": "Delete a Schedule",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{serverHostname}/webapi/v3/schedules/:scheduleId",
+            "params": [
+              {
+                "name": "scheduleId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the schedule"
+              }
+            ]
+          },
+          "docs": "Remove a schedule from the system."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Users",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve All Users",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{serverHostname}/webapi/v3/users",
+            "params": [
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Level of detail in the response"
+              },
+              {
+                "name": "active",
+                "value": "",
+                "type": "query",
+                "description": "Filter by active status"
+              },
+              {
+                "name": "email",
+                "value": "",
+                "type": "query",
+                "description": "Filter by email address"
+              },
+              {
+                "name": "role",
+                "value": "",
+                "type": "query",
+                "description": "Filter by user role"
+              },
+              {
+                "name": "firstName",
+                "value": "",
+                "type": "query",
+                "description": "Filter by first name"
+              },
+              {
+                "name": "lastName",
+                "value": "",
+                "type": "query",
+                "description": "Filter by last name"
+              },
+              {
+                "name": "createdAfter",
+                "value": "",
+                "type": "query",
+                "description": "Filter users created after this date (ISO 8601)"
+              },
+              {
+                "name": "createdBefore",
+                "value": "",
+                "type": "query",
+                "description": "Filter users created before this date (ISO 8601)"
+              }
+            ]
+          },
+          "docs": "Retrieve information about all user records with optional filtering. Requires Curator role."
+        },
+        {
+          "info": {
+            "name": "Create a New User",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{serverHostname}/webapi/v3/users",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new user account on the Alteryx Server. Requires Curator role."
+        },
+        {
+          "info": {
+            "name": "Retrieve a Specific User",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{serverHostname}/webapi/v3/users/:userId",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the user"
+              }
+            ]
+          },
+          "docs": "Retrieve detailed information about a specific user. Requires Curator role."
+        },
+        {
+          "info": {
+            "name": "Update a User",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{serverHostname}/webapi/v3/users/:userId",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the user"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update user account details and permissions. Requires Curator role."
+        },
+        {
+          "info": {
+            "name": "Delete a User",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{serverHostname}/webapi/v3/users/:userId",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the user"
+              }
+            ]
+          },
+          "docs": "Delete a user from the system. The user must not own any assets or belong to any groups. Requires Curator role."
+        },
+        {
+          "info": {
+            "name": "Deactivate a User",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{serverHostname}/webapi/v3/users/:userId/deactivate",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the user"
+              }
+            ]
+          },
+          "docs": "Deactivate a user account and remove them from all user groups. Requires Curator role."
+        },
+        {
+          "info": {
+            "name": "Send Password Reset Email",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{serverHostname}/webapi/v3/users/:userId/passwordReset",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the user"
+              }
+            ]
+          },
+          "docs": "Send a password reset email to the user. Not available for Windows or SAML authentication methods. Requires Curator role."
+        },
+        {
+          "info": {
+            "name": "Retrieve User Assets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{serverHostname}/webapi/v3/users/:userId/assets",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the user"
+              },
+              {
+                "name": "assetType",
+                "value": "",
+                "type": "query",
+                "description": "Filter by asset type"
+              }
+            ]
+          },
+          "docs": "List all assets (workflows, schedules, collections) owned by a specific user. Requires Curator role."
+        },
+        {
+          "info": {
+            "name": "Transfer User Assets",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{serverHostname}/webapi/v3/users/:userId/assetTransfer",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the user"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Transfer all assets (workflows, schedules, and collections) owned by one user to another. The receiving user must have Artisan or Curator role. Requires Curator role."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Credentials",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve All Credentials",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{serverHostname}/webapi/v3/credentials",
+            "params": [
+              {
+                "name": "view",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "userId",
+                "value": "",
+                "type": "query",
+                "description": "Filter by user"
+              },
+              {
+                "name": "userGroupId",
+                "value": "",
+                "type": "query",
+                "description": "Filter by user group"
+              }
+            ]
+          },
+          "docs": "Retrieve all accessible credential records. Requires Curator role."
+        },
+        {
+          "info": {
+            "name": "Create a New Credential",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{serverHostname}/webapi/v3/credentials",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new credential record. Requires Curator role."
+        },
+        {
+          "info": {
+            "name": "Retrieve a Specific Credential",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{serverHostname}/webapi/v3/credentials/:credentialId",
+            "params": [
+              {
+                "name": "credentialId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the credential"
+              }
+            ]
+          },
+          "docs": "Retrieve details for a specific credential record."
+        },
+        {
+          "info": {
+            "name": "Update a Credential",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{serverHostname}/webapi/v3/credentials/:credentialId",
+            "params": [
+              {
+                "name": "credentialId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the credential"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an existing credential record. Requires Curator role."
+        },
+        {
+          "info": {
+            "name": "Delete a Credential",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{serverHostname}/webapi/v3/credentials/:credentialId",
+            "params": [
+              {
+                "name": "credentialId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the credential"
+              },
+              {
+                "name": "force",
+                "value": "",
+                "type": "query",
+                "description": "Force deletion with share cleanup"
+              }
+            ]
+          },
+          "docs": "Delete a credential from the system. Requires Curator role."
+        },
+        {
+          "info": {
+            "name": "Share Credential With a User",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{serverHostname}/webapi/v3/credentials/:credentialId/users",
+            "params": [
+              {
+                "name": "credentialId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the credential"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Grant a user access to a specific credential. Requires Curator role."
+        },
+        {
+          "info": {
+            "name": "Remove User Access to Credential",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{serverHostname}/webapi/v3/credentials/:credentialId/users/:userId",
+            "params": [
+              {
+                "name": "credentialId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the credential"
+              },
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the user"
+              }
+            ]
+          },
+          "docs": "Remove a user's access to a specific credential. Requires Curator role."
+        },
+        {
+          "info": {
+            "name": "Share Credential With a User Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{serverHostname}/webapi/v3/credentials/:credentialId/userGroups",
+            "params": [
+              {
+                "name": "credentialId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the credential"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Grant a user group access to a specific credential. Requires Curator role."
+        },
+        {
+          "info": {
+            "name": "Remove User Group Access to Credential",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{serverHostname}/webapi/v3/credentials/:credentialId/userGroups/:userGroupId",
+            "params": [
+              {
+                "name": "credentialId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the credential"
+              },
+              {
+                "name": "userGroupId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the user group"
+              }
+            ]
+          },
+          "docs": "Remove a user group's access to a specific credential. Requires Curator role."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Collections",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve All Collections",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{serverHostname}/webapi/v3/collections",
+            "params": [
+              {
+                "name": "view",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve all collections with optional view level."
+        },
+        {
+          "info": {
+            "name": "Create a New Collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{serverHostname}/webapi/v3/collections",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new collection. Requires Curator role."
+        },
+        {
+          "info": {
+            "name": "Retrieve a Specific Collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{serverHostname}/webapi/v3/collections/:collectionId",
+            "params": [
+              {
+                "name": "collectionId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the collection"
+              }
+            ]
+          },
+          "docs": "Retrieve detailed information about a specific collection."
+        },
+        {
+          "info": {
+            "name": "Update a Collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{serverHostname}/webapi/v3/collections/:collectionId",
+            "params": [
+              {
+                "name": "collectionId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the collection"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update collection name and owner."
+        },
+        {
+          "info": {
+            "name": "Delete a Collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{serverHostname}/webapi/v3/collections/:collectionId",
+            "params": [
+              {
+                "name": "collectionId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the collection"
+              },
+              {
+                "name": "forceDelete",
+                "value": "",
+                "type": "query",
+                "description": "Force deletion"
+              }
+            ]
+          },
+          "docs": "Delete a collection from the system."
+        },
+        {
+          "info": {
+            "name": "Add a User to a Collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{serverHostname}/webapi/v3/collections/:collectionId/users",
+            "params": [
+              {
+                "name": "collectionId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the collection"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add a user to a collection with specified permissions."
+        },
+        {
+          "info": {
+            "name": "Update User Permissions in a Collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{serverHostname}/webapi/v3/collections/:collectionId/users/:userId/permissions",
+            "params": [
+              {
+                "name": "collectionId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the collection"
+              },
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the user"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a user's permission flags within a collection."
+        },
+        {
+          "info": {
+            "name": "Remove a User From a Collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{serverHostname}/webapi/v3/collections/:collectionId/users/:userId",
+            "params": [
+              {
+                "name": "collectionId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the collection"
+              },
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the user"
+              }
+            ]
+          },
+          "docs": "Remove a User From a Collection"
+        },
+        {
+          "info": {
+            "name": "Add a User Group to a Collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{serverHostname}/webapi/v3/collections/:collectionId/userGroups",
+            "params": [
+              {
+                "name": "collectionId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the collection"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add a User Group to a Collection"
+        },
+        {
+          "info": {
+            "name": "Update User Group Permissions in a Collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{serverHostname}/webapi/v3/collections/:collectionId/userGroups/:userGroupId/permissions",
+            "params": [
+              {
+                "name": "collectionId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the collection"
+              },
+              {
+                "name": "userGroupId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update User Group Permissions in a Collection"
+        },
+        {
+          "info": {
+            "name": "Remove a User Group From a Collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{serverHostname}/webapi/v3/collections/:collectionId/userGroups/:userGroupId",
+            "params": [
+              {
+                "name": "collectionId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the collection"
+              },
+              {
+                "name": "userGroupId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Remove a User Group From a Collection"
+        },
+        {
+          "info": {
+            "name": "Add a Workflow to a Collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{serverHostname}/webapi/v3/collections/:collectionId/workflows",
+            "params": [
+              {
+                "name": "collectionId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the collection"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add a Workflow to a Collection"
+        },
+        {
+          "info": {
+            "name": "Remove a Workflow From a Collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{serverHostname}/webapi/v3/collections/:collectionId/workflows/:appId",
+            "params": [
+              {
+                "name": "collectionId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the collection"
+              },
+              {
+                "name": "appId",
+                "value": "",
+                "type": "path",
+                "description": "Workflow application ID"
+              }
+            ]
+          },
+          "docs": "Remove a Workflow From a Collection"
+        },
+        {
+          "info": {
+            "name": "Add a Schedule to a Collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{serverHostname}/webapi/v3/collections/:collectionId/schedules",
+            "params": [
+              {
+                "name": "collectionId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the collection"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add a Schedule to a Collection"
+        },
+        {
+          "info": {
+            "name": "Remove a Schedule From a Collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{serverHostname}/webapi/v3/collections/:collectionId/schedules/:scheduleId",
+            "params": [
+              {
+                "name": "collectionId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the collection"
+              },
+              {
+                "name": "scheduleId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the schedule"
+              }
+            ]
+          },
+          "docs": "Remove a Schedule From a Collection"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
