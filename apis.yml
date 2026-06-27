@@ -184,7 +184,7 @@ common:
     url: https://help.alteryx.com/current/en/developer-help.html
   - type: GettingStarted
     url: https://help.alteryx.com/current/en/developer-help/apis/get-started-with-apis.html
-  - type: SDK
+  - type: SDKs
     url: https://help.alteryx.com/current/en/developer-help/platform-sdk.html
   - type: StatusPage
     url: https://status.alteryx.com
