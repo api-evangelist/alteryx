@@ -180,6 +180,14 @@ apis:
         email: support@alteryx.com
         url: https://community.alteryx.com
 common:
+  - type: TrustCenter
+    url: security/alteryx-trust-center.yml
+  - type: VulnerabilityDisclosure
+    url: security/alteryx-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/alteryx-domain-security.yml
+  - type: Authentication
+    url: authentication/alteryx-authentication.yml
   - type: OAuthScopes
     url: scopes/alteryx-scopes.yml
   - type: DeveloperPortal
