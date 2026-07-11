@@ -180,6 +180,8 @@ apis:
         email: support@alteryx.com
         url: https://community.alteryx.com
 common:
+  - type: OAuthScopes
+    url: scopes/alteryx-scopes.yml
   - type: DeveloperPortal
     url: https://help.alteryx.com/current/en/developer-help.html
   - type: GettingStarted
