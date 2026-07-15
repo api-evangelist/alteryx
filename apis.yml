@@ -180,6 +180,8 @@ apis:
         email: support@alteryx.com
         url: https://community.alteryx.com
 common:
+  - type: AgenticAccess
+    url: agentic-access/alteryx-agentic-access.yml
   - type: TrustCenter
     url: security/alteryx-trust-center.yml
   - type: VulnerabilityDisclosure
