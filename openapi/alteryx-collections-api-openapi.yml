@@ -1,0 +1,559 @@
+openapi: 3.1.0
+info:
+  title: Alteryx Server API V3 Collections API
+  description: The Alteryx Server API V3 provides administrative capabilities for managing workflows, schedules, users, user groups, credentials, collections, and server connections. It uses OAuth 2 authentication and implements POST, PUT, GET, DELETE, and PATCH operations so administrators can automate tasks and integrate Server with existing API automation tools.
+  version: 3.0.0
+  contact:
+    name: Alteryx Support
+    email: support@alteryx.com
+    url: https://community.alteryx.com
+  license:
+    name: Proprietary
+    url: https://www.alteryx.com/terms-and-conditions
+  termsOfService: https://www.alteryx.com/terms-and-conditions
+  x-logo:
+    url: https://www.alteryx.com/sites/default/files/alteryx-logo-2021.svg
+servers:
+- url: https://{serverHostname}/webapi
+  description: Alteryx Server instance
+  variables:
+    serverHostname:
+      default: your-server.example.com
+      description: Hostname of your Alteryx Server instance
+security:
+- oauth2: []
+tags:
+- name: Collections
+  description: Manage collections of workflows, schedules, users, and user groups
+paths:
+  /v3/collections:
+    post:
+      operationId: createCollection
+      summary: Create a New Collection
+      description: Create a new collection. Requires Curator role.
+      tags:
+      - Collections
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - name
+              properties:
+                name:
+                  type: string
+                  description: Name of the collection
+      responses:
+        '201':
+          description: Collection created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Collection'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    get:
+      operationId: getCollections
+      summary: Retrieve All Collections
+      description: Retrieve all collections with optional view level.
+      tags:
+      - Collections
+      parameters:
+      - name: view
+        in: query
+        schema:
+          type: string
+          enum:
+          - Default
+          - Full
+          default: Default
+      responses:
+        '200':
+          description: List of collections
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Collection'
+        '401':
+          description: Unauthorized
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /v3/collections/{collectionId}:
+    get:
+      operationId: getCollection
+      summary: Retrieve a Specific Collection
+      description: Retrieve detailed information about a specific collection.
+      tags:
+      - Collections
+      parameters:
+      - $ref: '#/components/parameters/collectionId'
+      responses:
+        '200':
+          description: Collection details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Collection'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Collection not found
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    put:
+      operationId: updateCollection
+      summary: Update a Collection
+      description: Update collection name and owner.
+      tags:
+      - Collections
+      parameters:
+      - $ref: '#/components/parameters/collectionId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - name
+              - ownerId
+              properties:
+                name:
+                  type: string
+                ownerId:
+                  type: string
+      responses:
+        '200':
+          description: Collection updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Collection'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Collection not found
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    delete:
+      operationId: deleteCollection
+      summary: Delete a Collection
+      description: Delete a collection from the system.
+      tags:
+      - Collections
+      parameters:
+      - $ref: '#/components/parameters/collectionId'
+      - name: forceDelete
+        in: query
+        description: Force deletion
+        schema:
+          type: boolean
+          default: false
+      responses:
+        '200':
+          description: Collection deleted successfully
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Collection not found
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /v3/collections/{collectionId}/users:
+    post:
+      operationId: addUserToCollection
+      summary: Add a User to a Collection
+      description: Add a user to a collection with specified permissions.
+      tags:
+      - Collections
+      parameters:
+      - $ref: '#/components/parameters/collectionId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CollectionUserPermission'
+      responses:
+        '200':
+          description: User added to collection
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /v3/collections/{collectionId}/users/{userId}/permissions:
+    put:
+      operationId: updateCollectionUserPermissions
+      summary: Update User Permissions in a Collection
+      description: Update a user's permission flags within a collection.
+      tags:
+      - Collections
+      parameters:
+      - $ref: '#/components/parameters/collectionId'
+      - $ref: '#/components/parameters/userId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CollectionPermissionFlags'
+      responses:
+        '200':
+          description: Permissions updated
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /v3/collections/{collectionId}/users/{userId}:
+    delete:
+      operationId: removeUserFromCollection
+      summary: Remove a User From a Collection
+      tags:
+      - Collections
+      parameters:
+      - $ref: '#/components/parameters/collectionId'
+      - $ref: '#/components/parameters/userId'
+      responses:
+        '200':
+          description: User removed from collection
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /v3/collections/{collectionId}/userGroups:
+    post:
+      operationId: addUserGroupToCollection
+      summary: Add a User Group to a Collection
+      tags:
+      - Collections
+      parameters:
+      - $ref: '#/components/parameters/collectionId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - userGroupId
+              properties:
+                userGroupId:
+                  type: string
+                isAdmin:
+                  type: boolean
+                  default: false
+                canAddAssets:
+                  type: boolean
+                  default: false
+                canRemoveAssets:
+                  type: boolean
+                  default: false
+                canUpdateAssets:
+                  type: boolean
+                  default: false
+                canAddUsers:
+                  type: boolean
+                  default: false
+                canRemoveUsers:
+                  type: boolean
+                  default: false
+      responses:
+        '200':
+          description: User group added to collection
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /v3/collections/{collectionId}/userGroups/{userGroupId}/permissions:
+    put:
+      operationId: updateCollectionUserGroupPermissions
+      summary: Update User Group Permissions in a Collection
+      tags:
+      - Collections
+      parameters:
+      - $ref: '#/components/parameters/collectionId'
+      - name: userGroupId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CollectionPermissionFlags'
+      responses:
+        '200':
+          description: Permissions updated
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /v3/collections/{collectionId}/userGroups/{userGroupId}:
+    delete:
+      operationId: removeUserGroupFromCollection
+      summary: Remove a User Group From a Collection
+      tags:
+      - Collections
+      parameters:
+      - $ref: '#/components/parameters/collectionId'
+      - name: userGroupId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: User group removed from collection
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /v3/collections/{collectionId}/workflows:
+    post:
+      operationId: addWorkflowToCollection
+      summary: Add a Workflow to a Collection
+      tags:
+      - Collections
+      parameters:
+      - $ref: '#/components/parameters/collectionId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - workflowId
+              properties:
+                workflowId:
+                  type: string
+      responses:
+        '200':
+          description: Workflow added to collection
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /v3/collections/{collectionId}/workflows/{appId}:
+    delete:
+      operationId: removeWorkflowFromCollection
+      summary: Remove a Workflow From a Collection
+      tags:
+      - Collections
+      parameters:
+      - $ref: '#/components/parameters/collectionId'
+      - name: appId
+        in: path
+        required: true
+        description: Workflow application ID
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Workflow removed from collection
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /v3/collections/{collectionId}/schedules:
+    post:
+      operationId: addScheduleToCollection
+      summary: Add a Schedule to a Collection
+      tags:
+      - Collections
+      parameters:
+      - $ref: '#/components/parameters/collectionId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - scheduleId
+              properties:
+                scheduleId:
+                  type: string
+      responses:
+        '200':
+          description: Schedule added to collection
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /v3/collections/{collectionId}/schedules/{scheduleId}:
+    delete:
+      operationId: removeScheduleFromCollection
+      summary: Remove a Schedule From a Collection
+      tags:
+      - Collections
+      parameters:
+      - $ref: '#/components/parameters/collectionId'
+      - $ref: '#/components/parameters/scheduleId'
+      responses:
+        '200':
+          description: Schedule removed from collection
+        '401':
+          description: Unauthorized
+        '404':
+          description: Not found
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    CollectionPermissionFlags:
+      type: object
+      description: Permission flags for collection access
+      properties:
+        isAdmin:
+          type: boolean
+          example: true
+        canAddAssets:
+          type: boolean
+          example: true
+        canRemoveAssets:
+          type: boolean
+          example: true
+        canUpdateAssets:
+          type: boolean
+          example: true
+        canAddUsers:
+          type: boolean
+          example: true
+        canRemoveUsers:
+          type: boolean
+          example: true
+    Collection:
+      type: object
+      description: A collection of workflows, schedules, and users
+      properties:
+        id:
+          type: string
+          description: Unique collection identifier
+          example: abc123
+        name:
+          type: string
+          description: Name of the collection
+          example: Example Title
+        ownerId:
+          type: string
+          description: ID of the collection owner
+          example: '500123'
+        dateCreated:
+          type: string
+          format: date-time
+          description: Date the collection was created
+          example: '2026-01-15T10:30:00Z'
+    CollectionUserPermission:
+      type: object
+      description: User permissions within a collection
+      required:
+      - userId
+      properties:
+        userId:
+          type: string
+          description: ID of the user
+          example: '500123'
+        isAdmin:
+          type: boolean
+          default: false
+          example: true
+        canAddAssets:
+          type: boolean
+          default: false
+          example: true
+        canRemoveAssets:
+          type: boolean
+          default: false
+          example: true
+        canUpdateAssets:
+          type: boolean
+          default: false
+          example: true
+        canAddUsers:
+          type: boolean
+          default: false
+          example: true
+        canRemoveUsers:
+          type: boolean
+          default: false
+          example: true
+  parameters:
+    scheduleId:
+      name: scheduleId
+      in: path
+      required: true
+      description: Unique identifier of the schedule
+      schema:
+        type: string
+    collectionId:
+      name: collectionId
+      in: path
+      required: true
+      description: Unique identifier of the collection
+      schema:
+        type: string
+    userId:
+      name: userId
+      in: path
+      required: true
+      description: Unique identifier of the user
+      schema:
+        type: string
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: OAuth 2.0 authentication using API Access Key and API Access Secret obtained from the Server User Interface under the Keys section.
+      flows:
+        clientCredentials:
+          tokenUrl: https://{serverHostname}/webapi/oauth2/token
+          scopes: {}
+externalDocs:
+  description: Alteryx Server API V3 Documentation
+  url: https://help.alteryx.com/current/en/server/api-overview/alteryx-server-api-v3.html

@@ -1,0 +1,290 @@
+openapi: 3.1.0
+info:
+  title: Alteryx Server API V3 Collections Jobs API
+  description: The Alteryx Server API V3 provides administrative capabilities for managing workflows, schedules, users, user groups, credentials, collections, and server connections. It uses OAuth 2 authentication and implements POST, PUT, GET, DELETE, and PATCH operations so administrators can automate tasks and integrate Server with existing API automation tools.
+  version: 3.0.0
+  contact:
+    name: Alteryx Support
+    email: support@alteryx.com
+    url: https://community.alteryx.com
+  license:
+    name: Proprietary
+    url: https://www.alteryx.com/terms-and-conditions
+  termsOfService: https://www.alteryx.com/terms-and-conditions
+  x-logo:
+    url: https://www.alteryx.com/sites/default/files/alteryx-logo-2021.svg
+servers:
+- url: https://{serverHostname}/webapi
+  description: Alteryx Server instance
+  variables:
+    serverHostname:
+      default: your-server.example.com
+      description: Hostname of your Alteryx Server instance
+security:
+- oauth2: []
+tags:
+- name: Jobs
+  description: Manage and monitor workflow execution jobs
+paths:
+  /v3/workflows/{workflowId}/jobs:
+    get:
+      operationId: getWorkflowJobs
+      summary: Get Jobs for a Workflow
+      description: Retrieve execution jobs associated with a specific workflow.
+      tags:
+      - Jobs
+      parameters:
+      - $ref: '#/components/parameters/workflowId'
+      - name: sortField
+        in: query
+        description: Field to sort results by
+        schema:
+          type: string
+      - name: direction
+        in: query
+        description: Sort direction
+        schema:
+          type: string
+          enum:
+          - asc
+          - desc
+      - name: offset
+        in: query
+        description: Number of records to skip for pagination
+        schema:
+          type: string
+      - name: limit
+        in: query
+        description: Maximum number of records to return
+        schema:
+          type: string
+      - name: status
+        in: query
+        description: Filter by job status
+        schema:
+          type: string
+          enum:
+          - Complete
+          - Error
+          - Running
+          - Queued
+      - name: resultCode
+        in: query
+        description: Filter by result code
+        schema:
+          type: string
+          enum:
+          - Success
+          - Warning
+          - Error
+      responses:
+        '200':
+          description: List of jobs
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/JobSummary'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Workflow not found
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      operationId: createJob
+      summary: Create a New Job for a Workflow
+      description: Queue a new execution job for a specific workflow.
+      tags:
+      - Jobs
+      parameters:
+      - $ref: '#/components/parameters/workflowId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateJobContract'
+      responses:
+        '200':
+          description: Job created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobDetail'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Workflow not found
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  parameters:
+    workflowId:
+      name: workflowId
+      in: path
+      required: true
+      description: Unique identifier of the workflow
+      schema:
+        type: string
+  schemas:
+    JobDetail:
+      type: object
+      description: Detailed representation of an execution job
+      properties:
+        id:
+          type: string
+          description: Unique job identifier
+          example: abc123
+        appId:
+          type: string
+          description: Workflow application ID
+          example: '500123'
+        createDateTime:
+          type: string
+          format: date-time
+          description: Date and time the job was created
+          example: '2026-01-15T10:30:00Z'
+        status:
+          type: string
+          description: Current job status
+          example: example_value
+        disposition:
+          type: string
+          description: Final disposition of the job
+          example: example_value
+        outputs:
+          type: array
+          description: Output files generated by the job
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                description: Output identifier
+              availableFormats:
+                type: array
+                items:
+                  type: string
+                description: Available download formats
+              fileName:
+                type: string
+                description: Name of the output file
+          example: []
+        messages:
+          type: array
+          description: Messages generated during execution
+          items:
+            type: object
+            properties:
+              status:
+                type: integer
+                description: Message status code
+              text:
+                type: string
+                description: Message text
+              toolId:
+                type: integer
+                description: ID of the tool that generated the message
+          example: []
+        priority:
+          type: string
+          enum:
+          - Low
+          - Medium
+          - High
+          - Critical
+          example: Low
+        workerTag:
+          type: string
+          example: example_value
+        runWithE2:
+          type: boolean
+          example: true
+    CreateJobContract:
+      type: object
+      description: Contract for creating a new execution job
+      properties:
+        workerTag:
+          type: string
+          default: none
+          description: Worker tag for routing
+          example: example_value
+        credentialId:
+          type: string
+          description: Credential to use for execution
+          example: '500123'
+        questions:
+          type: array
+          description: Analytic app question values
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              value:
+                type: string
+          example: []
+        priority:
+          type: string
+          enum:
+          - Low
+          - Medium
+          - High
+          - Critical
+          description: Job priority
+          example: Low
+    JobSummary:
+      type: object
+      description: Summary representation of an execution job
+      properties:
+        id:
+          type: string
+          description: Unique job identifier
+          example: abc123
+        createDate:
+          type: string
+          format: date-time
+          description: Date the job was created
+          example: '2026-01-15T10:30:00Z'
+        status:
+          type: string
+          description: Current job status
+          example: example_value
+        priority:
+          type: string
+          enum:
+          - Low
+          - Medium
+          - High
+          - Critical
+          description: Job priority
+          example: Low
+        workerTag:
+          type: string
+          description: Worker tag for execution routing
+          example: example_value
+        runWithE2:
+          type: boolean
+          description: Whether the job runs with AMP engine
+          example: true
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: OAuth 2.0 authentication using API Access Key and API Access Secret obtained from the Server User Interface under the Keys section.
+      flows:
+        clientCredentials:
+          tokenUrl: https://{serverHostname}/webapi/oauth2/token
+          scopes: {}
+externalDocs:
+  description: Alteryx Server API V3 Documentation
+  url: https://help.alteryx.com/current/en/server/api-overview/alteryx-server-api-v3.html

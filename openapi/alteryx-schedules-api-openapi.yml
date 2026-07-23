@@ -1,0 +1,660 @@
+openapi: 3.1.0
+info:
+  title: Alteryx Server API V3 Collections Schedules API
+  description: The Alteryx Server API V3 provides administrative capabilities for managing workflows, schedules, users, user groups, credentials, collections, and server connections. It uses OAuth 2 authentication and implements POST, PUT, GET, DELETE, and PATCH operations so administrators can automate tasks and integrate Server with existing API automation tools.
+  version: 3.0.0
+  contact:
+    name: Alteryx Support
+    email: support@alteryx.com
+    url: https://community.alteryx.com
+  license:
+    name: Proprietary
+    url: https://www.alteryx.com/terms-and-conditions
+  termsOfService: https://www.alteryx.com/terms-and-conditions
+  x-logo:
+    url: https://www.alteryx.com/sites/default/files/alteryx-logo-2021.svg
+servers:
+- url: https://{serverHostname}/webapi
+  description: Alteryx Server instance
+  variables:
+    serverHostname:
+      default: your-server.example.com
+      description: Hostname of your Alteryx Server instance
+security:
+- oauth2: []
+tags:
+- name: Schedules
+  description: Create, retrieve, update, and delete workflow execution schedules
+paths:
+  /v3/schedules:
+    post:
+      operationId: createSchedule
+      summary: Create a New Schedule
+      description: Create a new execution schedule for a workflow.
+      tags:
+      - Schedules
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateScheduleContract'
+      responses:
+        '201':
+          description: Schedule created successfully
+          content:
+            application/json:
+              schema:
+                type: string
+                description: The ID of the newly created schedule
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    get:
+      operationId: getSchedules
+      summary: Retrieve All Schedules
+      description: Retrieve information about all schedules with optional filtering.
+      tags:
+      - Schedules
+      parameters:
+      - name: view
+        in: query
+        description: Level of detail in the response
+        schema:
+          type: string
+          enum:
+          - Default
+          - Full
+          default: Default
+      - name: ownerId
+        in: query
+        description: Filter by schedule owner
+        schema:
+          type: string
+      - name: workflowId
+        in: query
+        description: Filter by associated workflow
+        schema:
+          type: string
+      - name: runsAfter
+        in: query
+        description: Filter schedules that run after this date (ISO 8601, max 45-day range)
+        schema:
+          type: string
+          format: date-time
+      - name: runsBefore
+        in: query
+        description: Filter schedules that run before this date (ISO 8601, max 45-day range)
+        schema:
+          type: string
+          format: date-time
+      responses:
+        '200':
+          description: List of schedules
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ScheduleSummary'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /v3/schedules/{scheduleId}:
+    get:
+      operationId: getSchedule
+      summary: Retrieve a Specific Schedule
+      description: Retrieve detailed information about a specific schedule.
+      tags:
+      - Schedules
+      parameters:
+      - $ref: '#/components/parameters/scheduleId'
+      responses:
+        '200':
+          description: Schedule details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ScheduleDetail'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Schedule not found
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    put:
+      operationId: updateSchedule
+      summary: Update a Schedule
+      description: Update all properties of an existing schedule. All required fields must be provided.
+      tags:
+      - Schedules
+      parameters:
+      - $ref: '#/components/parameters/scheduleId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateScheduleContract'
+      responses:
+        '200':
+          description: Schedule updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ScheduleDetail'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Schedule not found
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    patch:
+      operationId: patchSchedule
+      summary: Partially Update a Schedule
+      description: Update specific properties of an existing schedule without requiring all fields.
+      tags:
+      - Schedules
+      parameters:
+      - $ref: '#/components/parameters/scheduleId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchScheduleContract'
+      responses:
+        '200':
+          description: Schedule updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ScheduleDetail'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Schedule not found
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    delete:
+      operationId: deleteSchedule
+      summary: Delete a Schedule
+      description: Remove a schedule from the system.
+      tags:
+      - Schedules
+      parameters:
+      - $ref: '#/components/parameters/scheduleId'
+      responses:
+        '200':
+          description: Schedule deleted successfully
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '404':
+          description: Schedule not found
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    CreateScheduleContract:
+      type: object
+      description: Contract for creating a new schedule
+      required:
+      - workflowId
+      - iteration
+      properties:
+        workflowId:
+          type: string
+          description: ID of the workflow to schedule
+          example: '500123'
+        iteration:
+          $ref: '#/components/schemas/ScheduleIteration'
+        name:
+          type: string
+          description: Name of the schedule
+          example: Example Title
+        comment:
+          type: string
+          description: Comments about the schedule
+          example: example_value
+        priority:
+          type: string
+          enum:
+          - Low
+          - Medium
+          - High
+          - Critical
+          default: Low
+          description: Execution priority
+          example: Low
+        workerTag:
+          type: string
+          default: none
+          description: Worker tag for execution routing
+          example: example_value
+        credentialId:
+          type: string
+          description: Credential to use for execution
+          example: '500123'
+        timeZone:
+          type: string
+          default: UTC
+          description: Time zone for the schedule (defaults to UTC-0)
+          example: example_value
+        questions:
+          type: array
+          description: Analytic app question values
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              value:
+                type: string
+          example: []
+    ScheduleDetail:
+      type: object
+      description: Detailed representation of a schedule
+      properties:
+        id:
+          type: string
+          description: Unique schedule identifier
+          example: abc123
+        name:
+          type: string
+          description: Name of the schedule
+          example: Example Title
+        workflowId:
+          type: string
+          description: ID of the associated workflow
+          example: '500123'
+        versionId:
+          type: string
+          description: Specific workflow version ID
+          example: '500123'
+        ownerId:
+          type: string
+          description: ID of the schedule owner
+          example: '500123'
+        runDateTime:
+          type: string
+          format: date-time
+          description: Next scheduled run date and time
+          example: '2026-01-15T10:30:00Z'
+        comment:
+          type: string
+          description: Comments about the schedule
+          example: example_value
+        enabled:
+          type: boolean
+          description: Whether the schedule is active
+          example: true
+        priority:
+          type: string
+          enum:
+          - Low
+          - Medium
+          - High
+          - Critical
+          description: Execution priority
+          example: Low
+        workerTag:
+          type: string
+          description: Worker tag for execution routing
+          example: example_value
+        status:
+          type: string
+          description: Current status of the schedule
+          example: example_value
+        credentialId:
+          type: string
+          description: Credential used for execution
+          example: '500123'
+        creationTime:
+          type: string
+          format: date-time
+          description: When the schedule was created
+          example: '2026-01-15T10:30:00Z'
+        lastRunTime:
+          type: string
+          format: date-time
+          description: When the schedule last executed
+          example: '2026-01-15T10:30:00Z'
+        state:
+          type: string
+          description: Current state of the schedule
+          example: example_value
+        runCount:
+          type: integer
+          description: Total number of times the schedule has executed
+          example: 10
+        iteration:
+          $ref: '#/components/schemas/ScheduleIteration'
+        frequency:
+          type: string
+          description: Human-readable frequency description
+          example: example_value
+        lastError:
+          type: string
+          description: Last error message if any
+          example: example_value
+        cpuName:
+          type: string
+          description: Name of the worker node
+          example: example_value
+        lastModifiedId:
+          type: string
+          description: ID of the user who last modified the schedule
+          example: '500123'
+        lastModifiedDate:
+          type: string
+          format: date-time
+          description: Date of last modification
+          example: '2026-01-15T10:30:00Z'
+        canEdit:
+          type: boolean
+          description: Whether the current user can edit this schedule
+          example: true
+        timeZone:
+          type: string
+          description: Time zone for the schedule
+          example: example_value
+        questions:
+          type: array
+          description: Analytic app question values
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              value:
+                type: string
+          example: []
+    ScheduleIteration:
+      type: object
+      description: Schedule iteration configuration defining when and how often a schedule runs
+      required:
+      - iterationType
+      - startTime
+      properties:
+        iterationType:
+          type: string
+          enum:
+          - Once
+          - Hourly
+          - Daily
+          - Weekly
+          - Monthly
+          - Custom
+          - Cron
+          description: The frequency pattern for the schedule
+          example: Once
+        startTime:
+          type: string
+          format: date-time
+          description: Start date and time (ISO 8601, must be in the future)
+          example: '2026-01-15T10:30:00Z'
+        endTime:
+          type: string
+          format: date-time
+          description: End date and time (ISO 8601)
+          example: '2026-01-15T10:30:00Z'
+        hourlyContract:
+          type: object
+          description: Configuration for hourly iteration
+          properties:
+            hours:
+              type: integer
+              description: Number of hours between executions
+            minutes:
+              type: integer
+              description: Number of minutes between executions
+          example: https://www.example.com
+        dailyContract:
+          type: object
+          description: Configuration for daily iteration
+          properties:
+            runOnlyWorkWeek:
+              type: boolean
+              description: Whether to run only on workdays (Monday-Friday)
+          example: example_value
+        weeklyContract:
+          type: object
+          description: Configuration for weekly iteration
+          properties:
+            daysOfWeek:
+              type: array
+              items:
+                type: string
+              description: Days of the week to run
+          example: example_value
+        monthlyContract:
+          type: object
+          description: Configuration for monthly iteration
+          properties:
+            simpleDayOfMonth:
+              type: boolean
+              description: Whether to use a simple day-of-month pattern
+            dayOfMonth:
+              type: string
+              description: Day of the month to run
+            occurrence:
+              type: string
+              description: Occurrence pattern (First, Second, Third, Fourth, Last)
+            dayOfWeek:
+              type: integer
+              description: Day of the week (0=Sunday, 6=Saturday)
+          example: example_value
+        customContract:
+          type: object
+          description: Configuration for custom iteration
+          properties:
+            daysOfMonth:
+              type: array
+              items:
+                type: integer
+              description: Specific days of the month to run
+            months:
+              type: array
+              items:
+                type: integer
+              description: Specific months to run (1-12)
+          example: example_value
+        cronContract:
+          type: object
+          description: Configuration for cron-based iteration
+          properties:
+            cronExpression:
+              type: string
+              description: 'Cron expression with 5 mandatory fields: minute, hour, day-of-month, month, day-of-week'
+          example: example_value
+    ScheduleSummary:
+      type: object
+      description: Summary representation of a schedule
+      properties:
+        id:
+          type: string
+          description: Unique schedule identifier
+          example: abc123
+        name:
+          type: string
+          description: Name of the schedule
+          example: Example Title
+        workflowId:
+          type: string
+          description: ID of the associated workflow
+          example: '500123'
+        ownerId:
+          type: string
+          description: ID of the schedule owner
+          example: '500123'
+        runDateTime:
+          type: string
+          format: date-time
+          description: Next scheduled run date and time
+          example: '2026-01-15T10:30:00Z'
+        timeZone:
+          type: string
+          description: Time zone for the schedule
+          example: example_value
+    UpdateScheduleContract:
+      type: object
+      description: Contract for fully updating a schedule (all required fields must be provided)
+      required:
+      - workflowId
+      - ownerId
+      - iteration
+      - name
+      - comment
+      - workerTag
+      - credentialId
+      properties:
+        workflowId:
+          type: string
+          example: '500123'
+        ownerId:
+          type: string
+          example: '500123'
+        iteration:
+          $ref: '#/components/schemas/ScheduleIteration'
+        name:
+          type: string
+          example: Example Title
+        comment:
+          type: string
+          example: example_value
+        priority:
+          type: string
+          enum:
+          - Low
+          - Medium
+          - High
+          - Critical
+          default: Low
+          example: Low
+        workerTag:
+          type: string
+          example: example_value
+        enabled:
+          type: boolean
+          example: true
+        credentialId:
+          type: string
+          example: '500123'
+        timeZone:
+          type: string
+          example: example_value
+        questions:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              value:
+                type: string
+          example: []
+    PatchScheduleContract:
+      type: object
+      description: Contract for partially updating a schedule
+      properties:
+        ownerId:
+          type: string
+          example: '500123'
+        iteration:
+          $ref: '#/components/schemas/ScheduleIteration'
+        name:
+          type: string
+          example: Example Title
+        comment:
+          type: string
+          example: example_value
+        priority:
+          type: string
+          enum:
+          - Low
+          - Medium
+          - High
+          - Critical
+          example: Low
+        workerTag:
+          type: string
+          example: example_value
+        enabled:
+          type: boolean
+          example: true
+        credentialId:
+          type: string
+          example: '500123'
+        timeZone:
+          type: string
+          example: example_value
+        questions:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              value:
+                type: string
+          example: []
+    ErrorResponse:
+      type: object
+      description: Standard error response
+      properties:
+        message:
+          type: string
+          description: Human-readable error message
+          example: example_value
+        errors:
+          type: array
+          description: Detailed error information
+          items:
+            type: object
+            properties:
+              field:
+                type: string
+              message:
+                type: string
+          example: []
+  parameters:
+    scheduleId:
+      name: scheduleId
+      in: path
+      required: true
+      description: Unique identifier of the schedule
+      schema:
+        type: string
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: OAuth 2.0 authentication using API Access Key and API Access Secret obtained from the Server User Interface under the Keys section.
+      flows:
+        clientCredentials:
+          tokenUrl: https://{serverHostname}/webapi/oauth2/token
+          scopes: {}
+externalDocs:
+  description: Alteryx Server API V3 Documentation
+  url: https://help.alteryx.com/current/en/server/api-overview/alteryx-server-api-v3.html
