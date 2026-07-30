@@ -3,6 +3,19 @@ name: Alteryx
 description: >-
   Alteryx is an analytics automation platform that enables data analysts and scientists to break data barriers, deliver
   insights, and experience the thrill of getting to the answer faster.
+accessModel:
+  pricing: paid
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Paid · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 image: https://www.alteryx.com/sites/default/files/alteryx-logo-2021.svg
 url: https://raw.githubusercontent.com/api-evangelist/alteryx/refs/heads/main/apis.yml
 created: '2024-01-15'
@@ -18,168 +31,237 @@ tags:
   - Machine Learning
   - Predictive Analytics
 apis:
-  - name: Alteryx Server API
-    description: >-
-      REST API for managing workflows, schedules, and jobs on Alteryx Server. Provides Subscription, User V2, Admin V1,
-      Admin V2, and V3 API endpoints for creating, updating, searching, and deleting users, user groups, schedules,
-      credentials, collections, workflows, and Server connections.
-    image: https://www.alteryx.com/sites/default/files/alteryx-logo-2021.svg
-    humanURL: https://help.alteryx.com/current/en/server/api-overview.html
-    baseURL: https://your-server/webapi
-    tags:
-      - Automation
-      - Jobs
-      - Scheduling
-      - Server
-      - Workflows
-    properties:
-      - type: Documentation
-        url: https://help.alteryx.com/current/en/server/api-overview.html
-      - type: APIReference
-        url: https://help.alteryx.com/developer-help/server-api-reference
-      - type: Authentication
-        url: >-
-          https://help.alteryx.com/current/en/server/api-overview/alteryx-server-api-v3/server-api-configuration-and-authorization.html
-      - type: GettingStarted
-        url: https://help.alteryx.com/current/en/developer-help/apis/get-started-with-apis.html
-    contact:
-      - FN: Alteryx Support
-        email: support@alteryx.com
-        url: https://community.alteryx.com
-  - name: Alteryx Server API V3
-    description: >-
-      The V3 Admin API for Alteryx Server uses OAuth 2 authentication and implements POST, PUT, GET, and DELETE
-      functionality for modifying assets, users, credentials, and connections so admins can automate tasks and integrate
-      Server with their existing API automation tools.
-    image: https://www.alteryx.com/sites/default/files/alteryx-logo-2021.svg
-    humanURL: https://help.alteryx.com/current/en/server/api-overview/alteryx-server-api-v3.html
-    baseURL: https://your-server/webapi/v3
-    tags:
-      - Admin
-      - Credentials
-      - OAuth2
-      - Server
-      - Users
-      - Workflows
-    properties:
-      - type: Documentation
-        url: https://help.alteryx.com/current/en/server/api-overview/alteryx-server-api-v3.html
-      - type: Authentication
-        url: >-
-          https://help.alteryx.com/current/en/server/api-overview/alteryx-server-api-v3/server-api-configuration-and-authorization.html
-      - type: OpenAPI
-        url: openapi/alteryx-server-api-v3.yml
-    contact:
-      - FN: Alteryx Support
-        email: support@alteryx.com
-        url: https://community.alteryx.com
-  - name: Alteryx Server API V1
-    description: >-
-      The V1 API for Alteryx Server provides endpoints for admins including the Migratable Endpoint for migrating
-      workflows across Server environments and the Auditlog Endpoint for tracking changes to system entities.
-    image: https://www.alteryx.com/sites/default/files/alteryx-logo-2021.svg
-    humanURL: https://help.alteryx.com/current/en/server/api-overview/alteryx-server-api-v1.html
-    baseURL: https://your-server/webapi/v1
-    tags:
-      - Admin
-      - Audit
-      - Migration
-      - Server
-    properties:
-      - type: Documentation
-        url: https://help.alteryx.com/current/en/server/api-overview/alteryx-server-api-v1.html
-    contact:
-      - FN: Alteryx Support
-        email: support@alteryx.com
-        url: https://community.alteryx.com
-  - name: Alteryx Gallery API
-    description: API for interacting with Alteryx Analytics Gallery for workflow sharing and execution.
-    image: https://www.alteryx.com/sites/default/files/alteryx-logo-2021.svg
-    humanURL: https://help.alteryx.com/developer-help/gallery-api-overview
-    baseURL: https://gallery.alteryx.com/api
-    tags:
-      - Gallery
-      - Public API
-      - Sharing
-      - Workflows
-    properties:
-      - type: Documentation
-        url: https://help.alteryx.com/developer-help/gallery-api-overview
-      - type: APIReference
-        url: https://help.alteryx.com/developer-help/gallery-api-reference
-      - type: Authentication
-        url: https://help.alteryx.com/developer-help/gallery-api-authentication
-    contact:
-      - FN: Alteryx Support
-        email: support@alteryx.com
-        url: https://community.alteryx.com
-  - name: Alteryx Connect API
-    description: API for Alteryx Connect data catalog and collaboration platform.
-    image: https://www.alteryx.com/sites/default/files/alteryx-logo-2021.svg
-    humanURL: https://help.alteryx.com/developer-help/connect-api
-    baseURL: https://your-connect-server/api
-    tags:
-      - Collaboration
-      - Data Catalog
-      - Governance
-      - Metadata
-    properties:
-      - type: Documentation
-        url: https://help.alteryx.com/developer-help/connect-api
-      - type: Authentication
-        url: https://help.alteryx.com/developer-help/connect-authentication
-    contact:
-      - FN: Alteryx Support
-        email: support@alteryx.com
-        url: https://community.alteryx.com
-  - name: Alteryx AlteryxEngine API
-    description: >-
-      The AlteryxEngine API allows you to call into the Alteryx Engine to build applications that can programmatically
-      execute Alteryx Designer workflows. Workflows and applications can be executed as a separate child process or
-      in-process.
-    image: https://www.alteryx.com/sites/default/files/alteryx-logo-2021.svg
-    humanURL: https://help.alteryx.com/current/en/developer-help/apis/alteryxengine-api-overview.html
-    baseURL: https://your-server/api
-    tags:
-      - Designer
-      - Engine
-      - Execution
-      - Workflows
-    properties:
-      - type: Documentation
-        url: https://help.alteryx.com/current/en/developer-help/apis/alteryxengine-api-overview.html
-      - type: GettingStarted
-        url: >-
-          https://help.alteryx.com/current/en/developer-help/apis/alteryxengine-api-overview/alteryxengine-api-example.html
-    contact:
-      - FN: Alteryx Support
-        email: support@alteryx.com
-        url: https://community.alteryx.com
-  - name: Alteryx Designer Cloud API
-    description: >-
-      REST API for Alteryx Designer Cloud (powered by Trifacta) providing data preparation, transformation, and pipeline
-      management capabilities. Enables programmatic access to data preparation workflows and job execution.
-    image: https://www.alteryx.com/sites/default/files/alteryx-logo-2021.svg
-    humanURL: https://help.alteryx.com/dataprep/en/developer/api-reference.html
-    baseURL: https://api.trifacta.com
-    tags:
-      - Cloud
-      - Data Preparation
-      - Pipelines
-      - Transformation
-      - Trifacta
-    properties:
-      - type: Documentation
-        url: https://help.alteryx.com/dataprep/en/developer/api-reference.html
-      - type: APIReference
-        url: https://api.trifacta.com/
-      - type: Authentication
-        url: https://help.alteryx.com/Dataprep/en/developer/api-reference/manage-api-access-tokens.html
-    contact:
-      - FN: Alteryx Support
-        email: support@alteryx.com
-        url: https://community.alteryx.com
+- name: Alteryx Server API
+  description: >-
+    REST API for managing workflows, schedules, and jobs on Alteryx Server. Provides Subscription, User
+    V2, Admin V1, Admin V2, and V3 API endpoints for creating, updating, searching, and deleting users,
+    user groups, schedules, credentials, collections, workflows, and Server connections.
+  image: https://www.alteryx.com/sites/default/files/alteryx-logo-2021.svg
+  humanURL: https://help.alteryx.com/current/en/server/api-overview.html
+  baseURL: https://your-server/webapi
+  tags:
+  - Automation
+  - Jobs
+  - Scheduling
+  - Server
+  - Workflows
+  properties:
+  - type: Documentation
+    url: https://help.alteryx.com/current/en/server/api-overview.html
+  - type: APIReference
+    url: https://help.alteryx.com/developer-help/server-api-reference
+  - type: Authentication
+    url: >-
+      https://help.alteryx.com/current/en/server/api-overview/alteryx-server-api-v3/server-api-configuration-and-authorization.html
+  - type: GettingStarted
+    url: https://help.alteryx.com/current/en/developer-help/apis/get-started-with-apis.html
+  contact:
+  - FN: Alteryx Support
+    email: support@alteryx.com
+    url: https://community.alteryx.com
+- name: Alteryx Server API V1
+  description: >-
+    The V1 API for Alteryx Server provides endpoints for admins including the Migratable Endpoint for
+    migrating workflows across Server environments and the Auditlog Endpoint for tracking changes to system
+    entities.
+  image: https://www.alteryx.com/sites/default/files/alteryx-logo-2021.svg
+  humanURL: https://help.alteryx.com/current/en/server/api-overview/alteryx-server-api-v1.html
+  baseURL: https://your-server/webapi/v1
+  tags:
+  - Admin
+  - Audit
+  - Migration
+  - Server
+  properties:
+  - type: Documentation
+    url: https://help.alteryx.com/current/en/server/api-overview/alteryx-server-api-v1.html
+  contact:
+  - FN: Alteryx Support
+    email: support@alteryx.com
+    url: https://community.alteryx.com
+- name: Alteryx Gallery API
+  description: API for interacting with Alteryx Analytics Gallery for workflow sharing and execution.
+  image: https://www.alteryx.com/sites/default/files/alteryx-logo-2021.svg
+  humanURL: https://help.alteryx.com/developer-help/gallery-api-overview
+  baseURL: https://gallery.alteryx.com/api
+  tags:
+  - Gallery
+  - Public API
+  - Sharing
+  - Workflows
+  properties:
+  - type: Documentation
+    url: https://help.alteryx.com/developer-help/gallery-api-overview
+  - type: APIReference
+    url: https://help.alteryx.com/developer-help/gallery-api-reference
+  - type: Authentication
+    url: https://help.alteryx.com/developer-help/gallery-api-authentication
+  contact:
+  - FN: Alteryx Support
+    email: support@alteryx.com
+    url: https://community.alteryx.com
+- name: Alteryx Connect API
+  description: API for Alteryx Connect data catalog and collaboration platform.
+  image: https://www.alteryx.com/sites/default/files/alteryx-logo-2021.svg
+  humanURL: https://help.alteryx.com/developer-help/connect-api
+  baseURL: https://your-connect-server/api
+  tags:
+  - Collaboration
+  - Data Catalog
+  - Governance
+  - Metadata
+  properties:
+  - type: Documentation
+    url: https://help.alteryx.com/developer-help/connect-api
+  - type: Authentication
+    url: https://help.alteryx.com/developer-help/connect-authentication
+  contact:
+  - FN: Alteryx Support
+    email: support@alteryx.com
+    url: https://community.alteryx.com
+- name: Alteryx AlteryxEngine API
+  description: >-
+    The AlteryxEngine API allows you to call into the Alteryx Engine to build applications that can programmatically
+    execute Alteryx Designer workflows. Workflows and applications can be executed as a separate child
+    process or in-process.
+  image: https://www.alteryx.com/sites/default/files/alteryx-logo-2021.svg
+  humanURL: https://help.alteryx.com/current/en/developer-help/apis/alteryxengine-api-overview.html
+  baseURL: https://your-server/api
+  tags:
+  - Designer
+  - Engine
+  - Execution
+  - Workflows
+  properties:
+  - type: Documentation
+    url: https://help.alteryx.com/current/en/developer-help/apis/alteryxengine-api-overview.html
+  - type: GettingStarted
+    url: >-
+      https://help.alteryx.com/current/en/developer-help/apis/alteryxengine-api-overview/alteryxengine-api-example.html
+  contact:
+  - FN: Alteryx Support
+    email: support@alteryx.com
+    url: https://community.alteryx.com
+- name: Alteryx Designer Cloud API
+  description: >-
+    REST API for Alteryx Designer Cloud (powered by Trifacta) providing data preparation, transformation,
+    and pipeline management capabilities. Enables programmatic access to data preparation workflows and
+    job execution.
+  image: https://www.alteryx.com/sites/default/files/alteryx-logo-2021.svg
+  humanURL: https://help.alteryx.com/dataprep/en/developer/api-reference.html
+  baseURL: https://api.trifacta.com
+  tags:
+  - Cloud
+  - Data Preparation
+  - Pipelines
+  - Transformation
+  - Trifacta
+  properties:
+  - type: Documentation
+    url: https://help.alteryx.com/dataprep/en/developer/api-reference.html
+  - type: APIReference
+    url: https://api.trifacta.com/
+  - type: Authentication
+    url: >-
+      https://help.alteryx.com/Dataprep/en/developer/api-reference/manage-api-access-tokens.html
+  contact:
+  - FN: Alteryx Support
+    email: support@alteryx.com
+    url: https://community.alteryx.com
+- aid: alteryx:alteryx-collections-api
+  name: Alteryx Collections API
+  description: Manage collections of workflows, schedules, users, and user groups
+  humanURL: https://help.alteryx.com/current/en/server/api-overview.html
+  baseURL: https://your-server/webapi
+  tags:
+  - Collections
+  properties:
+  - type: OpenAPI
+    url: openapi/alteryx-collections-api-openapi.yml
+  - type: Documentation
+    url: https://help.alteryx.com/current/en/server/api-overview/alteryx-server-api-v3.html
+  - type: Authentication
+    url: >-
+      https://help.alteryx.com/current/en/server/api-overview/alteryx-server-api-v3/server-api-configuration-and-authorization.html
+- aid: alteryx:alteryx-credentials-api
+  name: Alteryx Credentials API
+  description: Manage stored credentials and credential sharing
+  humanURL: https://help.alteryx.com/current/en/server/api-overview.html
+  baseURL: https://your-server/webapi
+  tags:
+  - Credentials
+  properties:
+  - type: OpenAPI
+    url: openapi/alteryx-credentials-api-openapi.yml
+  - type: Documentation
+    url: https://help.alteryx.com/current/en/server/api-overview/alteryx-server-api-v3.html
+  - type: Authentication
+    url: >-
+      https://help.alteryx.com/current/en/server/api-overview/alteryx-server-api-v3/server-api-configuration-and-authorization.html
+- aid: alteryx:alteryx-jobs-api
+  name: Alteryx Jobs API
+  description: Manage and monitor workflow execution jobs
+  humanURL: https://help.alteryx.com/current/en/server/api-overview.html
+  baseURL: https://your-server/webapi
+  tags:
+  - Jobs
+  properties:
+  - type: OpenAPI
+    url: openapi/alteryx-jobs-api-openapi.yml
+  - type: Documentation
+    url: https://help.alteryx.com/current/en/server/api-overview/alteryx-server-api-v3.html
+  - type: Authentication
+    url: >-
+      https://help.alteryx.com/current/en/server/api-overview/alteryx-server-api-v3/server-api-configuration-and-authorization.html
+- aid: alteryx:alteryx-schedules-api
+  name: Alteryx Schedules API
+  description: Create, retrieve, update, and delete workflow execution schedules
+  humanURL: https://help.alteryx.com/current/en/server/api-overview.html
+  baseURL: https://your-server/webapi
+  tags:
+  - Schedules
+  properties:
+  - type: OpenAPI
+    url: openapi/alteryx-schedules-api-openapi.yml
+  - type: Documentation
+    url: https://help.alteryx.com/current/en/server/api-overview/alteryx-server-api-v3.html
+  - type: Authentication
+    url: >-
+      https://help.alteryx.com/current/en/server/api-overview/alteryx-server-api-v3/server-api-configuration-and-authorization.html
+- aid: alteryx:alteryx-users-api
+  name: Alteryx Users API
+  description: Manage user accounts, permissions, and asset transfers
+  humanURL: https://help.alteryx.com/current/en/server/api-overview.html
+  baseURL: https://your-server/webapi
+  tags:
+  - Users
+  properties:
+  - type: OpenAPI
+    url: openapi/alteryx-users-api-openapi.yml
+  - type: Documentation
+    url: https://help.alteryx.com/current/en/server/api-overview/alteryx-server-api-v3.html
+  - type: Authentication
+    url: >-
+      https://help.alteryx.com/current/en/server/api-overview/alteryx-server-api-v3/server-api-configuration-and-authorization.html
+- aid: alteryx:alteryx-workflows-api
+  name: Alteryx Workflows API
+  description: >-
+    Manage workflows including upload, retrieval, update, deletion, versioning, and job execution
+  humanURL: https://help.alteryx.com/current/en/server/api-overview.html
+  baseURL: https://your-server/webapi
+  tags:
+  - Workflows
+  properties:
+  - type: OpenAPI
+    url: openapi/alteryx-workflows-api-openapi.yml
+  - type: Documentation
+    url: https://help.alteryx.com/current/en/server/api-overview/alteryx-server-api-v3.html
+  - type: Authentication
+    url: >-
+      https://help.alteryx.com/current/en/server/api-overview/alteryx-server-api-v3/server-api-configuration-and-authorization.html
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/alteryx/overview
   - type: AgenticAccess
     url: agentic-access/alteryx-agentic-access.yml
   - type: TrustCenter
