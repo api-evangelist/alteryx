@@ -1,0 +1,24 @@
+{
+  "provider": "alteryx",
+  "sources": [
+    "alteryx-collections-api-openapi.yml",
+    "alteryx-credentials-api-openapi.yml",
+    "alteryx-jobs-api-openapi.yml",
+    "alteryx-schedules-api-openapi.yml",
+    "alteryx-users-api-openapi.yml",
+    "alteryx-workflows-api-openapi.yml"
+  ],
+  "outputs": [
+    "alteryx-collections-api-openapi.yml",
+    "alteryx-credentials-api-openapi.yml",
+    "alteryx-jobs-api-openapi.yml",
+    "alteryx-schedules-api-openapi.yml",
+    "alteryx-users-api-openapi.yml",
+    "alteryx-workflows-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

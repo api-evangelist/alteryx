@@ -1,0 +1,3242 @@
+{
+  "info": {
+    "_postman_id": "3fce4811-02c0-44df-a640-c5ffd2e2d6c9",
+    "name": "Alteryx Server API V3 Collections Workflows API",
+    "description": "The Alteryx Server API V3 provides administrative capabilities for managing workflows, schedules, users, user groups, credentials, collections, and server connections. It uses OAuth 2 authentication and implements POST, PUT, GET, DELETE, and PATCH operations so administrators can automate tasks and integrate Server with existing API automation tools.\n\nContact Support:\n Name: Alteryx Support\n Email: support@alteryx.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T00:30:23.000Z",
+    "updatedAt": "2026-07-28T00:30:23.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-3fce4811-02c0-44df-a640-c5ffd2e2d6c9"
+  },
+  "item": [
+    {
+      "name": "v3",
+      "item": [
+        {
+          "name": "workflows",
+          "item": [
+            {
+              "name": "{workflowId}",
+              "item": [
+                {
+                  "name": "versions",
+                  "item": [
+                    {
+                      "name": "Upload a New Version of an Existing Workflow",
+                      "id": "2ab59641-6687-4fb8-8c18-e6d868cc2727",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "multipart/form-data"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "formdata",
+                          "formdata": [
+                            {
+                              "description": "(Required) The YXZP workflow package file",
+                              "key": "file",
+                              "type": "file",
+                              "value": null
+                            },
+                            {
+                              "description": "(Required) Name of the workflow version",
+                              "key": "name",
+                              "value": "<string>",
+                              "type": "text"
+                            },
+                            {
+                              "description": "(Required) ID of the workflow owner",
+                              "key": "ownerId",
+                              "value": "<string>",
+                              "type": "text"
+                            },
+                            {
+                              "description": "(Required) Whether other users may download",
+                              "key": "othersMayDownload",
+                              "value": "<boolean>",
+                              "type": "text"
+                            },
+                            {
+                              "description": "(Required) Whether other users can execute",
+                              "key": "othersCanExecute",
+                              "value": "<boolean>",
+                              "type": "text"
+                            },
+                            {
+                              "description": "(Required)  (This can only be one of Safe,SemiSafe,Standard)",
+                              "key": "executionMode",
+                              "value": "Safe",
+                              "type": "text"
+                            },
+                            {
+                              "description": "(Required) Whether to make this version the published version",
+                              "key": "makePublished",
+                              "value": "<boolean>",
+                              "type": "text"
+                            },
+                            {
+                              "description": "(Required)  (This can only be one of Default,Required,Specific)",
+                              "key": "workflowCredentialType",
+                              "value": "Required",
+                              "type": "text"
+                            },
+                            {
+                              "key": "hasPrivateDataExemption",
+                              "value": "<boolean>",
+                              "type": "text"
+                            },
+                            {
+                              "key": "comments",
+                              "value": "<string>",
+                              "type": "text"
+                            },
+                            {
+                              "key": "credentialId",
+                              "value": "<string>",
+                              "type": "text"
+                            },
+                            {
+                              "key": "bypassWorkflowVersionCheck",
+                              "value": "<boolean>",
+                              "type": "text"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v3/workflows/:workflowId/versions",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v3",
+                            "workflows",
+                            ":workflowId",
+                            "versions"
+                          ],
+                          "variable": [
+                            {
+                              "id": "872d2a28-2df7-4f8f-bb2b-b2ce1cce177f",
+                              "key": "workflowId",
+                              "value": "<string>",
+                              "description": "(Required) Unique identifier of the workflow"
+                            }
+                          ]
+                        },
+                        "description": "Upload a new version of an existing workflow package."
+                      },
+                      "response": [
+                        {
+                          "id": "e45986a4-81f4-4d82-a381-e2788cfaa4c5",
+                          "name": "Workflow version uploaded successfully",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "multipart/form-data"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "formdata",
+                              "formdata": [
+                                {
+                                  "description": "(Required) The YXZP workflow package file",
+                                  "key": "file",
+                                  "type": "file"
+                                },
+                                {
+                                  "description": "(Required) Name of the workflow version",
+                                  "key": "name",
+                                  "value": "<string>",
+                                  "type": "text"
+                                },
+                                {
+                                  "description": "(Required) ID of the workflow owner",
+                                  "key": "ownerId",
+                                  "value": "<string>",
+                                  "type": "text"
+                                },
+                                {
+                                  "description": "(Required) Whether other users may download",
+                                  "key": "othersMayDownload",
+                                  "value": "<boolean>",
+                                  "type": "text"
+                                },
+                                {
+                                  "description": "(Required) Whether other users can execute",
+                                  "key": "othersCanExecute",
+                                  "value": "<boolean>",
+                                  "type": "text"
+                                },
+                                {
+                                  "description": "(Required)  (This can only be one of Safe,SemiSafe,Standard)",
+                                  "key": "executionMode",
+                                  "value": "Safe",
+                                  "type": "text"
+                                },
+                                {
+                                  "description": "(Required) Whether to make this version the published version",
+                                  "key": "makePublished",
+                                  "value": "<boolean>",
+                                  "type": "text"
+                                },
+                                {
+                                  "description": "(Required)  (This can only be one of Default,Required,Specific)",
+                                  "key": "workflowCredentialType",
+                                  "value": "Required",
+                                  "type": "text"
+                                },
+                                {
+                                  "key": "hasPrivateDataExemption",
+                                  "value": "<boolean>",
+                                  "type": "text"
+                                },
+                                {
+                                  "key": "comments",
+                                  "value": "<string>",
+                                  "type": "text"
+                                },
+                                {
+                                  "key": "credentialId",
+                                  "value": "<string>",
+                                  "type": "text"
+                                },
+                                {
+                                  "key": "bypassWorkflowVersionCheck",
+                                  "value": "<boolean>",
+                                  "type": "text"
+                                }
+                              ]
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v3/workflows/:workflowId/versions",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v3",
+                                "workflows",
+                                ":workflowId",
+                                "versions"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "workflowId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<string>\",\n  \"sourceAppId\": \"<string>\",\n  \"dateCreated\": \"<dateTime>\",\n  \"runCount\": \"<integer>\",\n  \"versions\": [\n    {\n      \"versionId\": \"<string>\",\n      \"versionNumber\": \"<integer>\",\n      \"dateCreated\": \"<dateTime>\",\n      \"uploadSource\": \"<string>\",\n      \"uploadDate\": \"<dateTime>\",\n      \"packageWorkflowType\": \"<string>\",\n      \"published\": \"<boolean>\",\n      \"comments\": \"<string>\",\n      \"runDisabled\": \"<boolean>\",\n      \"executionMode\": \"Safe\",\n      \"workflowCredentialType\": \"Specific\",\n      \"credentialId\": \"<string>\",\n      \"hasPrivateDataExemption\": \"<boolean>\",\n      \"othersMayDownload\": \"<boolean>\",\n      \"othersCanViewHistory\": \"<boolean>\",\n      \"details\": {\n        \"isAmp\": \"<boolean>\",\n        \"fileName\": \"<string>\",\n        \"author\": \"<string>\",\n        \"copyright\": \"<string>\",\n        \"description\": \"<string>\",\n        \"name\": \"<string>\",\n        \"noOutputFilesMessage\": \"<string>\",\n        \"outputMessage\": \"<string>\",\n        \"url\": \"<uri>\",\n        \"urlText\": \"<string>\"\n      }\n    },\n    {\n      \"versionId\": \"<string>\",\n      \"versionNumber\": \"<integer>\",\n      \"dateCreated\": \"<dateTime>\",\n      \"uploadSource\": \"<string>\",\n      \"uploadDate\": \"<dateTime>\",\n      \"packageWorkflowType\": \"<string>\",\n      \"published\": \"<boolean>\",\n      \"comments\": \"<string>\",\n      \"runDisabled\": \"<boolean>\",\n      \"executionMode\": \"Standard\",\n      \"workflowCredentialType\": \"Specific\",\n      \"credentialId\": \"<string>\",\n      \"hasPrivateDataExemption\": \"<boolean>\",\n      \"othersMayDownload\": \"<boolean>\",\n      \"othersCanViewHistory\": \"<boolean>\",\n      \"details\": {\n        \"isAmp\": \"<boolean>\",\n        \"fileName\": \"<string>\",\n        \"author\": \"<string>\",\n        \"copyright\": \"<string>\",\n        \"description\": \"<string>\",\n        \"name\": \"<string>\",\n        \"noOutputFilesMessage\": \"<string>\",\n        \"outputMessage\": \"<string>\",\n        \"url\": \"<uri>\",\n        \"urlText\": \"<string>\"\n      }\n    }\n  ],\n  \"name\": \"<string>\",\n  \"ownerId\": \"<string>\",\n  \"workerTag\": \"<string>\",\n  \"districtTags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"comments\": \"<string>\",\n  \"isPublic\": \"<boolean>\",\n  \"isReadyForMigration\": \"<boolean>\",\n  \"publishedVersionId\": \"<string>\",\n  \"othersMayDownload\": \"<boolean>\",\n  \"othersCanViewHistory\": \"<boolean>\",\n  \"othersCanExecute\": \"<boolean>\",\n  \"hasPrivateDataExemption\": \"<boolean>\"\n}",
+                          "createdAt": "2026-07-28T00:30:24.000Z",
+                          "updatedAt": "2026-07-28T00:30:24.000Z",
+                          "uid": "35240-e45986a4-81f4-4d82-a381-e2788cfaa4c5"
+                        },
+                        {
+                          "id": "e51c34c2-9d21-4afe-b54c-5b3d18ac7eda",
+                          "name": "Bad request",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "multipart/form-data"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "formdata",
+                              "formdata": [
+                                {
+                                  "description": "(Required) The YXZP workflow package file",
+                                  "key": "file",
+                                  "type": "file"
+                                },
+                                {
+                                  "description": "(Required) Name of the workflow version",
+                                  "key": "name",
+                                  "value": "<string>",
+                                  "type": "text"
+                                },
+                                {
+                                  "description": "(Required) ID of the workflow owner",
+                                  "key": "ownerId",
+                                  "value": "<string>",
+                                  "type": "text"
+                                },
+                                {
+                                  "description": "(Required) Whether other users may download",
+                                  "key": "othersMayDownload",
+                                  "value": "<boolean>",
+                                  "type": "text"
+                                },
+                                {
+                                  "description": "(Required) Whether other users can execute",
+                                  "key": "othersCanExecute",
+                                  "value": "<boolean>",
+                                  "type": "text"
+                                },
+                                {
+                                  "description": "(Required)  (This can only be one of Safe,SemiSafe,Standard)",
+                                  "key": "executionMode",
+                                  "value": "Safe",
+                                  "type": "text"
+                                },
+                                {
+                                  "description": "(Required) Whether to make this version the published version",
+                                  "key": "makePublished",
+                                  "value": "<boolean>",
+                                  "type": "text"
+                                },
+                                {
+                                  "description": "(Required)  (This can only be one of Default,Required,Specific)",
+                                  "key": "workflowCredentialType",
+                                  "value": "Required",
+                                  "type": "text"
+                                },
+                                {
+                                  "key": "hasPrivateDataExemption",
+                                  "value": "<boolean>",
+                                  "type": "text"
+                                },
+                                {
+                                  "key": "comments",
+                                  "value": "<string>",
+                                  "type": "text"
+                                },
+                                {
+                                  "key": "credentialId",
+                                  "value": "<string>",
+                                  "type": "text"
+                                },
+                                {
+                                  "key": "bypassWorkflowVersionCheck",
+                                  "value": "<boolean>",
+                                  "type": "text"
+                                }
+                              ]
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v3/workflows/:workflowId/versions",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v3",
+                                "workflows",
+                                ":workflowId",
+                                "versions"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "workflowId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"message\": \"<string>\",\n  \"errors\": [\n    {\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T00:30:24.000Z",
+                          "updatedAt": "2026-07-28T00:30:24.000Z",
+                          "uid": "35240-e51c34c2-9d21-4afe-b54c-5b3d18ac7eda"
+                        },
+                        {
+                          "id": "0dec5da1-a39d-442f-95bf-28f1870c2890",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "multipart/form-data"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "formdata",
+                              "formdata": [
+                                {
+                                  "description": "(Required) The YXZP workflow package file",
+                                  "key": "file",
+                                  "type": "file"
+                                },
+                                {
+                                  "description": "(Required) Name of the workflow version",
+                                  "key": "name",
+                                  "value": "<string>",
+                                  "type": "text"
+                                },
+                                {
+                                  "description": "(Required) ID of the workflow owner",
+                                  "key": "ownerId",
+                                  "value": "<string>",
+                                  "type": "text"
+                                },
+                                {
+                                  "description": "(Required) Whether other users may download",
+                                  "key": "othersMayDownload",
+                                  "value": "<boolean>",
+                                  "type": "text"
+                                },
+                                {
+                                  "description": "(Required) Whether other users can execute",
+                                  "key": "othersCanExecute",
+                                  "value": "<boolean>",
+                                  "type": "text"
+                                },
+                                {
+                                  "description": "(Required)  (This can only be one of Safe,SemiSafe,Standard)",
+                                  "key": "executionMode",
+                                  "value": "Safe",
+                                  "type": "text"
+                                },
+                                {
+                                  "description": "(Required) Whether to make this version the published version",
+                                  "key": "makePublished",
+                                  "value": "<boolean>",
+                                  "type": "text"
+                                },
+                                {
+                                  "description": "(Required)  (This can only be one of Default,Required,Specific)",
+                                  "key": "workflowCredentialType",
+                                  "value": "Required",
+                                  "type": "text"
+                                },
+                                {
+                                  "key": "hasPrivateDataExemption",
+                                  "value": "<boolean>",
+                                  "type": "text"
+                                },
+                                {
+                                  "key": "comments",
+                                  "value": "<string>",
+                                  "type": "text"
+                                },
+                                {
+                                  "key": "credentialId",
+                                  "value": "<string>",
+                                  "type": "text"
+                                },
+                                {
+                                  "key": "bypassWorkflowVersionCheck",
+                                  "value": "<boolean>",
+                                  "type": "text"
+                                }
+                              ]
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v3/workflows/:workflowId/versions",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v3",
+                                "workflows",
+                                ":workflowId",
+                                "versions"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "workflowId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:30:24.000Z",
+                          "updatedAt": "2026-07-28T00:30:24.000Z",
+                          "uid": "35240-0dec5da1-a39d-442f-95bf-28f1870c2890"
+                        },
+                        {
+                          "id": "2440a1af-3a3c-4491-a448-2e0a49c621dc",
+                          "name": "Workflow not found",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "multipart/form-data"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "formdata",
+                              "formdata": [
+                                {
+                                  "description": "(Required) The YXZP workflow package file",
+                                  "key": "file",
+                                  "type": "file"
+                                },
+                                {
+                                  "description": "(Required) Name of the workflow version",
+                                  "key": "name",
+                                  "value": "<string>",
+                                  "type": "text"
+                                },
+                                {
+                                  "description": "(Required) ID of the workflow owner",
+                                  "key": "ownerId",
+                                  "value": "<string>",
+                                  "type": "text"
+                                },
+                                {
+                                  "description": "(Required) Whether other users may download",
+                                  "key": "othersMayDownload",
+                                  "value": "<boolean>",
+                                  "type": "text"
+                                },
+                                {
+                                  "description": "(Required) Whether other users can execute",
+                                  "key": "othersCanExecute",
+                                  "value": "<boolean>",
+                                  "type": "text"
+                                },
+                                {
+                                  "description": "(Required)  (This can only be one of Safe,SemiSafe,Standard)",
+                                  "key": "executionMode",
+                                  "value": "Safe",
+                                  "type": "text"
+                                },
+                                {
+                                  "description": "(Required) Whether to make this version the published version",
+                                  "key": "makePublished",
+                                  "value": "<boolean>",
+                                  "type": "text"
+                                },
+                                {
+                                  "description": "(Required)  (This can only be one of Default,Required,Specific)",
+                                  "key": "workflowCredentialType",
+                                  "value": "Required",
+                                  "type": "text"
+                                },
+                                {
+                                  "key": "hasPrivateDataExemption",
+                                  "value": "<boolean>",
+                                  "type": "text"
+                                },
+                                {
+                                  "key": "comments",
+                                  "value": "<string>",
+                                  "type": "text"
+                                },
+                                {
+                                  "key": "credentialId",
+                                  "value": "<string>",
+                                  "type": "text"
+                                },
+                                {
+                                  "key": "bypassWorkflowVersionCheck",
+                                  "value": "<boolean>",
+                                  "type": "text"
+                                }
+                              ]
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v3/workflows/:workflowId/versions",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v3",
+                                "workflows",
+                                ":workflowId",
+                                "versions"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "workflowId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:30:24.000Z",
+                          "updatedAt": "2026-07-28T00:30:24.000Z",
+                          "uid": "35240-2440a1af-3a3c-4491-a448-2e0a49c621dc"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T00:30:24.000Z",
+                      "updatedAt": "2026-07-28T00:30:24.000Z",
+                      "uid": "35240-2ab59641-6687-4fb8-8c18-e6d868cc2727"
+                    }
+                  ],
+                  "id": "c1bbfa90-6a74-4286-ac17-0eb3323cb764",
+                  "createdAt": "2026-07-28T00:30:24.000Z",
+                  "updatedAt": "2026-07-28T00:30:24.000Z",
+                  "uid": "35240-c1bbfa90-6a74-4286-ac17-0eb3323cb764"
+                },
+                {
+                  "name": "package",
+                  "item": [
+                    {
+                      "name": "Download a Workflow Package",
+                      "id": "30c0d3c3-1d0d-4b1f-b15f-39fbce4f5520",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/octet-stream"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v3/workflows/:workflowId/package?versionId=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v3",
+                            "workflows",
+                            ":workflowId",
+                            "package"
+                          ],
+                          "query": [
+                            {
+                              "description": "Specific version ID to download",
+                              "key": "versionId",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "7b3ecb4a-338e-420a-ab4b-5e27d3aaa493",
+                              "key": "workflowId",
+                              "value": "<string>",
+                              "description": "(Required) Unique identifier of the workflow"
+                            }
+                          ]
+                        },
+                        "description": "Download the YXZP package file for a specific workflow."
+                      },
+                      "response": [
+                        {
+                          "id": "f55f8b6e-51f1-4ece-a2c7-5e29fd046f3d",
+                          "name": "Workflow package file",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/octet-stream"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v3/workflows/:workflowId/package?versionId=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v3",
+                                "workflows",
+                                ":workflowId",
+                                "package"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Specific version ID to download",
+                                  "key": "versionId",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "workflowId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/octet-stream"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "<binary>",
+                          "createdAt": "2026-07-28T00:30:24.000Z",
+                          "updatedAt": "2026-07-28T00:30:24.000Z",
+                          "uid": "35240-f55f8b6e-51f1-4ece-a2c7-5e29fd046f3d"
+                        },
+                        {
+                          "id": "b394ecc1-c1a6-4696-9894-e7c2cd1d5a7f",
+                          "name": "Invalid version ID",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v3/workflows/:workflowId/package?versionId=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v3",
+                                "workflows",
+                                ":workflowId",
+                                "package"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Specific version ID to download",
+                                  "key": "versionId",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "workflowId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:30:24.000Z",
+                          "updatedAt": "2026-07-28T00:30:24.000Z",
+                          "uid": "35240-b394ecc1-c1a6-4696-9894-e7c2cd1d5a7f"
+                        },
+                        {
+                          "id": "38e89e96-7d6c-4f26-aad3-4e5d4c41be5c",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v3/workflows/:workflowId/package?versionId=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v3",
+                                "workflows",
+                                ":workflowId",
+                                "package"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Specific version ID to download",
+                                  "key": "versionId",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "workflowId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:30:24.000Z",
+                          "updatedAt": "2026-07-28T00:30:24.000Z",
+                          "uid": "35240-38e89e96-7d6c-4f26-aad3-4e5d4c41be5c"
+                        },
+                        {
+                          "id": "67deea14-0e92-42e4-9152-7d0b7d3d20e6",
+                          "name": "Forbidden",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v3/workflows/:workflowId/package?versionId=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v3",
+                                "workflows",
+                                ":workflowId",
+                                "package"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Specific version ID to download",
+                                  "key": "versionId",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "workflowId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:30:24.000Z",
+                          "updatedAt": "2026-07-28T00:30:24.000Z",
+                          "uid": "35240-67deea14-0e92-42e4-9152-7d0b7d3d20e6"
+                        },
+                        {
+                          "id": "b0ad4c76-378c-410b-91fe-9203ddf37695",
+                          "name": "Workflow not found",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v3/workflows/:workflowId/package?versionId=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v3",
+                                "workflows",
+                                ":workflowId",
+                                "package"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Specific version ID to download",
+                                  "key": "versionId",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "workflowId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:30:24.000Z",
+                          "updatedAt": "2026-07-28T00:30:24.000Z",
+                          "uid": "35240-b0ad4c76-378c-410b-91fe-9203ddf37695"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T00:30:24.000Z",
+                      "updatedAt": "2026-07-28T00:30:24.000Z",
+                      "uid": "35240-30c0d3c3-1d0d-4b1f-b15f-39fbce4f5520"
+                    }
+                  ],
+                  "id": "21caf369-6b54-48de-82c3-908d5116c16c",
+                  "createdAt": "2026-07-28T00:30:24.000Z",
+                  "updatedAt": "2026-07-28T00:30:24.000Z",
+                  "uid": "35240-21caf369-6b54-48de-82c3-908d5116c16c"
+                },
+                {
+                  "name": "questions",
+                  "item": [
+                    {
+                      "name": "Retrieve Analytic App Questions",
+                      "id": "cc52c941-5dd6-48f0-a646-7779d4ce2a26",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v3/workflows/:workflowId/questions?versionId=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v3",
+                            "workflows",
+                            ":workflowId",
+                            "questions"
+                          ],
+                          "query": [
+                            {
+                              "description": "Specific version ID",
+                              "key": "versionId",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "c46214a6-a4cb-4d3e-984a-1a06b51fc9bf",
+                              "key": "workflowId",
+                              "value": "<string>",
+                              "description": "(Required) Unique identifier of the workflow"
+                            }
+                          ]
+                        },
+                        "description": "Retrieve question (input) information for an analytic app workflow."
+                      },
+                      "response": [
+                        {
+                          "id": "0bf9f2ad-59bb-4a6c-a5e5-862ebd3e054d",
+                          "name": "List of workflow questions",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v3/workflows/:workflowId/questions?versionId=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v3",
+                                "workflows",
+                                ":workflowId",
+                                "questions"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Specific version ID",
+                                  "key": "versionId",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "workflowId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "[\n  {\n    \"name\": \"<string>\",\n    \"questionType\": \"<string>\",\n    \"description\": \"<string>\",\n    \"value\": \"<string>\",\n    \"multiple\": \"<boolean>\",\n    \"items\": [\n      {\n        \"key\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"key\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ]\n  },\n  {\n    \"name\": \"<string>\",\n    \"questionType\": \"<string>\",\n    \"description\": \"<string>\",\n    \"value\": \"<string>\",\n    \"multiple\": \"<boolean>\",\n    \"items\": [\n      {\n        \"key\": \"<string>\",\n        \"value\": \"<string>\"\n      },\n      {\n        \"key\": \"<string>\",\n        \"value\": \"<string>\"\n      }\n    ]\n  }\n]",
+                          "createdAt": "2026-07-28T00:30:24.000Z",
+                          "updatedAt": "2026-07-28T00:30:24.000Z",
+                          "uid": "35240-0bf9f2ad-59bb-4a6c-a5e5-862ebd3e054d"
+                        },
+                        {
+                          "id": "b33ea1a7-bae9-4d6f-8f05-7c65d6f97476",
+                          "name": "Bad request",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v3/workflows/:workflowId/questions?versionId=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v3",
+                                "workflows",
+                                ":workflowId",
+                                "questions"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Specific version ID",
+                                  "key": "versionId",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "workflowId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:30:24.000Z",
+                          "updatedAt": "2026-07-28T00:30:24.000Z",
+                          "uid": "35240-b33ea1a7-bae9-4d6f-8f05-7c65d6f97476"
+                        },
+                        {
+                          "id": "d5638ae1-b07a-4aff-a005-e2cde8bf5361",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v3/workflows/:workflowId/questions?versionId=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v3",
+                                "workflows",
+                                ":workflowId",
+                                "questions"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Specific version ID",
+                                  "key": "versionId",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "workflowId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:30:24.000Z",
+                          "updatedAt": "2026-07-28T00:30:24.000Z",
+                          "uid": "35240-d5638ae1-b07a-4aff-a005-e2cde8bf5361"
+                        },
+                        {
+                          "id": "6a59d5ff-1e8a-4499-b298-a122b0fac550",
+                          "name": "Forbidden",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v3/workflows/:workflowId/questions?versionId=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v3",
+                                "workflows",
+                                ":workflowId",
+                                "questions"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Specific version ID",
+                                  "key": "versionId",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "workflowId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:30:24.000Z",
+                          "updatedAt": "2026-07-28T00:30:24.000Z",
+                          "uid": "35240-6a59d5ff-1e8a-4499-b298-a122b0fac550"
+                        },
+                        {
+                          "id": "1495db3c-1c6a-4ff4-9e61-b260e0d1deae",
+                          "name": "Workflow not found",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v3/workflows/:workflowId/questions?versionId=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v3",
+                                "workflows",
+                                ":workflowId",
+                                "questions"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Specific version ID",
+                                  "key": "versionId",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "workflowId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:30:24.000Z",
+                          "updatedAt": "2026-07-28T00:30:24.000Z",
+                          "uid": "35240-1495db3c-1c6a-4ff4-9e61-b260e0d1deae"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T00:30:24.000Z",
+                      "updatedAt": "2026-07-28T00:30:24.000Z",
+                      "uid": "35240-cc52c941-5dd6-48f0-a646-7779d4ce2a26"
+                    }
+                  ],
+                  "id": "ea490ec9-6ee7-48f4-b614-37d96e7938e5",
+                  "createdAt": "2026-07-28T00:30:24.000Z",
+                  "updatedAt": "2026-07-28T00:30:24.000Z",
+                  "uid": "35240-ea490ec9-6ee7-48f4-b614-37d96e7938e5"
+                },
+                {
+                  "name": "transfer",
+                  "item": [
+                    {
+                      "name": "Transfer Workflow Ownership",
+                      "id": "2f9802c0-02b6-4964-a101-c84d688f3afc",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"ownerId\": \"<string>\",\n  \"transferSchedules\": \"<boolean>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v3/workflows/:workflowId/transfer",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v3",
+                            "workflows",
+                            ":workflowId",
+                            "transfer"
+                          ],
+                          "variable": [
+                            {
+                              "id": "3d3dc786-9e99-4f04-a4da-7f6f7057c534",
+                              "key": "workflowId",
+                              "value": "<string>",
+                              "description": "(Required) Unique identifier of the workflow"
+                            }
+                          ]
+                        },
+                        "description": "Transfer a specific workflow to a different owner, optionally including associated schedules."
+                      },
+                      "response": [
+                        {
+                          "id": "57176f65-a542-4633-8306-ff23ba1d5fc0",
+                          "name": "Workflow transferred successfully",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"ownerId\": \"<string>\",\n  \"transferSchedules\": \"<boolean>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v3/workflows/:workflowId/transfer",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v3",
+                                "workflows",
+                                ":workflowId",
+                                "transfer"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "workflowId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:30:24.000Z",
+                          "updatedAt": "2026-07-28T00:30:24.000Z",
+                          "uid": "35240-57176f65-a542-4633-8306-ff23ba1d5fc0"
+                        },
+                        {
+                          "id": "21736062-2385-4743-87c8-3f3417b458c5",
+                          "name": "Bad request",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"ownerId\": \"<string>\",\n  \"transferSchedules\": \"<boolean>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v3/workflows/:workflowId/transfer",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v3",
+                                "workflows",
+                                ":workflowId",
+                                "transfer"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "workflowId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:30:24.000Z",
+                          "updatedAt": "2026-07-28T00:30:24.000Z",
+                          "uid": "35240-21736062-2385-4743-87c8-3f3417b458c5"
+                        },
+                        {
+                          "id": "2be7f7bc-e68d-4e47-8f41-991cdc3088ca",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"ownerId\": \"<string>\",\n  \"transferSchedules\": \"<boolean>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v3/workflows/:workflowId/transfer",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v3",
+                                "workflows",
+                                ":workflowId",
+                                "transfer"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "workflowId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:30:24.000Z",
+                          "updatedAt": "2026-07-28T00:30:24.000Z",
+                          "uid": "35240-2be7f7bc-e68d-4e47-8f41-991cdc3088ca"
+                        },
+                        {
+                          "id": "1ba3612b-617b-4f6a-a5f8-d48f52de6b0e",
+                          "name": "Forbidden",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"ownerId\": \"<string>\",\n  \"transferSchedules\": \"<boolean>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v3/workflows/:workflowId/transfer",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v3",
+                                "workflows",
+                                ":workflowId",
+                                "transfer"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "workflowId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:30:24.000Z",
+                          "updatedAt": "2026-07-28T00:30:24.000Z",
+                          "uid": "35240-1ba3612b-617b-4f6a-a5f8-d48f52de6b0e"
+                        },
+                        {
+                          "id": "94c666ce-c139-4f97-9402-974b86e6966e",
+                          "name": "Workflow not found",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"ownerId\": \"<string>\",\n  \"transferSchedules\": \"<boolean>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v3/workflows/:workflowId/transfer",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v3",
+                                "workflows",
+                                ":workflowId",
+                                "transfer"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "workflowId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:30:24.000Z",
+                          "updatedAt": "2026-07-28T00:30:24.000Z",
+                          "uid": "35240-94c666ce-c139-4f97-9402-974b86e6966e"
+                        },
+                        {
+                          "id": "b6f20a4b-cbc8-41be-8f95-6c1eb4861252",
+                          "name": "Internal server error",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"ownerId\": \"<string>\",\n  \"transferSchedules\": \"<boolean>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v3/workflows/:workflowId/transfer",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v3",
+                                "workflows",
+                                ":workflowId",
+                                "transfer"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "workflowId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:30:24.000Z",
+                          "updatedAt": "2026-07-28T00:30:24.000Z",
+                          "uid": "35240-b6f20a4b-cbc8-41be-8f95-6c1eb4861252"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T00:30:24.000Z",
+                      "updatedAt": "2026-07-28T00:30:24.000Z",
+                      "uid": "35240-2f9802c0-02b6-4964-a101-c84d688f3afc"
+                    }
+                  ],
+                  "id": "401c74f1-6f07-4d09-80e9-372827f0082f",
+                  "createdAt": "2026-07-28T00:30:24.000Z",
+                  "updatedAt": "2026-07-28T00:30:24.000Z",
+                  "uid": "35240-401c74f1-6f07-4d09-80e9-372827f0082f"
+                },
+                {
+                  "name": "Retrieve a Specific Workflow",
+                  "id": "3ba4faa8-19b9-4e97-9c8a-09284617b71b",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v3/workflows/:workflowId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v3",
+                        "workflows",
+                        ":workflowId"
+                      ],
+                      "variable": [
+                        {
+                          "id": "9fdf500c-434c-49df-a8d3-736850fc7e00",
+                          "key": "workflowId",
+                          "value": "<string>",
+                          "description": "(Required) Unique identifier of the workflow"
+                        }
+                      ]
+                    },
+                    "description": "Retrieve detailed information about a specific workflow record."
+                  },
+                  "response": [
+                    {
+                      "id": "ab136c2f-47ee-453f-84fe-c4ea452e7362",
+                      "name": "Workflow details",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v3/workflows/:workflowId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v3",
+                            "workflows",
+                            ":workflowId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "workflowId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"sourceAppId\": \"<string>\",\n  \"dateCreated\": \"<dateTime>\",\n  \"runCount\": \"<integer>\",\n  \"versions\": [\n    {\n      \"versionId\": \"<string>\",\n      \"versionNumber\": \"<integer>\",\n      \"dateCreated\": \"<dateTime>\",\n      \"uploadSource\": \"<string>\",\n      \"uploadDate\": \"<dateTime>\",\n      \"packageWorkflowType\": \"<string>\",\n      \"published\": \"<boolean>\",\n      \"comments\": \"<string>\",\n      \"runDisabled\": \"<boolean>\",\n      \"executionMode\": \"Safe\",\n      \"workflowCredentialType\": \"Specific\",\n      \"credentialId\": \"<string>\",\n      \"hasPrivateDataExemption\": \"<boolean>\",\n      \"othersMayDownload\": \"<boolean>\",\n      \"othersCanViewHistory\": \"<boolean>\",\n      \"details\": {\n        \"isAmp\": \"<boolean>\",\n        \"fileName\": \"<string>\",\n        \"author\": \"<string>\",\n        \"copyright\": \"<string>\",\n        \"description\": \"<string>\",\n        \"name\": \"<string>\",\n        \"noOutputFilesMessage\": \"<string>\",\n        \"outputMessage\": \"<string>\",\n        \"url\": \"<uri>\",\n        \"urlText\": \"<string>\"\n      }\n    },\n    {\n      \"versionId\": \"<string>\",\n      \"versionNumber\": \"<integer>\",\n      \"dateCreated\": \"<dateTime>\",\n      \"uploadSource\": \"<string>\",\n      \"uploadDate\": \"<dateTime>\",\n      \"packageWorkflowType\": \"<string>\",\n      \"published\": \"<boolean>\",\n      \"comments\": \"<string>\",\n      \"runDisabled\": \"<boolean>\",\n      \"executionMode\": \"Standard\",\n      \"workflowCredentialType\": \"Specific\",\n      \"credentialId\": \"<string>\",\n      \"hasPrivateDataExemption\": \"<boolean>\",\n      \"othersMayDownload\": \"<boolean>\",\n      \"othersCanViewHistory\": \"<boolean>\",\n      \"details\": {\n        \"isAmp\": \"<boolean>\",\n        \"fileName\": \"<string>\",\n        \"author\": \"<string>\",\n        \"copyright\": \"<string>\",\n        \"description\": \"<string>\",\n        \"name\": \"<string>\",\n        \"noOutputFilesMessage\": \"<string>\",\n        \"outputMessage\": \"<string>\",\n        \"url\": \"<uri>\",\n        \"urlText\": \"<string>\"\n      }\n    }\n  ],\n  \"name\": \"<string>\",\n  \"ownerId\": \"<string>\",\n  \"workerTag\": \"<string>\",\n  \"districtTags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"comments\": \"<string>\",\n  \"isPublic\": \"<boolean>\",\n  \"isReadyForMigration\": \"<boolean>\",\n  \"publishedVersionId\": \"<string>\",\n  \"othersMayDownload\": \"<boolean>\",\n  \"othersCanViewHistory\": \"<boolean>\",\n  \"othersCanExecute\": \"<boolean>\",\n  \"hasPrivateDataExemption\": \"<boolean>\"\n}",
+                      "createdAt": "2026-07-28T00:30:24.000Z",
+                      "updatedAt": "2026-07-28T00:30:24.000Z",
+                      "uid": "35240-ab136c2f-47ee-453f-84fe-c4ea452e7362"
+                    },
+                    {
+                      "id": "1dcfd0d7-48c5-49a7-9818-a20bfbf41793",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v3/workflows/:workflowId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v3",
+                            "workflows",
+                            ":workflowId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "workflowId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T00:30:24.000Z",
+                      "updatedAt": "2026-07-28T00:30:24.000Z",
+                      "uid": "35240-1dcfd0d7-48c5-49a7-9818-a20bfbf41793"
+                    },
+                    {
+                      "id": "1c3cd298-04b3-4b42-9616-b9b236fe60c0",
+                      "name": "Workflow not found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v3/workflows/:workflowId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v3",
+                            "workflows",
+                            ":workflowId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "workflowId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T00:30:24.000Z",
+                      "updatedAt": "2026-07-28T00:30:24.000Z",
+                      "uid": "35240-1c3cd298-04b3-4b42-9616-b9b236fe60c0"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T00:30:24.000Z",
+                  "updatedAt": "2026-07-28T00:30:24.000Z",
+                  "uid": "35240-3ba4faa8-19b9-4e97-9c8a-09284617b71b"
+                },
+                {
+                  "name": "Update an Existing Workflow",
+                  "id": "5456f954-39f6-4c5b-8d68-6a4a9f261913",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"versionId\": \"<string>\",\n  \"ownerId\": \"<string>\",\n  \"workerTag\": \"<string>\",\n  \"districtTags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"comments\": \"<string>\",\n  \"makePublished\": \"<boolean>\",\n  \"isPublic\": \"<boolean>\",\n  \"isReadyForMigration\": \"<boolean>\",\n  \"othersMayDownload\": \"<boolean>\",\n  \"othersCanExecute\": \"<boolean>\",\n  \"executionMode\": \"SemiSafe\",\n  \"hasPrivateDataExemption\": \"<boolean>\",\n  \"workflowCredentialType\": \"Required\",\n  \"credentialId\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v3/workflows/:workflowId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v3",
+                        "workflows",
+                        ":workflowId"
+                      ],
+                      "variable": [
+                        {
+                          "id": "b51d1300-56b6-48bd-a5d4-0821962fceb0",
+                          "key": "workflowId",
+                          "value": "<string>",
+                          "description": "(Required) Unique identifier of the workflow"
+                        }
+                      ]
+                    },
+                    "description": "Update the properties of an existing workflow."
+                  },
+                  "response": [
+                    {
+                      "id": "2db3c5d2-a75f-4846-8d57-c7c7fa54d29e",
+                      "name": "Workflow updated successfully",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"name\": \"<string>\",\n  \"versionId\": \"<string>\",\n  \"ownerId\": \"<string>\",\n  \"workerTag\": \"<string>\",\n  \"districtTags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"comments\": \"<string>\",\n  \"makePublished\": \"<boolean>\",\n  \"isPublic\": \"<boolean>\",\n  \"isReadyForMigration\": \"<boolean>\",\n  \"othersMayDownload\": \"<boolean>\",\n  \"othersCanExecute\": \"<boolean>\",\n  \"executionMode\": \"SemiSafe\",\n  \"hasPrivateDataExemption\": \"<boolean>\",\n  \"workflowCredentialType\": \"Required\",\n  \"credentialId\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v3/workflows/:workflowId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v3",
+                            "workflows",
+                            ":workflowId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "workflowId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"sourceAppId\": \"<string>\",\n  \"dateCreated\": \"<dateTime>\",\n  \"runCount\": \"<integer>\",\n  \"versions\": [\n    {\n      \"versionId\": \"<string>\",\n      \"versionNumber\": \"<integer>\",\n      \"dateCreated\": \"<dateTime>\",\n      \"uploadSource\": \"<string>\",\n      \"uploadDate\": \"<dateTime>\",\n      \"packageWorkflowType\": \"<string>\",\n      \"published\": \"<boolean>\",\n      \"comments\": \"<string>\",\n      \"runDisabled\": \"<boolean>\",\n      \"executionMode\": \"Safe\",\n      \"workflowCredentialType\": \"Specific\",\n      \"credentialId\": \"<string>\",\n      \"hasPrivateDataExemption\": \"<boolean>\",\n      \"othersMayDownload\": \"<boolean>\",\n      \"othersCanViewHistory\": \"<boolean>\",\n      \"details\": {\n        \"isAmp\": \"<boolean>\",\n        \"fileName\": \"<string>\",\n        \"author\": \"<string>\",\n        \"copyright\": \"<string>\",\n        \"description\": \"<string>\",\n        \"name\": \"<string>\",\n        \"noOutputFilesMessage\": \"<string>\",\n        \"outputMessage\": \"<string>\",\n        \"url\": \"<uri>\",\n        \"urlText\": \"<string>\"\n      }\n    },\n    {\n      \"versionId\": \"<string>\",\n      \"versionNumber\": \"<integer>\",\n      \"dateCreated\": \"<dateTime>\",\n      \"uploadSource\": \"<string>\",\n      \"uploadDate\": \"<dateTime>\",\n      \"packageWorkflowType\": \"<string>\",\n      \"published\": \"<boolean>\",\n      \"comments\": \"<string>\",\n      \"runDisabled\": \"<boolean>\",\n      \"executionMode\": \"Standard\",\n      \"workflowCredentialType\": \"Specific\",\n      \"credentialId\": \"<string>\",\n      \"hasPrivateDataExemption\": \"<boolean>\",\n      \"othersMayDownload\": \"<boolean>\",\n      \"othersCanViewHistory\": \"<boolean>\",\n      \"details\": {\n        \"isAmp\": \"<boolean>\",\n        \"fileName\": \"<string>\",\n        \"author\": \"<string>\",\n        \"copyright\": \"<string>\",\n        \"description\": \"<string>\",\n        \"name\": \"<string>\",\n        \"noOutputFilesMessage\": \"<string>\",\n        \"outputMessage\": \"<string>\",\n        \"url\": \"<uri>\",\n        \"urlText\": \"<string>\"\n      }\n    }\n  ],\n  \"name\": \"<string>\",\n  \"ownerId\": \"<string>\",\n  \"workerTag\": \"<string>\",\n  \"districtTags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"comments\": \"<string>\",\n  \"isPublic\": \"<boolean>\",\n  \"isReadyForMigration\": \"<boolean>\",\n  \"publishedVersionId\": \"<string>\",\n  \"othersMayDownload\": \"<boolean>\",\n  \"othersCanViewHistory\": \"<boolean>\",\n  \"othersCanExecute\": \"<boolean>\",\n  \"hasPrivateDataExemption\": \"<boolean>\"\n}",
+                      "createdAt": "2026-07-28T00:30:24.000Z",
+                      "updatedAt": "2026-07-28T00:30:24.000Z",
+                      "uid": "35240-2db3c5d2-a75f-4846-8d57-c7c7fa54d29e"
+                    },
+                    {
+                      "id": "9a771b73-8a99-4546-ba47-688269a51092",
+                      "name": "Bad request",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"name\": \"<string>\",\n  \"versionId\": \"<string>\",\n  \"ownerId\": \"<string>\",\n  \"workerTag\": \"<string>\",\n  \"districtTags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"comments\": \"<string>\",\n  \"makePublished\": \"<boolean>\",\n  \"isPublic\": \"<boolean>\",\n  \"isReadyForMigration\": \"<boolean>\",\n  \"othersMayDownload\": \"<boolean>\",\n  \"othersCanExecute\": \"<boolean>\",\n  \"executionMode\": \"SemiSafe\",\n  \"hasPrivateDataExemption\": \"<boolean>\",\n  \"workflowCredentialType\": \"Required\",\n  \"credentialId\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v3/workflows/:workflowId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v3",
+                            "workflows",
+                            ":workflowId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "workflowId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"message\": \"<string>\",\n  \"errors\": [\n    {\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T00:30:24.000Z",
+                      "updatedAt": "2026-07-28T00:30:24.000Z",
+                      "uid": "35240-9a771b73-8a99-4546-ba47-688269a51092"
+                    },
+                    {
+                      "id": "8b117eb2-4ec6-406e-8a09-4c6b006b9b61",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"name\": \"<string>\",\n  \"versionId\": \"<string>\",\n  \"ownerId\": \"<string>\",\n  \"workerTag\": \"<string>\",\n  \"districtTags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"comments\": \"<string>\",\n  \"makePublished\": \"<boolean>\",\n  \"isPublic\": \"<boolean>\",\n  \"isReadyForMigration\": \"<boolean>\",\n  \"othersMayDownload\": \"<boolean>\",\n  \"othersCanExecute\": \"<boolean>\",\n  \"executionMode\": \"SemiSafe\",\n  \"hasPrivateDataExemption\": \"<boolean>\",\n  \"workflowCredentialType\": \"Required\",\n  \"credentialId\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v3/workflows/:workflowId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v3",
+                            "workflows",
+                            ":workflowId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "workflowId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T00:30:24.000Z",
+                      "updatedAt": "2026-07-28T00:30:24.000Z",
+                      "uid": "35240-8b117eb2-4ec6-406e-8a09-4c6b006b9b61"
+                    },
+                    {
+                      "id": "a0c8ad46-a96d-4c39-b130-30c483108519",
+                      "name": "Workflow not found",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"name\": \"<string>\",\n  \"versionId\": \"<string>\",\n  \"ownerId\": \"<string>\",\n  \"workerTag\": \"<string>\",\n  \"districtTags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"comments\": \"<string>\",\n  \"makePublished\": \"<boolean>\",\n  \"isPublic\": \"<boolean>\",\n  \"isReadyForMigration\": \"<boolean>\",\n  \"othersMayDownload\": \"<boolean>\",\n  \"othersCanExecute\": \"<boolean>\",\n  \"executionMode\": \"SemiSafe\",\n  \"hasPrivateDataExemption\": \"<boolean>\",\n  \"workflowCredentialType\": \"Required\",\n  \"credentialId\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v3/workflows/:workflowId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v3",
+                            "workflows",
+                            ":workflowId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "workflowId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T00:30:24.000Z",
+                      "updatedAt": "2026-07-28T00:30:24.000Z",
+                      "uid": "35240-a0c8ad46-a96d-4c39-b130-30c483108519"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T00:30:24.000Z",
+                  "updatedAt": "2026-07-28T00:30:24.000Z",
+                  "uid": "35240-5456f954-39f6-4c5b-8d68-6a4a9f261913"
+                },
+                {
+                  "name": "Delete a Workflow",
+                  "id": "0aef9b64-504b-4f75-9b5d-215e29e0e9d9",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v3/workflows/:workflowId?force=false",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v3",
+                        "workflows",
+                        ":workflowId"
+                      ],
+                      "query": [
+                        {
+                          "description": "Force deletion even if workflow has dependencies",
+                          "key": "force",
+                          "value": "false"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "3c327527-5825-4581-bd64-86e9bb512802",
+                          "key": "workflowId",
+                          "value": "<string>",
+                          "description": "(Required) Unique identifier of the workflow"
+                        }
+                      ]
+                    },
+                    "description": "Delete a specific workflow from the server."
+                  },
+                  "response": [
+                    {
+                      "id": "5c067ca2-68d9-4afa-84c5-a914ecd986c3",
+                      "name": "Workflow deleted successfully",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v3/workflows/:workflowId?force=false",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v3",
+                            "workflows",
+                            ":workflowId"
+                          ],
+                          "query": [
+                            {
+                              "description": "Force deletion even if workflow has dependencies",
+                              "key": "force",
+                              "value": "false"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "workflowId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T00:30:24.000Z",
+                      "updatedAt": "2026-07-28T00:30:24.000Z",
+                      "uid": "35240-5c067ca2-68d9-4afa-84c5-a914ecd986c3"
+                    },
+                    {
+                      "id": "d16c3e57-f6f3-4460-b8ce-cedc2484b7d1",
+                      "name": "Bad request",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v3/workflows/:workflowId?force=false",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v3",
+                            "workflows",
+                            ":workflowId"
+                          ],
+                          "query": [
+                            {
+                              "description": "Force deletion even if workflow has dependencies",
+                              "key": "force",
+                              "value": "false"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "workflowId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"message\": \"<string>\",\n  \"errors\": [\n    {\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T00:30:24.000Z",
+                      "updatedAt": "2026-07-28T00:30:24.000Z",
+                      "uid": "35240-d16c3e57-f6f3-4460-b8ce-cedc2484b7d1"
+                    },
+                    {
+                      "id": "771ec2f8-fb25-4b66-8882-be348edde610",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v3/workflows/:workflowId?force=false",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v3",
+                            "workflows",
+                            ":workflowId"
+                          ],
+                          "query": [
+                            {
+                              "description": "Force deletion even if workflow has dependencies",
+                              "key": "force",
+                              "value": "false"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "workflowId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T00:30:24.000Z",
+                      "updatedAt": "2026-07-28T00:30:24.000Z",
+                      "uid": "35240-771ec2f8-fb25-4b66-8882-be348edde610"
+                    },
+                    {
+                      "id": "eaf4a967-6487-495d-8c09-d3010e3d305e",
+                      "name": "Workflow not found",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v3/workflows/:workflowId?force=false",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v3",
+                            "workflows",
+                            ":workflowId"
+                          ],
+                          "query": [
+                            {
+                              "description": "Force deletion even if workflow has dependencies",
+                              "key": "force",
+                              "value": "false"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "workflowId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T00:30:24.000Z",
+                      "updatedAt": "2026-07-28T00:30:24.000Z",
+                      "uid": "35240-eaf4a967-6487-495d-8c09-d3010e3d305e"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T00:30:24.000Z",
+                  "updatedAt": "2026-07-28T00:30:24.000Z",
+                  "uid": "35240-0aef9b64-504b-4f75-9b5d-215e29e0e9d9"
+                }
+              ],
+              "id": "1844905a-6bab-4325-a579-516205c67a14",
+              "createdAt": "2026-07-28T00:30:24.000Z",
+              "updatedAt": "2026-07-28T00:30:24.000Z",
+              "uid": "35240-1844905a-6bab-4325-a579-516205c67a14"
+            },
+            {
+              "name": "Upload a New Workflow",
+              "id": "c4c276a2-9070-4fcc-b828-a69950765335",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "multipart/form-data"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": "(Required) The YXZP workflow package file",
+                      "key": "file",
+                      "type": "file",
+                      "value": null
+                    },
+                    {
+                      "description": "(Required) Name of the workflow",
+                      "key": "name",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": "(Required) ID of the user who will own the workflow",
+                      "key": "ownerId",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": "(Required) Whether the workflow is publicly accessible",
+                      "key": "isPublic",
+                      "value": "<boolean>",
+                      "type": "text"
+                    },
+                    {
+                      "description": "(Required) Whether the workflow is ready for migration",
+                      "key": "isReadyForMigration",
+                      "value": "<boolean>",
+                      "type": "text"
+                    },
+                    {
+                      "description": "(Required) Whether other users may download the workflow",
+                      "key": "othersMayDownload",
+                      "value": "<boolean>",
+                      "type": "text"
+                    },
+                    {
+                      "description": "(Required) Whether other users can execute the workflow",
+                      "key": "othersCanExecute",
+                      "value": "<boolean>",
+                      "type": "text"
+                    },
+                    {
+                      "description": "(Required) The execution mode for the workflow (This can only be one of Safe,SemiSafe,Standard)",
+                      "key": "executionMode",
+                      "value": "Standard",
+                      "type": "text"
+                    },
+                    {
+                      "description": "(Required) Type of credential used for workflow execution (This can only be one of Default,Required,Specific)",
+                      "key": "workflowCredentialType",
+                      "value": "Required",
+                      "type": "text"
+                    },
+                    {
+                      "description": "Worker tag for execution routing",
+                      "key": "workerTag",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": "JSON array of district tags",
+                      "key": "districtTags",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": "Comments about the workflow",
+                      "key": "comments",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": "Source application ID for migration tracking",
+                      "key": "sourceAppId",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": "Whether the workflow has a private data exemption",
+                      "key": "hasPrivateDataExemption",
+                      "value": "<boolean>",
+                      "type": "text"
+                    },
+                    {
+                      "description": "ID of the credential to use when workflowCredentialType is Specific",
+                      "key": "credentialId",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": "JSON array of collection IDs to add the workflow to",
+                      "key": "collectionIds",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": "Whether to bypass workflow version compatibility checking",
+                      "key": "bypassWorkflowVersionCheck",
+                      "value": "<boolean>",
+                      "type": "text"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/v3/workflows",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v3",
+                    "workflows"
+                  ]
+                },
+                "description": "Upload a new workflow package (YXZP file) to the Alteryx Server."
+              },
+              "response": [
+                {
+                  "id": "a82a246d-d633-4def-8b0d-49e9055f8b9e",
+                  "name": "Workflow uploaded successfully",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "multipart/form-data"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "formdata",
+                      "formdata": [
+                        {
+                          "description": "(Required) The YXZP workflow package file",
+                          "key": "file",
+                          "type": "file"
+                        },
+                        {
+                          "description": "(Required) Name of the workflow",
+                          "key": "name",
+                          "value": "<string>",
+                          "type": "text"
+                        },
+                        {
+                          "description": "(Required) ID of the user who will own the workflow",
+                          "key": "ownerId",
+                          "value": "<string>",
+                          "type": "text"
+                        },
+                        {
+                          "description": "(Required) Whether the workflow is publicly accessible",
+                          "key": "isPublic",
+                          "value": "<boolean>",
+                          "type": "text"
+                        },
+                        {
+                          "description": "(Required) Whether the workflow is ready for migration",
+                          "key": "isReadyForMigration",
+                          "value": "<boolean>",
+                          "type": "text"
+                        },
+                        {
+                          "description": "(Required) Whether other users may download the workflow",
+                          "key": "othersMayDownload",
+                          "value": "<boolean>",
+                          "type": "text"
+                        },
+                        {
+                          "description": "(Required) Whether other users can execute the workflow",
+                          "key": "othersCanExecute",
+                          "value": "<boolean>",
+                          "type": "text"
+                        },
+                        {
+                          "description": "(Required) The execution mode for the workflow (This can only be one of Safe,SemiSafe,Standard)",
+                          "key": "executionMode",
+                          "value": "Standard",
+                          "type": "text"
+                        },
+                        {
+                          "description": "(Required) Type of credential used for workflow execution (This can only be one of Default,Required,Specific)",
+                          "key": "workflowCredentialType",
+                          "value": "Required",
+                          "type": "text"
+                        },
+                        {
+                          "description": "Worker tag for execution routing",
+                          "key": "workerTag",
+                          "value": "<string>",
+                          "type": "text"
+                        },
+                        {
+                          "description": "JSON array of district tags",
+                          "key": "districtTags",
+                          "value": "<string>",
+                          "type": "text"
+                        },
+                        {
+                          "description": "Comments about the workflow",
+                          "key": "comments",
+                          "value": "<string>",
+                          "type": "text"
+                        },
+                        {
+                          "description": "Source application ID for migration tracking",
+                          "key": "sourceAppId",
+                          "value": "<string>",
+                          "type": "text"
+                        },
+                        {
+                          "description": "Whether the workflow has a private data exemption",
+                          "key": "hasPrivateDataExemption",
+                          "value": "<boolean>",
+                          "type": "text"
+                        },
+                        {
+                          "description": "ID of the credential to use when workflowCredentialType is Specific",
+                          "key": "credentialId",
+                          "value": "<string>",
+                          "type": "text"
+                        },
+                        {
+                          "description": "JSON array of collection IDs to add the workflow to",
+                          "key": "collectionIds",
+                          "value": "<string>",
+                          "type": "text"
+                        },
+                        {
+                          "description": "Whether to bypass workflow version compatibility checking",
+                          "key": "bypassWorkflowVersionCheck",
+                          "value": "<boolean>",
+                          "type": "text"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v3/workflows",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v3",
+                        "workflows"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "<string>",
+                  "createdAt": "2026-07-28T00:30:24.000Z",
+                  "updatedAt": "2026-07-28T00:30:24.000Z",
+                  "uid": "35240-a82a246d-d633-4def-8b0d-49e9055f8b9e"
+                },
+                {
+                  "id": "e5ef1e7f-25f7-484a-8fc8-87566f4dc6c5",
+                  "name": "Bad request - invalid parameters",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "multipart/form-data"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "formdata",
+                      "formdata": [
+                        {
+                          "description": "(Required) The YXZP workflow package file",
+                          "key": "file",
+                          "type": "file"
+                        },
+                        {
+                          "description": "(Required) Name of the workflow",
+                          "key": "name",
+                          "value": "<string>",
+                          "type": "text"
+                        },
+                        {
+                          "description": "(Required) ID of the user who will own the workflow",
+                          "key": "ownerId",
+                          "value": "<string>",
+                          "type": "text"
+                        },
+                        {
+                          "description": "(Required) Whether the workflow is publicly accessible",
+                          "key": "isPublic",
+                          "value": "<boolean>",
+                          "type": "text"
+                        },
+                        {
+                          "description": "(Required) Whether the workflow is ready for migration",
+                          "key": "isReadyForMigration",
+                          "value": "<boolean>",
+                          "type": "text"
+                        },
+                        {
+                          "description": "(Required) Whether other users may download the workflow",
+                          "key": "othersMayDownload",
+                          "value": "<boolean>",
+                          "type": "text"
+                        },
+                        {
+                          "description": "(Required) Whether other users can execute the workflow",
+                          "key": "othersCanExecute",
+                          "value": "<boolean>",
+                          "type": "text"
+                        },
+                        {
+                          "description": "(Required) The execution mode for the workflow (This can only be one of Safe,SemiSafe,Standard)",
+                          "key": "executionMode",
+                          "value": "Standard",
+                          "type": "text"
+                        },
+                        {
+                          "description": "(Required) Type of credential used for workflow execution (This can only be one of Default,Required,Specific)",
+                          "key": "workflowCredentialType",
+                          "value": "Required",
+                          "type": "text"
+                        },
+                        {
+                          "description": "Worker tag for execution routing",
+                          "key": "workerTag",
+                          "value": "<string>",
+                          "type": "text"
+                        },
+                        {
+                          "description": "JSON array of district tags",
+                          "key": "districtTags",
+                          "value": "<string>",
+                          "type": "text"
+                        },
+                        {
+                          "description": "Comments about the workflow",
+                          "key": "comments",
+                          "value": "<string>",
+                          "type": "text"
+                        },
+                        {
+                          "description": "Source application ID for migration tracking",
+                          "key": "sourceAppId",
+                          "value": "<string>",
+                          "type": "text"
+                        },
+                        {
+                          "description": "Whether the workflow has a private data exemption",
+                          "key": "hasPrivateDataExemption",
+                          "value": "<boolean>",
+                          "type": "text"
+                        },
+                        {
+                          "description": "ID of the credential to use when workflowCredentialType is Specific",
+                          "key": "credentialId",
+                          "value": "<string>",
+                          "type": "text"
+                        },
+                        {
+                          "description": "JSON array of collection IDs to add the workflow to",
+                          "key": "collectionIds",
+                          "value": "<string>",
+                          "type": "text"
+                        },
+                        {
+                          "description": "Whether to bypass workflow version compatibility checking",
+                          "key": "bypassWorkflowVersionCheck",
+                          "value": "<boolean>",
+                          "type": "text"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v3/workflows",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v3",
+                        "workflows"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"errors\": [\n    {\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T00:30:24.000Z",
+                  "updatedAt": "2026-07-28T00:30:24.000Z",
+                  "uid": "35240-e5ef1e7f-25f7-484a-8fc8-87566f4dc6c5"
+                },
+                {
+                  "id": "ebedc9c4-80f1-400e-a878-e69d5be25d68",
+                  "name": "Unauthorized - invalid or missing authentication",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "multipart/form-data"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "formdata",
+                      "formdata": [
+                        {
+                          "description": "(Required) The YXZP workflow package file",
+                          "key": "file",
+                          "type": "file"
+                        },
+                        {
+                          "description": "(Required) Name of the workflow",
+                          "key": "name",
+                          "value": "<string>",
+                          "type": "text"
+                        },
+                        {
+                          "description": "(Required) ID of the user who will own the workflow",
+                          "key": "ownerId",
+                          "value": "<string>",
+                          "type": "text"
+                        },
+                        {
+                          "description": "(Required) Whether the workflow is publicly accessible",
+                          "key": "isPublic",
+                          "value": "<boolean>",
+                          "type": "text"
+                        },
+                        {
+                          "description": "(Required) Whether the workflow is ready for migration",
+                          "key": "isReadyForMigration",
+                          "value": "<boolean>",
+                          "type": "text"
+                        },
+                        {
+                          "description": "(Required) Whether other users may download the workflow",
+                          "key": "othersMayDownload",
+                          "value": "<boolean>",
+                          "type": "text"
+                        },
+                        {
+                          "description": "(Required) Whether other users can execute the workflow",
+                          "key": "othersCanExecute",
+                          "value": "<boolean>",
+                          "type": "text"
+                        },
+                        {
+                          "description": "(Required) The execution mode for the workflow (This can only be one of Safe,SemiSafe,Standard)",
+                          "key": "executionMode",
+                          "value": "Standard",
+                          "type": "text"
+                        },
+                        {
+                          "description": "(Required) Type of credential used for workflow execution (This can only be one of Default,Required,Specific)",
+                          "key": "workflowCredentialType",
+                          "value": "Required",
+                          "type": "text"
+                        },
+                        {
+                          "description": "Worker tag for execution routing",
+                          "key": "workerTag",
+                          "value": "<string>",
+                          "type": "text"
+                        },
+                        {
+                          "description": "JSON array of district tags",
+                          "key": "districtTags",
+                          "value": "<string>",
+                          "type": "text"
+                        },
+                        {
+                          "description": "Comments about the workflow",
+                          "key": "comments",
+                          "value": "<string>",
+                          "type": "text"
+                        },
+                        {
+                          "description": "Source application ID for migration tracking",
+                          "key": "sourceAppId",
+                          "value": "<string>",
+                          "type": "text"
+                        },
+                        {
+                          "description": "Whether the workflow has a private data exemption",
+                          "key": "hasPrivateDataExemption",
+                          "value": "<boolean>",
+                          "type": "text"
+                        },
+                        {
+                          "description": "ID of the credential to use when workflowCredentialType is Specific",
+                          "key": "credentialId",
+                          "value": "<string>",
+                          "type": "text"
+                        },
+                        {
+                          "description": "JSON array of collection IDs to add the workflow to",
+                          "key": "collectionIds",
+                          "value": "<string>",
+                          "type": "text"
+                        },
+                        {
+                          "description": "Whether to bypass workflow version compatibility checking",
+                          "key": "bypassWorkflowVersionCheck",
+                          "value": "<boolean>",
+                          "type": "text"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v3/workflows",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v3",
+                        "workflows"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:30:24.000Z",
+                  "updatedAt": "2026-07-28T00:30:24.000Z",
+                  "uid": "35240-ebedc9c4-80f1-400e-a878-e69d5be25d68"
+                }
+              ],
+              "createdAt": "2026-07-28T00:30:24.000Z",
+              "updatedAt": "2026-07-28T00:30:24.000Z",
+              "uid": "35240-c4c276a2-9070-4fcc-b828-a69950765335"
+            },
+            {
+              "name": "Retrieve All Workflows",
+              "id": "c8dad657-9df8-4b02-aa89-6fab4f1b6c5c",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/v3/workflows?view=Default&name=<string>&ownerId=<string>&createdAfter=<dateTime>&createdBefore=<dateTime>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v3",
+                    "workflows"
+                  ],
+                  "query": [
+                    {
+                      "description": "Level of detail in the response",
+                      "key": "view",
+                      "value": "Default"
+                    },
+                    {
+                      "description": "Filter workflows by name",
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter workflows by owner ID",
+                      "key": "ownerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter workflows created after this date (ISO 8601 format)",
+                      "key": "createdAfter",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Filter workflows created before this date (ISO 8601 format)",
+                      "key": "createdBefore",
+                      "value": "<dateTime>"
+                    }
+                  ]
+                },
+                "description": "Retrieve information about all workflow records with optional filtering."
+              },
+              "response": [
+                {
+                  "id": "4af04524-ac16-429f-92f2-985a574c99f7",
+                  "name": "List of workflow records",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v3/workflows?view=Default&name=<string>&ownerId=<string>&createdAfter=<dateTime>&createdBefore=<dateTime>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v3",
+                        "workflows"
+                      ],
+                      "query": [
+                        {
+                          "description": "Level of detail in the response",
+                          "key": "view",
+                          "value": "Default"
+                        },
+                        {
+                          "description": "Filter workflows by name",
+                          "key": "name",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter workflows by owner ID",
+                          "key": "ownerId",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter workflows created after this date (ISO 8601 format)",
+                          "key": "createdAfter",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "Filter workflows created before this date (ISO 8601 format)",
+                          "key": "createdBefore",
+                          "value": "<dateTime>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "[\n  {\n    \"id\": \"<string>\",\n    \"sourceAppId\": \"<string>\",\n    \"name\": \"<string>\",\n    \"ownerId\": \"<string>\",\n    \"dateCreated\": \"<dateTime>\",\n    \"publishedVersionNumber\": \"<integer>\",\n    \"isAmp\": \"<boolean>\",\n    \"executionMode\": \"Safe\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"sourceAppId\": \"<string>\",\n    \"name\": \"<string>\",\n    \"ownerId\": \"<string>\",\n    \"dateCreated\": \"<dateTime>\",\n    \"publishedVersionNumber\": \"<integer>\",\n    \"isAmp\": \"<boolean>\",\n    \"executionMode\": \"Safe\"\n  }\n]",
+                  "createdAt": "2026-07-28T00:30:24.000Z",
+                  "updatedAt": "2026-07-28T00:30:24.000Z",
+                  "uid": "35240-4af04524-ac16-429f-92f2-985a574c99f7"
+                },
+                {
+                  "id": "3f38aeff-6648-4706-b22d-899a65838a90",
+                  "name": "Bad request",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v3/workflows?view=Default&name=<string>&ownerId=<string>&createdAfter=<dateTime>&createdBefore=<dateTime>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v3",
+                        "workflows"
+                      ],
+                      "query": [
+                        {
+                          "description": "Level of detail in the response",
+                          "key": "view",
+                          "value": "Default"
+                        },
+                        {
+                          "description": "Filter workflows by name",
+                          "key": "name",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter workflows by owner ID",
+                          "key": "ownerId",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter workflows created after this date (ISO 8601 format)",
+                          "key": "createdAfter",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "Filter workflows created before this date (ISO 8601 format)",
+                          "key": "createdBefore",
+                          "value": "<dateTime>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"errors\": [\n    {\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T00:30:24.000Z",
+                  "updatedAt": "2026-07-28T00:30:24.000Z",
+                  "uid": "35240-3f38aeff-6648-4706-b22d-899a65838a90"
+                },
+                {
+                  "id": "217c060d-b843-4b8f-ab2d-f796569738c7",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v3/workflows?view=Default&name=<string>&ownerId=<string>&createdAfter=<dateTime>&createdBefore=<dateTime>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v3",
+                        "workflows"
+                      ],
+                      "query": [
+                        {
+                          "description": "Level of detail in the response",
+                          "key": "view",
+                          "value": "Default"
+                        },
+                        {
+                          "description": "Filter workflows by name",
+                          "key": "name",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter workflows by owner ID",
+                          "key": "ownerId",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter workflows created after this date (ISO 8601 format)",
+                          "key": "createdAfter",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "Filter workflows created before this date (ISO 8601 format)",
+                          "key": "createdBefore",
+                          "value": "<dateTime>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:30:24.000Z",
+                  "updatedAt": "2026-07-28T00:30:24.000Z",
+                  "uid": "35240-217c060d-b843-4b8f-ab2d-f796569738c7"
+                }
+              ],
+              "createdAt": "2026-07-28T00:30:24.000Z",
+              "updatedAt": "2026-07-28T00:30:24.000Z",
+              "uid": "35240-c8dad657-9df8-4b02-aa89-6fab4f1b6c5c"
+            }
+          ],
+          "id": "ed82cde3-8087-4070-98d7-49f80ca0e1bf",
+          "createdAt": "2026-07-28T00:30:24.000Z",
+          "updatedAt": "2026-07-28T00:30:24.000Z",
+          "uid": "35240-ed82cde3-8087-4070-98d7-49f80ca0e1bf"
+        }
+      ],
+      "id": "efa7c2fa-c70e-419a-a75d-023ebb56d059",
+      "createdAt": "2026-07-28T00:30:24.000Z",
+      "updatedAt": "2026-07-28T00:30:24.000Z",
+      "uid": "35240-efa7c2fa-c70e-419a-a75d-023ebb56d059"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://{serverHostname}/webapi/oauth2/token",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "serverHostname",
+      "value": "your-server.example.com"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{serverHostname}}/webapi"
+    }
+  ]
+}

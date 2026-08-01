@@ -1,0 +1,3219 @@
+{
+  "info": {
+    "_postman_id": "cf3edd93-3bfe-4dfd-8493-0d432dbc155b",
+    "name": "Alteryx Server API V3 Collections API",
+    "description": "The Alteryx Server API V3 provides administrative capabilities for managing workflows, schedules, users, user groups, credentials, collections, and server connections. It uses OAuth 2 authentication and implements POST, PUT, GET, DELETE, and PATCH operations so administrators can automate tasks and integrate Server with existing API automation tools.\n\nContact Support:\n Name: Alteryx Support\n Email: support@alteryx.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T00:30:10.000Z",
+    "updatedAt": "2026-07-28T00:30:10.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-cf3edd93-3bfe-4dfd-8493-0d432dbc155b"
+  },
+  "item": [
+    {
+      "name": "v3",
+      "item": [
+        {
+          "name": "collections",
+          "item": [
+            {
+              "name": "{collectionId}",
+              "item": [
+                {
+                  "name": "users",
+                  "item": [
+                    {
+                      "name": "{userId}",
+                      "item": [
+                        {
+                          "name": "permissions",
+                          "item": [
+                            {
+                              "name": "Update User Permissions in a Collection",
+                              "id": "ac8bde2d-97c8-4421-8719-077220b0ae80",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"isAdmin\": \"<boolean>\",\n  \"canAddAssets\": \"<boolean>\",\n  \"canRemoveAssets\": \"<boolean>\",\n  \"canUpdateAssets\": \"<boolean>\",\n  \"canAddUsers\": \"<boolean>\",\n  \"canRemoveUsers\": \"<boolean>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/v3/collections/:collectionId/users/:userId/permissions",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v3",
+                                    "collections",
+                                    ":collectionId",
+                                    "users",
+                                    ":userId",
+                                    "permissions"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "aff0a678-9ec3-45c2-a049-2ed1916b798e",
+                                      "key": "collectionId",
+                                      "value": "<string>",
+                                      "description": "(Required) Unique identifier of the collection"
+                                    },
+                                    {
+                                      "id": "2e9d88ac-2c8c-4581-aaa1-fb8476838a27",
+                                      "key": "userId",
+                                      "value": "<string>",
+                                      "description": "(Required) Unique identifier of the user"
+                                    }
+                                  ]
+                                },
+                                "description": "Update a user's permission flags within a collection."
+                              },
+                              "response": [
+                                {
+                                  "id": "d55d42f2-d2bc-4172-adba-b36a85f3fc6e",
+                                  "name": "Permissions updated",
+                                  "originalRequest": {
+                                    "method": "PUT",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"isAdmin\": \"<boolean>\",\n  \"canAddAssets\": \"<boolean>\",\n  \"canRemoveAssets\": \"<boolean>\",\n  \"canUpdateAssets\": \"<boolean>\",\n  \"canAddUsers\": \"<boolean>\",\n  \"canRemoveUsers\": \"<boolean>\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v3/collections/:collectionId/users/:userId/permissions",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v3",
+                                        "collections",
+                                        ":collectionId",
+                                        "users",
+                                        ":userId",
+                                        "permissions"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "collectionId"
+                                        },
+                                        {
+                                          "key": "userId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T00:30:10.000Z",
+                                  "updatedAt": "2026-07-28T00:30:10.000Z",
+                                  "uid": "35240-d55d42f2-d2bc-4172-adba-b36a85f3fc6e"
+                                },
+                                {
+                                  "id": "cc256b55-9363-43d8-aba0-4f4988bfac8f",
+                                  "name": "Unauthorized",
+                                  "originalRequest": {
+                                    "method": "PUT",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"isAdmin\": \"<boolean>\",\n  \"canAddAssets\": \"<boolean>\",\n  \"canRemoveAssets\": \"<boolean>\",\n  \"canUpdateAssets\": \"<boolean>\",\n  \"canAddUsers\": \"<boolean>\",\n  \"canRemoveUsers\": \"<boolean>\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v3/collections/:collectionId/users/:userId/permissions",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v3",
+                                        "collections",
+                                        ":collectionId",
+                                        "users",
+                                        ":userId",
+                                        "permissions"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "collectionId"
+                                        },
+                                        {
+                                          "key": "userId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Unauthorized",
+                                  "code": 401,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T00:30:10.000Z",
+                                  "updatedAt": "2026-07-28T00:30:10.000Z",
+                                  "uid": "35240-cc256b55-9363-43d8-aba0-4f4988bfac8f"
+                                },
+                                {
+                                  "id": "41d8cddc-0a29-4390-81b2-b957a794d654",
+                                  "name": "Not found",
+                                  "originalRequest": {
+                                    "method": "PUT",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"isAdmin\": \"<boolean>\",\n  \"canAddAssets\": \"<boolean>\",\n  \"canRemoveAssets\": \"<boolean>\",\n  \"canUpdateAssets\": \"<boolean>\",\n  \"canAddUsers\": \"<boolean>\",\n  \"canRemoveUsers\": \"<boolean>\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v3/collections/:collectionId/users/:userId/permissions",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v3",
+                                        "collections",
+                                        ":collectionId",
+                                        "users",
+                                        ":userId",
+                                        "permissions"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "collectionId"
+                                        },
+                                        {
+                                          "key": "userId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Not Found",
+                                  "code": 404,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T00:30:10.000Z",
+                                  "updatedAt": "2026-07-28T00:30:10.000Z",
+                                  "uid": "35240-41d8cddc-0a29-4390-81b2-b957a794d654"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T00:30:10.000Z",
+                              "updatedAt": "2026-07-28T00:30:10.000Z",
+                              "uid": "35240-ac8bde2d-97c8-4421-8719-077220b0ae80"
+                            }
+                          ],
+                          "id": "58ac5e6d-07a7-4520-9935-ee43ebf3aef0",
+                          "createdAt": "2026-07-28T00:30:10.000Z",
+                          "updatedAt": "2026-07-28T00:30:10.000Z",
+                          "uid": "35240-58ac5e6d-07a7-4520-9935-ee43ebf3aef0"
+                        },
+                        {
+                          "name": "Remove a User From a Collection",
+                          "id": "49c559e9-0717-46e4-9030-db6d8b444f56",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "DELETE",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v3/collections/:collectionId/users/:userId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v3",
+                                "collections",
+                                ":collectionId",
+                                "users",
+                                ":userId"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "e003f027-34a9-4dca-ab9c-81cf3a4b4107",
+                                  "key": "collectionId",
+                                  "value": "<string>",
+                                  "description": "(Required) Unique identifier of the collection"
+                                },
+                                {
+                                  "id": "4333fb29-f9f5-4f49-92fe-629e067be500",
+                                  "key": "userId",
+                                  "value": "<string>",
+                                  "description": "(Required) Unique identifier of the user"
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "19b29c02-6a77-45ad-b72f-4a4390e9546b",
+                              "name": "User removed from collection",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v3/collections/:collectionId/users/:userId",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v3",
+                                    "collections",
+                                    ":collectionId",
+                                    "users",
+                                    ":userId"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "collectionId"
+                                    },
+                                    {
+                                      "key": "userId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T00:30:10.000Z",
+                              "updatedAt": "2026-07-28T00:30:10.000Z",
+                              "uid": "35240-19b29c02-6a77-45ad-b72f-4a4390e9546b"
+                            },
+                            {
+                              "id": "d99e3b77-745d-4a19-8769-c5c74e366459",
+                              "name": "Unauthorized",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v3/collections/:collectionId/users/:userId",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v3",
+                                    "collections",
+                                    ":collectionId",
+                                    "users",
+                                    ":userId"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "collectionId"
+                                    },
+                                    {
+                                      "key": "userId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T00:30:10.000Z",
+                              "updatedAt": "2026-07-28T00:30:10.000Z",
+                              "uid": "35240-d99e3b77-745d-4a19-8769-c5c74e366459"
+                            },
+                            {
+                              "id": "6b4fd01d-6f5d-4a6f-a91c-56d806f47111",
+                              "name": "Not found",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v3/collections/:collectionId/users/:userId",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v3",
+                                    "collections",
+                                    ":collectionId",
+                                    "users",
+                                    ":userId"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "collectionId"
+                                    },
+                                    {
+                                      "key": "userId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T00:30:10.000Z",
+                              "updatedAt": "2026-07-28T00:30:10.000Z",
+                              "uid": "35240-6b4fd01d-6f5d-4a6f-a91c-56d806f47111"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T00:30:10.000Z",
+                          "updatedAt": "2026-07-28T00:30:10.000Z",
+                          "uid": "35240-49c559e9-0717-46e4-9030-db6d8b444f56"
+                        }
+                      ],
+                      "id": "09177020-af25-4e3b-80a1-2d5715830be7",
+                      "createdAt": "2026-07-28T00:30:10.000Z",
+                      "updatedAt": "2026-07-28T00:30:10.000Z",
+                      "uid": "35240-09177020-af25-4e3b-80a1-2d5715830be7"
+                    },
+                    {
+                      "name": "Add a User to a Collection",
+                      "id": "232a85be-4476-4fe1-bed5-72501ddf6755",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"userId\": \"<string>\",\n  \"isAdmin\": false,\n  \"canAddAssets\": false,\n  \"canRemoveAssets\": false,\n  \"canUpdateAssets\": false,\n  \"canAddUsers\": false,\n  \"canRemoveUsers\": false\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v3/collections/:collectionId/users",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v3",
+                            "collections",
+                            ":collectionId",
+                            "users"
+                          ],
+                          "variable": [
+                            {
+                              "id": "33ec418d-b7a0-41fc-bed1-dbb806b0cd96",
+                              "key": "collectionId",
+                              "value": "<string>",
+                              "description": "(Required) Unique identifier of the collection"
+                            }
+                          ]
+                        },
+                        "description": "Add a user to a collection with specified permissions."
+                      },
+                      "response": [
+                        {
+                          "id": "d64c39e0-1ca7-4fd6-ab4b-5e5493b1c4b2",
+                          "name": "User added to collection",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"userId\": \"<string>\",\n  \"isAdmin\": false,\n  \"canAddAssets\": false,\n  \"canRemoveAssets\": false,\n  \"canUpdateAssets\": false,\n  \"canAddUsers\": false,\n  \"canRemoveUsers\": false\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v3/collections/:collectionId/users",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v3",
+                                "collections",
+                                ":collectionId",
+                                "users"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "collectionId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:30:10.000Z",
+                          "updatedAt": "2026-07-28T00:30:10.000Z",
+                          "uid": "35240-d64c39e0-1ca7-4fd6-ab4b-5e5493b1c4b2"
+                        },
+                        {
+                          "id": "c0be0df6-d2fa-47de-a2ba-1c41f6bb783d",
+                          "name": "Bad request",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"userId\": \"<string>\",\n  \"isAdmin\": false,\n  \"canAddAssets\": false,\n  \"canRemoveAssets\": false,\n  \"canUpdateAssets\": false,\n  \"canAddUsers\": false,\n  \"canRemoveUsers\": false\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v3/collections/:collectionId/users",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v3",
+                                "collections",
+                                ":collectionId",
+                                "users"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "collectionId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:30:10.000Z",
+                          "updatedAt": "2026-07-28T00:30:10.000Z",
+                          "uid": "35240-c0be0df6-d2fa-47de-a2ba-1c41f6bb783d"
+                        },
+                        {
+                          "id": "c7de864b-36d3-4ff1-82f8-14bf433f72c2",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"userId\": \"<string>\",\n  \"isAdmin\": false,\n  \"canAddAssets\": false,\n  \"canRemoveAssets\": false,\n  \"canUpdateAssets\": false,\n  \"canAddUsers\": false,\n  \"canRemoveUsers\": false\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v3/collections/:collectionId/users",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v3",
+                                "collections",
+                                ":collectionId",
+                                "users"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "collectionId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:30:10.000Z",
+                          "updatedAt": "2026-07-28T00:30:10.000Z",
+                          "uid": "35240-c7de864b-36d3-4ff1-82f8-14bf433f72c2"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T00:30:10.000Z",
+                      "updatedAt": "2026-07-28T00:30:10.000Z",
+                      "uid": "35240-232a85be-4476-4fe1-bed5-72501ddf6755"
+                    }
+                  ],
+                  "id": "2116f5e5-c902-4494-8338-24bf9c44d9be",
+                  "createdAt": "2026-07-28T00:30:10.000Z",
+                  "updatedAt": "2026-07-28T00:30:10.000Z",
+                  "uid": "35240-2116f5e5-c902-4494-8338-24bf9c44d9be"
+                },
+                {
+                  "name": "userGroups",
+                  "item": [
+                    {
+                      "name": "{userGroupId}",
+                      "item": [
+                        {
+                          "name": "permissions",
+                          "item": [
+                            {
+                              "name": "Update User Group Permissions in a Collection",
+                              "id": "c14340b5-59b1-4b4b-a917-5733906449ca",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "PUT",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"isAdmin\": \"<boolean>\",\n  \"canAddAssets\": \"<boolean>\",\n  \"canRemoveAssets\": \"<boolean>\",\n  \"canUpdateAssets\": \"<boolean>\",\n  \"canAddUsers\": \"<boolean>\",\n  \"canRemoveUsers\": \"<boolean>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/v3/collections/:collectionId/userGroups/:userGroupId/permissions",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v3",
+                                    "collections",
+                                    ":collectionId",
+                                    "userGroups",
+                                    ":userGroupId",
+                                    "permissions"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "904b3ffd-9b1c-404d-9986-e80dae144349",
+                                      "key": "collectionId",
+                                      "value": "<string>",
+                                      "description": "(Required) Unique identifier of the collection"
+                                    },
+                                    {
+                                      "id": "f493290e-b56a-4c69-bb29-96c0900d3576",
+                                      "key": "userGroupId",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                }
+                              },
+                              "response": [
+                                {
+                                  "id": "643b7d17-1f7a-4d31-aa62-e60096d21382",
+                                  "name": "Permissions updated",
+                                  "originalRequest": {
+                                    "method": "PUT",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"isAdmin\": \"<boolean>\",\n  \"canAddAssets\": \"<boolean>\",\n  \"canRemoveAssets\": \"<boolean>\",\n  \"canUpdateAssets\": \"<boolean>\",\n  \"canAddUsers\": \"<boolean>\",\n  \"canRemoveUsers\": \"<boolean>\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v3/collections/:collectionId/userGroups/:userGroupId/permissions",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v3",
+                                        "collections",
+                                        ":collectionId",
+                                        "userGroups",
+                                        ":userGroupId",
+                                        "permissions"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "collectionId"
+                                        },
+                                        {
+                                          "key": "userGroupId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T00:30:10.000Z",
+                                  "updatedAt": "2026-07-28T00:30:10.000Z",
+                                  "uid": "35240-643b7d17-1f7a-4d31-aa62-e60096d21382"
+                                },
+                                {
+                                  "id": "ae640b53-7d17-4bd8-9f64-127edcef1e0a",
+                                  "name": "Unauthorized",
+                                  "originalRequest": {
+                                    "method": "PUT",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"isAdmin\": \"<boolean>\",\n  \"canAddAssets\": \"<boolean>\",\n  \"canRemoveAssets\": \"<boolean>\",\n  \"canUpdateAssets\": \"<boolean>\",\n  \"canAddUsers\": \"<boolean>\",\n  \"canRemoveUsers\": \"<boolean>\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v3/collections/:collectionId/userGroups/:userGroupId/permissions",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v3",
+                                        "collections",
+                                        ":collectionId",
+                                        "userGroups",
+                                        ":userGroupId",
+                                        "permissions"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "collectionId"
+                                        },
+                                        {
+                                          "key": "userGroupId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Unauthorized",
+                                  "code": 401,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T00:30:10.000Z",
+                                  "updatedAt": "2026-07-28T00:30:10.000Z",
+                                  "uid": "35240-ae640b53-7d17-4bd8-9f64-127edcef1e0a"
+                                },
+                                {
+                                  "id": "56691cac-0949-4965-88c1-849788097f76",
+                                  "name": "Not found",
+                                  "originalRequest": {
+                                    "method": "PUT",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: oauth2",
+                                        "key": "Authorization",
+                                        "value": "<token>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"isAdmin\": \"<boolean>\",\n  \"canAddAssets\": \"<boolean>\",\n  \"canRemoveAssets\": \"<boolean>\",\n  \"canUpdateAssets\": \"<boolean>\",\n  \"canAddUsers\": \"<boolean>\",\n  \"canRemoveUsers\": \"<boolean>\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/v3/collections/:collectionId/userGroups/:userGroupId/permissions",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "v3",
+                                        "collections",
+                                        ":collectionId",
+                                        "userGroups",
+                                        ":userGroupId",
+                                        "permissions"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "collectionId"
+                                        },
+                                        {
+                                          "key": "userGroupId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Not Found",
+                                  "code": 404,
+                                  "_postman_previewlanguage": "text",
+                                  "header": [],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": null,
+                                  "createdAt": "2026-07-28T00:30:10.000Z",
+                                  "updatedAt": "2026-07-28T00:30:10.000Z",
+                                  "uid": "35240-56691cac-0949-4965-88c1-849788097f76"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T00:30:10.000Z",
+                              "updatedAt": "2026-07-28T00:30:10.000Z",
+                              "uid": "35240-c14340b5-59b1-4b4b-a917-5733906449ca"
+                            }
+                          ],
+                          "id": "e12f2122-96b8-4d02-a2c2-5ecb4fcf988d",
+                          "createdAt": "2026-07-28T00:30:10.000Z",
+                          "updatedAt": "2026-07-28T00:30:10.000Z",
+                          "uid": "35240-e12f2122-96b8-4d02-a2c2-5ecb4fcf988d"
+                        },
+                        {
+                          "name": "Remove a User Group From a Collection",
+                          "id": "19caae1f-ab78-413d-86cd-c87587ccfb08",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "DELETE",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v3/collections/:collectionId/userGroups/:userGroupId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v3",
+                                "collections",
+                                ":collectionId",
+                                "userGroups",
+                                ":userGroupId"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "4b1362c4-c9c6-4e24-ac8e-6ef9c85c7de0",
+                                  "key": "collectionId",
+                                  "value": "<string>",
+                                  "description": "(Required) Unique identifier of the collection"
+                                },
+                                {
+                                  "id": "a10d16a0-c598-4188-9892-e08d8ab99494",
+                                  "key": "userGroupId",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "76745b0d-a5a8-4522-a3e0-1005cce2abe8",
+                              "name": "User group removed from collection",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v3/collections/:collectionId/userGroups/:userGroupId",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v3",
+                                    "collections",
+                                    ":collectionId",
+                                    "userGroups",
+                                    ":userGroupId"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "collectionId"
+                                    },
+                                    {
+                                      "key": "userGroupId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T00:30:10.000Z",
+                              "updatedAt": "2026-07-28T00:30:10.000Z",
+                              "uid": "35240-76745b0d-a5a8-4522-a3e0-1005cce2abe8"
+                            },
+                            {
+                              "id": "fea94ec1-765f-4335-b412-6ed76adf187f",
+                              "name": "Unauthorized",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v3/collections/:collectionId/userGroups/:userGroupId",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v3",
+                                    "collections",
+                                    ":collectionId",
+                                    "userGroups",
+                                    ":userGroupId"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "collectionId"
+                                    },
+                                    {
+                                      "key": "userGroupId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T00:30:10.000Z",
+                              "updatedAt": "2026-07-28T00:30:10.000Z",
+                              "uid": "35240-fea94ec1-765f-4335-b412-6ed76adf187f"
+                            },
+                            {
+                              "id": "8a7c3084-94b5-4d79-a13a-4f96405e39c2",
+                              "name": "Not found",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v3/collections/:collectionId/userGroups/:userGroupId",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v3",
+                                    "collections",
+                                    ":collectionId",
+                                    "userGroups",
+                                    ":userGroupId"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "collectionId"
+                                    },
+                                    {
+                                      "key": "userGroupId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T00:30:10.000Z",
+                              "updatedAt": "2026-07-28T00:30:10.000Z",
+                              "uid": "35240-8a7c3084-94b5-4d79-a13a-4f96405e39c2"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T00:30:10.000Z",
+                          "updatedAt": "2026-07-28T00:30:10.000Z",
+                          "uid": "35240-19caae1f-ab78-413d-86cd-c87587ccfb08"
+                        }
+                      ],
+                      "id": "fb65aac9-ca4a-45b3-9c67-f84f29cddf31",
+                      "createdAt": "2026-07-28T00:30:10.000Z",
+                      "updatedAt": "2026-07-28T00:30:10.000Z",
+                      "uid": "35240-fb65aac9-ca4a-45b3-9c67-f84f29cddf31"
+                    },
+                    {
+                      "name": "Add a User Group to a Collection",
+                      "id": "842e9123-1950-4405-9e79-81d87077332c",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"userGroupId\": \"<string>\",\n  \"isAdmin\": false,\n  \"canAddAssets\": false,\n  \"canRemoveAssets\": false,\n  \"canUpdateAssets\": false,\n  \"canAddUsers\": false,\n  \"canRemoveUsers\": false\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v3/collections/:collectionId/userGroups",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v3",
+                            "collections",
+                            ":collectionId",
+                            "userGroups"
+                          ],
+                          "variable": [
+                            {
+                              "id": "500c14dd-5c08-4478-b4f3-1fa8a860a2e1",
+                              "key": "collectionId",
+                              "value": "<string>",
+                              "description": "(Required) Unique identifier of the collection"
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "6ecd55ff-831e-41b8-b624-bc0aca8c8f30",
+                          "name": "User group added to collection",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"userGroupId\": \"<string>\",\n  \"isAdmin\": false,\n  \"canAddAssets\": false,\n  \"canRemoveAssets\": false,\n  \"canUpdateAssets\": false,\n  \"canAddUsers\": false,\n  \"canRemoveUsers\": false\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v3/collections/:collectionId/userGroups",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v3",
+                                "collections",
+                                ":collectionId",
+                                "userGroups"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "collectionId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:30:10.000Z",
+                          "updatedAt": "2026-07-28T00:30:10.000Z",
+                          "uid": "35240-6ecd55ff-831e-41b8-b624-bc0aca8c8f30"
+                        },
+                        {
+                          "id": "e2e0d271-b945-4e2e-89e1-c43c3eae7954",
+                          "name": "Bad request",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"userGroupId\": \"<string>\",\n  \"isAdmin\": false,\n  \"canAddAssets\": false,\n  \"canRemoveAssets\": false,\n  \"canUpdateAssets\": false,\n  \"canAddUsers\": false,\n  \"canRemoveUsers\": false\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v3/collections/:collectionId/userGroups",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v3",
+                                "collections",
+                                ":collectionId",
+                                "userGroups"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "collectionId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:30:10.000Z",
+                          "updatedAt": "2026-07-28T00:30:10.000Z",
+                          "uid": "35240-e2e0d271-b945-4e2e-89e1-c43c3eae7954"
+                        },
+                        {
+                          "id": "7da5ae7a-bf96-4609-9607-364f5304f03b",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"userGroupId\": \"<string>\",\n  \"isAdmin\": false,\n  \"canAddAssets\": false,\n  \"canRemoveAssets\": false,\n  \"canUpdateAssets\": false,\n  \"canAddUsers\": false,\n  \"canRemoveUsers\": false\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v3/collections/:collectionId/userGroups",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v3",
+                                "collections",
+                                ":collectionId",
+                                "userGroups"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "collectionId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:30:10.000Z",
+                          "updatedAt": "2026-07-28T00:30:10.000Z",
+                          "uid": "35240-7da5ae7a-bf96-4609-9607-364f5304f03b"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T00:30:10.000Z",
+                      "updatedAt": "2026-07-28T00:30:10.000Z",
+                      "uid": "35240-842e9123-1950-4405-9e79-81d87077332c"
+                    }
+                  ],
+                  "id": "292aa3f4-91fe-45e5-a639-f9a72723ff62",
+                  "createdAt": "2026-07-28T00:30:10.000Z",
+                  "updatedAt": "2026-07-28T00:30:10.000Z",
+                  "uid": "35240-292aa3f4-91fe-45e5-a639-f9a72723ff62"
+                },
+                {
+                  "name": "workflows",
+                  "item": [
+                    {
+                      "name": "{appId}",
+                      "item": [
+                        {
+                          "name": "Remove a Workflow From a Collection",
+                          "id": "cbec585d-2447-4f2a-98be-46c65a4115ec",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "DELETE",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v3/collections/:collectionId/workflows/:appId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v3",
+                                "collections",
+                                ":collectionId",
+                                "workflows",
+                                ":appId"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "aab16fd1-61a1-4f90-94cf-23c45aee3765",
+                                  "key": "collectionId",
+                                  "value": "<string>",
+                                  "description": "(Required) Unique identifier of the collection"
+                                },
+                                {
+                                  "id": "ccc6d4aa-e751-417a-a92b-dcde7e73278f",
+                                  "key": "appId",
+                                  "value": "<string>",
+                                  "description": "(Required) Workflow application ID"
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "90408fb2-6a25-4475-b3fe-2ee52cffcda9",
+                              "name": "Workflow removed from collection",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v3/collections/:collectionId/workflows/:appId",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v3",
+                                    "collections",
+                                    ":collectionId",
+                                    "workflows",
+                                    ":appId"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "collectionId"
+                                    },
+                                    {
+                                      "key": "appId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T00:30:10.000Z",
+                              "updatedAt": "2026-07-28T00:30:10.000Z",
+                              "uid": "35240-90408fb2-6a25-4475-b3fe-2ee52cffcda9"
+                            },
+                            {
+                              "id": "093c54a1-31c9-4545-ae30-25bacd7c0926",
+                              "name": "Unauthorized",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v3/collections/:collectionId/workflows/:appId",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v3",
+                                    "collections",
+                                    ":collectionId",
+                                    "workflows",
+                                    ":appId"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "collectionId"
+                                    },
+                                    {
+                                      "key": "appId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T00:30:10.000Z",
+                              "updatedAt": "2026-07-28T00:30:10.000Z",
+                              "uid": "35240-093c54a1-31c9-4545-ae30-25bacd7c0926"
+                            },
+                            {
+                              "id": "17b285d9-2815-483c-9676-6888d014ae54",
+                              "name": "Not found",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v3/collections/:collectionId/workflows/:appId",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v3",
+                                    "collections",
+                                    ":collectionId",
+                                    "workflows",
+                                    ":appId"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "collectionId"
+                                    },
+                                    {
+                                      "key": "appId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T00:30:10.000Z",
+                              "updatedAt": "2026-07-28T00:30:10.000Z",
+                              "uid": "35240-17b285d9-2815-483c-9676-6888d014ae54"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T00:30:10.000Z",
+                          "updatedAt": "2026-07-28T00:30:10.000Z",
+                          "uid": "35240-cbec585d-2447-4f2a-98be-46c65a4115ec"
+                        }
+                      ],
+                      "id": "bdc035d7-87e1-48d3-a257-a16b4908be40",
+                      "createdAt": "2026-07-28T00:30:10.000Z",
+                      "updatedAt": "2026-07-28T00:30:10.000Z",
+                      "uid": "35240-bdc035d7-87e1-48d3-a257-a16b4908be40"
+                    },
+                    {
+                      "name": "Add a Workflow to a Collection",
+                      "id": "7f811bf1-a04f-4c05-8061-3e790fbfc629",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"workflowId\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v3/collections/:collectionId/workflows",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v3",
+                            "collections",
+                            ":collectionId",
+                            "workflows"
+                          ],
+                          "variable": [
+                            {
+                              "id": "b90236d8-8e76-4b78-a2d0-30457bccbe4e",
+                              "key": "collectionId",
+                              "value": "<string>",
+                              "description": "(Required) Unique identifier of the collection"
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "309aea13-b32c-4351-a96b-9c80b4c3239a",
+                          "name": "Workflow added to collection",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"workflowId\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v3/collections/:collectionId/workflows",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v3",
+                                "collections",
+                                ":collectionId",
+                                "workflows"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "collectionId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:30:10.000Z",
+                          "updatedAt": "2026-07-28T00:30:10.000Z",
+                          "uid": "35240-309aea13-b32c-4351-a96b-9c80b4c3239a"
+                        },
+                        {
+                          "id": "9aa9aadb-b28f-42c6-95b9-8faf5e87e37d",
+                          "name": "Bad request",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"workflowId\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v3/collections/:collectionId/workflows",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v3",
+                                "collections",
+                                ":collectionId",
+                                "workflows"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "collectionId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:30:10.000Z",
+                          "updatedAt": "2026-07-28T00:30:10.000Z",
+                          "uid": "35240-9aa9aadb-b28f-42c6-95b9-8faf5e87e37d"
+                        },
+                        {
+                          "id": "2fed1e06-3e0c-4e95-a8b1-731fd9d4824a",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"workflowId\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v3/collections/:collectionId/workflows",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v3",
+                                "collections",
+                                ":collectionId",
+                                "workflows"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "collectionId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:30:10.000Z",
+                          "updatedAt": "2026-07-28T00:30:10.000Z",
+                          "uid": "35240-2fed1e06-3e0c-4e95-a8b1-731fd9d4824a"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T00:30:10.000Z",
+                      "updatedAt": "2026-07-28T00:30:10.000Z",
+                      "uid": "35240-7f811bf1-a04f-4c05-8061-3e790fbfc629"
+                    }
+                  ],
+                  "id": "ffdbb209-72dd-4729-a9e7-637d8ee29046",
+                  "createdAt": "2026-07-28T00:30:10.000Z",
+                  "updatedAt": "2026-07-28T00:30:10.000Z",
+                  "uid": "35240-ffdbb209-72dd-4729-a9e7-637d8ee29046"
+                },
+                {
+                  "name": "schedules",
+                  "item": [
+                    {
+                      "name": "{scheduleId}",
+                      "item": [
+                        {
+                          "name": "Remove a Schedule From a Collection",
+                          "id": "825d238e-6997-42ba-9e97-d5fbe4eb2583",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "DELETE",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/v3/collections/:collectionId/schedules/:scheduleId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v3",
+                                "collections",
+                                ":collectionId",
+                                "schedules",
+                                ":scheduleId"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "87768312-1741-4561-a04c-d52159b33406",
+                                  "key": "collectionId",
+                                  "value": "<string>",
+                                  "description": "(Required) Unique identifier of the collection"
+                                },
+                                {
+                                  "id": "85378c15-ead9-4982-9ee9-7f1da06de468",
+                                  "key": "scheduleId",
+                                  "value": "<string>",
+                                  "description": "(Required) Unique identifier of the schedule"
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "50213741-63ff-4eeb-be74-cba0dc85d488",
+                              "name": "Schedule removed from collection",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v3/collections/:collectionId/schedules/:scheduleId",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v3",
+                                    "collections",
+                                    ":collectionId",
+                                    "schedules",
+                                    ":scheduleId"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "collectionId"
+                                    },
+                                    {
+                                      "key": "scheduleId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T00:30:10.000Z",
+                              "updatedAt": "2026-07-28T00:30:10.000Z",
+                              "uid": "35240-50213741-63ff-4eeb-be74-cba0dc85d488"
+                            },
+                            {
+                              "id": "d3c2a281-eeac-40e6-9023-8db318188341",
+                              "name": "Unauthorized",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v3/collections/:collectionId/schedules/:scheduleId",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v3",
+                                    "collections",
+                                    ":collectionId",
+                                    "schedules",
+                                    ":scheduleId"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "collectionId"
+                                    },
+                                    {
+                                      "key": "scheduleId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T00:30:10.000Z",
+                              "updatedAt": "2026-07-28T00:30:10.000Z",
+                              "uid": "35240-d3c2a281-eeac-40e6-9023-8db318188341"
+                            },
+                            {
+                              "id": "876fb194-71c3-4e80-8281-5384651d402d",
+                              "name": "Not found",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: oauth2",
+                                    "key": "Authorization",
+                                    "value": "<token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/v3/collections/:collectionId/schedules/:scheduleId",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "v3",
+                                    "collections",
+                                    ":collectionId",
+                                    "schedules",
+                                    ":scheduleId"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "collectionId"
+                                    },
+                                    {
+                                      "key": "scheduleId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T00:30:10.000Z",
+                              "updatedAt": "2026-07-28T00:30:10.000Z",
+                              "uid": "35240-876fb194-71c3-4e80-8281-5384651d402d"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T00:30:10.000Z",
+                          "updatedAt": "2026-07-28T00:30:10.000Z",
+                          "uid": "35240-825d238e-6997-42ba-9e97-d5fbe4eb2583"
+                        }
+                      ],
+                      "id": "11723891-baa4-4fba-a63e-951b181df265",
+                      "createdAt": "2026-07-28T00:30:10.000Z",
+                      "updatedAt": "2026-07-28T00:30:10.000Z",
+                      "uid": "35240-11723891-baa4-4fba-a63e-951b181df265"
+                    },
+                    {
+                      "name": "Add a Schedule to a Collection",
+                      "id": "ae866cda-c20f-4217-ac1e-54ecaf15e883",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"scheduleId\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v3/collections/:collectionId/schedules",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v3",
+                            "collections",
+                            ":collectionId",
+                            "schedules"
+                          ],
+                          "variable": [
+                            {
+                              "id": "0021057f-97f9-4e01-9f0a-fa1bf441173c",
+                              "key": "collectionId",
+                              "value": "<string>",
+                              "description": "(Required) Unique identifier of the collection"
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "6bd809a5-3e7c-4146-8caa-a6afb24612f2",
+                          "name": "Schedule added to collection",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"scheduleId\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v3/collections/:collectionId/schedules",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v3",
+                                "collections",
+                                ":collectionId",
+                                "schedules"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "collectionId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:30:10.000Z",
+                          "updatedAt": "2026-07-28T00:30:10.000Z",
+                          "uid": "35240-6bd809a5-3e7c-4146-8caa-a6afb24612f2"
+                        },
+                        {
+                          "id": "b59e18b2-9125-49a3-8569-2b7ae849613a",
+                          "name": "Bad request",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"scheduleId\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v3/collections/:collectionId/schedules",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v3",
+                                "collections",
+                                ":collectionId",
+                                "schedules"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "collectionId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:30:10.000Z",
+                          "updatedAt": "2026-07-28T00:30:10.000Z",
+                          "uid": "35240-b59e18b2-9125-49a3-8569-2b7ae849613a"
+                        },
+                        {
+                          "id": "8ca560ab-0f37-4c3b-beb4-393675740c86",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"scheduleId\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v3/collections/:collectionId/schedules",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v3",
+                                "collections",
+                                ":collectionId",
+                                "schedules"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "collectionId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:30:10.000Z",
+                          "updatedAt": "2026-07-28T00:30:10.000Z",
+                          "uid": "35240-8ca560ab-0f37-4c3b-beb4-393675740c86"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T00:30:10.000Z",
+                      "updatedAt": "2026-07-28T00:30:10.000Z",
+                      "uid": "35240-ae866cda-c20f-4217-ac1e-54ecaf15e883"
+                    }
+                  ],
+                  "id": "5c09eaff-68b8-4d3f-957d-22d53b9823d6",
+                  "createdAt": "2026-07-28T00:30:10.000Z",
+                  "updatedAt": "2026-07-28T00:30:10.000Z",
+                  "uid": "35240-5c09eaff-68b8-4d3f-957d-22d53b9823d6"
+                },
+                {
+                  "name": "Retrieve a Specific Collection",
+                  "id": "78cfced9-cea7-41ad-9da7-b44e965e5e90",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v3/collections/:collectionId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v3",
+                        "collections",
+                        ":collectionId"
+                      ],
+                      "variable": [
+                        {
+                          "id": "a426491d-b7f9-4682-a671-8751c8dbf2df",
+                          "key": "collectionId",
+                          "value": "<string>",
+                          "description": "(Required) Unique identifier of the collection"
+                        }
+                      ]
+                    },
+                    "description": "Retrieve detailed information about a specific collection."
+                  },
+                  "response": [
+                    {
+                      "id": "f1a11789-2dbf-4bbb-9281-f8843f1d330c",
+                      "name": "Collection details",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v3/collections/:collectionId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v3",
+                            "collections",
+                            ":collectionId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "collectionId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"ownerId\": \"<string>\",\n  \"dateCreated\": \"<dateTime>\"\n}",
+                      "createdAt": "2026-07-28T00:30:10.000Z",
+                      "updatedAt": "2026-07-28T00:30:10.000Z",
+                      "uid": "35240-f1a11789-2dbf-4bbb-9281-f8843f1d330c"
+                    },
+                    {
+                      "id": "25356f53-60bc-4853-8980-3bdc78c3caa0",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v3/collections/:collectionId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v3",
+                            "collections",
+                            ":collectionId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "collectionId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T00:30:10.000Z",
+                      "updatedAt": "2026-07-28T00:30:10.000Z",
+                      "uid": "35240-25356f53-60bc-4853-8980-3bdc78c3caa0"
+                    },
+                    {
+                      "id": "608d2306-adc9-4ac2-ba46-8a7fc29c2472",
+                      "name": "Collection not found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v3/collections/:collectionId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v3",
+                            "collections",
+                            ":collectionId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "collectionId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T00:30:10.000Z",
+                      "updatedAt": "2026-07-28T00:30:10.000Z",
+                      "uid": "35240-608d2306-adc9-4ac2-ba46-8a7fc29c2472"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T00:30:10.000Z",
+                  "updatedAt": "2026-07-28T00:30:10.000Z",
+                  "uid": "35240-78cfced9-cea7-41ad-9da7-b44e965e5e90"
+                },
+                {
+                  "name": "Update a Collection",
+                  "id": "0ccab8db-6686-443a-a40d-33f4ae630794",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"ownerId\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v3/collections/:collectionId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v3",
+                        "collections",
+                        ":collectionId"
+                      ],
+                      "variable": [
+                        {
+                          "id": "0327971b-5977-4def-aaa4-c4ced2903dfd",
+                          "key": "collectionId",
+                          "value": "<string>",
+                          "description": "(Required) Unique identifier of the collection"
+                        }
+                      ]
+                    },
+                    "description": "Update collection name and owner."
+                  },
+                  "response": [
+                    {
+                      "id": "ed544475-c611-4495-9511-1843f15dc16e",
+                      "name": "Collection updated successfully",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"name\": \"<string>\",\n  \"ownerId\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v3/collections/:collectionId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v3",
+                            "collections",
+                            ":collectionId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "collectionId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"ownerId\": \"<string>\",\n  \"dateCreated\": \"<dateTime>\"\n}",
+                      "createdAt": "2026-07-28T00:30:10.000Z",
+                      "updatedAt": "2026-07-28T00:30:10.000Z",
+                      "uid": "35240-ed544475-c611-4495-9511-1843f15dc16e"
+                    },
+                    {
+                      "id": "f86628f4-a394-4280-b510-62f43b9ccc39",
+                      "name": "Bad request",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"name\": \"<string>\",\n  \"ownerId\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v3/collections/:collectionId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v3",
+                            "collections",
+                            ":collectionId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "collectionId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T00:30:10.000Z",
+                      "updatedAt": "2026-07-28T00:30:10.000Z",
+                      "uid": "35240-f86628f4-a394-4280-b510-62f43b9ccc39"
+                    },
+                    {
+                      "id": "1385e7e7-f84a-4690-a705-2f300674ec81",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"name\": \"<string>\",\n  \"ownerId\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v3/collections/:collectionId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v3",
+                            "collections",
+                            ":collectionId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "collectionId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T00:30:10.000Z",
+                      "updatedAt": "2026-07-28T00:30:10.000Z",
+                      "uid": "35240-1385e7e7-f84a-4690-a705-2f300674ec81"
+                    },
+                    {
+                      "id": "2bc8f5cb-a307-4bd5-afe0-3748866c6a5e",
+                      "name": "Collection not found",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"name\": \"<string>\",\n  \"ownerId\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v3/collections/:collectionId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v3",
+                            "collections",
+                            ":collectionId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "collectionId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T00:30:10.000Z",
+                      "updatedAt": "2026-07-28T00:30:10.000Z",
+                      "uid": "35240-2bc8f5cb-a307-4bd5-afe0-3748866c6a5e"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T00:30:10.000Z",
+                  "updatedAt": "2026-07-28T00:30:10.000Z",
+                  "uid": "35240-0ccab8db-6686-443a-a40d-33f4ae630794"
+                },
+                {
+                  "name": "Delete a Collection",
+                  "id": "9ddcf3a8-36e6-4632-89f4-af336b45c824",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/v3/collections/:collectionId?forceDelete=false",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v3",
+                        "collections",
+                        ":collectionId"
+                      ],
+                      "query": [
+                        {
+                          "description": "Force deletion",
+                          "key": "forceDelete",
+                          "value": "false"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "4de202f4-eedf-48f6-bfb8-ea79f0a2dbc8",
+                          "key": "collectionId",
+                          "value": "<string>",
+                          "description": "(Required) Unique identifier of the collection"
+                        }
+                      ]
+                    },
+                    "description": "Delete a collection from the system."
+                  },
+                  "response": [
+                    {
+                      "id": "279823e5-e04d-40db-9377-4283a7402cd7",
+                      "name": "Collection deleted successfully",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v3/collections/:collectionId?forceDelete=false",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v3",
+                            "collections",
+                            ":collectionId"
+                          ],
+                          "query": [
+                            {
+                              "description": "Force deletion",
+                              "key": "forceDelete",
+                              "value": "false"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "collectionId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T00:30:10.000Z",
+                      "updatedAt": "2026-07-28T00:30:10.000Z",
+                      "uid": "35240-279823e5-e04d-40db-9377-4283a7402cd7"
+                    },
+                    {
+                      "id": "eddca601-4257-42e6-b7d0-049a4c3121fa",
+                      "name": "Bad request",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v3/collections/:collectionId?forceDelete=false",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v3",
+                            "collections",
+                            ":collectionId"
+                          ],
+                          "query": [
+                            {
+                              "description": "Force deletion",
+                              "key": "forceDelete",
+                              "value": "false"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "collectionId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T00:30:10.000Z",
+                      "updatedAt": "2026-07-28T00:30:10.000Z",
+                      "uid": "35240-eddca601-4257-42e6-b7d0-049a4c3121fa"
+                    },
+                    {
+                      "id": "1ef28c74-3018-4598-a994-e9d0ea07ecbf",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v3/collections/:collectionId?forceDelete=false",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v3",
+                            "collections",
+                            ":collectionId"
+                          ],
+                          "query": [
+                            {
+                              "description": "Force deletion",
+                              "key": "forceDelete",
+                              "value": "false"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "collectionId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T00:30:10.000Z",
+                      "updatedAt": "2026-07-28T00:30:10.000Z",
+                      "uid": "35240-1ef28c74-3018-4598-a994-e9d0ea07ecbf"
+                    },
+                    {
+                      "id": "1714c35a-435a-45e9-8f19-d54fa04cb6d5",
+                      "name": "Collection not found",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v3/collections/:collectionId?forceDelete=false",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v3",
+                            "collections",
+                            ":collectionId"
+                          ],
+                          "query": [
+                            {
+                              "description": "Force deletion",
+                              "key": "forceDelete",
+                              "value": "false"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "collectionId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T00:30:10.000Z",
+                      "updatedAt": "2026-07-28T00:30:10.000Z",
+                      "uid": "35240-1714c35a-435a-45e9-8f19-d54fa04cb6d5"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T00:30:10.000Z",
+                  "updatedAt": "2026-07-28T00:30:10.000Z",
+                  "uid": "35240-9ddcf3a8-36e6-4632-89f4-af336b45c824"
+                }
+              ],
+              "id": "70b69df6-e06c-46af-b381-e7c8954b1072",
+              "createdAt": "2026-07-28T00:30:10.000Z",
+              "updatedAt": "2026-07-28T00:30:10.000Z",
+              "uid": "35240-70b69df6-e06c-46af-b381-e7c8954b1072"
+            },
+            {
+              "name": "Create a New Collection",
+              "id": "635b8a26-4246-4c37-b2a7-2e9013c5283f",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/v3/collections",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v3",
+                    "collections"
+                  ]
+                },
+                "description": "Create a new collection. Requires Curator role."
+              },
+              "response": [
+                {
+                  "id": "e706a33b-327d-4498-add9-2d4cb6f33a88",
+                  "name": "Collection created successfully",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v3/collections",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v3",
+                        "collections"
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"ownerId\": \"<string>\",\n  \"dateCreated\": \"<dateTime>\"\n}",
+                  "createdAt": "2026-07-28T00:30:10.000Z",
+                  "updatedAt": "2026-07-28T00:30:10.000Z",
+                  "uid": "35240-e706a33b-327d-4498-add9-2d4cb6f33a88"
+                },
+                {
+                  "id": "656ca295-f6e1-4a84-a010-3c39ea61270f",
+                  "name": "Bad request",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v3/collections",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v3",
+                        "collections"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:30:10.000Z",
+                  "updatedAt": "2026-07-28T00:30:10.000Z",
+                  "uid": "35240-656ca295-f6e1-4a84-a010-3c39ea61270f"
+                },
+                {
+                  "id": "c8c5f22d-68fd-4dde-a573-fc7732227eb3",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v3/collections",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v3",
+                        "collections"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:30:10.000Z",
+                  "updatedAt": "2026-07-28T00:30:10.000Z",
+                  "uid": "35240-c8c5f22d-68fd-4dde-a573-fc7732227eb3"
+                }
+              ],
+              "createdAt": "2026-07-28T00:30:10.000Z",
+              "updatedAt": "2026-07-28T00:30:10.000Z",
+              "uid": "35240-635b8a26-4246-4c37-b2a7-2e9013c5283f"
+            },
+            {
+              "name": "Retrieve All Collections",
+              "id": "12100036-115a-431c-80de-d5adc447a2da",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/v3/collections?view=Default",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v3",
+                    "collections"
+                  ],
+                  "query": [
+                    {
+                      "key": "view",
+                      "value": "Default"
+                    }
+                  ]
+                },
+                "description": "Retrieve all collections with optional view level."
+              },
+              "response": [
+                {
+                  "id": "696bb11e-a8d8-4102-ac3e-afa20c9dc764",
+                  "name": "List of collections",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v3/collections?view=Default",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v3",
+                        "collections"
+                      ],
+                      "query": [
+                        {
+                          "key": "view",
+                          "value": "Default"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "[\n  {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"ownerId\": \"<string>\",\n    \"dateCreated\": \"<dateTime>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"ownerId\": \"<string>\",\n    \"dateCreated\": \"<dateTime>\"\n  }\n]",
+                  "createdAt": "2026-07-28T00:30:10.000Z",
+                  "updatedAt": "2026-07-28T00:30:10.000Z",
+                  "uid": "35240-696bb11e-a8d8-4102-ac3e-afa20c9dc764"
+                },
+                {
+                  "id": "100b0bf7-a321-4087-9bbd-a0f538ff35c3",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v3/collections?view=Default",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v3",
+                        "collections"
+                      ],
+                      "query": [
+                        {
+                          "key": "view",
+                          "value": "Default"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:30:10.000Z",
+                  "updatedAt": "2026-07-28T00:30:10.000Z",
+                  "uid": "35240-100b0bf7-a321-4087-9bbd-a0f538ff35c3"
+                }
+              ],
+              "createdAt": "2026-07-28T00:30:10.000Z",
+              "updatedAt": "2026-07-28T00:30:10.000Z",
+              "uid": "35240-12100036-115a-431c-80de-d5adc447a2da"
+            }
+          ],
+          "id": "61daba72-ab5d-48f2-9b33-3c22fa2019df",
+          "createdAt": "2026-07-28T00:30:10.000Z",
+          "updatedAt": "2026-07-28T00:30:10.000Z",
+          "uid": "35240-61daba72-ab5d-48f2-9b33-3c22fa2019df"
+        }
+      ],
+      "id": "499c334f-0914-4bd2-9999-36f7423f3386",
+      "createdAt": "2026-07-28T00:30:10.000Z",
+      "updatedAt": "2026-07-28T00:30:10.000Z",
+      "uid": "35240-499c334f-0914-4bd2-9999-36f7423f3386"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://{serverHostname}/webapi/oauth2/token",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "serverHostname",
+      "value": "your-server.example.com"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{serverHostname}}/webapi"
+    }
+  ]
+}

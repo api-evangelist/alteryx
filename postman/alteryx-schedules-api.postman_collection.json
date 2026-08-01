@@ -1,0 +1,1451 @@
+{
+  "info": {
+    "_postman_id": "204d556d-3e2f-43a7-ac46-08cc06c94c49",
+    "name": "Alteryx Server API V3 Collections Schedules API",
+    "description": "The Alteryx Server API V3 provides administrative capabilities for managing workflows, schedules, users, user groups, credentials, collections, and server connections. It uses OAuth 2 authentication and implements POST, PUT, GET, DELETE, and PATCH operations so administrators can automate tasks and integrate Server with existing API automation tools.\n\nContact Support:\n Name: Alteryx Support\n Email: support@alteryx.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T00:30:21.000Z",
+    "updatedAt": "2026-07-28T00:30:21.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-204d556d-3e2f-43a7-ac46-08cc06c94c49"
+  },
+  "item": [
+    {
+      "name": "v3",
+      "item": [
+        {
+          "name": "schedules",
+          "item": [
+            {
+              "name": "{scheduleId}",
+              "item": [
+                {
+                  "name": "Retrieve a Specific Schedule",
+                  "id": "5bd1d1c9-00ee-4ba2-8a43-922decc18f8d",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v3/schedules/:scheduleId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v3",
+                        "schedules",
+                        ":scheduleId"
+                      ],
+                      "variable": [
+                        {
+                          "id": "5679601c-d8a4-41f8-90e3-aa1d6229314b",
+                          "key": "scheduleId",
+                          "value": "<string>",
+                          "description": "(Required) Unique identifier of the schedule"
+                        }
+                      ]
+                    },
+                    "description": "Retrieve detailed information about a specific schedule."
+                  },
+                  "response": [
+                    {
+                      "id": "9a46ff2f-fd3e-461b-85e5-bc394620bc64",
+                      "name": "Schedule details",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v3/schedules/:scheduleId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v3",
+                            "schedules",
+                            ":scheduleId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "scheduleId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"workflowId\": \"<string>\",\n  \"versionId\": \"<string>\",\n  \"ownerId\": \"<string>\",\n  \"runDateTime\": \"<dateTime>\",\n  \"comment\": \"<string>\",\n  \"enabled\": \"<boolean>\",\n  \"priority\": \"Low\",\n  \"workerTag\": \"<string>\",\n  \"status\": \"<string>\",\n  \"credentialId\": \"<string>\",\n  \"creationTime\": \"<dateTime>\",\n  \"lastRunTime\": \"<dateTime>\",\n  \"state\": \"<string>\",\n  \"runCount\": \"<integer>\",\n  \"iteration\": {\n    \"iterationType\": \"Hourly\",\n    \"startTime\": \"<dateTime>\",\n    \"endTime\": \"<dateTime>\",\n    \"hourlyContract\": {\n      \"hours\": \"<integer>\",\n      \"minutes\": \"<integer>\"\n    },\n    \"dailyContract\": {\n      \"runOnlyWorkWeek\": \"<boolean>\"\n    },\n    \"weeklyContract\": {\n      \"daysOfWeek\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"monthlyContract\": {\n      \"simpleDayOfMonth\": \"<boolean>\",\n      \"dayOfMonth\": \"<string>\",\n      \"occurrence\": \"<string>\",\n      \"dayOfWeek\": \"<integer>\"\n    },\n    \"customContract\": {\n      \"daysOfMonth\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"months\": [\n        \"<integer>\",\n        \"<integer>\"\n      ]\n    },\n    \"cronContract\": {\n      \"cronExpression\": \"<string>\"\n    }\n  },\n  \"frequency\": \"<string>\",\n  \"lastError\": \"<string>\",\n  \"cpuName\": \"<string>\",\n  \"lastModifiedId\": \"<string>\",\n  \"lastModifiedDate\": \"<dateTime>\",\n  \"canEdit\": \"<boolean>\",\n  \"timeZone\": \"<string>\",\n  \"questions\": [\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T00:30:21.000Z",
+                      "updatedAt": "2026-07-28T00:30:21.000Z",
+                      "uid": "35240-9a46ff2f-fd3e-461b-85e5-bc394620bc64"
+                    },
+                    {
+                      "id": "89b29374-8a4e-41cd-a023-a268ba81d408",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v3/schedules/:scheduleId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v3",
+                            "schedules",
+                            ":scheduleId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "scheduleId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T00:30:21.000Z",
+                      "updatedAt": "2026-07-28T00:30:21.000Z",
+                      "uid": "35240-89b29374-8a4e-41cd-a023-a268ba81d408"
+                    },
+                    {
+                      "id": "cbc98dde-d795-4958-ae8d-7ed86323eec8",
+                      "name": "Schedule not found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v3/schedules/:scheduleId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v3",
+                            "schedules",
+                            ":scheduleId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "scheduleId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T00:30:21.000Z",
+                      "updatedAt": "2026-07-28T00:30:21.000Z",
+                      "uid": "35240-cbc98dde-d795-4958-ae8d-7ed86323eec8"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T00:30:21.000Z",
+                  "updatedAt": "2026-07-28T00:30:21.000Z",
+                  "uid": "35240-5bd1d1c9-00ee-4ba2-8a43-922decc18f8d"
+                },
+                {
+                  "name": "Update a Schedule",
+                  "id": "21e114b2-2f2a-4403-9822-93b924a2bcec",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"workflowId\": \"<string>\",\n  \"ownerId\": \"<string>\",\n  \"iteration\": {\n    \"iterationType\": \"Once\",\n    \"startTime\": \"<dateTime>\",\n    \"endTime\": \"<dateTime>\",\n    \"hourlyContract\": {\n      \"hours\": \"<integer>\",\n      \"minutes\": \"<integer>\"\n    },\n    \"dailyContract\": {\n      \"runOnlyWorkWeek\": \"<boolean>\"\n    },\n    \"weeklyContract\": {\n      \"daysOfWeek\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"monthlyContract\": {\n      \"simpleDayOfMonth\": \"<boolean>\",\n      \"dayOfMonth\": \"<string>\",\n      \"occurrence\": \"<string>\",\n      \"dayOfWeek\": \"<integer>\"\n    },\n    \"customContract\": {\n      \"daysOfMonth\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"months\": [\n        \"<integer>\",\n        \"<integer>\"\n      ]\n    },\n    \"cronContract\": {\n      \"cronExpression\": \"<string>\"\n    }\n  },\n  \"name\": \"<string>\",\n  \"comment\": \"<string>\",\n  \"workerTag\": \"<string>\",\n  \"credentialId\": \"<string>\",\n  \"priority\": \"Low\",\n  \"enabled\": \"<boolean>\",\n  \"timeZone\": \"<string>\",\n  \"questions\": [\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v3/schedules/:scheduleId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v3",
+                        "schedules",
+                        ":scheduleId"
+                      ],
+                      "variable": [
+                        {
+                          "id": "d1455c46-7d1c-4a2b-8166-448e4dd9c563",
+                          "key": "scheduleId",
+                          "value": "<string>",
+                          "description": "(Required) Unique identifier of the schedule"
+                        }
+                      ]
+                    },
+                    "description": "Update all properties of an existing schedule. All required fields must be provided."
+                  },
+                  "response": [
+                    {
+                      "id": "0572ee97-e03c-4fb8-9d8c-b9861e24830e",
+                      "name": "Schedule updated successfully",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"workflowId\": \"<string>\",\n  \"ownerId\": \"<string>\",\n  \"iteration\": {\n    \"iterationType\": \"Once\",\n    \"startTime\": \"<dateTime>\",\n    \"endTime\": \"<dateTime>\",\n    \"hourlyContract\": {\n      \"hours\": \"<integer>\",\n      \"minutes\": \"<integer>\"\n    },\n    \"dailyContract\": {\n      \"runOnlyWorkWeek\": \"<boolean>\"\n    },\n    \"weeklyContract\": {\n      \"daysOfWeek\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"monthlyContract\": {\n      \"simpleDayOfMonth\": \"<boolean>\",\n      \"dayOfMonth\": \"<string>\",\n      \"occurrence\": \"<string>\",\n      \"dayOfWeek\": \"<integer>\"\n    },\n    \"customContract\": {\n      \"daysOfMonth\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"months\": [\n        \"<integer>\",\n        \"<integer>\"\n      ]\n    },\n    \"cronContract\": {\n      \"cronExpression\": \"<string>\"\n    }\n  },\n  \"name\": \"<string>\",\n  \"comment\": \"<string>\",\n  \"workerTag\": \"<string>\",\n  \"credentialId\": \"<string>\",\n  \"priority\": \"Low\",\n  \"enabled\": \"<boolean>\",\n  \"timeZone\": \"<string>\",\n  \"questions\": [\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v3/schedules/:scheduleId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v3",
+                            "schedules",
+                            ":scheduleId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "scheduleId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"workflowId\": \"<string>\",\n  \"versionId\": \"<string>\",\n  \"ownerId\": \"<string>\",\n  \"runDateTime\": \"<dateTime>\",\n  \"comment\": \"<string>\",\n  \"enabled\": \"<boolean>\",\n  \"priority\": \"Low\",\n  \"workerTag\": \"<string>\",\n  \"status\": \"<string>\",\n  \"credentialId\": \"<string>\",\n  \"creationTime\": \"<dateTime>\",\n  \"lastRunTime\": \"<dateTime>\",\n  \"state\": \"<string>\",\n  \"runCount\": \"<integer>\",\n  \"iteration\": {\n    \"iterationType\": \"Hourly\",\n    \"startTime\": \"<dateTime>\",\n    \"endTime\": \"<dateTime>\",\n    \"hourlyContract\": {\n      \"hours\": \"<integer>\",\n      \"minutes\": \"<integer>\"\n    },\n    \"dailyContract\": {\n      \"runOnlyWorkWeek\": \"<boolean>\"\n    },\n    \"weeklyContract\": {\n      \"daysOfWeek\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"monthlyContract\": {\n      \"simpleDayOfMonth\": \"<boolean>\",\n      \"dayOfMonth\": \"<string>\",\n      \"occurrence\": \"<string>\",\n      \"dayOfWeek\": \"<integer>\"\n    },\n    \"customContract\": {\n      \"daysOfMonth\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"months\": [\n        \"<integer>\",\n        \"<integer>\"\n      ]\n    },\n    \"cronContract\": {\n      \"cronExpression\": \"<string>\"\n    }\n  },\n  \"frequency\": \"<string>\",\n  \"lastError\": \"<string>\",\n  \"cpuName\": \"<string>\",\n  \"lastModifiedId\": \"<string>\",\n  \"lastModifiedDate\": \"<dateTime>\",\n  \"canEdit\": \"<boolean>\",\n  \"timeZone\": \"<string>\",\n  \"questions\": [\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T00:30:21.000Z",
+                      "updatedAt": "2026-07-28T00:30:21.000Z",
+                      "uid": "35240-0572ee97-e03c-4fb8-9d8c-b9861e24830e"
+                    },
+                    {
+                      "id": "77a895bc-c1ac-411e-b9f2-77cf2eeb1c94",
+                      "name": "Bad request",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"workflowId\": \"<string>\",\n  \"ownerId\": \"<string>\",\n  \"iteration\": {\n    \"iterationType\": \"Once\",\n    \"startTime\": \"<dateTime>\",\n    \"endTime\": \"<dateTime>\",\n    \"hourlyContract\": {\n      \"hours\": \"<integer>\",\n      \"minutes\": \"<integer>\"\n    },\n    \"dailyContract\": {\n      \"runOnlyWorkWeek\": \"<boolean>\"\n    },\n    \"weeklyContract\": {\n      \"daysOfWeek\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"monthlyContract\": {\n      \"simpleDayOfMonth\": \"<boolean>\",\n      \"dayOfMonth\": \"<string>\",\n      \"occurrence\": \"<string>\",\n      \"dayOfWeek\": \"<integer>\"\n    },\n    \"customContract\": {\n      \"daysOfMonth\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"months\": [\n        \"<integer>\",\n        \"<integer>\"\n      ]\n    },\n    \"cronContract\": {\n      \"cronExpression\": \"<string>\"\n    }\n  },\n  \"name\": \"<string>\",\n  \"comment\": \"<string>\",\n  \"workerTag\": \"<string>\",\n  \"credentialId\": \"<string>\",\n  \"priority\": \"Low\",\n  \"enabled\": \"<boolean>\",\n  \"timeZone\": \"<string>\",\n  \"questions\": [\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v3/schedules/:scheduleId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v3",
+                            "schedules",
+                            ":scheduleId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "scheduleId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T00:30:21.000Z",
+                      "updatedAt": "2026-07-28T00:30:21.000Z",
+                      "uid": "35240-77a895bc-c1ac-411e-b9f2-77cf2eeb1c94"
+                    },
+                    {
+                      "id": "319d3731-8e21-4927-aefc-64fe46b9a52f",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"workflowId\": \"<string>\",\n  \"ownerId\": \"<string>\",\n  \"iteration\": {\n    \"iterationType\": \"Once\",\n    \"startTime\": \"<dateTime>\",\n    \"endTime\": \"<dateTime>\",\n    \"hourlyContract\": {\n      \"hours\": \"<integer>\",\n      \"minutes\": \"<integer>\"\n    },\n    \"dailyContract\": {\n      \"runOnlyWorkWeek\": \"<boolean>\"\n    },\n    \"weeklyContract\": {\n      \"daysOfWeek\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"monthlyContract\": {\n      \"simpleDayOfMonth\": \"<boolean>\",\n      \"dayOfMonth\": \"<string>\",\n      \"occurrence\": \"<string>\",\n      \"dayOfWeek\": \"<integer>\"\n    },\n    \"customContract\": {\n      \"daysOfMonth\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"months\": [\n        \"<integer>\",\n        \"<integer>\"\n      ]\n    },\n    \"cronContract\": {\n      \"cronExpression\": \"<string>\"\n    }\n  },\n  \"name\": \"<string>\",\n  \"comment\": \"<string>\",\n  \"workerTag\": \"<string>\",\n  \"credentialId\": \"<string>\",\n  \"priority\": \"Low\",\n  \"enabled\": \"<boolean>\",\n  \"timeZone\": \"<string>\",\n  \"questions\": [\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v3/schedules/:scheduleId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v3",
+                            "schedules",
+                            ":scheduleId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "scheduleId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T00:30:21.000Z",
+                      "updatedAt": "2026-07-28T00:30:21.000Z",
+                      "uid": "35240-319d3731-8e21-4927-aefc-64fe46b9a52f"
+                    },
+                    {
+                      "id": "390ce3ce-deb8-427d-9fbf-eda9df897fb4",
+                      "name": "Schedule not found",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"workflowId\": \"<string>\",\n  \"ownerId\": \"<string>\",\n  \"iteration\": {\n    \"iterationType\": \"Once\",\n    \"startTime\": \"<dateTime>\",\n    \"endTime\": \"<dateTime>\",\n    \"hourlyContract\": {\n      \"hours\": \"<integer>\",\n      \"minutes\": \"<integer>\"\n    },\n    \"dailyContract\": {\n      \"runOnlyWorkWeek\": \"<boolean>\"\n    },\n    \"weeklyContract\": {\n      \"daysOfWeek\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"monthlyContract\": {\n      \"simpleDayOfMonth\": \"<boolean>\",\n      \"dayOfMonth\": \"<string>\",\n      \"occurrence\": \"<string>\",\n      \"dayOfWeek\": \"<integer>\"\n    },\n    \"customContract\": {\n      \"daysOfMonth\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"months\": [\n        \"<integer>\",\n        \"<integer>\"\n      ]\n    },\n    \"cronContract\": {\n      \"cronExpression\": \"<string>\"\n    }\n  },\n  \"name\": \"<string>\",\n  \"comment\": \"<string>\",\n  \"workerTag\": \"<string>\",\n  \"credentialId\": \"<string>\",\n  \"priority\": \"Low\",\n  \"enabled\": \"<boolean>\",\n  \"timeZone\": \"<string>\",\n  \"questions\": [\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v3/schedules/:scheduleId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v3",
+                            "schedules",
+                            ":scheduleId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "scheduleId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T00:30:21.000Z",
+                      "updatedAt": "2026-07-28T00:30:21.000Z",
+                      "uid": "35240-390ce3ce-deb8-427d-9fbf-eda9df897fb4"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T00:30:21.000Z",
+                  "updatedAt": "2026-07-28T00:30:21.000Z",
+                  "uid": "35240-21e114b2-2f2a-4403-9822-93b924a2bcec"
+                },
+                {
+                  "name": "Partially Update a Schedule",
+                  "id": "9eeb9297-dbf7-4c80-8d56-9299db17fa4b",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"ownerId\": \"<string>\",\n  \"iteration\": {\n    \"iterationType\": \"Hourly\",\n    \"startTime\": \"<dateTime>\",\n    \"endTime\": \"<dateTime>\",\n    \"hourlyContract\": {\n      \"hours\": \"<integer>\",\n      \"minutes\": \"<integer>\"\n    },\n    \"dailyContract\": {\n      \"runOnlyWorkWeek\": \"<boolean>\"\n    },\n    \"weeklyContract\": {\n      \"daysOfWeek\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"monthlyContract\": {\n      \"simpleDayOfMonth\": \"<boolean>\",\n      \"dayOfMonth\": \"<string>\",\n      \"occurrence\": \"<string>\",\n      \"dayOfWeek\": \"<integer>\"\n    },\n    \"customContract\": {\n      \"daysOfMonth\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"months\": [\n        \"<integer>\",\n        \"<integer>\"\n      ]\n    },\n    \"cronContract\": {\n      \"cronExpression\": \"<string>\"\n    }\n  },\n  \"name\": \"<string>\",\n  \"comment\": \"<string>\",\n  \"priority\": \"Medium\",\n  \"workerTag\": \"<string>\",\n  \"enabled\": \"<boolean>\",\n  \"credentialId\": \"<string>\",\n  \"timeZone\": \"<string>\",\n  \"questions\": [\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v3/schedules/:scheduleId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v3",
+                        "schedules",
+                        ":scheduleId"
+                      ],
+                      "variable": [
+                        {
+                          "id": "74c3a20b-66a3-46a8-9061-3d993b1c413e",
+                          "key": "scheduleId",
+                          "value": "<string>",
+                          "description": "(Required) Unique identifier of the schedule"
+                        }
+                      ]
+                    },
+                    "description": "Update specific properties of an existing schedule without requiring all fields."
+                  },
+                  "response": [
+                    {
+                      "id": "2cba3322-99cd-446f-a99b-30348112b601",
+                      "name": "Schedule updated successfully",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"ownerId\": \"<string>\",\n  \"iteration\": {\n    \"iterationType\": \"Hourly\",\n    \"startTime\": \"<dateTime>\",\n    \"endTime\": \"<dateTime>\",\n    \"hourlyContract\": {\n      \"hours\": \"<integer>\",\n      \"minutes\": \"<integer>\"\n    },\n    \"dailyContract\": {\n      \"runOnlyWorkWeek\": \"<boolean>\"\n    },\n    \"weeklyContract\": {\n      \"daysOfWeek\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"monthlyContract\": {\n      \"simpleDayOfMonth\": \"<boolean>\",\n      \"dayOfMonth\": \"<string>\",\n      \"occurrence\": \"<string>\",\n      \"dayOfWeek\": \"<integer>\"\n    },\n    \"customContract\": {\n      \"daysOfMonth\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"months\": [\n        \"<integer>\",\n        \"<integer>\"\n      ]\n    },\n    \"cronContract\": {\n      \"cronExpression\": \"<string>\"\n    }\n  },\n  \"name\": \"<string>\",\n  \"comment\": \"<string>\",\n  \"priority\": \"Medium\",\n  \"workerTag\": \"<string>\",\n  \"enabled\": \"<boolean>\",\n  \"credentialId\": \"<string>\",\n  \"timeZone\": \"<string>\",\n  \"questions\": [\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v3/schedules/:scheduleId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v3",
+                            "schedules",
+                            ":scheduleId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "scheduleId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"workflowId\": \"<string>\",\n  \"versionId\": \"<string>\",\n  \"ownerId\": \"<string>\",\n  \"runDateTime\": \"<dateTime>\",\n  \"comment\": \"<string>\",\n  \"enabled\": \"<boolean>\",\n  \"priority\": \"Low\",\n  \"workerTag\": \"<string>\",\n  \"status\": \"<string>\",\n  \"credentialId\": \"<string>\",\n  \"creationTime\": \"<dateTime>\",\n  \"lastRunTime\": \"<dateTime>\",\n  \"state\": \"<string>\",\n  \"runCount\": \"<integer>\",\n  \"iteration\": {\n    \"iterationType\": \"Hourly\",\n    \"startTime\": \"<dateTime>\",\n    \"endTime\": \"<dateTime>\",\n    \"hourlyContract\": {\n      \"hours\": \"<integer>\",\n      \"minutes\": \"<integer>\"\n    },\n    \"dailyContract\": {\n      \"runOnlyWorkWeek\": \"<boolean>\"\n    },\n    \"weeklyContract\": {\n      \"daysOfWeek\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"monthlyContract\": {\n      \"simpleDayOfMonth\": \"<boolean>\",\n      \"dayOfMonth\": \"<string>\",\n      \"occurrence\": \"<string>\",\n      \"dayOfWeek\": \"<integer>\"\n    },\n    \"customContract\": {\n      \"daysOfMonth\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"months\": [\n        \"<integer>\",\n        \"<integer>\"\n      ]\n    },\n    \"cronContract\": {\n      \"cronExpression\": \"<string>\"\n    }\n  },\n  \"frequency\": \"<string>\",\n  \"lastError\": \"<string>\",\n  \"cpuName\": \"<string>\",\n  \"lastModifiedId\": \"<string>\",\n  \"lastModifiedDate\": \"<dateTime>\",\n  \"canEdit\": \"<boolean>\",\n  \"timeZone\": \"<string>\",\n  \"questions\": [\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T00:30:21.000Z",
+                      "updatedAt": "2026-07-28T00:30:21.000Z",
+                      "uid": "35240-2cba3322-99cd-446f-a99b-30348112b601"
+                    },
+                    {
+                      "id": "23069157-87f8-4be6-a5ee-724ce9d73c77",
+                      "name": "Bad request",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"ownerId\": \"<string>\",\n  \"iteration\": {\n    \"iterationType\": \"Hourly\",\n    \"startTime\": \"<dateTime>\",\n    \"endTime\": \"<dateTime>\",\n    \"hourlyContract\": {\n      \"hours\": \"<integer>\",\n      \"minutes\": \"<integer>\"\n    },\n    \"dailyContract\": {\n      \"runOnlyWorkWeek\": \"<boolean>\"\n    },\n    \"weeklyContract\": {\n      \"daysOfWeek\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"monthlyContract\": {\n      \"simpleDayOfMonth\": \"<boolean>\",\n      \"dayOfMonth\": \"<string>\",\n      \"occurrence\": \"<string>\",\n      \"dayOfWeek\": \"<integer>\"\n    },\n    \"customContract\": {\n      \"daysOfMonth\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"months\": [\n        \"<integer>\",\n        \"<integer>\"\n      ]\n    },\n    \"cronContract\": {\n      \"cronExpression\": \"<string>\"\n    }\n  },\n  \"name\": \"<string>\",\n  \"comment\": \"<string>\",\n  \"priority\": \"Medium\",\n  \"workerTag\": \"<string>\",\n  \"enabled\": \"<boolean>\",\n  \"credentialId\": \"<string>\",\n  \"timeZone\": \"<string>\",\n  \"questions\": [\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v3/schedules/:scheduleId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v3",
+                            "schedules",
+                            ":scheduleId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "scheduleId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T00:30:21.000Z",
+                      "updatedAt": "2026-07-28T00:30:21.000Z",
+                      "uid": "35240-23069157-87f8-4be6-a5ee-724ce9d73c77"
+                    },
+                    {
+                      "id": "c4724317-13a1-4501-aa68-d6b6ade6a46c",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"ownerId\": \"<string>\",\n  \"iteration\": {\n    \"iterationType\": \"Hourly\",\n    \"startTime\": \"<dateTime>\",\n    \"endTime\": \"<dateTime>\",\n    \"hourlyContract\": {\n      \"hours\": \"<integer>\",\n      \"minutes\": \"<integer>\"\n    },\n    \"dailyContract\": {\n      \"runOnlyWorkWeek\": \"<boolean>\"\n    },\n    \"weeklyContract\": {\n      \"daysOfWeek\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"monthlyContract\": {\n      \"simpleDayOfMonth\": \"<boolean>\",\n      \"dayOfMonth\": \"<string>\",\n      \"occurrence\": \"<string>\",\n      \"dayOfWeek\": \"<integer>\"\n    },\n    \"customContract\": {\n      \"daysOfMonth\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"months\": [\n        \"<integer>\",\n        \"<integer>\"\n      ]\n    },\n    \"cronContract\": {\n      \"cronExpression\": \"<string>\"\n    }\n  },\n  \"name\": \"<string>\",\n  \"comment\": \"<string>\",\n  \"priority\": \"Medium\",\n  \"workerTag\": \"<string>\",\n  \"enabled\": \"<boolean>\",\n  \"credentialId\": \"<string>\",\n  \"timeZone\": \"<string>\",\n  \"questions\": [\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v3/schedules/:scheduleId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v3",
+                            "schedules",
+                            ":scheduleId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "scheduleId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T00:30:21.000Z",
+                      "updatedAt": "2026-07-28T00:30:21.000Z",
+                      "uid": "35240-c4724317-13a1-4501-aa68-d6b6ade6a46c"
+                    },
+                    {
+                      "id": "56a8339b-2251-45fa-84c6-7fd61726febe",
+                      "name": "Schedule not found",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"ownerId\": \"<string>\",\n  \"iteration\": {\n    \"iterationType\": \"Hourly\",\n    \"startTime\": \"<dateTime>\",\n    \"endTime\": \"<dateTime>\",\n    \"hourlyContract\": {\n      \"hours\": \"<integer>\",\n      \"minutes\": \"<integer>\"\n    },\n    \"dailyContract\": {\n      \"runOnlyWorkWeek\": \"<boolean>\"\n    },\n    \"weeklyContract\": {\n      \"daysOfWeek\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"monthlyContract\": {\n      \"simpleDayOfMonth\": \"<boolean>\",\n      \"dayOfMonth\": \"<string>\",\n      \"occurrence\": \"<string>\",\n      \"dayOfWeek\": \"<integer>\"\n    },\n    \"customContract\": {\n      \"daysOfMonth\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"months\": [\n        \"<integer>\",\n        \"<integer>\"\n      ]\n    },\n    \"cronContract\": {\n      \"cronExpression\": \"<string>\"\n    }\n  },\n  \"name\": \"<string>\",\n  \"comment\": \"<string>\",\n  \"priority\": \"Medium\",\n  \"workerTag\": \"<string>\",\n  \"enabled\": \"<boolean>\",\n  \"credentialId\": \"<string>\",\n  \"timeZone\": \"<string>\",\n  \"questions\": [\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v3/schedules/:scheduleId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v3",
+                            "schedules",
+                            ":scheduleId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "scheduleId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T00:30:21.000Z",
+                      "updatedAt": "2026-07-28T00:30:21.000Z",
+                      "uid": "35240-56a8339b-2251-45fa-84c6-7fd61726febe"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T00:30:21.000Z",
+                  "updatedAt": "2026-07-28T00:30:21.000Z",
+                  "uid": "35240-9eeb9297-dbf7-4c80-8d56-9299db17fa4b"
+                },
+                {
+                  "name": "Delete a Schedule",
+                  "id": "cc52576d-a831-42da-8900-8eae285ef2ea",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/v3/schedules/:scheduleId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v3",
+                        "schedules",
+                        ":scheduleId"
+                      ],
+                      "variable": [
+                        {
+                          "id": "31dca201-0f06-4ad6-8dc6-c5aa05584b84",
+                          "key": "scheduleId",
+                          "value": "<string>",
+                          "description": "(Required) Unique identifier of the schedule"
+                        }
+                      ]
+                    },
+                    "description": "Remove a schedule from the system."
+                  },
+                  "response": [
+                    {
+                      "id": "83b41814-a792-4034-82c3-d4db0d310e85",
+                      "name": "Schedule deleted successfully",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v3/schedules/:scheduleId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v3",
+                            "schedules",
+                            ":scheduleId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "scheduleId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T00:30:21.000Z",
+                      "updatedAt": "2026-07-28T00:30:21.000Z",
+                      "uid": "35240-83b41814-a792-4034-82c3-d4db0d310e85"
+                    },
+                    {
+                      "id": "9022e74d-a65b-4094-886d-f6a6e1de1c04",
+                      "name": "Bad request",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v3/schedules/:scheduleId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v3",
+                            "schedules",
+                            ":scheduleId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "scheduleId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T00:30:21.000Z",
+                      "updatedAt": "2026-07-28T00:30:21.000Z",
+                      "uid": "35240-9022e74d-a65b-4094-886d-f6a6e1de1c04"
+                    },
+                    {
+                      "id": "a20759ae-a1f3-42e7-9960-9e24a1b744fa",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v3/schedules/:scheduleId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v3",
+                            "schedules",
+                            ":scheduleId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "scheduleId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T00:30:21.000Z",
+                      "updatedAt": "2026-07-28T00:30:21.000Z",
+                      "uid": "35240-a20759ae-a1f3-42e7-9960-9e24a1b744fa"
+                    },
+                    {
+                      "id": "be100ac3-aa92-402a-bbee-34ed3fa01469",
+                      "name": "Schedule not found",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v3/schedules/:scheduleId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v3",
+                            "schedules",
+                            ":scheduleId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "scheduleId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T00:30:21.000Z",
+                      "updatedAt": "2026-07-28T00:30:21.000Z",
+                      "uid": "35240-be100ac3-aa92-402a-bbee-34ed3fa01469"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T00:30:21.000Z",
+                  "updatedAt": "2026-07-28T00:30:21.000Z",
+                  "uid": "35240-cc52576d-a831-42da-8900-8eae285ef2ea"
+                }
+              ],
+              "id": "d9f75830-8d74-499d-8e93-8844051c509d",
+              "createdAt": "2026-07-28T00:30:21.000Z",
+              "updatedAt": "2026-07-28T00:30:21.000Z",
+              "uid": "35240-d9f75830-8d74-499d-8e93-8844051c509d"
+            },
+            {
+              "name": "Create a New Schedule",
+              "id": "a8c1e8e4-5ce3-413d-a7a9-1a874e5679c3",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"workflowId\": \"<string>\",\n  \"iteration\": {\n    \"iterationType\": \"Daily\",\n    \"startTime\": \"<dateTime>\",\n    \"endTime\": \"<dateTime>\",\n    \"hourlyContract\": {\n      \"hours\": \"<integer>\",\n      \"minutes\": \"<integer>\"\n    },\n    \"dailyContract\": {\n      \"runOnlyWorkWeek\": \"<boolean>\"\n    },\n    \"weeklyContract\": {\n      \"daysOfWeek\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"monthlyContract\": {\n      \"simpleDayOfMonth\": \"<boolean>\",\n      \"dayOfMonth\": \"<string>\",\n      \"occurrence\": \"<string>\",\n      \"dayOfWeek\": \"<integer>\"\n    },\n    \"customContract\": {\n      \"daysOfMonth\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"months\": [\n        \"<integer>\",\n        \"<integer>\"\n      ]\n    },\n    \"cronContract\": {\n      \"cronExpression\": \"<string>\"\n    }\n  },\n  \"name\": \"<string>\",\n  \"comment\": \"<string>\",\n  \"priority\": \"Low\",\n  \"workerTag\": \"none\",\n  \"credentialId\": \"<string>\",\n  \"timeZone\": \"UTC\",\n  \"questions\": [\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/v3/schedules",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v3",
+                    "schedules"
+                  ]
+                },
+                "description": "Create a new execution schedule for a workflow."
+              },
+              "response": [
+                {
+                  "id": "41524a64-3b57-49d6-9cdb-73af1929b637",
+                  "name": "Schedule created successfully",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"workflowId\": \"<string>\",\n  \"iteration\": {\n    \"iterationType\": \"Daily\",\n    \"startTime\": \"<dateTime>\",\n    \"endTime\": \"<dateTime>\",\n    \"hourlyContract\": {\n      \"hours\": \"<integer>\",\n      \"minutes\": \"<integer>\"\n    },\n    \"dailyContract\": {\n      \"runOnlyWorkWeek\": \"<boolean>\"\n    },\n    \"weeklyContract\": {\n      \"daysOfWeek\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"monthlyContract\": {\n      \"simpleDayOfMonth\": \"<boolean>\",\n      \"dayOfMonth\": \"<string>\",\n      \"occurrence\": \"<string>\",\n      \"dayOfWeek\": \"<integer>\"\n    },\n    \"customContract\": {\n      \"daysOfMonth\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"months\": [\n        \"<integer>\",\n        \"<integer>\"\n      ]\n    },\n    \"cronContract\": {\n      \"cronExpression\": \"<string>\"\n    }\n  },\n  \"name\": \"<string>\",\n  \"comment\": \"<string>\",\n  \"priority\": \"Low\",\n  \"workerTag\": \"none\",\n  \"credentialId\": \"<string>\",\n  \"timeZone\": \"UTC\",\n  \"questions\": [\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v3/schedules",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v3",
+                        "schedules"
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "<string>",
+                  "createdAt": "2026-07-28T00:30:21.000Z",
+                  "updatedAt": "2026-07-28T00:30:21.000Z",
+                  "uid": "35240-41524a64-3b57-49d6-9cdb-73af1929b637"
+                },
+                {
+                  "id": "c7386d5e-9167-4260-bf4f-36bd1fe7efa1",
+                  "name": "Bad request",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"workflowId\": \"<string>\",\n  \"iteration\": {\n    \"iterationType\": \"Daily\",\n    \"startTime\": \"<dateTime>\",\n    \"endTime\": \"<dateTime>\",\n    \"hourlyContract\": {\n      \"hours\": \"<integer>\",\n      \"minutes\": \"<integer>\"\n    },\n    \"dailyContract\": {\n      \"runOnlyWorkWeek\": \"<boolean>\"\n    },\n    \"weeklyContract\": {\n      \"daysOfWeek\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"monthlyContract\": {\n      \"simpleDayOfMonth\": \"<boolean>\",\n      \"dayOfMonth\": \"<string>\",\n      \"occurrence\": \"<string>\",\n      \"dayOfWeek\": \"<integer>\"\n    },\n    \"customContract\": {\n      \"daysOfMonth\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"months\": [\n        \"<integer>\",\n        \"<integer>\"\n      ]\n    },\n    \"cronContract\": {\n      \"cronExpression\": \"<string>\"\n    }\n  },\n  \"name\": \"<string>\",\n  \"comment\": \"<string>\",\n  \"priority\": \"Low\",\n  \"workerTag\": \"none\",\n  \"credentialId\": \"<string>\",\n  \"timeZone\": \"UTC\",\n  \"questions\": [\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v3/schedules",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v3",
+                        "schedules"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"errors\": [\n    {\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T00:30:21.000Z",
+                  "updatedAt": "2026-07-28T00:30:21.000Z",
+                  "uid": "35240-c7386d5e-9167-4260-bf4f-36bd1fe7efa1"
+                },
+                {
+                  "id": "48ccb2d2-e638-4911-85ac-7fbfb806e200",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"workflowId\": \"<string>\",\n  \"iteration\": {\n    \"iterationType\": \"Daily\",\n    \"startTime\": \"<dateTime>\",\n    \"endTime\": \"<dateTime>\",\n    \"hourlyContract\": {\n      \"hours\": \"<integer>\",\n      \"minutes\": \"<integer>\"\n    },\n    \"dailyContract\": {\n      \"runOnlyWorkWeek\": \"<boolean>\"\n    },\n    \"weeklyContract\": {\n      \"daysOfWeek\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"monthlyContract\": {\n      \"simpleDayOfMonth\": \"<boolean>\",\n      \"dayOfMonth\": \"<string>\",\n      \"occurrence\": \"<string>\",\n      \"dayOfWeek\": \"<integer>\"\n    },\n    \"customContract\": {\n      \"daysOfMonth\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"months\": [\n        \"<integer>\",\n        \"<integer>\"\n      ]\n    },\n    \"cronContract\": {\n      \"cronExpression\": \"<string>\"\n    }\n  },\n  \"name\": \"<string>\",\n  \"comment\": \"<string>\",\n  \"priority\": \"Low\",\n  \"workerTag\": \"none\",\n  \"credentialId\": \"<string>\",\n  \"timeZone\": \"UTC\",\n  \"questions\": [\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v3/schedules",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v3",
+                        "schedules"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:30:21.000Z",
+                  "updatedAt": "2026-07-28T00:30:21.000Z",
+                  "uid": "35240-48ccb2d2-e638-4911-85ac-7fbfb806e200"
+                }
+              ],
+              "createdAt": "2026-07-28T00:30:21.000Z",
+              "updatedAt": "2026-07-28T00:30:21.000Z",
+              "uid": "35240-a8c1e8e4-5ce3-413d-a7a9-1a874e5679c3"
+            },
+            {
+              "name": "Retrieve All Schedules",
+              "id": "75981f51-0cb1-4320-b6ef-ecde54676147",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/v3/schedules?view=Default&ownerId=<string>&workflowId=<string>&runsAfter=<dateTime>&runsBefore=<dateTime>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v3",
+                    "schedules"
+                  ],
+                  "query": [
+                    {
+                      "description": "Level of detail in the response",
+                      "key": "view",
+                      "value": "Default"
+                    },
+                    {
+                      "description": "Filter by schedule owner",
+                      "key": "ownerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by associated workflow",
+                      "key": "workflowId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter schedules that run after this date (ISO 8601, max 45-day range)",
+                      "key": "runsAfter",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Filter schedules that run before this date (ISO 8601, max 45-day range)",
+                      "key": "runsBefore",
+                      "value": "<dateTime>"
+                    }
+                  ]
+                },
+                "description": "Retrieve information about all schedules with optional filtering."
+              },
+              "response": [
+                {
+                  "id": "9e50c626-5158-4a45-b01f-bcb2b3d7a230",
+                  "name": "List of schedules",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v3/schedules?view=Default&ownerId=<string>&workflowId=<string>&runsAfter=<dateTime>&runsBefore=<dateTime>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v3",
+                        "schedules"
+                      ],
+                      "query": [
+                        {
+                          "description": "Level of detail in the response",
+                          "key": "view",
+                          "value": "Default"
+                        },
+                        {
+                          "description": "Filter by schedule owner",
+                          "key": "ownerId",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by associated workflow",
+                          "key": "workflowId",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter schedules that run after this date (ISO 8601, max 45-day range)",
+                          "key": "runsAfter",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "Filter schedules that run before this date (ISO 8601, max 45-day range)",
+                          "key": "runsBefore",
+                          "value": "<dateTime>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "[\n  {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"workflowId\": \"<string>\",\n    \"ownerId\": \"<string>\",\n    \"runDateTime\": \"<dateTime>\",\n    \"timeZone\": \"<string>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"workflowId\": \"<string>\",\n    \"ownerId\": \"<string>\",\n    \"runDateTime\": \"<dateTime>\",\n    \"timeZone\": \"<string>\"\n  }\n]",
+                  "createdAt": "2026-07-28T00:30:21.000Z",
+                  "updatedAt": "2026-07-28T00:30:21.000Z",
+                  "uid": "35240-9e50c626-5158-4a45-b01f-bcb2b3d7a230"
+                },
+                {
+                  "id": "63e0374d-2227-4b55-989b-10891bcfe3ae",
+                  "name": "Bad request",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v3/schedules?view=Default&ownerId=<string>&workflowId=<string>&runsAfter=<dateTime>&runsBefore=<dateTime>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v3",
+                        "schedules"
+                      ],
+                      "query": [
+                        {
+                          "description": "Level of detail in the response",
+                          "key": "view",
+                          "value": "Default"
+                        },
+                        {
+                          "description": "Filter by schedule owner",
+                          "key": "ownerId",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by associated workflow",
+                          "key": "workflowId",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter schedules that run after this date (ISO 8601, max 45-day range)",
+                          "key": "runsAfter",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "Filter schedules that run before this date (ISO 8601, max 45-day range)",
+                          "key": "runsBefore",
+                          "value": "<dateTime>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:30:21.000Z",
+                  "updatedAt": "2026-07-28T00:30:21.000Z",
+                  "uid": "35240-63e0374d-2227-4b55-989b-10891bcfe3ae"
+                },
+                {
+                  "id": "26b34516-cb08-406f-a2a0-7d301e67f645",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v3/schedules?view=Default&ownerId=<string>&workflowId=<string>&runsAfter=<dateTime>&runsBefore=<dateTime>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v3",
+                        "schedules"
+                      ],
+                      "query": [
+                        {
+                          "description": "Level of detail in the response",
+                          "key": "view",
+                          "value": "Default"
+                        },
+                        {
+                          "description": "Filter by schedule owner",
+                          "key": "ownerId",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by associated workflow",
+                          "key": "workflowId",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter schedules that run after this date (ISO 8601, max 45-day range)",
+                          "key": "runsAfter",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "Filter schedules that run before this date (ISO 8601, max 45-day range)",
+                          "key": "runsBefore",
+                          "value": "<dateTime>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:30:21.000Z",
+                  "updatedAt": "2026-07-28T00:30:21.000Z",
+                  "uid": "35240-26b34516-cb08-406f-a2a0-7d301e67f645"
+                }
+              ],
+              "createdAt": "2026-07-28T00:30:21.000Z",
+              "updatedAt": "2026-07-28T00:30:21.000Z",
+              "uid": "35240-75981f51-0cb1-4320-b6ef-ecde54676147"
+            }
+          ],
+          "id": "b6722438-fb41-45b2-85fc-1768d0996528",
+          "createdAt": "2026-07-28T00:30:21.000Z",
+          "updatedAt": "2026-07-28T00:30:21.000Z",
+          "uid": "35240-b6722438-fb41-45b2-85fc-1768d0996528"
+        }
+      ],
+      "id": "04dfc92d-dec3-4cf3-b30e-1fec381a767d",
+      "createdAt": "2026-07-28T00:30:21.000Z",
+      "updatedAt": "2026-07-28T00:30:21.000Z",
+      "uid": "35240-04dfc92d-dec3-4cf3-b30e-1fec381a767d"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://{serverHostname}/webapi/oauth2/token",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "serverHostname",
+      "value": "your-server.example.com"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{serverHostname}}/webapi"
+    }
+  ]
+}

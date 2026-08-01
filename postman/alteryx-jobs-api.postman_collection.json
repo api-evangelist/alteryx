@@ -1,0 +1,790 @@
+{
+  "info": {
+    "_postman_id": "7c39d006-e67f-4067-ab7b-1f3518a17f70",
+    "name": "Alteryx Server API V3 Collections Jobs API",
+    "description": "The Alteryx Server API V3 provides administrative capabilities for managing workflows, schedules, users, user groups, credentials, collections, and server connections. It uses OAuth 2 authentication and implements POST, PUT, GET, DELETE, and PATCH operations so administrators can automate tasks and integrate Server with existing API automation tools.\n\nContact Support:\n Name: Alteryx Support\n Email: support@alteryx.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T00:30:20.000Z",
+    "updatedAt": "2026-07-28T00:30:20.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-7c39d006-e67f-4067-ab7b-1f3518a17f70"
+  },
+  "item": [
+    {
+      "name": "v3",
+      "item": [
+        {
+          "name": "workflows",
+          "item": [
+            {
+              "name": "{workflowId}",
+              "item": [
+                {
+                  "name": "jobs",
+                  "item": [
+                    {
+                      "name": "Get Jobs for a Workflow",
+                      "id": "a6177956-115d-4e70-bd9f-5de743aaa8f2",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v3/workflows/:workflowId/jobs?sortField=<string>&direction=asc&offset=<string>&limit=<string>&status=Complete&resultCode=Error",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v3",
+                            "workflows",
+                            ":workflowId",
+                            "jobs"
+                          ],
+                          "query": [
+                            {
+                              "description": "Field to sort results by",
+                              "key": "sortField",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Sort direction",
+                              "key": "direction",
+                              "value": "asc"
+                            },
+                            {
+                              "description": "Number of records to skip for pagination",
+                              "key": "offset",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Maximum number of records to return",
+                              "key": "limit",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Filter by job status",
+                              "key": "status",
+                              "value": "Complete"
+                            },
+                            {
+                              "description": "Filter by result code",
+                              "key": "resultCode",
+                              "value": "Error"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "a7e10de1-7a17-4492-ad10-520abdd1b01d",
+                              "key": "workflowId",
+                              "value": "<string>",
+                              "description": "(Required) Unique identifier of the workflow"
+                            }
+                          ]
+                        },
+                        "description": "Retrieve execution jobs associated with a specific workflow."
+                      },
+                      "response": [
+                        {
+                          "id": "6f612e1a-2a7c-4734-82b0-e0281a4d30e7",
+                          "name": "List of jobs",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v3/workflows/:workflowId/jobs?sortField=<string>&direction=asc&offset=<string>&limit=<string>&status=Complete&resultCode=Error",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v3",
+                                "workflows",
+                                ":workflowId",
+                                "jobs"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Field to sort results by",
+                                  "key": "sortField",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Sort direction",
+                                  "key": "direction",
+                                  "value": "asc"
+                                },
+                                {
+                                  "description": "Number of records to skip for pagination",
+                                  "key": "offset",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Maximum number of records to return",
+                                  "key": "limit",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Filter by job status",
+                                  "key": "status",
+                                  "value": "Complete"
+                                },
+                                {
+                                  "description": "Filter by result code",
+                                  "key": "resultCode",
+                                  "value": "Error"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "workflowId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "[\n  {\n    \"id\": \"<string>\",\n    \"createDate\": \"<dateTime>\",\n    \"status\": \"<string>\",\n    \"priority\": \"High\",\n    \"workerTag\": \"<string>\",\n    \"runWithE2\": \"<boolean>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"createDate\": \"<dateTime>\",\n    \"status\": \"<string>\",\n    \"priority\": \"Critical\",\n    \"workerTag\": \"<string>\",\n    \"runWithE2\": \"<boolean>\"\n  }\n]",
+                          "createdAt": "2026-07-28T00:30:20.000Z",
+                          "updatedAt": "2026-07-28T00:30:20.000Z",
+                          "uid": "35240-6f612e1a-2a7c-4734-82b0-e0281a4d30e7"
+                        },
+                        {
+                          "id": "404078e7-b926-43e2-989d-7938209f8af9",
+                          "name": "Bad request",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v3/workflows/:workflowId/jobs?sortField=<string>&direction=asc&offset=<string>&limit=<string>&status=Complete&resultCode=Error",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v3",
+                                "workflows",
+                                ":workflowId",
+                                "jobs"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Field to sort results by",
+                                  "key": "sortField",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Sort direction",
+                                  "key": "direction",
+                                  "value": "asc"
+                                },
+                                {
+                                  "description": "Number of records to skip for pagination",
+                                  "key": "offset",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Maximum number of records to return",
+                                  "key": "limit",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Filter by job status",
+                                  "key": "status",
+                                  "value": "Complete"
+                                },
+                                {
+                                  "description": "Filter by result code",
+                                  "key": "resultCode",
+                                  "value": "Error"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "workflowId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:30:20.000Z",
+                          "updatedAt": "2026-07-28T00:30:20.000Z",
+                          "uid": "35240-404078e7-b926-43e2-989d-7938209f8af9"
+                        },
+                        {
+                          "id": "2cbae3e9-4800-4c5c-ba50-37d2067f7291",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v3/workflows/:workflowId/jobs?sortField=<string>&direction=asc&offset=<string>&limit=<string>&status=Complete&resultCode=Error",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v3",
+                                "workflows",
+                                ":workflowId",
+                                "jobs"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Field to sort results by",
+                                  "key": "sortField",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Sort direction",
+                                  "key": "direction",
+                                  "value": "asc"
+                                },
+                                {
+                                  "description": "Number of records to skip for pagination",
+                                  "key": "offset",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Maximum number of records to return",
+                                  "key": "limit",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Filter by job status",
+                                  "key": "status",
+                                  "value": "Complete"
+                                },
+                                {
+                                  "description": "Filter by result code",
+                                  "key": "resultCode",
+                                  "value": "Error"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "workflowId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:30:20.000Z",
+                          "updatedAt": "2026-07-28T00:30:20.000Z",
+                          "uid": "35240-2cbae3e9-4800-4c5c-ba50-37d2067f7291"
+                        },
+                        {
+                          "id": "217964d2-47ca-4122-82d1-735ce00e4bd7",
+                          "name": "Workflow not found",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v3/workflows/:workflowId/jobs?sortField=<string>&direction=asc&offset=<string>&limit=<string>&status=Complete&resultCode=Error",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v3",
+                                "workflows",
+                                ":workflowId",
+                                "jobs"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Field to sort results by",
+                                  "key": "sortField",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Sort direction",
+                                  "key": "direction",
+                                  "value": "asc"
+                                },
+                                {
+                                  "description": "Number of records to skip for pagination",
+                                  "key": "offset",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Maximum number of records to return",
+                                  "key": "limit",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Filter by job status",
+                                  "key": "status",
+                                  "value": "Complete"
+                                },
+                                {
+                                  "description": "Filter by result code",
+                                  "key": "resultCode",
+                                  "value": "Error"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "workflowId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:30:20.000Z",
+                          "updatedAt": "2026-07-28T00:30:20.000Z",
+                          "uid": "35240-217964d2-47ca-4122-82d1-735ce00e4bd7"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T00:30:20.000Z",
+                      "updatedAt": "2026-07-28T00:30:20.000Z",
+                      "uid": "35240-a6177956-115d-4e70-bd9f-5de743aaa8f2"
+                    },
+                    {
+                      "name": "Create a New Job for a Workflow",
+                      "id": "461b6823-d96a-49e6-8ec3-192906112e1e",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"workerTag\": \"none\",\n  \"credentialId\": \"<string>\",\n  \"questions\": [\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"priority\": \"High\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v3/workflows/:workflowId/jobs",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v3",
+                            "workflows",
+                            ":workflowId",
+                            "jobs"
+                          ],
+                          "variable": [
+                            {
+                              "id": "1af6f461-666c-4e79-9a62-d2c665ae2a3b",
+                              "key": "workflowId",
+                              "value": "<string>",
+                              "description": "(Required) Unique identifier of the workflow"
+                            }
+                          ]
+                        },
+                        "description": "Queue a new execution job for a specific workflow."
+                      },
+                      "response": [
+                        {
+                          "id": "2b6ec7d5-5d7b-4f77-8d27-e774f738b290",
+                          "name": "Job created successfully",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"workerTag\": \"none\",\n  \"credentialId\": \"<string>\",\n  \"questions\": [\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"priority\": \"High\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v3/workflows/:workflowId/jobs",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v3",
+                                "workflows",
+                                ":workflowId",
+                                "jobs"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "workflowId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<string>\",\n  \"appId\": \"<string>\",\n  \"createDateTime\": \"<dateTime>\",\n  \"status\": \"<string>\",\n  \"disposition\": \"<string>\",\n  \"outputs\": [\n    {\n      \"id\": \"<string>\",\n      \"availableFormats\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"fileName\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"availableFormats\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"fileName\": \"<string>\"\n    }\n  ],\n  \"messages\": [\n    {\n      \"status\": \"<integer>\",\n      \"text\": \"<string>\",\n      \"toolId\": \"<integer>\"\n    },\n    {\n      \"status\": \"<integer>\",\n      \"text\": \"<string>\",\n      \"toolId\": \"<integer>\"\n    }\n  ],\n  \"priority\": \"Low\",\n  \"workerTag\": \"<string>\",\n  \"runWithE2\": \"<boolean>\"\n}",
+                          "createdAt": "2026-07-28T00:30:20.000Z",
+                          "updatedAt": "2026-07-28T00:30:20.000Z",
+                          "uid": "35240-2b6ec7d5-5d7b-4f77-8d27-e774f738b290"
+                        },
+                        {
+                          "id": "39277fbc-2202-44dc-a47f-e5aa93ad6416",
+                          "name": "Bad request",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"workerTag\": \"none\",\n  \"credentialId\": \"<string>\",\n  \"questions\": [\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"priority\": \"High\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v3/workflows/:workflowId/jobs",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v3",
+                                "workflows",
+                                ":workflowId",
+                                "jobs"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "workflowId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:30:20.000Z",
+                          "updatedAt": "2026-07-28T00:30:20.000Z",
+                          "uid": "35240-39277fbc-2202-44dc-a47f-e5aa93ad6416"
+                        },
+                        {
+                          "id": "d97b1bb5-26cc-42fd-8284-aaa854a483c8",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"workerTag\": \"none\",\n  \"credentialId\": \"<string>\",\n  \"questions\": [\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"priority\": \"High\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v3/workflows/:workflowId/jobs",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v3",
+                                "workflows",
+                                ":workflowId",
+                                "jobs"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "workflowId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:30:20.000Z",
+                          "updatedAt": "2026-07-28T00:30:20.000Z",
+                          "uid": "35240-d97b1bb5-26cc-42fd-8284-aaa854a483c8"
+                        },
+                        {
+                          "id": "3b144329-be9d-4c67-8fdc-b9879f9665bd",
+                          "name": "Forbidden",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"workerTag\": \"none\",\n  \"credentialId\": \"<string>\",\n  \"questions\": [\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"priority\": \"High\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v3/workflows/:workflowId/jobs",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v3",
+                                "workflows",
+                                ":workflowId",
+                                "jobs"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "workflowId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:30:20.000Z",
+                          "updatedAt": "2026-07-28T00:30:20.000Z",
+                          "uid": "35240-3b144329-be9d-4c67-8fdc-b9879f9665bd"
+                        },
+                        {
+                          "id": "ae8713a6-45d1-4004-940d-1ea8128409da",
+                          "name": "Workflow not found",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"workerTag\": \"none\",\n  \"credentialId\": \"<string>\",\n  \"questions\": [\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ],\n  \"priority\": \"High\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v3/workflows/:workflowId/jobs",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v3",
+                                "workflows",
+                                ":workflowId",
+                                "jobs"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "workflowId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:30:20.000Z",
+                          "updatedAt": "2026-07-28T00:30:20.000Z",
+                          "uid": "35240-ae8713a6-45d1-4004-940d-1ea8128409da"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T00:30:20.000Z",
+                      "updatedAt": "2026-07-28T00:30:20.000Z",
+                      "uid": "35240-461b6823-d96a-49e6-8ec3-192906112e1e"
+                    }
+                  ],
+                  "id": "f48ece87-e343-4880-8dd5-0c30a947409c",
+                  "createdAt": "2026-07-28T00:30:20.000Z",
+                  "updatedAt": "2026-07-28T00:30:20.000Z",
+                  "uid": "35240-f48ece87-e343-4880-8dd5-0c30a947409c"
+                }
+              ],
+              "id": "f7b2a666-0d5b-4424-a486-48317c5740fa",
+              "createdAt": "2026-07-28T00:30:20.000Z",
+              "updatedAt": "2026-07-28T00:30:20.000Z",
+              "uid": "35240-f7b2a666-0d5b-4424-a486-48317c5740fa"
+            }
+          ],
+          "id": "35001ea6-5984-4694-b613-51f3acf0f260",
+          "createdAt": "2026-07-28T00:30:20.000Z",
+          "updatedAt": "2026-07-28T00:30:20.000Z",
+          "uid": "35240-35001ea6-5984-4694-b613-51f3acf0f260"
+        }
+      ],
+      "id": "85d19bbd-00fd-4938-a930-e80450f1ef0f",
+      "createdAt": "2026-07-28T00:30:20.000Z",
+      "updatedAt": "2026-07-28T00:30:20.000Z",
+      "uid": "35240-85d19bbd-00fd-4938-a930-e80450f1ef0f"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://{serverHostname}/webapi/oauth2/token",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "serverHostname",
+      "value": "your-server.example.com"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{serverHostname}}/webapi"
+    }
+  ]
+}

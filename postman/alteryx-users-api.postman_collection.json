@@ -1,0 +1,2614 @@
+{
+  "info": {
+    "_postman_id": "cd97ecc6-8a25-44ee-8d7a-a53f6799a17e",
+    "name": "Alteryx Server API V3 Collections Users API",
+    "description": "The Alteryx Server API V3 provides administrative capabilities for managing workflows, schedules, users, user groups, credentials, collections, and server connections. It uses OAuth 2 authentication and implements POST, PUT, GET, DELETE, and PATCH operations so administrators can automate tasks and integrate Server with existing API automation tools.\n\nContact Support:\n Name: Alteryx Support\n Email: support@alteryx.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T00:30:22.000Z",
+    "updatedAt": "2026-07-28T00:30:22.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-cd97ecc6-8a25-44ee-8d7a-a53f6799a17e"
+  },
+  "item": [
+    {
+      "name": "v3",
+      "item": [
+        {
+          "name": "users",
+          "item": [
+            {
+              "name": "{userId}",
+              "item": [
+                {
+                  "name": "deactivate",
+                  "item": [
+                    {
+                      "name": "Deactivate a User",
+                      "id": "ba1217b2-9c57-4703-85b5-b6a43793032f",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v3/users/:userId/deactivate",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v3",
+                            "users",
+                            ":userId",
+                            "deactivate"
+                          ],
+                          "variable": [
+                            {
+                              "id": "78b79075-40e1-46f4-89f5-49d9df9697c3",
+                              "key": "userId",
+                              "value": "<string>",
+                              "description": "(Required) Unique identifier of the user"
+                            }
+                          ]
+                        },
+                        "description": "Deactivate a user account and remove them from all user groups. Requires Curator role."
+                      },
+                      "response": [
+                        {
+                          "id": "6d313aa6-0108-492c-8062-7b1a0f8c6ef2",
+                          "name": "User deactivated successfully",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v3/users/:userId/deactivate",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v3",
+                                "users",
+                                ":userId",
+                                "deactivate"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "userId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "[\n  \"<string>\",\n  \"<string>\"\n]",
+                          "createdAt": "2026-07-28T00:30:22.000Z",
+                          "updatedAt": "2026-07-28T00:30:22.000Z",
+                          "uid": "35240-6d313aa6-0108-492c-8062-7b1a0f8c6ef2"
+                        },
+                        {
+                          "id": "71789a89-0d6d-416b-be19-58cedb87423a",
+                          "name": "Bad request",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v3/users/:userId/deactivate",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v3",
+                                "users",
+                                ":userId",
+                                "deactivate"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "userId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:30:22.000Z",
+                          "updatedAt": "2026-07-28T00:30:22.000Z",
+                          "uid": "35240-71789a89-0d6d-416b-be19-58cedb87423a"
+                        },
+                        {
+                          "id": "13736e80-2b3b-46e2-8b3a-f04131c7b621",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v3/users/:userId/deactivate",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v3",
+                                "users",
+                                ":userId",
+                                "deactivate"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "userId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:30:22.000Z",
+                          "updatedAt": "2026-07-28T00:30:22.000Z",
+                          "uid": "35240-13736e80-2b3b-46e2-8b3a-f04131c7b621"
+                        },
+                        {
+                          "id": "a8fd5961-9d57-4527-a024-cd49915f2a81",
+                          "name": "Forbidden",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v3/users/:userId/deactivate",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v3",
+                                "users",
+                                ":userId",
+                                "deactivate"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "userId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:30:22.000Z",
+                          "updatedAt": "2026-07-28T00:30:22.000Z",
+                          "uid": "35240-a8fd5961-9d57-4527-a024-cd49915f2a81"
+                        },
+                        {
+                          "id": "539dbc76-ba52-40c9-9966-e2b21e855e54",
+                          "name": "User not found",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v3/users/:userId/deactivate",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v3",
+                                "users",
+                                ":userId",
+                                "deactivate"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "userId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:30:22.000Z",
+                          "updatedAt": "2026-07-28T00:30:22.000Z",
+                          "uid": "35240-539dbc76-ba52-40c9-9966-e2b21e855e54"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T00:30:22.000Z",
+                      "updatedAt": "2026-07-28T00:30:22.000Z",
+                      "uid": "35240-ba1217b2-9c57-4703-85b5-b6a43793032f"
+                    }
+                  ],
+                  "id": "f2a4a81c-d29f-4ac0-b753-2dcfa9900e96",
+                  "createdAt": "2026-07-28T00:30:22.000Z",
+                  "updatedAt": "2026-07-28T00:30:22.000Z",
+                  "uid": "35240-f2a4a81c-d29f-4ac0-b753-2dcfa9900e96"
+                },
+                {
+                  "name": "passwordReset",
+                  "item": [
+                    {
+                      "name": "Send Password Reset Email",
+                      "id": "b7f7462f-953c-4511-b297-6bd580451498",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/v3/users/:userId/passwordReset",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v3",
+                            "users",
+                            ":userId",
+                            "passwordReset"
+                          ],
+                          "variable": [
+                            {
+                              "id": "72dcef3f-48b1-4a09-b9df-b6cd19795ea3",
+                              "key": "userId",
+                              "value": "<string>",
+                              "description": "(Required) Unique identifier of the user"
+                            }
+                          ]
+                        },
+                        "description": "Send a password reset email to the user. Not available for Windows or SAML authentication methods. Requires Curator role."
+                      },
+                      "response": [
+                        {
+                          "id": "8449a531-e50a-475e-a05d-b51142ae2489",
+                          "name": "Password reset email sent successfully",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v3/users/:userId/passwordReset",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v3",
+                                "users",
+                                ":userId",
+                                "passwordReset"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "userId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:30:22.000Z",
+                          "updatedAt": "2026-07-28T00:30:22.000Z",
+                          "uid": "35240-8449a531-e50a-475e-a05d-b51142ae2489"
+                        },
+                        {
+                          "id": "6898b1b8-c483-465f-8cb5-a2f3f564a780",
+                          "name": "Bad request - authentication method not supported",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v3/users/:userId/passwordReset",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v3",
+                                "users",
+                                ":userId",
+                                "passwordReset"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "userId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:30:22.000Z",
+                          "updatedAt": "2026-07-28T00:30:22.000Z",
+                          "uid": "35240-6898b1b8-c483-465f-8cb5-a2f3f564a780"
+                        },
+                        {
+                          "id": "66b49bec-92ec-4bd0-b573-4f038ed69791",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v3/users/:userId/passwordReset",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v3",
+                                "users",
+                                ":userId",
+                                "passwordReset"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "userId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:30:22.000Z",
+                          "updatedAt": "2026-07-28T00:30:22.000Z",
+                          "uid": "35240-66b49bec-92ec-4bd0-b573-4f038ed69791"
+                        },
+                        {
+                          "id": "d94edc2b-63c5-4563-a4cb-fbcb5782965e",
+                          "name": "Forbidden",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v3/users/:userId/passwordReset",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v3",
+                                "users",
+                                ":userId",
+                                "passwordReset"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "userId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:30:22.000Z",
+                          "updatedAt": "2026-07-28T00:30:22.000Z",
+                          "uid": "35240-d94edc2b-63c5-4563-a4cb-fbcb5782965e"
+                        },
+                        {
+                          "id": "e0803b7a-3359-436e-96b8-ecd71eb928b6",
+                          "name": "User not found",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v3/users/:userId/passwordReset",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v3",
+                                "users",
+                                ":userId",
+                                "passwordReset"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "userId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:30:22.000Z",
+                          "updatedAt": "2026-07-28T00:30:22.000Z",
+                          "uid": "35240-e0803b7a-3359-436e-96b8-ecd71eb928b6"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T00:30:22.000Z",
+                      "updatedAt": "2026-07-28T00:30:22.000Z",
+                      "uid": "35240-b7f7462f-953c-4511-b297-6bd580451498"
+                    }
+                  ],
+                  "id": "cfd9933c-bd5f-4e27-b1ce-e8e3cf2b784d",
+                  "createdAt": "2026-07-28T00:30:22.000Z",
+                  "updatedAt": "2026-07-28T00:30:22.000Z",
+                  "uid": "35240-cfd9933c-bd5f-4e27-b1ce-e8e3cf2b784d"
+                },
+                {
+                  "name": "assets",
+                  "item": [
+                    {
+                      "name": "Retrieve User Assets",
+                      "id": "d422207d-5511-4a4b-9408-0effc536b425",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v3/users/:userId/assets?assetType=All",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v3",
+                            "users",
+                            ":userId",
+                            "assets"
+                          ],
+                          "query": [
+                            {
+                              "description": "Filter by asset type",
+                              "key": "assetType",
+                              "value": "All"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "ef54336b-5ca7-4838-a03f-9eacd26df96f",
+                              "key": "userId",
+                              "value": "<string>",
+                              "description": "(Required) Unique identifier of the user"
+                            }
+                          ]
+                        },
+                        "description": "List all assets (workflows, schedules, collections) owned by a specific user. Requires Curator role."
+                      },
+                      "response": [
+                        {
+                          "id": "8fc8e673-d3b0-4127-a619-43e66afd4a95",
+                          "name": "List of user assets",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v3/users/:userId/assets?assetType=All",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v3",
+                                "users",
+                                ":userId",
+                                "assets"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Filter by asset type",
+                                  "key": "assetType",
+                                  "value": "All"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "userId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "[\n  {\n    \"id\": \"<string>\",\n    \"type\": \"<string>\",\n    \"name\": \"<string>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"type\": \"<string>\",\n    \"name\": \"<string>\"\n  }\n]",
+                          "createdAt": "2026-07-28T00:30:22.000Z",
+                          "updatedAt": "2026-07-28T00:30:22.000Z",
+                          "uid": "35240-8fc8e673-d3b0-4127-a619-43e66afd4a95"
+                        },
+                        {
+                          "id": "b3afd1ce-57a2-46d7-b5ff-e7b8a8b9490e",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v3/users/:userId/assets?assetType=All",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v3",
+                                "users",
+                                ":userId",
+                                "assets"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Filter by asset type",
+                                  "key": "assetType",
+                                  "value": "All"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "userId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:30:22.000Z",
+                          "updatedAt": "2026-07-28T00:30:22.000Z",
+                          "uid": "35240-b3afd1ce-57a2-46d7-b5ff-e7b8a8b9490e"
+                        },
+                        {
+                          "id": "372e57a7-41a9-47b3-b387-d4c55ba4dac4",
+                          "name": "Forbidden",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v3/users/:userId/assets?assetType=All",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v3",
+                                "users",
+                                ":userId",
+                                "assets"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Filter by asset type",
+                                  "key": "assetType",
+                                  "value": "All"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "userId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:30:22.000Z",
+                          "updatedAt": "2026-07-28T00:30:22.000Z",
+                          "uid": "35240-372e57a7-41a9-47b3-b387-d4c55ba4dac4"
+                        },
+                        {
+                          "id": "b42cf56f-a7a2-46e6-91a9-34078743a4ec",
+                          "name": "User not found",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/v3/users/:userId/assets?assetType=All",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v3",
+                                "users",
+                                ":userId",
+                                "assets"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Filter by asset type",
+                                  "key": "assetType",
+                                  "value": "All"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "userId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:30:22.000Z",
+                          "updatedAt": "2026-07-28T00:30:22.000Z",
+                          "uid": "35240-b42cf56f-a7a2-46e6-91a9-34078743a4ec"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T00:30:22.000Z",
+                      "updatedAt": "2026-07-28T00:30:22.000Z",
+                      "uid": "35240-d422207d-5511-4a4b-9408-0effc536b425"
+                    }
+                  ],
+                  "id": "9d0a358f-3741-4843-b061-8c8270b68a9e",
+                  "createdAt": "2026-07-28T00:30:22.000Z",
+                  "updatedAt": "2026-07-28T00:30:22.000Z",
+                  "uid": "35240-9d0a358f-3741-4843-b061-8c8270b68a9e"
+                },
+                {
+                  "name": "assetTransfer",
+                  "item": [
+                    {
+                      "name": "Transfer User Assets",
+                      "id": "c2327294-bc5f-4342-867d-c34e45194596",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"ownerId\": \"<string>\",\n  \"transferWorkflows\": \"<boolean>\",\n  \"transferSchedules\": \"<boolean>\",\n  \"transferCollections\": \"<boolean>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v3/users/:userId/assetTransfer",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v3",
+                            "users",
+                            ":userId",
+                            "assetTransfer"
+                          ],
+                          "variable": [
+                            {
+                              "id": "462ffc82-4921-44cd-bdb9-af302e77a225",
+                              "key": "userId",
+                              "value": "<string>",
+                              "description": "(Required) Unique identifier of the user"
+                            }
+                          ]
+                        },
+                        "description": "Transfer all assets (workflows, schedules, and collections) owned by one user to another. The receiving user must have Artisan or Curator role. Requires Curator role."
+                      },
+                      "response": [
+                        {
+                          "id": "f415e421-5d54-48ee-b5be-322e0585c766",
+                          "name": "Assets transferred successfully",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"ownerId\": \"<string>\",\n  \"transferWorkflows\": \"<boolean>\",\n  \"transferSchedules\": \"<boolean>\",\n  \"transferCollections\": \"<boolean>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v3/users/:userId/assetTransfer",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v3",
+                                "users",
+                                ":userId",
+                                "assetTransfer"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "userId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:30:22.000Z",
+                          "updatedAt": "2026-07-28T00:30:22.000Z",
+                          "uid": "35240-f415e421-5d54-48ee-b5be-322e0585c766"
+                        },
+                        {
+                          "id": "b3991891-0075-4e44-a5fb-895ecdc45c99",
+                          "name": "Bad request - receiving user lacks required role",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"ownerId\": \"<string>\",\n  \"transferWorkflows\": \"<boolean>\",\n  \"transferSchedules\": \"<boolean>\",\n  \"transferCollections\": \"<boolean>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v3/users/:userId/assetTransfer",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v3",
+                                "users",
+                                ":userId",
+                                "assetTransfer"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "userId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:30:22.000Z",
+                          "updatedAt": "2026-07-28T00:30:22.000Z",
+                          "uid": "35240-b3991891-0075-4e44-a5fb-895ecdc45c99"
+                        },
+                        {
+                          "id": "4f1c1c39-c51a-4267-9bc3-6700f11923d8",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"ownerId\": \"<string>\",\n  \"transferWorkflows\": \"<boolean>\",\n  \"transferSchedules\": \"<boolean>\",\n  \"transferCollections\": \"<boolean>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v3/users/:userId/assetTransfer",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v3",
+                                "users",
+                                ":userId",
+                                "assetTransfer"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "userId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:30:22.000Z",
+                          "updatedAt": "2026-07-28T00:30:22.000Z",
+                          "uid": "35240-4f1c1c39-c51a-4267-9bc3-6700f11923d8"
+                        },
+                        {
+                          "id": "37313e20-d728-4627-921b-d1d30ea39173",
+                          "name": "Forbidden",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"ownerId\": \"<string>\",\n  \"transferWorkflows\": \"<boolean>\",\n  \"transferSchedules\": \"<boolean>\",\n  \"transferCollections\": \"<boolean>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v3/users/:userId/assetTransfer",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v3",
+                                "users",
+                                ":userId",
+                                "assetTransfer"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "userId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:30:22.000Z",
+                          "updatedAt": "2026-07-28T00:30:22.000Z",
+                          "uid": "35240-37313e20-d728-4627-921b-d1d30ea39173"
+                        },
+                        {
+                          "id": "13877786-f7ce-485e-9064-dfea18cbe8c2",
+                          "name": "User not found",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"ownerId\": \"<string>\",\n  \"transferWorkflows\": \"<boolean>\",\n  \"transferSchedules\": \"<boolean>\",\n  \"transferCollections\": \"<boolean>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/v3/users/:userId/assetTransfer",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "v3",
+                                "users",
+                                ":userId",
+                                "assetTransfer"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "userId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T00:30:22.000Z",
+                          "updatedAt": "2026-07-28T00:30:22.000Z",
+                          "uid": "35240-13877786-f7ce-485e-9064-dfea18cbe8c2"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T00:30:22.000Z",
+                      "updatedAt": "2026-07-28T00:30:22.000Z",
+                      "uid": "35240-c2327294-bc5f-4342-867d-c34e45194596"
+                    }
+                  ],
+                  "id": "1f764358-29a9-4443-bc66-36c598592990",
+                  "createdAt": "2026-07-28T00:30:22.000Z",
+                  "updatedAt": "2026-07-28T00:30:22.000Z",
+                  "uid": "35240-1f764358-29a9-4443-bc66-36c598592990"
+                },
+                {
+                  "name": "Retrieve a Specific User",
+                  "id": "585503ec-62ec-45ef-9e28-52b786e1aae9",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v3/users/:userId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v3",
+                        "users",
+                        ":userId"
+                      ],
+                      "variable": [
+                        {
+                          "id": "68a394f1-e68d-4134-a254-8ca9f63c0f39",
+                          "key": "userId",
+                          "value": "<string>",
+                          "description": "(Required) Unique identifier of the user"
+                        }
+                      ]
+                    },
+                    "description": "Retrieve detailed information about a specific user. Requires Curator role."
+                  },
+                  "response": [
+                    {
+                      "id": "cb621964-b1f3-4d95-a035-f52341b46b0d",
+                      "name": "User details",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v3/users/:userId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v3",
+                            "users",
+                            ":userId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "userId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"email\": \"<email>\",\n  \"role\": \"Evaluated\",\n  \"dateCreated\": \"<dateTime>\",\n  \"defaultWorkerTag\": \"<string>\",\n  \"canScheduleJobs\": \"<boolean>\",\n  \"canPrioritizeJobs\": \"<boolean>\",\n  \"canAssignJobs\": \"<boolean>\",\n  \"canCreateCollections\": \"<boolean>\",\n  \"isApiEnabled\": \"<boolean>\",\n  \"defaultCredentialId\": \"<string>\",\n  \"isAccountLocked\": \"<boolean>\",\n  \"isActive\": \"<boolean>\",\n  \"isValidated\": \"<boolean>\",\n  \"timeZone\": \"<string>\",\n  \"language\": \"<string>\",\n  \"canCreateAndUpdateDcm\": \"<boolean>\",\n  \"canShareForExecutionDcm\": \"<boolean>\",\n  \"canShareForCollaborationDcm\": \"<boolean>\",\n  \"canManageGenericVaultsDcm\": \"<boolean>\"\n}",
+                      "createdAt": "2026-07-28T00:30:22.000Z",
+                      "updatedAt": "2026-07-28T00:30:22.000Z",
+                      "uid": "35240-cb621964-b1f3-4d95-a035-f52341b46b0d"
+                    },
+                    {
+                      "id": "e5100d08-6c0d-4a98-a1d3-97d1c37e3b65",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v3/users/:userId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v3",
+                            "users",
+                            ":userId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "userId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T00:30:22.000Z",
+                      "updatedAt": "2026-07-28T00:30:22.000Z",
+                      "uid": "35240-e5100d08-6c0d-4a98-a1d3-97d1c37e3b65"
+                    },
+                    {
+                      "id": "00153b2c-3a4c-4f0a-a941-a06a86011b14",
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v3/users/:userId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v3",
+                            "users",
+                            ":userId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "userId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T00:30:22.000Z",
+                      "updatedAt": "2026-07-28T00:30:22.000Z",
+                      "uid": "35240-00153b2c-3a4c-4f0a-a941-a06a86011b14"
+                    },
+                    {
+                      "id": "625b9f09-5e9e-41de-8e7e-9ac165a79a6e",
+                      "name": "User not found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v3/users/:userId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v3",
+                            "users",
+                            ":userId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "userId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T00:30:22.000Z",
+                      "updatedAt": "2026-07-28T00:30:22.000Z",
+                      "uid": "35240-625b9f09-5e9e-41de-8e7e-9ac165a79a6e"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T00:30:22.000Z",
+                  "updatedAt": "2026-07-28T00:30:22.000Z",
+                  "uid": "35240-585503ec-62ec-45ef-9e28-52b786e1aae9"
+                },
+                {
+                  "name": "Update a User",
+                  "id": "04328f48-8723-4558-b8e2-4811c7981755",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"email\": \"<email>\",\n  \"role\": \"Curator\",\n  \"defaultWorkerTag\": \"<string>\",\n  \"canScheduleJobs\": \"<boolean>\",\n  \"canPrioritizeJobs\": \"<boolean>\",\n  \"canAssignJobs\": \"<boolean>\",\n  \"isApiEnabled\": \"<boolean>\",\n  \"defaultCredentialId\": \"<string>\",\n  \"isActive\": \"<boolean>\",\n  \"isValidated\": \"<boolean>\",\n  \"timeZone\": \"<string>\",\n  \"id\": \"<string>\",\n  \"canCreateCollections\": \"<boolean>\",\n  \"isAccountLocked\": \"<boolean>\",\n  \"language\": \"zh-cn\",\n  \"canCreateAndUpdateDcm\": \"<boolean>\",\n  \"canShareForExecutionDcm\": \"<boolean>\",\n  \"canShareForCollaborationDcm\": \"<boolean>\",\n  \"canManageGenericVaultsDcm\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v3/users/:userId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v3",
+                        "users",
+                        ":userId"
+                      ],
+                      "variable": [
+                        {
+                          "id": "f6d1fb71-9ba0-4350-b25d-2d565cfe440f",
+                          "key": "userId",
+                          "value": "<string>",
+                          "description": "(Required) Unique identifier of the user"
+                        }
+                      ]
+                    },
+                    "description": "Update user account details and permissions. Requires Curator role."
+                  },
+                  "response": [
+                    {
+                      "id": "a3b87e1c-8ddc-4129-b1db-e5011a576714",
+                      "name": "User updated successfully",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"email\": \"<email>\",\n  \"role\": \"Curator\",\n  \"defaultWorkerTag\": \"<string>\",\n  \"canScheduleJobs\": \"<boolean>\",\n  \"canPrioritizeJobs\": \"<boolean>\",\n  \"canAssignJobs\": \"<boolean>\",\n  \"isApiEnabled\": \"<boolean>\",\n  \"defaultCredentialId\": \"<string>\",\n  \"isActive\": \"<boolean>\",\n  \"isValidated\": \"<boolean>\",\n  \"timeZone\": \"<string>\",\n  \"id\": \"<string>\",\n  \"canCreateCollections\": \"<boolean>\",\n  \"isAccountLocked\": \"<boolean>\",\n  \"language\": \"zh-cn\",\n  \"canCreateAndUpdateDcm\": \"<boolean>\",\n  \"canShareForExecutionDcm\": \"<boolean>\",\n  \"canShareForCollaborationDcm\": \"<boolean>\",\n  \"canManageGenericVaultsDcm\": \"<boolean>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v3/users/:userId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v3",
+                            "users",
+                            ":userId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "userId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"email\": \"<email>\",\n  \"role\": \"Evaluated\",\n  \"dateCreated\": \"<dateTime>\",\n  \"defaultWorkerTag\": \"<string>\",\n  \"canScheduleJobs\": \"<boolean>\",\n  \"canPrioritizeJobs\": \"<boolean>\",\n  \"canAssignJobs\": \"<boolean>\",\n  \"canCreateCollections\": \"<boolean>\",\n  \"isApiEnabled\": \"<boolean>\",\n  \"defaultCredentialId\": \"<string>\",\n  \"isAccountLocked\": \"<boolean>\",\n  \"isActive\": \"<boolean>\",\n  \"isValidated\": \"<boolean>\",\n  \"timeZone\": \"<string>\",\n  \"language\": \"<string>\",\n  \"canCreateAndUpdateDcm\": \"<boolean>\",\n  \"canShareForExecutionDcm\": \"<boolean>\",\n  \"canShareForCollaborationDcm\": \"<boolean>\",\n  \"canManageGenericVaultsDcm\": \"<boolean>\"\n}",
+                      "createdAt": "2026-07-28T00:30:22.000Z",
+                      "updatedAt": "2026-07-28T00:30:22.000Z",
+                      "uid": "35240-a3b87e1c-8ddc-4129-b1db-e5011a576714"
+                    },
+                    {
+                      "id": "38621ffe-3f9a-45a4-87eb-6b7aae31cfad",
+                      "name": "Bad request",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"email\": \"<email>\",\n  \"role\": \"Curator\",\n  \"defaultWorkerTag\": \"<string>\",\n  \"canScheduleJobs\": \"<boolean>\",\n  \"canPrioritizeJobs\": \"<boolean>\",\n  \"canAssignJobs\": \"<boolean>\",\n  \"isApiEnabled\": \"<boolean>\",\n  \"defaultCredentialId\": \"<string>\",\n  \"isActive\": \"<boolean>\",\n  \"isValidated\": \"<boolean>\",\n  \"timeZone\": \"<string>\",\n  \"id\": \"<string>\",\n  \"canCreateCollections\": \"<boolean>\",\n  \"isAccountLocked\": \"<boolean>\",\n  \"language\": \"zh-cn\",\n  \"canCreateAndUpdateDcm\": \"<boolean>\",\n  \"canShareForExecutionDcm\": \"<boolean>\",\n  \"canShareForCollaborationDcm\": \"<boolean>\",\n  \"canManageGenericVaultsDcm\": \"<boolean>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v3/users/:userId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v3",
+                            "users",
+                            ":userId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "userId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T00:30:22.000Z",
+                      "updatedAt": "2026-07-28T00:30:22.000Z",
+                      "uid": "35240-38621ffe-3f9a-45a4-87eb-6b7aae31cfad"
+                    },
+                    {
+                      "id": "ae1faa06-046f-43c4-8211-39b24f6747fd",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"email\": \"<email>\",\n  \"role\": \"Curator\",\n  \"defaultWorkerTag\": \"<string>\",\n  \"canScheduleJobs\": \"<boolean>\",\n  \"canPrioritizeJobs\": \"<boolean>\",\n  \"canAssignJobs\": \"<boolean>\",\n  \"isApiEnabled\": \"<boolean>\",\n  \"defaultCredentialId\": \"<string>\",\n  \"isActive\": \"<boolean>\",\n  \"isValidated\": \"<boolean>\",\n  \"timeZone\": \"<string>\",\n  \"id\": \"<string>\",\n  \"canCreateCollections\": \"<boolean>\",\n  \"isAccountLocked\": \"<boolean>\",\n  \"language\": \"zh-cn\",\n  \"canCreateAndUpdateDcm\": \"<boolean>\",\n  \"canShareForExecutionDcm\": \"<boolean>\",\n  \"canShareForCollaborationDcm\": \"<boolean>\",\n  \"canManageGenericVaultsDcm\": \"<boolean>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v3/users/:userId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v3",
+                            "users",
+                            ":userId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "userId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T00:30:22.000Z",
+                      "updatedAt": "2026-07-28T00:30:22.000Z",
+                      "uid": "35240-ae1faa06-046f-43c4-8211-39b24f6747fd"
+                    },
+                    {
+                      "id": "d6a18492-719f-4310-b750-88071ac919c6",
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"email\": \"<email>\",\n  \"role\": \"Curator\",\n  \"defaultWorkerTag\": \"<string>\",\n  \"canScheduleJobs\": \"<boolean>\",\n  \"canPrioritizeJobs\": \"<boolean>\",\n  \"canAssignJobs\": \"<boolean>\",\n  \"isApiEnabled\": \"<boolean>\",\n  \"defaultCredentialId\": \"<string>\",\n  \"isActive\": \"<boolean>\",\n  \"isValidated\": \"<boolean>\",\n  \"timeZone\": \"<string>\",\n  \"id\": \"<string>\",\n  \"canCreateCollections\": \"<boolean>\",\n  \"isAccountLocked\": \"<boolean>\",\n  \"language\": \"zh-cn\",\n  \"canCreateAndUpdateDcm\": \"<boolean>\",\n  \"canShareForExecutionDcm\": \"<boolean>\",\n  \"canShareForCollaborationDcm\": \"<boolean>\",\n  \"canManageGenericVaultsDcm\": \"<boolean>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v3/users/:userId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v3",
+                            "users",
+                            ":userId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "userId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T00:30:22.000Z",
+                      "updatedAt": "2026-07-28T00:30:22.000Z",
+                      "uid": "35240-d6a18492-719f-4310-b750-88071ac919c6"
+                    },
+                    {
+                      "id": "40957252-4a21-4828-9577-6d9e23661d93",
+                      "name": "User not found",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"email\": \"<email>\",\n  \"role\": \"Curator\",\n  \"defaultWorkerTag\": \"<string>\",\n  \"canScheduleJobs\": \"<boolean>\",\n  \"canPrioritizeJobs\": \"<boolean>\",\n  \"canAssignJobs\": \"<boolean>\",\n  \"isApiEnabled\": \"<boolean>\",\n  \"defaultCredentialId\": \"<string>\",\n  \"isActive\": \"<boolean>\",\n  \"isValidated\": \"<boolean>\",\n  \"timeZone\": \"<string>\",\n  \"id\": \"<string>\",\n  \"canCreateCollections\": \"<boolean>\",\n  \"isAccountLocked\": \"<boolean>\",\n  \"language\": \"zh-cn\",\n  \"canCreateAndUpdateDcm\": \"<boolean>\",\n  \"canShareForExecutionDcm\": \"<boolean>\",\n  \"canShareForCollaborationDcm\": \"<boolean>\",\n  \"canManageGenericVaultsDcm\": \"<boolean>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v3/users/:userId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v3",
+                            "users",
+                            ":userId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "userId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T00:30:22.000Z",
+                      "updatedAt": "2026-07-28T00:30:22.000Z",
+                      "uid": "35240-40957252-4a21-4828-9577-6d9e23661d93"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T00:30:22.000Z",
+                  "updatedAt": "2026-07-28T00:30:22.000Z",
+                  "uid": "35240-04328f48-8723-4558-b8e2-4811c7981755"
+                },
+                {
+                  "name": "Delete a User",
+                  "id": "022e164a-3570-449e-89ce-40b0a32fb359",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v3/users/:userId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v3",
+                        "users",
+                        ":userId"
+                      ],
+                      "variable": [
+                        {
+                          "id": "f348d758-37cf-4aac-af79-95661db8484a",
+                          "key": "userId",
+                          "value": "<string>",
+                          "description": "(Required) Unique identifier of the user"
+                        }
+                      ]
+                    },
+                    "description": "Delete a user from the system. The user must not own any assets or belong to any groups. Requires Curator role."
+                  },
+                  "response": [
+                    {
+                      "id": "b81ffbc6-6264-421d-b015-4d2104b29559",
+                      "name": "User deleted successfully",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v3/users/:userId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v3",
+                            "users",
+                            ":userId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "userId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T00:30:22.000Z",
+                      "updatedAt": "2026-07-28T00:30:22.000Z",
+                      "uid": "35240-b81ffbc6-6264-421d-b015-4d2104b29559"
+                    },
+                    {
+                      "id": "4e693321-43be-4505-9d18-2ba941e51b63",
+                      "name": "Bad request - user owns assets or belongs to groups",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v3/users/:userId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v3",
+                            "users",
+                            ":userId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "userId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"message\": \"<string>\",\n  \"errors\": [\n    {\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T00:30:22.000Z",
+                      "updatedAt": "2026-07-28T00:30:22.000Z",
+                      "uid": "35240-4e693321-43be-4505-9d18-2ba941e51b63"
+                    },
+                    {
+                      "id": "4cf8465e-2038-4cc2-ae03-18638291fe79",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v3/users/:userId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v3",
+                            "users",
+                            ":userId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "userId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T00:30:22.000Z",
+                      "updatedAt": "2026-07-28T00:30:22.000Z",
+                      "uid": "35240-4cf8465e-2038-4cc2-ae03-18638291fe79"
+                    },
+                    {
+                      "id": "19e5a3f1-6f1c-4a7d-9a5d-8b81a2027b19",
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v3/users/:userId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v3",
+                            "users",
+                            ":userId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "userId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T00:30:22.000Z",
+                      "updatedAt": "2026-07-28T00:30:22.000Z",
+                      "uid": "35240-19e5a3f1-6f1c-4a7d-9a5d-8b81a2027b19"
+                    },
+                    {
+                      "id": "de2bbfdc-a31c-4cb7-8ded-35e7bd1713e5",
+                      "name": "User not found",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/v3/users/:userId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v3",
+                            "users",
+                            ":userId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "userId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T00:30:22.000Z",
+                      "updatedAt": "2026-07-28T00:30:22.000Z",
+                      "uid": "35240-de2bbfdc-a31c-4cb7-8ded-35e7bd1713e5"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T00:30:22.000Z",
+                  "updatedAt": "2026-07-28T00:30:22.000Z",
+                  "uid": "35240-022e164a-3570-449e-89ce-40b0a32fb359"
+                }
+              ],
+              "id": "ff7d60f9-0033-4c3d-b513-b2265d20deaf",
+              "createdAt": "2026-07-28T00:30:22.000Z",
+              "updatedAt": "2026-07-28T00:30:22.000Z",
+              "uid": "35240-ff7d60f9-0033-4c3d-b513-b2265d20deaf"
+            },
+            {
+              "name": "Create a New User",
+              "id": "8cb37b44-aaa9-4754-8e71-996a914e4f8e",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"email\": \"<email>\",\n  \"role\": \"Member\",\n  \"defaultWorkerTag\": \"<string>\",\n  \"canScheduleJobs\": \"<boolean>\",\n  \"canPrioritizeJobs\": \"<boolean>\",\n  \"canAssignJobs\": \"<boolean>\",\n  \"canCreateCollections\": \"<boolean>\",\n  \"isApiEnabled\": \"<boolean>\",\n  \"defaultCredentialId\": \"<string>\",\n  \"isActive\": \"<boolean>\",\n  \"timeZone\": \"<string>\",\n  \"canCreateAndUpdateDcm\": \"<boolean>\",\n  \"canShareForExecutionDcm\": \"<boolean>\",\n  \"canShareForCollaborationDcm\": \"<boolean>\",\n  \"canManageGenericVaultsDcm\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/v3/users",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v3",
+                    "users"
+                  ]
+                },
+                "description": "Create a new user account on the Alteryx Server. Requires Curator role."
+              },
+              "response": [
+                {
+                  "id": "494d3b43-2518-40a6-863e-e64f8d58f804",
+                  "name": "User created successfully",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"email\": \"<email>\",\n  \"role\": \"Member\",\n  \"defaultWorkerTag\": \"<string>\",\n  \"canScheduleJobs\": \"<boolean>\",\n  \"canPrioritizeJobs\": \"<boolean>\",\n  \"canAssignJobs\": \"<boolean>\",\n  \"canCreateCollections\": \"<boolean>\",\n  \"isApiEnabled\": \"<boolean>\",\n  \"defaultCredentialId\": \"<string>\",\n  \"isActive\": \"<boolean>\",\n  \"timeZone\": \"<string>\",\n  \"canCreateAndUpdateDcm\": \"<boolean>\",\n  \"canShareForExecutionDcm\": \"<boolean>\",\n  \"canShareForCollaborationDcm\": \"<boolean>\",\n  \"canManageGenericVaultsDcm\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v3/users",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v3",
+                        "users"
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"email\": \"<email>\",\n  \"role\": \"Evaluated\",\n  \"dateCreated\": \"<dateTime>\",\n  \"defaultWorkerTag\": \"<string>\",\n  \"canScheduleJobs\": \"<boolean>\",\n  \"canPrioritizeJobs\": \"<boolean>\",\n  \"canAssignJobs\": \"<boolean>\",\n  \"canCreateCollections\": \"<boolean>\",\n  \"isApiEnabled\": \"<boolean>\",\n  \"defaultCredentialId\": \"<string>\",\n  \"isAccountLocked\": \"<boolean>\",\n  \"isActive\": \"<boolean>\",\n  \"isValidated\": \"<boolean>\",\n  \"timeZone\": \"<string>\",\n  \"language\": \"<string>\",\n  \"canCreateAndUpdateDcm\": \"<boolean>\",\n  \"canShareForExecutionDcm\": \"<boolean>\",\n  \"canShareForCollaborationDcm\": \"<boolean>\",\n  \"canManageGenericVaultsDcm\": \"<boolean>\"\n}",
+                  "createdAt": "2026-07-28T00:30:22.000Z",
+                  "updatedAt": "2026-07-28T00:30:22.000Z",
+                  "uid": "35240-494d3b43-2518-40a6-863e-e64f8d58f804"
+                },
+                {
+                  "id": "119ed915-0af9-4e60-9e30-27f63a757cb1",
+                  "name": "Bad request",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"email\": \"<email>\",\n  \"role\": \"Member\",\n  \"defaultWorkerTag\": \"<string>\",\n  \"canScheduleJobs\": \"<boolean>\",\n  \"canPrioritizeJobs\": \"<boolean>\",\n  \"canAssignJobs\": \"<boolean>\",\n  \"canCreateCollections\": \"<boolean>\",\n  \"isApiEnabled\": \"<boolean>\",\n  \"defaultCredentialId\": \"<string>\",\n  \"isActive\": \"<boolean>\",\n  \"timeZone\": \"<string>\",\n  \"canCreateAndUpdateDcm\": \"<boolean>\",\n  \"canShareForExecutionDcm\": \"<boolean>\",\n  \"canShareForCollaborationDcm\": \"<boolean>\",\n  \"canManageGenericVaultsDcm\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v3/users",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v3",
+                        "users"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"message\": \"<string>\",\n  \"errors\": [\n    {\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"field\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T00:30:22.000Z",
+                  "updatedAt": "2026-07-28T00:30:22.000Z",
+                  "uid": "35240-119ed915-0af9-4e60-9e30-27f63a757cb1"
+                },
+                {
+                  "id": "7325da44-54cb-4258-a1d2-f5f15662c11d",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"email\": \"<email>\",\n  \"role\": \"Member\",\n  \"defaultWorkerTag\": \"<string>\",\n  \"canScheduleJobs\": \"<boolean>\",\n  \"canPrioritizeJobs\": \"<boolean>\",\n  \"canAssignJobs\": \"<boolean>\",\n  \"canCreateCollections\": \"<boolean>\",\n  \"isApiEnabled\": \"<boolean>\",\n  \"defaultCredentialId\": \"<string>\",\n  \"isActive\": \"<boolean>\",\n  \"timeZone\": \"<string>\",\n  \"canCreateAndUpdateDcm\": \"<boolean>\",\n  \"canShareForExecutionDcm\": \"<boolean>\",\n  \"canShareForCollaborationDcm\": \"<boolean>\",\n  \"canManageGenericVaultsDcm\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v3/users",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v3",
+                        "users"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:30:22.000Z",
+                  "updatedAt": "2026-07-28T00:30:22.000Z",
+                  "uid": "35240-7325da44-54cb-4258-a1d2-f5f15662c11d"
+                },
+                {
+                  "id": "a550c327-0b57-4ae9-93e3-f0532dcc0d72",
+                  "name": "Forbidden - insufficient permissions",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"email\": \"<email>\",\n  \"role\": \"Member\",\n  \"defaultWorkerTag\": \"<string>\",\n  \"canScheduleJobs\": \"<boolean>\",\n  \"canPrioritizeJobs\": \"<boolean>\",\n  \"canAssignJobs\": \"<boolean>\",\n  \"canCreateCollections\": \"<boolean>\",\n  \"isApiEnabled\": \"<boolean>\",\n  \"defaultCredentialId\": \"<string>\",\n  \"isActive\": \"<boolean>\",\n  \"timeZone\": \"<string>\",\n  \"canCreateAndUpdateDcm\": \"<boolean>\",\n  \"canShareForExecutionDcm\": \"<boolean>\",\n  \"canShareForCollaborationDcm\": \"<boolean>\",\n  \"canManageGenericVaultsDcm\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v3/users",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v3",
+                        "users"
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:30:22.000Z",
+                  "updatedAt": "2026-07-28T00:30:22.000Z",
+                  "uid": "35240-a550c327-0b57-4ae9-93e3-f0532dcc0d72"
+                }
+              ],
+              "createdAt": "2026-07-28T00:30:22.000Z",
+              "updatedAt": "2026-07-28T00:30:22.000Z",
+              "uid": "35240-8cb37b44-aaa9-4754-8e71-996a914e4f8e"
+            },
+            {
+              "name": "Retrieve All Users",
+              "id": "1695a0e9-d546-4742-83cd-4f03a38e24ac",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/v3/users?view=Default&active=<boolean>&email=<string>&role=Curator&firstName=<string>&lastName=<string>&createdAfter=<dateTime>&createdBefore=<dateTime>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v3",
+                    "users"
+                  ],
+                  "query": [
+                    {
+                      "description": "Level of detail in the response",
+                      "key": "view",
+                      "value": "Default"
+                    },
+                    {
+                      "description": "Filter by active status",
+                      "key": "active",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Filter by email address",
+                      "key": "email",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by user role",
+                      "key": "role",
+                      "value": "Curator"
+                    },
+                    {
+                      "description": "Filter by first name",
+                      "key": "firstName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by last name",
+                      "key": "lastName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter users created after this date (ISO 8601)",
+                      "key": "createdAfter",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Filter users created before this date (ISO 8601)",
+                      "key": "createdBefore",
+                      "value": "<dateTime>"
+                    }
+                  ]
+                },
+                "description": "Retrieve information about all user records with optional filtering. Requires Curator role."
+              },
+              "response": [
+                {
+                  "id": "b408b873-a083-4dbd-bc46-8dd696555844",
+                  "name": "List of user records",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v3/users?view=Default&active=<boolean>&email=<string>&role=Curator&firstName=<string>&lastName=<string>&createdAfter=<dateTime>&createdBefore=<dateTime>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v3",
+                        "users"
+                      ],
+                      "query": [
+                        {
+                          "description": "Level of detail in the response",
+                          "key": "view",
+                          "value": "Default"
+                        },
+                        {
+                          "description": "Filter by active status",
+                          "key": "active",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Filter by email address",
+                          "key": "email",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by user role",
+                          "key": "role",
+                          "value": "Curator"
+                        },
+                        {
+                          "description": "Filter by first name",
+                          "key": "firstName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by last name",
+                          "key": "lastName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter users created after this date (ISO 8601)",
+                          "key": "createdAfter",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "Filter users created before this date (ISO 8601)",
+                          "key": "createdBefore",
+                          "value": "<dateTime>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "[\n  {\n    \"id\": \"<string>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"email\": \"<email>\",\n    \"role\": \"Viewer\",\n    \"dateCreated\": \"<dateTime>\",\n    \"defaultWorkerTag\": \"<string>\",\n    \"canScheduleJobs\": \"<boolean>\",\n    \"canPrioritizeJobs\": \"<boolean>\",\n    \"canAssignJobs\": \"<boolean>\",\n    \"canCreateCollections\": \"<boolean>\",\n    \"isApiEnabled\": \"<boolean>\",\n    \"defaultCredentialId\": \"<string>\",\n    \"isAccountLocked\": \"<boolean>\",\n    \"isActive\": \"<boolean>\",\n    \"isValidated\": \"<boolean>\",\n    \"timeZone\": \"<string>\",\n    \"language\": \"<string>\",\n    \"canCreateAndUpdateDcm\": \"<boolean>\",\n    \"canShareForExecutionDcm\": \"<boolean>\",\n    \"canShareForCollaborationDcm\": \"<boolean>\",\n    \"canManageGenericVaultsDcm\": \"<boolean>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"firstName\": \"<string>\",\n    \"lastName\": \"<string>\",\n    \"email\": \"<email>\",\n    \"role\": \"Evaluated\",\n    \"dateCreated\": \"<dateTime>\",\n    \"defaultWorkerTag\": \"<string>\",\n    \"canScheduleJobs\": \"<boolean>\",\n    \"canPrioritizeJobs\": \"<boolean>\",\n    \"canAssignJobs\": \"<boolean>\",\n    \"canCreateCollections\": \"<boolean>\",\n    \"isApiEnabled\": \"<boolean>\",\n    \"defaultCredentialId\": \"<string>\",\n    \"isAccountLocked\": \"<boolean>\",\n    \"isActive\": \"<boolean>\",\n    \"isValidated\": \"<boolean>\",\n    \"timeZone\": \"<string>\",\n    \"language\": \"<string>\",\n    \"canCreateAndUpdateDcm\": \"<boolean>\",\n    \"canShareForExecutionDcm\": \"<boolean>\",\n    \"canShareForCollaborationDcm\": \"<boolean>\",\n    \"canManageGenericVaultsDcm\": \"<boolean>\"\n  }\n]",
+                  "createdAt": "2026-07-28T00:30:22.000Z",
+                  "updatedAt": "2026-07-28T00:30:22.000Z",
+                  "uid": "35240-b408b873-a083-4dbd-bc46-8dd696555844"
+                },
+                {
+                  "id": "090f549d-e123-4b80-aaeb-3520a2f9b6da",
+                  "name": "Bad request",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v3/users?view=Default&active=<boolean>&email=<string>&role=Curator&firstName=<string>&lastName=<string>&createdAfter=<dateTime>&createdBefore=<dateTime>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v3",
+                        "users"
+                      ],
+                      "query": [
+                        {
+                          "description": "Level of detail in the response",
+                          "key": "view",
+                          "value": "Default"
+                        },
+                        {
+                          "description": "Filter by active status",
+                          "key": "active",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Filter by email address",
+                          "key": "email",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by user role",
+                          "key": "role",
+                          "value": "Curator"
+                        },
+                        {
+                          "description": "Filter by first name",
+                          "key": "firstName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by last name",
+                          "key": "lastName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter users created after this date (ISO 8601)",
+                          "key": "createdAfter",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "Filter users created before this date (ISO 8601)",
+                          "key": "createdBefore",
+                          "value": "<dateTime>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:30:22.000Z",
+                  "updatedAt": "2026-07-28T00:30:22.000Z",
+                  "uid": "35240-090f549d-e123-4b80-aaeb-3520a2f9b6da"
+                },
+                {
+                  "id": "587ce501-95ef-4063-ad40-25241b521ab0",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v3/users?view=Default&active=<boolean>&email=<string>&role=Curator&firstName=<string>&lastName=<string>&createdAfter=<dateTime>&createdBefore=<dateTime>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v3",
+                        "users"
+                      ],
+                      "query": [
+                        {
+                          "description": "Level of detail in the response",
+                          "key": "view",
+                          "value": "Default"
+                        },
+                        {
+                          "description": "Filter by active status",
+                          "key": "active",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Filter by email address",
+                          "key": "email",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by user role",
+                          "key": "role",
+                          "value": "Curator"
+                        },
+                        {
+                          "description": "Filter by first name",
+                          "key": "firstName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by last name",
+                          "key": "lastName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter users created after this date (ISO 8601)",
+                          "key": "createdAfter",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "Filter users created before this date (ISO 8601)",
+                          "key": "createdBefore",
+                          "value": "<dateTime>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:30:22.000Z",
+                  "updatedAt": "2026-07-28T00:30:22.000Z",
+                  "uid": "35240-587ce501-95ef-4063-ad40-25241b521ab0"
+                },
+                {
+                  "id": "4c5b9ab9-3c45-451d-9ba0-38bf271d7113",
+                  "name": "Forbidden",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v3/users?view=Default&active=<boolean>&email=<string>&role=Curator&firstName=<string>&lastName=<string>&createdAfter=<dateTime>&createdBefore=<dateTime>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v3",
+                        "users"
+                      ],
+                      "query": [
+                        {
+                          "description": "Level of detail in the response",
+                          "key": "view",
+                          "value": "Default"
+                        },
+                        {
+                          "description": "Filter by active status",
+                          "key": "active",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Filter by email address",
+                          "key": "email",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by user role",
+                          "key": "role",
+                          "value": "Curator"
+                        },
+                        {
+                          "description": "Filter by first name",
+                          "key": "firstName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by last name",
+                          "key": "lastName",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter users created after this date (ISO 8601)",
+                          "key": "createdAfter",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "Filter users created before this date (ISO 8601)",
+                          "key": "createdBefore",
+                          "value": "<dateTime>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T00:30:22.000Z",
+                  "updatedAt": "2026-07-28T00:30:22.000Z",
+                  "uid": "35240-4c5b9ab9-3c45-451d-9ba0-38bf271d7113"
+                }
+              ],
+              "createdAt": "2026-07-28T00:30:22.000Z",
+              "updatedAt": "2026-07-28T00:30:22.000Z",
+              "uid": "35240-1695a0e9-d546-4742-83cd-4f03a38e24ac"
+            }
+          ],
+          "id": "0847c2ec-9fc2-47c3-9c68-59984f9ad907",
+          "createdAt": "2026-07-28T00:30:22.000Z",
+          "updatedAt": "2026-07-28T00:30:22.000Z",
+          "uid": "35240-0847c2ec-9fc2-47c3-9c68-59984f9ad907"
+        }
+      ],
+      "id": "fe202e2a-20d4-428d-8c2f-8e42db3c1884",
+      "createdAt": "2026-07-28T00:30:22.000Z",
+      "updatedAt": "2026-07-28T00:30:22.000Z",
+      "uid": "35240-fe202e2a-20d4-428d-8c2f-8e42db3c1884"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://{serverHostname}/webapi/oauth2/token",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "serverHostname",
+      "value": "your-server.example.com"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{serverHostname}}/webapi"
+    }
+  ]
+}
