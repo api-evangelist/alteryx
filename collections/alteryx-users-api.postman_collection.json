@@ -1,0 +1,3092 @@
+{
+  "item": [
+    {
+      "id": "5f123b76-0228-47db-853f-c93cef3e5396",
+      "name": "Users",
+      "description": {
+        "content": "Manage user accounts, permissions, and asset transfers",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3ca83650-2d3b-401b-ad58-1e4540b7616f",
+          "name": "Create a New User",
+          "request": {
+            "name": "Create a New User",
+            "description": {
+              "content": "Create a new user account on the Alteryx Server. Requires Curator role.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "users"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Hostname of your Alteryx Server instance",
+                  "type": "any",
+                  "value": "{{serverHostname}}",
+                  "key": "serverHostname"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"email\": \"<email>\",\n  \"role\": \"<string>\",\n  \"defaultWorkerTag\": \"<string>\",\n  \"canScheduleJobs\": \"<boolean>\",\n  \"canPrioritizeJobs\": \"<boolean>\",\n  \"canAssignJobs\": \"<boolean>\",\n  \"canCreateCollections\": \"<boolean>\",\n  \"isApiEnabled\": \"<boolean>\",\n  \"defaultCredentialId\": \"<string>\",\n  \"isActive\": \"<boolean>\",\n  \"timeZone\": \"<string>\",\n  \"canCreateAndUpdateDcm\": \"<boolean>\",\n  \"canShareForExecutionDcm\": \"<boolean>\",\n  \"canShareForCollaborationDcm\": \"<boolean>\",\n  \"canManageGenericVaultsDcm\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "14c11e8c-eae2-4d06-983f-a0aaf140ffb4",
+              "name": "User created successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"firstName\": \"example_value\",\n  \"lastName\": \"example_value\",\n  \"email\": \"user@example.com\",\n  \"role\": \"NoAccess\",\n  \"defaultWorkerTag\": \"example_value\",\n  \"canScheduleJobs\": true,\n  \"canPrioritizeJobs\": true,\n  \"canAssignJobs\": true,\n  \"canCreateCollections\": true,\n  \"isApiEnabled\": true,\n  \"defaultCredentialId\": \"500123\",\n  \"isActive\": true,\n  \"timeZone\": \"example_value\",\n  \"canCreateAndUpdateDcm\": true,\n  \"canShareForExecutionDcm\": true,\n  \"canShareForCollaborationDcm\": true,\n  \"canManageGenericVaultsDcm\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"abc123\",\n  \"firstName\": \"example_value\",\n  \"lastName\": \"example_value\",\n  \"email\": \"user@example.com\",\n  \"role\": \"NoAccess\",\n  \"dateCreated\": \"2026-01-15T10:30:00Z\",\n  \"defaultWorkerTag\": \"example_value\",\n  \"canScheduleJobs\": true,\n  \"canPrioritizeJobs\": true,\n  \"canAssignJobs\": true,\n  \"canCreateCollections\": true,\n  \"isApiEnabled\": true,\n  \"defaultCredentialId\": \"500123\",\n  \"isAccountLocked\": true,\n  \"isActive\": true,\n  \"isValidated\": true,\n  \"timeZone\": \"example_value\",\n  \"language\": \"example_value\",\n  \"canCreateAndUpdateDcm\": true,\n  \"canShareForExecutionDcm\": true,\n  \"canShareForCollaborationDcm\": true,\n  \"canManageGenericVaultsDcm\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "35461661-a2eb-4022-acc9-020cc83a549f",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"firstName\": \"example_value\",\n  \"lastName\": \"example_value\",\n  \"email\": \"user@example.com\",\n  \"role\": \"NoAccess\",\n  \"defaultWorkerTag\": \"example_value\",\n  \"canScheduleJobs\": true,\n  \"canPrioritizeJobs\": true,\n  \"canAssignJobs\": true,\n  \"canCreateCollections\": true,\n  \"isApiEnabled\": true,\n  \"defaultCredentialId\": \"500123\",\n  \"isActive\": true,\n  \"timeZone\": \"example_value\",\n  \"canCreateAndUpdateDcm\": true,\n  \"canShareForExecutionDcm\": true,\n  \"canShareForCollaborationDcm\": true,\n  \"canManageGenericVaultsDcm\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"example_value\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fc611f0f-4104-4a88-b1b3-5c4469175a86",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"firstName\": \"example_value\",\n  \"lastName\": \"example_value\",\n  \"email\": \"user@example.com\",\n  \"role\": \"NoAccess\",\n  \"defaultWorkerTag\": \"example_value\",\n  \"canScheduleJobs\": true,\n  \"canPrioritizeJobs\": true,\n  \"canAssignJobs\": true,\n  \"canCreateCollections\": true,\n  \"isApiEnabled\": true,\n  \"defaultCredentialId\": \"500123\",\n  \"isActive\": true,\n  \"timeZone\": \"example_value\",\n  \"canCreateAndUpdateDcm\": true,\n  \"canShareForExecutionDcm\": true,\n  \"canShareForCollaborationDcm\": true,\n  \"canManageGenericVaultsDcm\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b3df765e-035d-4683-adaf-cbce7acca930",
+              "name": "Forbidden - insufficient permissions",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"firstName\": \"example_value\",\n  \"lastName\": \"example_value\",\n  \"email\": \"user@example.com\",\n  \"role\": \"NoAccess\",\n  \"defaultWorkerTag\": \"example_value\",\n  \"canScheduleJobs\": true,\n  \"canPrioritizeJobs\": true,\n  \"canAssignJobs\": true,\n  \"canCreateCollections\": true,\n  \"isApiEnabled\": true,\n  \"defaultCredentialId\": \"500123\",\n  \"isActive\": true,\n  \"timeZone\": \"example_value\",\n  \"canCreateAndUpdateDcm\": true,\n  \"canShareForExecutionDcm\": true,\n  \"canShareForCollaborationDcm\": true,\n  \"canManageGenericVaultsDcm\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6f72fb46-4ad8-40b4-a79c-a7230392bc9e",
+          "name": "Retrieve All Users",
+          "request": {
+            "name": "Retrieve All Users",
+            "description": {
+              "content": "Retrieve information about all user records with optional filtering. Requires Curator role.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "users"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "view",
+                  "value": "Default",
+                  "description": "Level of detail in the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "active",
+                  "value": "<boolean>",
+                  "description": "Filter by active status"
+                },
+                {
+                  "disabled": false,
+                  "key": "email",
+                  "value": "<string>",
+                  "description": "Filter by email address"
+                },
+                {
+                  "disabled": false,
+                  "key": "role",
+                  "value": "<string>",
+                  "description": "Filter by user role"
+                },
+                {
+                  "disabled": false,
+                  "key": "firstName",
+                  "value": "<string>",
+                  "description": "Filter by first name"
+                },
+                {
+                  "disabled": false,
+                  "key": "lastName",
+                  "value": "<string>",
+                  "description": "Filter by last name"
+                },
+                {
+                  "disabled": false,
+                  "key": "createdAfter",
+                  "value": "<dateTime>",
+                  "description": "Filter users created after this date (ISO 8601)"
+                },
+                {
+                  "disabled": false,
+                  "key": "createdBefore",
+                  "value": "<dateTime>",
+                  "description": "Filter users created before this date (ISO 8601)"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Hostname of your Alteryx Server instance",
+                  "type": "any",
+                  "value": "{{serverHostname}}",
+                  "key": "serverHostname"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "82dca377-e4cb-4105-a715-b7f0a125a5a2",
+              "name": "List of user records",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "view",
+                      "value": "Default"
+                    },
+                    {
+                      "key": "active",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "email",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "role",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "firstName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "lastName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "createdAfter",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "createdBefore",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"abc123\",\n    \"firstName\": \"example_value\",\n    \"lastName\": \"example_value\",\n    \"email\": \"user@example.com\",\n    \"role\": \"NoAccess\",\n    \"dateCreated\": \"2026-01-15T10:30:00Z\",\n    \"defaultWorkerTag\": \"example_value\",\n    \"canScheduleJobs\": true,\n    \"canPrioritizeJobs\": true,\n    \"canAssignJobs\": true,\n    \"canCreateCollections\": true,\n    \"isApiEnabled\": true,\n    \"defaultCredentialId\": \"500123\",\n    \"isAccountLocked\": true,\n    \"isActive\": true,\n    \"isValidated\": true,\n    \"timeZone\": \"example_value\",\n    \"language\": \"example_value\",\n    \"canCreateAndUpdateDcm\": true,\n    \"canShareForExecutionDcm\": true,\n    \"canShareForCollaborationDcm\": true,\n    \"canManageGenericVaultsDcm\": true\n  },\n  {\n    \"id\": \"abc123\",\n    \"firstName\": \"example_value\",\n    \"lastName\": \"example_value\",\n    \"email\": \"user@example.com\",\n    \"role\": \"NoAccess\",\n    \"dateCreated\": \"2026-01-15T10:30:00Z\",\n    \"defaultWorkerTag\": \"example_value\",\n    \"canScheduleJobs\": true,\n    \"canPrioritizeJobs\": true,\n    \"canAssignJobs\": true,\n    \"canCreateCollections\": true,\n    \"isApiEnabled\": true,\n    \"defaultCredentialId\": \"500123\",\n    \"isAccountLocked\": true,\n    \"isActive\": true,\n    \"isValidated\": true,\n    \"timeZone\": \"example_value\",\n    \"language\": \"example_value\",\n    \"canCreateAndUpdateDcm\": true,\n    \"canShareForExecutionDcm\": true,\n    \"canShareForCollaborationDcm\": true,\n    \"canManageGenericVaultsDcm\": true\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "22b5362c-5060-4d8f-b353-72a45bd75fff",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "view",
+                      "value": "Default"
+                    },
+                    {
+                      "key": "active",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "email",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "role",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "firstName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "lastName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "createdAfter",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "createdBefore",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5cc39fff-61df-4bf4-99da-5f1cc9c8d3fd",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "view",
+                      "value": "Default"
+                    },
+                    {
+                      "key": "active",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "email",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "role",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "firstName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "lastName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "createdAfter",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "createdBefore",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "79bf46c8-9ff9-4feb-9aab-df387968ec66",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "users"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "view",
+                      "value": "Default"
+                    },
+                    {
+                      "key": "active",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "email",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "role",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "firstName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "lastName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "createdAfter",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "createdBefore",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9c9d3762-f676-45d7-9071-f9f009674255",
+          "name": "Retrieve a Specific User",
+          "request": {
+            "name": "Retrieve a Specific User",
+            "description": {
+              "content": "Retrieve detailed information about a specific user. Requires Curator role.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "users",
+                ":userId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userId",
+                  "description": "(Required) Unique identifier of the user"
+                },
+                {
+                  "description": "Hostname of your Alteryx Server instance",
+                  "type": "any",
+                  "value": "{{serverHostname}}",
+                  "key": "serverHostname"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "281bebb2-6d1c-4e27-a8f0-cfdfb339b5c1",
+              "name": "User details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "users",
+                    ":userId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) Unique identifier of the user"
+                    },
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"abc123\",\n  \"firstName\": \"example_value\",\n  \"lastName\": \"example_value\",\n  \"email\": \"user@example.com\",\n  \"role\": \"NoAccess\",\n  \"dateCreated\": \"2026-01-15T10:30:00Z\",\n  \"defaultWorkerTag\": \"example_value\",\n  \"canScheduleJobs\": true,\n  \"canPrioritizeJobs\": true,\n  \"canAssignJobs\": true,\n  \"canCreateCollections\": true,\n  \"isApiEnabled\": true,\n  \"defaultCredentialId\": \"500123\",\n  \"isAccountLocked\": true,\n  \"isActive\": true,\n  \"isValidated\": true,\n  \"timeZone\": \"example_value\",\n  \"language\": \"example_value\",\n  \"canCreateAndUpdateDcm\": true,\n  \"canShareForExecutionDcm\": true,\n  \"canShareForCollaborationDcm\": true,\n  \"canManageGenericVaultsDcm\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "162c76c1-0c30-4a52-8405-1d965c8456a0",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "users",
+                    ":userId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) Unique identifier of the user"
+                    },
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "85fb6248-0599-4879-bbb4-e7a14653a56d",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "users",
+                    ":userId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) Unique identifier of the user"
+                    },
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "fbc7068c-5bd1-4c72-be59-a5807a66ad61",
+              "name": "User not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "users",
+                    ":userId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) Unique identifier of the user"
+                    },
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "718fb002-c7fe-4c12-a79f-6b87cb60a932",
+          "name": "Update a User",
+          "request": {
+            "name": "Update a User",
+            "description": {
+              "content": "Update user account details and permissions. Requires Curator role.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "users",
+                ":userId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userId",
+                  "description": "(Required) Unique identifier of the user"
+                },
+                {
+                  "description": "Hostname of your Alteryx Server instance",
+                  "type": "any",
+                  "value": "{{serverHostname}}",
+                  "key": "serverHostname"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"email\": \"<email>\",\n  \"role\": \"<string>\",\n  \"defaultWorkerTag\": \"<string>\",\n  \"canScheduleJobs\": \"<boolean>\",\n  \"canPrioritizeJobs\": \"<boolean>\",\n  \"canAssignJobs\": \"<boolean>\",\n  \"isApiEnabled\": \"<boolean>\",\n  \"defaultCredentialId\": \"<string>\",\n  \"isActive\": \"<boolean>\",\n  \"isValidated\": \"<boolean>\",\n  \"timeZone\": \"<string>\",\n  \"id\": \"<string>\",\n  \"canCreateCollections\": \"<boolean>\",\n  \"isAccountLocked\": \"<boolean>\",\n  \"language\": \"<string>\",\n  \"canCreateAndUpdateDcm\": \"<boolean>\",\n  \"canShareForExecutionDcm\": \"<boolean>\",\n  \"canShareForCollaborationDcm\": \"<boolean>\",\n  \"canManageGenericVaultsDcm\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e5b5faa9-4535-4f10-af37-2f506843e9dd",
+              "name": "User updated successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "users",
+                    ":userId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) Unique identifier of the user"
+                    },
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"firstName\": \"example_value\",\n  \"lastName\": \"example_value\",\n  \"email\": \"user@example.com\",\n  \"role\": \"NoAccess\",\n  \"defaultWorkerTag\": \"example_value\",\n  \"canScheduleJobs\": true,\n  \"canPrioritizeJobs\": true,\n  \"canAssignJobs\": true,\n  \"isApiEnabled\": true,\n  \"defaultCredentialId\": \"500123\",\n  \"isActive\": true,\n  \"isValidated\": true,\n  \"timeZone\": \"example_value\",\n  \"id\": \"abc123\",\n  \"canCreateCollections\": true,\n  \"isAccountLocked\": true,\n  \"language\": \"de-de\",\n  \"canCreateAndUpdateDcm\": true,\n  \"canShareForExecutionDcm\": true,\n  \"canShareForCollaborationDcm\": true,\n  \"canManageGenericVaultsDcm\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"abc123\",\n  \"firstName\": \"example_value\",\n  \"lastName\": \"example_value\",\n  \"email\": \"user@example.com\",\n  \"role\": \"NoAccess\",\n  \"dateCreated\": \"2026-01-15T10:30:00Z\",\n  \"defaultWorkerTag\": \"example_value\",\n  \"canScheduleJobs\": true,\n  \"canPrioritizeJobs\": true,\n  \"canAssignJobs\": true,\n  \"canCreateCollections\": true,\n  \"isApiEnabled\": true,\n  \"defaultCredentialId\": \"500123\",\n  \"isAccountLocked\": true,\n  \"isActive\": true,\n  \"isValidated\": true,\n  \"timeZone\": \"example_value\",\n  \"language\": \"example_value\",\n  \"canCreateAndUpdateDcm\": true,\n  \"canShareForExecutionDcm\": true,\n  \"canShareForCollaborationDcm\": true,\n  \"canManageGenericVaultsDcm\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "04979683-b30f-466f-86a6-2b96e3bda20e",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "users",
+                    ":userId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) Unique identifier of the user"
+                    },
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"firstName\": \"example_value\",\n  \"lastName\": \"example_value\",\n  \"email\": \"user@example.com\",\n  \"role\": \"NoAccess\",\n  \"defaultWorkerTag\": \"example_value\",\n  \"canScheduleJobs\": true,\n  \"canPrioritizeJobs\": true,\n  \"canAssignJobs\": true,\n  \"isApiEnabled\": true,\n  \"defaultCredentialId\": \"500123\",\n  \"isActive\": true,\n  \"isValidated\": true,\n  \"timeZone\": \"example_value\",\n  \"id\": \"abc123\",\n  \"canCreateCollections\": true,\n  \"isAccountLocked\": true,\n  \"language\": \"de-de\",\n  \"canCreateAndUpdateDcm\": true,\n  \"canShareForExecutionDcm\": true,\n  \"canShareForCollaborationDcm\": true,\n  \"canManageGenericVaultsDcm\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b4108d82-598a-4881-8c47-24ec10b4aa0c",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "users",
+                    ":userId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) Unique identifier of the user"
+                    },
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"firstName\": \"example_value\",\n  \"lastName\": \"example_value\",\n  \"email\": \"user@example.com\",\n  \"role\": \"NoAccess\",\n  \"defaultWorkerTag\": \"example_value\",\n  \"canScheduleJobs\": true,\n  \"canPrioritizeJobs\": true,\n  \"canAssignJobs\": true,\n  \"isApiEnabled\": true,\n  \"defaultCredentialId\": \"500123\",\n  \"isActive\": true,\n  \"isValidated\": true,\n  \"timeZone\": \"example_value\",\n  \"id\": \"abc123\",\n  \"canCreateCollections\": true,\n  \"isAccountLocked\": true,\n  \"language\": \"de-de\",\n  \"canCreateAndUpdateDcm\": true,\n  \"canShareForExecutionDcm\": true,\n  \"canShareForCollaborationDcm\": true,\n  \"canManageGenericVaultsDcm\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "132412b6-f6ae-4acd-a59a-0dd55f400626",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "users",
+                    ":userId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) Unique identifier of the user"
+                    },
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"firstName\": \"example_value\",\n  \"lastName\": \"example_value\",\n  \"email\": \"user@example.com\",\n  \"role\": \"NoAccess\",\n  \"defaultWorkerTag\": \"example_value\",\n  \"canScheduleJobs\": true,\n  \"canPrioritizeJobs\": true,\n  \"canAssignJobs\": true,\n  \"isApiEnabled\": true,\n  \"defaultCredentialId\": \"500123\",\n  \"isActive\": true,\n  \"isValidated\": true,\n  \"timeZone\": \"example_value\",\n  \"id\": \"abc123\",\n  \"canCreateCollections\": true,\n  \"isAccountLocked\": true,\n  \"language\": \"de-de\",\n  \"canCreateAndUpdateDcm\": true,\n  \"canShareForExecutionDcm\": true,\n  \"canShareForCollaborationDcm\": true,\n  \"canManageGenericVaultsDcm\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a9e8bf21-9e80-4117-a0d4-96b7835a6ee8",
+              "name": "User not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "users",
+                    ":userId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) Unique identifier of the user"
+                    },
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"firstName\": \"example_value\",\n  \"lastName\": \"example_value\",\n  \"email\": \"user@example.com\",\n  \"role\": \"NoAccess\",\n  \"defaultWorkerTag\": \"example_value\",\n  \"canScheduleJobs\": true,\n  \"canPrioritizeJobs\": true,\n  \"canAssignJobs\": true,\n  \"isApiEnabled\": true,\n  \"defaultCredentialId\": \"500123\",\n  \"isActive\": true,\n  \"isValidated\": true,\n  \"timeZone\": \"example_value\",\n  \"id\": \"abc123\",\n  \"canCreateCollections\": true,\n  \"isAccountLocked\": true,\n  \"language\": \"de-de\",\n  \"canCreateAndUpdateDcm\": true,\n  \"canShareForExecutionDcm\": true,\n  \"canShareForCollaborationDcm\": true,\n  \"canManageGenericVaultsDcm\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6b54cf3b-26d1-4ce5-b85a-a4393aad73e8",
+          "name": "Delete a User",
+          "request": {
+            "name": "Delete a User",
+            "description": {
+              "content": "Delete a user from the system. The user must not own any assets or belong to any groups. Requires Curator role.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "users",
+                ":userId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userId",
+                  "description": "(Required) Unique identifier of the user"
+                },
+                {
+                  "description": "Hostname of your Alteryx Server instance",
+                  "type": "any",
+                  "value": "{{serverHostname}}",
+                  "key": "serverHostname"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6bdd28f8-d1d6-4711-975e-9fa7062d6d40",
+              "name": "User deleted successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "users",
+                    ":userId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) Unique identifier of the user"
+                    },
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9b9438ab-6b0a-4a44-9ee9-fda7eeed599a",
+              "name": "Bad request - user owns assets or belongs to groups",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "users",
+                    ":userId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) Unique identifier of the user"
+                    },
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"example_value\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c14dcaf0-f448-462d-beed-49dcbcbd93cb",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "users",
+                    ":userId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) Unique identifier of the user"
+                    },
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3e8479e1-8d36-46cb-8ba0-8e8b5df0c7a8",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "users",
+                    ":userId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) Unique identifier of the user"
+                    },
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "116d5d3a-04a8-4075-a54c-05dbfe8b250a",
+              "name": "User not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "users",
+                    ":userId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) Unique identifier of the user"
+                    },
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a2800b88-d7b7-42f7-93a5-3d1dbfb6b279",
+          "name": "Deactivate a User",
+          "request": {
+            "name": "Deactivate a User",
+            "description": {
+              "content": "Deactivate a user account and remove them from all user groups. Requires Curator role.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "users",
+                ":userId",
+                "deactivate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userId",
+                  "description": "(Required) Unique identifier of the user"
+                },
+                {
+                  "description": "Hostname of your Alteryx Server instance",
+                  "type": "any",
+                  "value": "{{serverHostname}}",
+                  "key": "serverHostname"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "53123b45-5a5a-4717-b744-2c4fcb52c284",
+              "name": "User deactivated successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "users",
+                    ":userId",
+                    "deactivate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) Unique identifier of the user"
+                    },
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  \"string\",\n  \"string\"\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c1005b0c-b765-4e46-afbd-20876107317e",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "users",
+                    ":userId",
+                    "deactivate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) Unique identifier of the user"
+                    },
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "418c3afe-93ac-4735-9ca8-1fd9eca3c555",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "users",
+                    ":userId",
+                    "deactivate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) Unique identifier of the user"
+                    },
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0b108c97-74cc-4024-a7b7-d9599b3880cf",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "users",
+                    ":userId",
+                    "deactivate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) Unique identifier of the user"
+                    },
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4e327109-83ba-4ead-b00a-99a4e87eeec9",
+              "name": "User not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "users",
+                    ":userId",
+                    "deactivate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) Unique identifier of the user"
+                    },
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "164f6fe7-a9b9-4c1f-8302-aa9e2c288b20",
+          "name": "Send Password Reset Email",
+          "request": {
+            "name": "Send Password Reset Email",
+            "description": {
+              "content": "Send a password reset email to the user. Not available for Windows or SAML authentication methods. Requires Curator role.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "users",
+                ":userId",
+                "passwordReset"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userId",
+                  "description": "(Required) Unique identifier of the user"
+                },
+                {
+                  "description": "Hostname of your Alteryx Server instance",
+                  "type": "any",
+                  "value": "{{serverHostname}}",
+                  "key": "serverHostname"
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7a6f11d3-5f18-4dd0-84f8-136d5de16eac",
+              "name": "Password reset email sent successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "users",
+                    ":userId",
+                    "passwordReset"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) Unique identifier of the user"
+                    },
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6723a333-9660-4deb-bba4-611f25b3e8be",
+              "name": "Bad request - authentication method not supported",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "users",
+                    ":userId",
+                    "passwordReset"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) Unique identifier of the user"
+                    },
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bb2f0d2a-891f-4f49-a709-29489588ae44",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "users",
+                    ":userId",
+                    "passwordReset"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) Unique identifier of the user"
+                    },
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a7735155-86ac-4ae8-b56f-a09c776880c8",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "users",
+                    ":userId",
+                    "passwordReset"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) Unique identifier of the user"
+                    },
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "12455b6c-77e3-4796-90bf-d6dcade907d8",
+              "name": "User not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "users",
+                    ":userId",
+                    "passwordReset"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) Unique identifier of the user"
+                    },
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8e5cdf86-9b05-433e-a411-57de7ea46094",
+          "name": "Retrieve User Assets",
+          "request": {
+            "name": "Retrieve User Assets",
+            "description": {
+              "content": "List all assets (workflows, schedules, collections) owned by a specific user. Requires Curator role.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "users",
+                ":userId",
+                "assets"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "assetType",
+                  "value": "All",
+                  "description": "Filter by asset type"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userId",
+                  "description": "(Required) Unique identifier of the user"
+                },
+                {
+                  "description": "Hostname of your Alteryx Server instance",
+                  "type": "any",
+                  "value": "{{serverHostname}}",
+                  "key": "serverHostname"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "830d5bb7-f405-431b-8f8b-d89163b2703f",
+              "name": "List of user assets",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "users",
+                    ":userId",
+                    "assets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "assetType",
+                      "value": "All"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) Unique identifier of the user"
+                    },
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"abc123\",\n    \"type\": \"example_value\",\n    \"name\": \"Example Title\"\n  },\n  {\n    \"id\": \"abc123\",\n    \"type\": \"example_value\",\n    \"name\": \"Example Title\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "89a32aa8-a3a9-47db-8648-be789f1da8a3",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "users",
+                    ":userId",
+                    "assets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "assetType",
+                      "value": "All"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) Unique identifier of the user"
+                    },
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0f2f7f64-8330-4454-85da-c3cbabb1febb",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "users",
+                    ":userId",
+                    "assets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "assetType",
+                      "value": "All"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) Unique identifier of the user"
+                    },
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4904e7b7-01f4-456a-bdd9-c206f2407e75",
+              "name": "User not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "users",
+                    ":userId",
+                    "assets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "assetType",
+                      "value": "All"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) Unique identifier of the user"
+                    },
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8dabfd61-ee8d-4394-8e2a-ba1b4201f353",
+          "name": "Transfer User Assets",
+          "request": {
+            "name": "Transfer User Assets",
+            "description": {
+              "content": "Transfer all assets (workflows, schedules, and collections) owned by one user to another. The receiving user must have Artisan or Curator role. Requires Curator role.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "users",
+                ":userId",
+                "assetTransfer"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "userId",
+                  "description": "(Required) Unique identifier of the user"
+                },
+                {
+                  "description": "Hostname of your Alteryx Server instance",
+                  "type": "any",
+                  "value": "{{serverHostname}}",
+                  "key": "serverHostname"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ownerId\": \"<string>\",\n  \"transferWorkflows\": \"<boolean>\",\n  \"transferSchedules\": \"<boolean>\",\n  \"transferCollections\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ed58d53f-e090-4f39-bd8f-6333ef31ff70",
+              "name": "Assets transferred successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "users",
+                    ":userId",
+                    "assetTransfer"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) Unique identifier of the user"
+                    },
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ownerId\": \"<string>\",\n  \"transferWorkflows\": \"<boolean>\",\n  \"transferSchedules\": \"<boolean>\",\n  \"transferCollections\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "538979ae-dec8-4b66-bcb1-73971be6fa57",
+              "name": "Bad request - receiving user lacks required role",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "users",
+                    ":userId",
+                    "assetTransfer"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) Unique identifier of the user"
+                    },
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ownerId\": \"<string>\",\n  \"transferWorkflows\": \"<boolean>\",\n  \"transferSchedules\": \"<boolean>\",\n  \"transferCollections\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f6a5b1e0-0275-4bac-b4fa-3372e50c1330",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "users",
+                    ":userId",
+                    "assetTransfer"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) Unique identifier of the user"
+                    },
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ownerId\": \"<string>\",\n  \"transferWorkflows\": \"<boolean>\",\n  \"transferSchedules\": \"<boolean>\",\n  \"transferCollections\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a808d78e-6788-4cbc-8dcf-94c5db13eb47",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "users",
+                    ":userId",
+                    "assetTransfer"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) Unique identifier of the user"
+                    },
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ownerId\": \"<string>\",\n  \"transferWorkflows\": \"<boolean>\",\n  \"transferSchedules\": \"<boolean>\",\n  \"transferCollections\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6e7d20b3-7efa-4e53-abaa-7019ea9f42b1",
+              "name": "User not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "users",
+                    ":userId",
+                    "assetTransfer"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "userId",
+                      "description": "(Required) Unique identifier of the user"
+                    },
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ownerId\": \"<string>\",\n  \"transferWorkflows\": \"<boolean>\",\n  \"transferSchedules\": \"<boolean>\",\n  \"transferCollections\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Hostname of your Alteryx Server instance",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "your-server.example.com",
+      "key": "serverHostname"
+    },
+    {
+      "type": "string",
+      "value": "https://{{serverHostname}}/webapi",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://{serverHostname}/webapi/oauth2/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "c1262e08-a6dd-44b2-9d34-5f82dbc4acf2",
+    "name": "Alteryx Server API V3 Collections Users API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Alteryx Server API V3 provides administrative capabilities for managing workflows, schedules, users, user groups, credentials, collections, and server connections. It uses OAuth 2 authentication and implements POST, PUT, GET, DELETE, and PATCH operations so administrators can automate tasks and integrate Server with existing API automation tools.\n\nContact Support:\n Name: Alteryx Support\n Email: support@alteryx.com",
+      "type": "text/plain"
+    }
+  }
+}

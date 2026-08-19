@@ -1,0 +1,3952 @@
+{
+  "item": [
+    {
+      "id": "2949458e-f100-49f4-b5b4-23f9e9c5a193",
+      "name": "Workflows",
+      "description": {
+        "content": "Manage workflows including upload, retrieval, update, deletion, versioning, and job execution",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c0e008a2-ad1c-4a78-894c-c763041bbc6c",
+          "name": "Upload a New Workflow",
+          "request": {
+            "name": "Upload a New Workflow",
+            "description": {
+              "content": "Upload a new workflow package (YXZP file) to the Alteryx Server.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "workflows"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Hostname of your Alteryx Server instance",
+                  "type": "any",
+                  "value": "{{serverHostname}}",
+                  "key": "serverHostname"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "description": "(Required) The YXZP workflow package file"
+                },
+                {
+                  "key": "name",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": "(Required) Name of the workflow"
+                },
+                {
+                  "key": "ownerId",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": "(Required) ID of the user who will own the workflow"
+                },
+                {
+                  "key": "isPublic",
+                  "value": "<boolean>",
+                  "type": "text",
+                  "description": "(Required) Whether the workflow is publicly accessible"
+                },
+                {
+                  "key": "isReadyForMigration",
+                  "value": "<boolean>",
+                  "type": "text",
+                  "description": "(Required) Whether the workflow is ready for migration"
+                },
+                {
+                  "key": "othersMayDownload",
+                  "value": "<boolean>",
+                  "type": "text",
+                  "description": "(Required) Whether other users may download the workflow"
+                },
+                {
+                  "key": "othersCanExecute",
+                  "value": "<boolean>",
+                  "type": "text",
+                  "description": "(Required) Whether other users can execute the workflow"
+                },
+                {
+                  "key": "executionMode",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": "(Required) The execution mode for the workflow (This can only be one of Safe,SemiSafe,Standard)"
+                },
+                {
+                  "key": "workflowCredentialType",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": "(Required) Type of credential used for workflow execution (This can only be one of Default,Required,Specific)"
+                },
+                {
+                  "key": "workerTag",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": "Worker tag for execution routing"
+                },
+                {
+                  "key": "districtTags",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": "JSON array of district tags"
+                },
+                {
+                  "key": "comments",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": "Comments about the workflow"
+                },
+                {
+                  "key": "sourceAppId",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": "Source application ID for migration tracking"
+                },
+                {
+                  "key": "hasPrivateDataExemption",
+                  "value": "<boolean>",
+                  "type": "text",
+                  "description": "Whether the workflow has a private data exemption"
+                },
+                {
+                  "key": "credentialId",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": "ID of the credential to use when workflowCredentialType is Specific"
+                },
+                {
+                  "key": "collectionIds",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": "JSON array of collection IDs to add the workflow to"
+                },
+                {
+                  "key": "bypassWorkflowVersionCheck",
+                  "value": "<boolean>",
+                  "type": "text",
+                  "description": "Whether to bypass workflow version compatibility checking"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "2ac7925e-2be6-4845-bd67-e3a677d60555",
+              "name": "Workflow uploaded successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "workflows"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) The YXZP workflow package file",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "(Required) Name of the workflow",
+                        "type": "text/plain"
+                      },
+                      "key": "name",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "(Required) ID of the user who will own the workflow",
+                        "type": "text/plain"
+                      },
+                      "key": "ownerId",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "(Required) Whether the workflow is publicly accessible",
+                        "type": "text/plain"
+                      },
+                      "key": "isPublic",
+                      "value": "<boolean>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "(Required) Whether the workflow is ready for migration",
+                        "type": "text/plain"
+                      },
+                      "key": "isReadyForMigration",
+                      "value": "<boolean>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "(Required) Whether other users may download the workflow",
+                        "type": "text/plain"
+                      },
+                      "key": "othersMayDownload",
+                      "value": "<boolean>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "(Required) Whether other users can execute the workflow",
+                        "type": "text/plain"
+                      },
+                      "key": "othersCanExecute",
+                      "value": "<boolean>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "(Required) The execution mode for the workflow (This can only be one of Safe,SemiSafe,Standard)",
+                        "type": "text/plain"
+                      },
+                      "key": "executionMode",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "(Required) Type of credential used for workflow execution (This can only be one of Default,Required,Specific)",
+                        "type": "text/plain"
+                      },
+                      "key": "workflowCredentialType",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Worker tag for execution routing",
+                        "type": "text/plain"
+                      },
+                      "key": "workerTag",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "JSON array of district tags",
+                        "type": "text/plain"
+                      },
+                      "key": "districtTags",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Comments about the workflow",
+                        "type": "text/plain"
+                      },
+                      "key": "comments",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Source application ID for migration tracking",
+                        "type": "text/plain"
+                      },
+                      "key": "sourceAppId",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Whether the workflow has a private data exemption",
+                        "type": "text/plain"
+                      },
+                      "key": "hasPrivateDataExemption",
+                      "value": "<boolean>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "ID of the credential to use when workflowCredentialType is Specific",
+                        "type": "text/plain"
+                      },
+                      "key": "credentialId",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "JSON array of collection IDs to add the workflow to",
+                        "type": "text/plain"
+                      },
+                      "key": "collectionIds",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Whether to bypass workflow version compatibility checking",
+                        "type": "text/plain"
+                      },
+                      "key": "bypassWorkflowVersionCheck",
+                      "value": "<boolean>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4a1c5ada-d78e-4098-997e-df7936ca09c4",
+              "name": "Bad request - invalid parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "workflows"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) The YXZP workflow package file",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "(Required) Name of the workflow",
+                        "type": "text/plain"
+                      },
+                      "key": "name",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "(Required) ID of the user who will own the workflow",
+                        "type": "text/plain"
+                      },
+                      "key": "ownerId",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "(Required) Whether the workflow is publicly accessible",
+                        "type": "text/plain"
+                      },
+                      "key": "isPublic",
+                      "value": "<boolean>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "(Required) Whether the workflow is ready for migration",
+                        "type": "text/plain"
+                      },
+                      "key": "isReadyForMigration",
+                      "value": "<boolean>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "(Required) Whether other users may download the workflow",
+                        "type": "text/plain"
+                      },
+                      "key": "othersMayDownload",
+                      "value": "<boolean>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "(Required) Whether other users can execute the workflow",
+                        "type": "text/plain"
+                      },
+                      "key": "othersCanExecute",
+                      "value": "<boolean>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "(Required) The execution mode for the workflow (This can only be one of Safe,SemiSafe,Standard)",
+                        "type": "text/plain"
+                      },
+                      "key": "executionMode",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "(Required) Type of credential used for workflow execution (This can only be one of Default,Required,Specific)",
+                        "type": "text/plain"
+                      },
+                      "key": "workflowCredentialType",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Worker tag for execution routing",
+                        "type": "text/plain"
+                      },
+                      "key": "workerTag",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "JSON array of district tags",
+                        "type": "text/plain"
+                      },
+                      "key": "districtTags",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Comments about the workflow",
+                        "type": "text/plain"
+                      },
+                      "key": "comments",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Source application ID for migration tracking",
+                        "type": "text/plain"
+                      },
+                      "key": "sourceAppId",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Whether the workflow has a private data exemption",
+                        "type": "text/plain"
+                      },
+                      "key": "hasPrivateDataExemption",
+                      "value": "<boolean>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "ID of the credential to use when workflowCredentialType is Specific",
+                        "type": "text/plain"
+                      },
+                      "key": "credentialId",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "JSON array of collection IDs to add the workflow to",
+                        "type": "text/plain"
+                      },
+                      "key": "collectionIds",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Whether to bypass workflow version compatibility checking",
+                        "type": "text/plain"
+                      },
+                      "key": "bypassWorkflowVersionCheck",
+                      "value": "<boolean>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"example_value\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "63cdf7dd-9853-4d80-8641-e107ba986557",
+              "name": "Unauthorized - invalid or missing authentication",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "workflows"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) The YXZP workflow package file",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "(Required) Name of the workflow",
+                        "type": "text/plain"
+                      },
+                      "key": "name",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "(Required) ID of the user who will own the workflow",
+                        "type": "text/plain"
+                      },
+                      "key": "ownerId",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "(Required) Whether the workflow is publicly accessible",
+                        "type": "text/plain"
+                      },
+                      "key": "isPublic",
+                      "value": "<boolean>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "(Required) Whether the workflow is ready for migration",
+                        "type": "text/plain"
+                      },
+                      "key": "isReadyForMigration",
+                      "value": "<boolean>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "(Required) Whether other users may download the workflow",
+                        "type": "text/plain"
+                      },
+                      "key": "othersMayDownload",
+                      "value": "<boolean>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "(Required) Whether other users can execute the workflow",
+                        "type": "text/plain"
+                      },
+                      "key": "othersCanExecute",
+                      "value": "<boolean>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "(Required) The execution mode for the workflow (This can only be one of Safe,SemiSafe,Standard)",
+                        "type": "text/plain"
+                      },
+                      "key": "executionMode",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "(Required) Type of credential used for workflow execution (This can only be one of Default,Required,Specific)",
+                        "type": "text/plain"
+                      },
+                      "key": "workflowCredentialType",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Worker tag for execution routing",
+                        "type": "text/plain"
+                      },
+                      "key": "workerTag",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "JSON array of district tags",
+                        "type": "text/plain"
+                      },
+                      "key": "districtTags",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Comments about the workflow",
+                        "type": "text/plain"
+                      },
+                      "key": "comments",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Source application ID for migration tracking",
+                        "type": "text/plain"
+                      },
+                      "key": "sourceAppId",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Whether the workflow has a private data exemption",
+                        "type": "text/plain"
+                      },
+                      "key": "hasPrivateDataExemption",
+                      "value": "<boolean>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "ID of the credential to use when workflowCredentialType is Specific",
+                        "type": "text/plain"
+                      },
+                      "key": "credentialId",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "JSON array of collection IDs to add the workflow to",
+                        "type": "text/plain"
+                      },
+                      "key": "collectionIds",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "Whether to bypass workflow version compatibility checking",
+                        "type": "text/plain"
+                      },
+                      "key": "bypassWorkflowVersionCheck",
+                      "value": "<boolean>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5294e76c-2939-408f-bcc3-fda042b8c152",
+          "name": "Retrieve All Workflows",
+          "request": {
+            "name": "Retrieve All Workflows",
+            "description": {
+              "content": "Retrieve information about all workflow records with optional filtering.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "workflows"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "view",
+                  "value": "Default",
+                  "description": "Level of detail in the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>",
+                  "description": "Filter workflows by name"
+                },
+                {
+                  "disabled": false,
+                  "key": "ownerId",
+                  "value": "<string>",
+                  "description": "Filter workflows by owner ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "createdAfter",
+                  "value": "<dateTime>",
+                  "description": "Filter workflows created after this date (ISO 8601 format)"
+                },
+                {
+                  "disabled": false,
+                  "key": "createdBefore",
+                  "value": "<dateTime>",
+                  "description": "Filter workflows created before this date (ISO 8601 format)"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Hostname of your Alteryx Server instance",
+                  "type": "any",
+                  "value": "{{serverHostname}}",
+                  "key": "serverHostname"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2987b269-7c73-4d77-bcd2-af2837074e61",
+              "name": "List of workflow records",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "workflows"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "view",
+                      "value": "Default"
+                    },
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ownerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "createdAfter",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "createdBefore",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"abc123\",\n    \"sourceAppId\": \"500123\",\n    \"name\": \"Example Title\",\n    \"ownerId\": \"500123\",\n    \"dateCreated\": \"2026-01-15T10:30:00Z\",\n    \"publishedVersionNumber\": 10,\n    \"isAmp\": true,\n    \"executionMode\": \"Safe\"\n  },\n  {\n    \"id\": \"abc123\",\n    \"sourceAppId\": \"500123\",\n    \"name\": \"Example Title\",\n    \"ownerId\": \"500123\",\n    \"dateCreated\": \"2026-01-15T10:30:00Z\",\n    \"publishedVersionNumber\": 10,\n    \"isAmp\": true,\n    \"executionMode\": \"Safe\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b688b1a6-af22-444d-a176-9ff489505ff6",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "workflows"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "view",
+                      "value": "Default"
+                    },
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ownerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "createdAfter",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "createdBefore",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"example_value\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6a4c6866-2ad7-4bf0-9771-f9f38f954797",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "workflows"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "view",
+                      "value": "Default"
+                    },
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ownerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "createdAfter",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "createdBefore",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b148acbe-73be-463a-8bfb-5daa6bf3c7cd",
+          "name": "Retrieve a Specific Workflow",
+          "request": {
+            "name": "Retrieve a Specific Workflow",
+            "description": {
+              "content": "Retrieve detailed information about a specific workflow record.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "workflows",
+                ":workflowId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "workflowId",
+                  "description": "(Required) Unique identifier of the workflow"
+                },
+                {
+                  "description": "Hostname of your Alteryx Server instance",
+                  "type": "any",
+                  "value": "{{serverHostname}}",
+                  "key": "serverHostname"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6abb298f-132b-44fa-ab95-ed6501e49425",
+              "name": "Workflow details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "workflows",
+                    ":workflowId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workflowId",
+                      "description": "(Required) Unique identifier of the workflow"
+                    },
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"abc123\",\n  \"sourceAppId\": \"500123\",\n  \"dateCreated\": \"2026-01-15T10:30:00Z\",\n  \"runCount\": 10,\n  \"name\": \"Example Title\",\n  \"ownerId\": \"500123\",\n  \"workerTag\": \"example_value\",\n  \"comments\": \"example_value\",\n  \"isPublic\": true,\n  \"isReadyForMigration\": true,\n  \"publishedVersionId\": \"500123\",\n  \"othersMayDownload\": true,\n  \"othersCanViewHistory\": true,\n  \"othersCanExecute\": true,\n  \"hasPrivateDataExemption\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3137c793-58c6-4bcd-a4ae-6632f734e839",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "workflows",
+                    ":workflowId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workflowId",
+                      "description": "(Required) Unique identifier of the workflow"
+                    },
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5493e164-5195-453b-acae-4ca5a468a9bc",
+              "name": "Workflow not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "workflows",
+                    ":workflowId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workflowId",
+                      "description": "(Required) Unique identifier of the workflow"
+                    },
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a0892168-e42e-4dd7-b3d9-4e6e8166b2b5",
+          "name": "Update an Existing Workflow",
+          "request": {
+            "name": "Update an Existing Workflow",
+            "description": {
+              "content": "Update the properties of an existing workflow.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "workflows",
+                ":workflowId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "workflowId",
+                  "description": "(Required) Unique identifier of the workflow"
+                },
+                {
+                  "description": "Hostname of your Alteryx Server instance",
+                  "type": "any",
+                  "value": "{{serverHostname}}",
+                  "key": "serverHostname"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"versionId\": \"<string>\",\n  \"ownerId\": \"<string>\",\n  \"workerTag\": \"<string>\",\n  \"districtTags\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"comments\": \"<string>\",\n  \"makePublished\": \"<boolean>\",\n  \"isPublic\": \"<boolean>\",\n  \"isReadyForMigration\": \"<boolean>\",\n  \"othersMayDownload\": \"<boolean>\",\n  \"othersCanExecute\": \"<boolean>\",\n  \"executionMode\": \"<string>\",\n  \"hasPrivateDataExemption\": \"<boolean>\",\n  \"workflowCredentialType\": \"<string>\",\n  \"credentialId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f95baeb6-cf4f-4738-990e-b4bdd1ad8219",
+              "name": "Workflow updated successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "workflows",
+                    ":workflowId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workflowId",
+                      "description": "(Required) Unique identifier of the workflow"
+                    },
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Example Title\",\n  \"versionId\": \"500123\",\n  \"ownerId\": \"500123\",\n  \"workerTag\": \"example_value\",\n  \"districtTags\": [],\n  \"comments\": \"example_value\",\n  \"makePublished\": true,\n  \"isPublic\": true,\n  \"isReadyForMigration\": true,\n  \"othersMayDownload\": true,\n  \"othersCanExecute\": true,\n  \"executionMode\": \"Safe\",\n  \"hasPrivateDataExemption\": true,\n  \"workflowCredentialType\": \"Default\",\n  \"credentialId\": \"500123\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"abc123\",\n  \"sourceAppId\": \"500123\",\n  \"dateCreated\": \"2026-01-15T10:30:00Z\",\n  \"runCount\": 10,\n  \"name\": \"Example Title\",\n  \"ownerId\": \"500123\",\n  \"workerTag\": \"example_value\",\n  \"comments\": \"example_value\",\n  \"isPublic\": true,\n  \"isReadyForMigration\": true,\n  \"publishedVersionId\": \"500123\",\n  \"othersMayDownload\": true,\n  \"othersCanViewHistory\": true,\n  \"othersCanExecute\": true,\n  \"hasPrivateDataExemption\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f4fb7dac-55e6-4298-b3c3-9f43e56fcd94",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "workflows",
+                    ":workflowId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workflowId",
+                      "description": "(Required) Unique identifier of the workflow"
+                    },
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Example Title\",\n  \"versionId\": \"500123\",\n  \"ownerId\": \"500123\",\n  \"workerTag\": \"example_value\",\n  \"districtTags\": [],\n  \"comments\": \"example_value\",\n  \"makePublished\": true,\n  \"isPublic\": true,\n  \"isReadyForMigration\": true,\n  \"othersMayDownload\": true,\n  \"othersCanExecute\": true,\n  \"executionMode\": \"Safe\",\n  \"hasPrivateDataExemption\": true,\n  \"workflowCredentialType\": \"Default\",\n  \"credentialId\": \"500123\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"example_value\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2c04671e-290f-44c8-8435-825331edef51",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "workflows",
+                    ":workflowId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workflowId",
+                      "description": "(Required) Unique identifier of the workflow"
+                    },
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Example Title\",\n  \"versionId\": \"500123\",\n  \"ownerId\": \"500123\",\n  \"workerTag\": \"example_value\",\n  \"districtTags\": [],\n  \"comments\": \"example_value\",\n  \"makePublished\": true,\n  \"isPublic\": true,\n  \"isReadyForMigration\": true,\n  \"othersMayDownload\": true,\n  \"othersCanExecute\": true,\n  \"executionMode\": \"Safe\",\n  \"hasPrivateDataExemption\": true,\n  \"workflowCredentialType\": \"Default\",\n  \"credentialId\": \"500123\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9937374d-f3cf-445a-a090-f7d33a67116e",
+              "name": "Workflow not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "workflows",
+                    ":workflowId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workflowId",
+                      "description": "(Required) Unique identifier of the workflow"
+                    },
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Example Title\",\n  \"versionId\": \"500123\",\n  \"ownerId\": \"500123\",\n  \"workerTag\": \"example_value\",\n  \"districtTags\": [],\n  \"comments\": \"example_value\",\n  \"makePublished\": true,\n  \"isPublic\": true,\n  \"isReadyForMigration\": true,\n  \"othersMayDownload\": true,\n  \"othersCanExecute\": true,\n  \"executionMode\": \"Safe\",\n  \"hasPrivateDataExemption\": true,\n  \"workflowCredentialType\": \"Default\",\n  \"credentialId\": \"500123\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9394a75e-851e-4417-a47d-acdd3bd4a424",
+          "name": "Delete a Workflow",
+          "request": {
+            "name": "Delete a Workflow",
+            "description": {
+              "content": "Delete a specific workflow from the server.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "workflows",
+                ":workflowId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "force",
+                  "value": "false",
+                  "description": "Force deletion even if workflow has dependencies"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "workflowId",
+                  "description": "(Required) Unique identifier of the workflow"
+                },
+                {
+                  "description": "Hostname of your Alteryx Server instance",
+                  "type": "any",
+                  "value": "{{serverHostname}}",
+                  "key": "serverHostname"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9e646786-0dc2-4fa9-904c-1f5dbec2fd72",
+              "name": "Workflow deleted successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "workflows",
+                    ":workflowId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "force",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workflowId",
+                      "description": "(Required) Unique identifier of the workflow"
+                    },
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "918bb7a4-a9fa-42ad-ae8c-450c30f9f15e",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "workflows",
+                    ":workflowId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "force",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workflowId",
+                      "description": "(Required) Unique identifier of the workflow"
+                    },
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"example_value\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ba2f4012-411f-41e1-bf14-2b487bc5d9ac",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "workflows",
+                    ":workflowId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "force",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workflowId",
+                      "description": "(Required) Unique identifier of the workflow"
+                    },
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "689d4357-5886-49f5-8d1c-d53ac557586e",
+              "name": "Workflow not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "workflows",
+                    ":workflowId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "force",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workflowId",
+                      "description": "(Required) Unique identifier of the workflow"
+                    },
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b660850c-5360-4e64-8c39-2e07a3a8b494",
+          "name": "Upload a New Version of an Existing Workflow",
+          "request": {
+            "name": "Upload a New Version of an Existing Workflow",
+            "description": {
+              "content": "Upload a new version of an existing workflow package.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "workflows",
+                ":workflowId",
+                "versions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "workflowId",
+                  "description": "(Required) Unique identifier of the workflow"
+                },
+                {
+                  "description": "Hostname of your Alteryx Server instance",
+                  "type": "any",
+                  "value": "{{serverHostname}}",
+                  "key": "serverHostname"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "description": "(Required) The YXZP workflow package file"
+                },
+                {
+                  "key": "name",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": "(Required) Name of the workflow version"
+                },
+                {
+                  "key": "ownerId",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": "(Required) ID of the workflow owner"
+                },
+                {
+                  "key": "othersMayDownload",
+                  "value": "<boolean>",
+                  "type": "text",
+                  "description": "(Required) Whether other users may download"
+                },
+                {
+                  "key": "othersCanExecute",
+                  "value": "<boolean>",
+                  "type": "text",
+                  "description": "(Required) Whether other users can execute"
+                },
+                {
+                  "key": "executionMode",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": "(Required)  (This can only be one of Safe,SemiSafe,Standard)"
+                },
+                {
+                  "key": "makePublished",
+                  "value": "<boolean>",
+                  "type": "text",
+                  "description": "(Required) Whether to make this version the published version"
+                },
+                {
+                  "key": "workflowCredentialType",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": "(Required)  (This can only be one of Default,Required,Specific)"
+                },
+                {
+                  "key": "hasPrivateDataExemption",
+                  "value": "<boolean>",
+                  "type": "text",
+                  "description": ""
+                },
+                {
+                  "key": "comments",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": ""
+                },
+                {
+                  "key": "credentialId",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": ""
+                },
+                {
+                  "key": "bypassWorkflowVersionCheck",
+                  "value": "<boolean>",
+                  "type": "text",
+                  "description": ""
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "cad94b7e-599f-440d-b006-a4cb1ec9fadd",
+              "name": "Workflow version uploaded successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "workflows",
+                    ":workflowId",
+                    "versions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workflowId",
+                      "description": "(Required) Unique identifier of the workflow"
+                    },
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) The YXZP workflow package file",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "(Required) Name of the workflow version",
+                        "type": "text/plain"
+                      },
+                      "key": "name",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "(Required) ID of the workflow owner",
+                        "type": "text/plain"
+                      },
+                      "key": "ownerId",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "(Required) Whether other users may download",
+                        "type": "text/plain"
+                      },
+                      "key": "othersMayDownload",
+                      "value": "<boolean>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "(Required) Whether other users can execute",
+                        "type": "text/plain"
+                      },
+                      "key": "othersCanExecute",
+                      "value": "<boolean>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "(Required)  (This can only be one of Safe,SemiSafe,Standard)",
+                        "type": "text/plain"
+                      },
+                      "key": "executionMode",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "(Required) Whether to make this version the published version",
+                        "type": "text/plain"
+                      },
+                      "key": "makePublished",
+                      "value": "<boolean>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "(Required)  (This can only be one of Default,Required,Specific)",
+                        "type": "text/plain"
+                      },
+                      "key": "workflowCredentialType",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "hasPrivateDataExemption",
+                      "value": "<boolean>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "comments",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "credentialId",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "bypassWorkflowVersionCheck",
+                      "value": "<boolean>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"abc123\",\n  \"sourceAppId\": \"500123\",\n  \"dateCreated\": \"2026-01-15T10:30:00Z\",\n  \"runCount\": 10,\n  \"name\": \"Example Title\",\n  \"ownerId\": \"500123\",\n  \"workerTag\": \"example_value\",\n  \"comments\": \"example_value\",\n  \"isPublic\": true,\n  \"isReadyForMigration\": true,\n  \"publishedVersionId\": \"500123\",\n  \"othersMayDownload\": true,\n  \"othersCanViewHistory\": true,\n  \"othersCanExecute\": true,\n  \"hasPrivateDataExemption\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6df95433-37f0-4b33-bec4-e2c6cb5b60b5",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "workflows",
+                    ":workflowId",
+                    "versions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workflowId",
+                      "description": "(Required) Unique identifier of the workflow"
+                    },
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) The YXZP workflow package file",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "(Required) Name of the workflow version",
+                        "type": "text/plain"
+                      },
+                      "key": "name",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "(Required) ID of the workflow owner",
+                        "type": "text/plain"
+                      },
+                      "key": "ownerId",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "(Required) Whether other users may download",
+                        "type": "text/plain"
+                      },
+                      "key": "othersMayDownload",
+                      "value": "<boolean>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "(Required) Whether other users can execute",
+                        "type": "text/plain"
+                      },
+                      "key": "othersCanExecute",
+                      "value": "<boolean>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "(Required)  (This can only be one of Safe,SemiSafe,Standard)",
+                        "type": "text/plain"
+                      },
+                      "key": "executionMode",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "(Required) Whether to make this version the published version",
+                        "type": "text/plain"
+                      },
+                      "key": "makePublished",
+                      "value": "<boolean>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "(Required)  (This can only be one of Default,Required,Specific)",
+                        "type": "text/plain"
+                      },
+                      "key": "workflowCredentialType",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "hasPrivateDataExemption",
+                      "value": "<boolean>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "comments",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "credentialId",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "bypassWorkflowVersionCheck",
+                      "value": "<boolean>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"example_value\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a5b94aa0-4b90-46e4-b617-2745ff888efe",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "workflows",
+                    ":workflowId",
+                    "versions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workflowId",
+                      "description": "(Required) Unique identifier of the workflow"
+                    },
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) The YXZP workflow package file",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "(Required) Name of the workflow version",
+                        "type": "text/plain"
+                      },
+                      "key": "name",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "(Required) ID of the workflow owner",
+                        "type": "text/plain"
+                      },
+                      "key": "ownerId",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "(Required) Whether other users may download",
+                        "type": "text/plain"
+                      },
+                      "key": "othersMayDownload",
+                      "value": "<boolean>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "(Required) Whether other users can execute",
+                        "type": "text/plain"
+                      },
+                      "key": "othersCanExecute",
+                      "value": "<boolean>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "(Required)  (This can only be one of Safe,SemiSafe,Standard)",
+                        "type": "text/plain"
+                      },
+                      "key": "executionMode",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "(Required) Whether to make this version the published version",
+                        "type": "text/plain"
+                      },
+                      "key": "makePublished",
+                      "value": "<boolean>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "(Required)  (This can only be one of Default,Required,Specific)",
+                        "type": "text/plain"
+                      },
+                      "key": "workflowCredentialType",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "hasPrivateDataExemption",
+                      "value": "<boolean>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "comments",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "credentialId",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "bypassWorkflowVersionCheck",
+                      "value": "<boolean>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "fe201978-234b-401e-9448-a09a9cca9ea9",
+              "name": "Workflow not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "workflows",
+                    ":workflowId",
+                    "versions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workflowId",
+                      "description": "(Required) Unique identifier of the workflow"
+                    },
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "(Required) The YXZP workflow package file",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "(Required) Name of the workflow version",
+                        "type": "text/plain"
+                      },
+                      "key": "name",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "(Required) ID of the workflow owner",
+                        "type": "text/plain"
+                      },
+                      "key": "ownerId",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "(Required) Whether other users may download",
+                        "type": "text/plain"
+                      },
+                      "key": "othersMayDownload",
+                      "value": "<boolean>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "(Required) Whether other users can execute",
+                        "type": "text/plain"
+                      },
+                      "key": "othersCanExecute",
+                      "value": "<boolean>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "(Required)  (This can only be one of Safe,SemiSafe,Standard)",
+                        "type": "text/plain"
+                      },
+                      "key": "executionMode",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "(Required) Whether to make this version the published version",
+                        "type": "text/plain"
+                      },
+                      "key": "makePublished",
+                      "value": "<boolean>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "(Required)  (This can only be one of Default,Required,Specific)",
+                        "type": "text/plain"
+                      },
+                      "key": "workflowCredentialType",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "hasPrivateDataExemption",
+                      "value": "<boolean>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "comments",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "credentialId",
+                      "value": "<string>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "",
+                        "type": "text/plain"
+                      },
+                      "key": "bypassWorkflowVersionCheck",
+                      "value": "<boolean>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "859f250f-3306-42b8-b6e0-cf9609883dad",
+          "name": "Download a Workflow Package",
+          "request": {
+            "name": "Download a Workflow Package",
+            "description": {
+              "content": "Download the YXZP package file for a specific workflow.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "workflows",
+                ":workflowId",
+                "package"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "versionId",
+                  "value": "<string>",
+                  "description": "Specific version ID to download"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "workflowId",
+                  "description": "(Required) Unique identifier of the workflow"
+                },
+                {
+                  "description": "Hostname of your Alteryx Server instance",
+                  "type": "any",
+                  "value": "{{serverHostname}}",
+                  "key": "serverHostname"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/octet-stream"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "08f7d599-bbe1-40f7-9a87-4088d420e3a5",
+              "name": "Workflow package file",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "workflows",
+                    ":workflowId",
+                    "package"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "versionId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workflowId",
+                      "description": "(Required) Unique identifier of the workflow"
+                    },
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/octet-stream"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/octet-stream"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ba5b1059-a3fe-4f24-8914-c8087523852f",
+              "name": "Invalid version ID",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "workflows",
+                    ":workflowId",
+                    "package"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "versionId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workflowId",
+                      "description": "(Required) Unique identifier of the workflow"
+                    },
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f21fae01-9b88-42da-ac8a-e366af078712",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "workflows",
+                    ":workflowId",
+                    "package"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "versionId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workflowId",
+                      "description": "(Required) Unique identifier of the workflow"
+                    },
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6500c7c3-7dc8-47ab-875f-24d20db021c6",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "workflows",
+                    ":workflowId",
+                    "package"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "versionId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workflowId",
+                      "description": "(Required) Unique identifier of the workflow"
+                    },
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c3141d48-f011-4cbc-9e87-e93040816ed7",
+              "name": "Workflow not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "workflows",
+                    ":workflowId",
+                    "package"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "versionId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workflowId",
+                      "description": "(Required) Unique identifier of the workflow"
+                    },
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a9afe3fc-ef20-4f30-8933-966e40c8098e",
+          "name": "Retrieve Analytic App Questions",
+          "request": {
+            "name": "Retrieve Analytic App Questions",
+            "description": {
+              "content": "Retrieve question (input) information for an analytic app workflow.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "workflows",
+                ":workflowId",
+                "questions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "versionId",
+                  "value": "<string>",
+                  "description": "Specific version ID"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "workflowId",
+                  "description": "(Required) Unique identifier of the workflow"
+                },
+                {
+                  "description": "Hostname of your Alteryx Server instance",
+                  "type": "any",
+                  "value": "{{serverHostname}}",
+                  "key": "serverHostname"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4372498a-a01e-4a24-9f7e-061aaa134fc3",
+              "name": "List of workflow questions",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "workflows",
+                    ":workflowId",
+                    "questions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "versionId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workflowId",
+                      "description": "(Required) Unique identifier of the workflow"
+                    },
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"name\": \"Example Title\",\n    \"questionType\": \"example_value\",\n    \"description\": \"A sample description.\",\n    \"value\": \"example_value\",\n    \"multiple\": true\n  },\n  {\n    \"name\": \"Example Title\",\n    \"questionType\": \"example_value\",\n    \"description\": \"A sample description.\",\n    \"value\": \"example_value\",\n    \"multiple\": true\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "433c7651-d0d5-4d2c-b832-7e950c02abbb",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "workflows",
+                    ":workflowId",
+                    "questions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "versionId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workflowId",
+                      "description": "(Required) Unique identifier of the workflow"
+                    },
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "15d27aea-fd3e-4c11-a201-9ae776a5f310",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "workflows",
+                    ":workflowId",
+                    "questions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "versionId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workflowId",
+                      "description": "(Required) Unique identifier of the workflow"
+                    },
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "fa7d3e52-16d0-4f3e-8f10-001bff562a37",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "workflows",
+                    ":workflowId",
+                    "questions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "versionId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workflowId",
+                      "description": "(Required) Unique identifier of the workflow"
+                    },
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a924f548-07dd-44a5-84cc-660c3ef31637",
+              "name": "Workflow not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "workflows",
+                    ":workflowId",
+                    "questions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "versionId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workflowId",
+                      "description": "(Required) Unique identifier of the workflow"
+                    },
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7cfec621-3aaf-4e62-8729-eb17fb666af4",
+          "name": "Transfer Workflow Ownership",
+          "request": {
+            "name": "Transfer Workflow Ownership",
+            "description": {
+              "content": "Transfer a specific workflow to a different owner, optionally including associated schedules.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "workflows",
+                ":workflowId",
+                "transfer"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "workflowId",
+                  "description": "(Required) Unique identifier of the workflow"
+                },
+                {
+                  "description": "Hostname of your Alteryx Server instance",
+                  "type": "any",
+                  "value": "{{serverHostname}}",
+                  "key": "serverHostname"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ownerId\": \"<string>\",\n  \"transferSchedules\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ecea169f-0cb1-4182-a6af-b28c491fe32f",
+              "name": "Workflow transferred successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "workflows",
+                    ":workflowId",
+                    "transfer"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workflowId",
+                      "description": "(Required) Unique identifier of the workflow"
+                    },
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ownerId\": \"<string>\",\n  \"transferSchedules\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f74b01ce-16d5-43cb-aa2f-e12bfe59ddf3",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "workflows",
+                    ":workflowId",
+                    "transfer"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workflowId",
+                      "description": "(Required) Unique identifier of the workflow"
+                    },
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ownerId\": \"<string>\",\n  \"transferSchedules\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "aefcc1cb-63d5-4dac-bcb4-98791475dbff",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "workflows",
+                    ":workflowId",
+                    "transfer"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workflowId",
+                      "description": "(Required) Unique identifier of the workflow"
+                    },
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ownerId\": \"<string>\",\n  \"transferSchedules\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d7ccef96-640d-4fca-822c-8b9d03ce7df9",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "workflows",
+                    ":workflowId",
+                    "transfer"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workflowId",
+                      "description": "(Required) Unique identifier of the workflow"
+                    },
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ownerId\": \"<string>\",\n  \"transferSchedules\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9a4fdbb8-6409-490e-885e-6ac2a36627b2",
+              "name": "Workflow not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "workflows",
+                    ":workflowId",
+                    "transfer"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workflowId",
+                      "description": "(Required) Unique identifier of the workflow"
+                    },
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ownerId\": \"<string>\",\n  \"transferSchedules\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ca518579-8633-4b80-a334-a73141910c95",
+              "name": "Internal server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "workflows",
+                    ":workflowId",
+                    "transfer"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "workflowId",
+                      "description": "(Required) Unique identifier of the workflow"
+                    },
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ownerId\": \"<string>\",\n  \"transferSchedules\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Hostname of your Alteryx Server instance",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "your-server.example.com",
+      "key": "serverHostname"
+    },
+    {
+      "type": "string",
+      "value": "https://{{serverHostname}}/webapi",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://{serverHostname}/webapi/oauth2/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "6ca6dfdd-63fd-4fd2-8ba9-7a6d25163ab3",
+    "name": "Alteryx Server API V3 Collections Workflows API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Alteryx Server API V3 provides administrative capabilities for managing workflows, schedules, users, user groups, credentials, collections, and server connections. It uses OAuth 2 authentication and implements POST, PUT, GET, DELETE, and PATCH operations so administrators can automate tasks and integrate Server with existing API automation tools.\n\nContact Support:\n Name: Alteryx Support\n Email: support@alteryx.com",
+      "type": "text/plain"
+    }
+  }
+}

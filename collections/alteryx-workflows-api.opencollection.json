@@ -1,0 +1,397 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Alteryx Server API V3 Collections Workflows API",
+    "version": "3.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://{serverHostname}/webapi/oauth2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Workflows",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve All Workflows",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{serverHostname}/webapi/v3/workflows",
+            "params": [
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Level of detail in the response"
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "Filter workflows by name"
+              },
+              {
+                "name": "ownerId",
+                "value": "",
+                "type": "query",
+                "description": "Filter workflows by owner ID"
+              },
+              {
+                "name": "createdAfter",
+                "value": "",
+                "type": "query",
+                "description": "Filter workflows created after this date (ISO 8601 format)"
+              },
+              {
+                "name": "createdBefore",
+                "value": "",
+                "type": "query",
+                "description": "Filter workflows created before this date (ISO 8601 format)"
+              }
+            ]
+          },
+          "docs": "Retrieve information about all workflow records with optional filtering."
+        },
+        {
+          "info": {
+            "name": "Upload a New Workflow",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{serverHostname}/webapi/v3/workflows",
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "name",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "ownerId",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "workerTag",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "districtTags",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "comments",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "isPublic",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "isReadyForMigration",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "sourceAppId",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "othersMayDownload",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "othersCanExecute",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "executionMode",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "hasPrivateDataExemption",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "workflowCredentialType",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "credentialId",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "collectionIds",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "bypassWorkflowVersionCheck",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Upload a new workflow package (YXZP file) to the Alteryx Server."
+        },
+        {
+          "info": {
+            "name": "Retrieve a Specific Workflow",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{serverHostname}/webapi/v3/workflows/:workflowId",
+            "params": [
+              {
+                "name": "workflowId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the workflow"
+              }
+            ]
+          },
+          "docs": "Retrieve detailed information about a specific workflow record."
+        },
+        {
+          "info": {
+            "name": "Update an Existing Workflow",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{serverHostname}/webapi/v3/workflows/:workflowId",
+            "params": [
+              {
+                "name": "workflowId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the workflow"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the properties of an existing workflow."
+        },
+        {
+          "info": {
+            "name": "Delete a Workflow",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{serverHostname}/webapi/v3/workflows/:workflowId",
+            "params": [
+              {
+                "name": "workflowId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the workflow"
+              },
+              {
+                "name": "force",
+                "value": "",
+                "type": "query",
+                "description": "Force deletion even if workflow has dependencies"
+              }
+            ]
+          },
+          "docs": "Delete a specific workflow from the server."
+        },
+        {
+          "info": {
+            "name": "Upload a New Version of an Existing Workflow",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{serverHostname}/webapi/v3/workflows/:workflowId/versions",
+            "params": [
+              {
+                "name": "workflowId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the workflow"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "name",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "ownerId",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "othersMayDownload",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "othersCanExecute",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "executionMode",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "hasPrivateDataExemption",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "comments",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "makePublished",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "workflowCredentialType",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "credentialId",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "bypassWorkflowVersionCheck",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Upload a new version of an existing workflow package."
+        },
+        {
+          "info": {
+            "name": "Download a Workflow Package",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{serverHostname}/webapi/v3/workflows/:workflowId/package",
+            "params": [
+              {
+                "name": "workflowId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the workflow"
+              },
+              {
+                "name": "versionId",
+                "value": "",
+                "type": "query",
+                "description": "Specific version ID to download"
+              }
+            ]
+          },
+          "docs": "Download the YXZP package file for a specific workflow."
+        },
+        {
+          "info": {
+            "name": "Retrieve Analytic App Questions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{serverHostname}/webapi/v3/workflows/:workflowId/questions",
+            "params": [
+              {
+                "name": "workflowId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the workflow"
+              },
+              {
+                "name": "versionId",
+                "value": "",
+                "type": "query",
+                "description": "Specific version ID"
+              }
+            ]
+          },
+          "docs": "Retrieve question (input) information for an analytic app workflow."
+        },
+        {
+          "info": {
+            "name": "Transfer Workflow Ownership",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{serverHostname}/webapi/v3/workflows/:workflowId/transfer",
+            "params": [
+              {
+                "name": "workflowId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the workflow"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Transfer a specific workflow to a different owner, optionally including associated schedules."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

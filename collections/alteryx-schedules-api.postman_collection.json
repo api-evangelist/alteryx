@@ -1,0 +1,1690 @@
+{
+  "item": [
+    {
+      "id": "fb1034ff-8b92-4f0c-8a40-d648e842ec74",
+      "name": "Schedules",
+      "description": {
+        "content": "Create, retrieve, update, and delete workflow execution schedules",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0b6c67bc-5e25-4ba9-8dc8-5f0e8ec2b50f",
+          "name": "Create a New Schedule",
+          "request": {
+            "name": "Create a New Schedule",
+            "description": {
+              "content": "Create a new execution schedule for a workflow.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "schedules"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Hostname of your Alteryx Server instance",
+                  "type": "any",
+                  "value": "{{serverHostname}}",
+                  "key": "serverHostname"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"workflowId\": \"<string>\",\n  \"iteration\": {\n    \"iterationType\": \"<string>\",\n    \"startTime\": \"<dateTime>\",\n    \"endTime\": \"<dateTime>\",\n    \"hourlyContract\": {\n      \"hours\": \"<integer>\",\n      \"minutes\": \"<integer>\"\n    },\n    \"dailyContract\": {\n      \"runOnlyWorkWeek\": \"<boolean>\"\n    },\n    \"weeklyContract\": {\n      \"daysOfWeek\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"monthlyContract\": {\n      \"simpleDayOfMonth\": \"<boolean>\",\n      \"dayOfMonth\": \"<string>\",\n      \"occurrence\": \"<string>\",\n      \"dayOfWeek\": \"<integer>\"\n    },\n    \"customContract\": {\n      \"daysOfMonth\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"months\": [\n        \"<integer>\",\n        \"<integer>\"\n      ]\n    },\n    \"cronContract\": {\n      \"cronExpression\": \"<string>\"\n    }\n  },\n  \"name\": \"<string>\",\n  \"comment\": \"<string>\",\n  \"priority\": \"Low\",\n  \"workerTag\": \"none\",\n  \"credentialId\": \"<string>\",\n  \"timeZone\": \"UTC\",\n  \"questions\": [\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8f2ede4f-a596-4650-85ec-c1e5cf150c64",
+              "name": "Schedule created successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "schedules"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"workflowId\": \"500123\",\n  \"iteration\": {\n    \"iterationType\": \"Once\",\n    \"startTime\": \"2026-01-15T10:30:00Z\",\n    \"endTime\": \"2026-01-15T10:30:00Z\",\n    \"hourlyContract\": {\n      \"hours\": 8643,\n      \"minutes\": 8168\n    },\n    \"dailyContract\": {\n      \"runOnlyWorkWeek\": false\n    },\n    \"weeklyContract\": {\n      \"daysOfWeek\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"monthlyContract\": {\n      \"simpleDayOfMonth\": false,\n      \"dayOfMonth\": \"string\",\n      \"occurrence\": \"string\",\n      \"dayOfWeek\": 5356\n    },\n    \"customContract\": {\n      \"daysOfMonth\": [\n        9490,\n        4050\n      ],\n      \"months\": [\n        160,\n        6131\n      ]\n    },\n    \"cronContract\": {\n      \"cronExpression\": \"string\"\n    }\n  },\n  \"name\": \"Example Title\",\n  \"comment\": \"example_value\",\n  \"priority\": \"Low\",\n  \"workerTag\": \"example_value\",\n  \"credentialId\": \"500123\",\n  \"timeZone\": \"example_value\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "\"string\"",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "93820aef-0eec-4340-9344-6948ac3eeccb",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "schedules"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"workflowId\": \"500123\",\n  \"iteration\": {\n    \"iterationType\": \"Once\",\n    \"startTime\": \"2026-01-15T10:30:00Z\",\n    \"endTime\": \"2026-01-15T10:30:00Z\",\n    \"hourlyContract\": {\n      \"hours\": 8643,\n      \"minutes\": 8168\n    },\n    \"dailyContract\": {\n      \"runOnlyWorkWeek\": false\n    },\n    \"weeklyContract\": {\n      \"daysOfWeek\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"monthlyContract\": {\n      \"simpleDayOfMonth\": false,\n      \"dayOfMonth\": \"string\",\n      \"occurrence\": \"string\",\n      \"dayOfWeek\": 5356\n    },\n    \"customContract\": {\n      \"daysOfMonth\": [\n        9490,\n        4050\n      ],\n      \"months\": [\n        160,\n        6131\n      ]\n    },\n    \"cronContract\": {\n      \"cronExpression\": \"string\"\n    }\n  },\n  \"name\": \"Example Title\",\n  \"comment\": \"example_value\",\n  \"priority\": \"Low\",\n  \"workerTag\": \"example_value\",\n  \"credentialId\": \"500123\",\n  \"timeZone\": \"example_value\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"example_value\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5367dad1-0093-4478-b94f-55c52f3c268b",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "schedules"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"workflowId\": \"500123\",\n  \"iteration\": {\n    \"iterationType\": \"Once\",\n    \"startTime\": \"2026-01-15T10:30:00Z\",\n    \"endTime\": \"2026-01-15T10:30:00Z\",\n    \"hourlyContract\": {\n      \"hours\": 8643,\n      \"minutes\": 8168\n    },\n    \"dailyContract\": {\n      \"runOnlyWorkWeek\": false\n    },\n    \"weeklyContract\": {\n      \"daysOfWeek\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"monthlyContract\": {\n      \"simpleDayOfMonth\": false,\n      \"dayOfMonth\": \"string\",\n      \"occurrence\": \"string\",\n      \"dayOfWeek\": 5356\n    },\n    \"customContract\": {\n      \"daysOfMonth\": [\n        9490,\n        4050\n      ],\n      \"months\": [\n        160,\n        6131\n      ]\n    },\n    \"cronContract\": {\n      \"cronExpression\": \"string\"\n    }\n  },\n  \"name\": \"Example Title\",\n  \"comment\": \"example_value\",\n  \"priority\": \"Low\",\n  \"workerTag\": \"example_value\",\n  \"credentialId\": \"500123\",\n  \"timeZone\": \"example_value\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2e5be48d-7aa8-435d-9ce7-1bd30a46ec52",
+          "name": "Retrieve All Schedules",
+          "request": {
+            "name": "Retrieve All Schedules",
+            "description": {
+              "content": "Retrieve information about all schedules with optional filtering.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "schedules"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "view",
+                  "value": "Default",
+                  "description": "Level of detail in the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "ownerId",
+                  "value": "<string>",
+                  "description": "Filter by schedule owner"
+                },
+                {
+                  "disabled": false,
+                  "key": "workflowId",
+                  "value": "<string>",
+                  "description": "Filter by associated workflow"
+                },
+                {
+                  "disabled": false,
+                  "key": "runsAfter",
+                  "value": "<dateTime>",
+                  "description": "Filter schedules that run after this date (ISO 8601, max 45-day range)"
+                },
+                {
+                  "disabled": false,
+                  "key": "runsBefore",
+                  "value": "<dateTime>",
+                  "description": "Filter schedules that run before this date (ISO 8601, max 45-day range)"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Hostname of your Alteryx Server instance",
+                  "type": "any",
+                  "value": "{{serverHostname}}",
+                  "key": "serverHostname"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e86ccd8d-489a-482f-8ff2-5056b1985bef",
+              "name": "List of schedules",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "schedules"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "view",
+                      "value": "Default"
+                    },
+                    {
+                      "key": "ownerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "workflowId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "runsAfter",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "runsBefore",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"abc123\",\n    \"name\": \"Example Title\",\n    \"workflowId\": \"500123\",\n    \"ownerId\": \"500123\",\n    \"runDateTime\": \"2026-01-15T10:30:00Z\",\n    \"timeZone\": \"example_value\"\n  },\n  {\n    \"id\": \"abc123\",\n    \"name\": \"Example Title\",\n    \"workflowId\": \"500123\",\n    \"ownerId\": \"500123\",\n    \"runDateTime\": \"2026-01-15T10:30:00Z\",\n    \"timeZone\": \"example_value\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2732beb2-b0dc-43ae-bd5c-16fe855ca85f",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "schedules"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "view",
+                      "value": "Default"
+                    },
+                    {
+                      "key": "ownerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "workflowId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "runsAfter",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "runsBefore",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "cb0e1491-f860-461d-85b9-0662d1547e83",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "schedules"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "view",
+                      "value": "Default"
+                    },
+                    {
+                      "key": "ownerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "workflowId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "runsAfter",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "runsBefore",
+                      "value": "<dateTime>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a7d7b5ed-a32d-48b0-8cca-5c06c11c9360",
+          "name": "Retrieve a Specific Schedule",
+          "request": {
+            "name": "Retrieve a Specific Schedule",
+            "description": {
+              "content": "Retrieve detailed information about a specific schedule.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "schedules",
+                ":scheduleId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "scheduleId",
+                  "description": "(Required) Unique identifier of the schedule"
+                },
+                {
+                  "description": "Hostname of your Alteryx Server instance",
+                  "type": "any",
+                  "value": "{{serverHostname}}",
+                  "key": "serverHostname"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "282c7d3f-c622-40a9-b44d-611c11acd418",
+              "name": "Schedule details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "schedules",
+                    ":scheduleId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "scheduleId",
+                      "description": "(Required) Unique identifier of the schedule"
+                    },
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"abc123\",\n  \"name\": \"Example Title\",\n  \"workflowId\": \"500123\",\n  \"versionId\": \"500123\",\n  \"ownerId\": \"500123\",\n  \"runDateTime\": \"2026-01-15T10:30:00Z\",\n  \"comment\": \"example_value\",\n  \"enabled\": true,\n  \"priority\": \"Low\",\n  \"workerTag\": \"example_value\",\n  \"status\": \"example_value\",\n  \"credentialId\": \"500123\",\n  \"creationTime\": \"2026-01-15T10:30:00Z\",\n  \"lastRunTime\": \"2026-01-15T10:30:00Z\",\n  \"state\": \"example_value\",\n  \"runCount\": 10,\n  \"iteration\": {\n    \"iterationType\": \"Once\",\n    \"startTime\": \"2026-01-15T10:30:00Z\",\n    \"endTime\": \"2026-01-15T10:30:00Z\",\n    \"hourlyContract\": {\n      \"hours\": 8393,\n      \"minutes\": 2007\n    },\n    \"dailyContract\": {\n      \"runOnlyWorkWeek\": true\n    },\n    \"weeklyContract\": {\n      \"daysOfWeek\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"monthlyContract\": {\n      \"simpleDayOfMonth\": false,\n      \"dayOfMonth\": \"string\",\n      \"occurrence\": \"string\",\n      \"dayOfWeek\": 6152\n    },\n    \"customContract\": {\n      \"daysOfMonth\": [\n        4111,\n        8675\n      ],\n      \"months\": [\n        5311,\n        7582\n      ]\n    },\n    \"cronContract\": {\n      \"cronExpression\": \"string\"\n    }\n  },\n  \"frequency\": \"example_value\",\n  \"lastError\": \"example_value\",\n  \"cpuName\": \"example_value\",\n  \"lastModifiedId\": \"500123\",\n  \"lastModifiedDate\": \"2026-01-15T10:30:00Z\",\n  \"canEdit\": true,\n  \"timeZone\": \"example_value\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "63e5cc09-bfdd-4076-a61f-e616a3740375",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "schedules",
+                    ":scheduleId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "scheduleId",
+                      "description": "(Required) Unique identifier of the schedule"
+                    },
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "eacbeeda-adba-4618-919a-7539ece1def6",
+              "name": "Schedule not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "schedules",
+                    ":scheduleId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "scheduleId",
+                      "description": "(Required) Unique identifier of the schedule"
+                    },
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b6d08f4a-22a2-4146-b95d-bc3802fac1f6",
+          "name": "Update a Schedule",
+          "request": {
+            "name": "Update a Schedule",
+            "description": {
+              "content": "Update all properties of an existing schedule. All required fields must be provided.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "schedules",
+                ":scheduleId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "scheduleId",
+                  "description": "(Required) Unique identifier of the schedule"
+                },
+                {
+                  "description": "Hostname of your Alteryx Server instance",
+                  "type": "any",
+                  "value": "{{serverHostname}}",
+                  "key": "serverHostname"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"workflowId\": \"<string>\",\n  \"ownerId\": \"<string>\",\n  \"iteration\": {\n    \"iterationType\": \"<string>\",\n    \"startTime\": \"<dateTime>\",\n    \"endTime\": \"<dateTime>\",\n    \"hourlyContract\": {\n      \"hours\": \"<integer>\",\n      \"minutes\": \"<integer>\"\n    },\n    \"dailyContract\": {\n      \"runOnlyWorkWeek\": \"<boolean>\"\n    },\n    \"weeklyContract\": {\n      \"daysOfWeek\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"monthlyContract\": {\n      \"simpleDayOfMonth\": \"<boolean>\",\n      \"dayOfMonth\": \"<string>\",\n      \"occurrence\": \"<string>\",\n      \"dayOfWeek\": \"<integer>\"\n    },\n    \"customContract\": {\n      \"daysOfMonth\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"months\": [\n        \"<integer>\",\n        \"<integer>\"\n      ]\n    },\n    \"cronContract\": {\n      \"cronExpression\": \"<string>\"\n    }\n  },\n  \"name\": \"<string>\",\n  \"comment\": \"<string>\",\n  \"workerTag\": \"<string>\",\n  \"credentialId\": \"<string>\",\n  \"priority\": \"Low\",\n  \"enabled\": \"<boolean>\",\n  \"timeZone\": \"<string>\",\n  \"questions\": [\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "04374529-12f5-4649-adc7-6cf6d2dbbb2e",
+              "name": "Schedule updated successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "schedules",
+                    ":scheduleId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "scheduleId",
+                      "description": "(Required) Unique identifier of the schedule"
+                    },
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"workflowId\": \"500123\",\n  \"ownerId\": \"500123\",\n  \"iteration\": {\n    \"iterationType\": \"Once\",\n    \"startTime\": \"2026-01-15T10:30:00Z\",\n    \"endTime\": \"2026-01-15T10:30:00Z\",\n    \"hourlyContract\": {\n      \"hours\": 8492,\n      \"minutes\": 4813\n    },\n    \"dailyContract\": {\n      \"runOnlyWorkWeek\": false\n    },\n    \"weeklyContract\": {\n      \"daysOfWeek\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"monthlyContract\": {\n      \"simpleDayOfMonth\": false,\n      \"dayOfMonth\": \"string\",\n      \"occurrence\": \"string\",\n      \"dayOfWeek\": 2450\n    },\n    \"customContract\": {\n      \"daysOfMonth\": [\n        3161,\n        3177\n      ],\n      \"months\": [\n        3921,\n        561\n      ]\n    },\n    \"cronContract\": {\n      \"cronExpression\": \"string\"\n    }\n  },\n  \"name\": \"Example Title\",\n  \"comment\": \"example_value\",\n  \"workerTag\": \"example_value\",\n  \"credentialId\": \"500123\",\n  \"priority\": \"Low\",\n  \"enabled\": true,\n  \"timeZone\": \"example_value\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"abc123\",\n  \"name\": \"Example Title\",\n  \"workflowId\": \"500123\",\n  \"versionId\": \"500123\",\n  \"ownerId\": \"500123\",\n  \"runDateTime\": \"2026-01-15T10:30:00Z\",\n  \"comment\": \"example_value\",\n  \"enabled\": true,\n  \"priority\": \"Low\",\n  \"workerTag\": \"example_value\",\n  \"status\": \"example_value\",\n  \"credentialId\": \"500123\",\n  \"creationTime\": \"2026-01-15T10:30:00Z\",\n  \"lastRunTime\": \"2026-01-15T10:30:00Z\",\n  \"state\": \"example_value\",\n  \"runCount\": 10,\n  \"iteration\": {\n    \"iterationType\": \"Once\",\n    \"startTime\": \"2026-01-15T10:30:00Z\",\n    \"endTime\": \"2026-01-15T10:30:00Z\",\n    \"hourlyContract\": {\n      \"hours\": 8393,\n      \"minutes\": 2007\n    },\n    \"dailyContract\": {\n      \"runOnlyWorkWeek\": true\n    },\n    \"weeklyContract\": {\n      \"daysOfWeek\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"monthlyContract\": {\n      \"simpleDayOfMonth\": false,\n      \"dayOfMonth\": \"string\",\n      \"occurrence\": \"string\",\n      \"dayOfWeek\": 6152\n    },\n    \"customContract\": {\n      \"daysOfMonth\": [\n        4111,\n        8675\n      ],\n      \"months\": [\n        5311,\n        7582\n      ]\n    },\n    \"cronContract\": {\n      \"cronExpression\": \"string\"\n    }\n  },\n  \"frequency\": \"example_value\",\n  \"lastError\": \"example_value\",\n  \"cpuName\": \"example_value\",\n  \"lastModifiedId\": \"500123\",\n  \"lastModifiedDate\": \"2026-01-15T10:30:00Z\",\n  \"canEdit\": true,\n  \"timeZone\": \"example_value\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6a9748c4-07f5-4672-bbe4-85817943a2a7",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "schedules",
+                    ":scheduleId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "scheduleId",
+                      "description": "(Required) Unique identifier of the schedule"
+                    },
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"workflowId\": \"500123\",\n  \"ownerId\": \"500123\",\n  \"iteration\": {\n    \"iterationType\": \"Once\",\n    \"startTime\": \"2026-01-15T10:30:00Z\",\n    \"endTime\": \"2026-01-15T10:30:00Z\",\n    \"hourlyContract\": {\n      \"hours\": 8492,\n      \"minutes\": 4813\n    },\n    \"dailyContract\": {\n      \"runOnlyWorkWeek\": false\n    },\n    \"weeklyContract\": {\n      \"daysOfWeek\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"monthlyContract\": {\n      \"simpleDayOfMonth\": false,\n      \"dayOfMonth\": \"string\",\n      \"occurrence\": \"string\",\n      \"dayOfWeek\": 2450\n    },\n    \"customContract\": {\n      \"daysOfMonth\": [\n        3161,\n        3177\n      ],\n      \"months\": [\n        3921,\n        561\n      ]\n    },\n    \"cronContract\": {\n      \"cronExpression\": \"string\"\n    }\n  },\n  \"name\": \"Example Title\",\n  \"comment\": \"example_value\",\n  \"workerTag\": \"example_value\",\n  \"credentialId\": \"500123\",\n  \"priority\": \"Low\",\n  \"enabled\": true,\n  \"timeZone\": \"example_value\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b04b0a58-c877-4792-84cd-37b2bad66449",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "schedules",
+                    ":scheduleId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "scheduleId",
+                      "description": "(Required) Unique identifier of the schedule"
+                    },
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"workflowId\": \"500123\",\n  \"ownerId\": \"500123\",\n  \"iteration\": {\n    \"iterationType\": \"Once\",\n    \"startTime\": \"2026-01-15T10:30:00Z\",\n    \"endTime\": \"2026-01-15T10:30:00Z\",\n    \"hourlyContract\": {\n      \"hours\": 8492,\n      \"minutes\": 4813\n    },\n    \"dailyContract\": {\n      \"runOnlyWorkWeek\": false\n    },\n    \"weeklyContract\": {\n      \"daysOfWeek\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"monthlyContract\": {\n      \"simpleDayOfMonth\": false,\n      \"dayOfMonth\": \"string\",\n      \"occurrence\": \"string\",\n      \"dayOfWeek\": 2450\n    },\n    \"customContract\": {\n      \"daysOfMonth\": [\n        3161,\n        3177\n      ],\n      \"months\": [\n        3921,\n        561\n      ]\n    },\n    \"cronContract\": {\n      \"cronExpression\": \"string\"\n    }\n  },\n  \"name\": \"Example Title\",\n  \"comment\": \"example_value\",\n  \"workerTag\": \"example_value\",\n  \"credentialId\": \"500123\",\n  \"priority\": \"Low\",\n  \"enabled\": true,\n  \"timeZone\": \"example_value\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "892469fb-e325-4c1b-a767-35c6b57ff6db",
+              "name": "Schedule not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "schedules",
+                    ":scheduleId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "scheduleId",
+                      "description": "(Required) Unique identifier of the schedule"
+                    },
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"workflowId\": \"500123\",\n  \"ownerId\": \"500123\",\n  \"iteration\": {\n    \"iterationType\": \"Once\",\n    \"startTime\": \"2026-01-15T10:30:00Z\",\n    \"endTime\": \"2026-01-15T10:30:00Z\",\n    \"hourlyContract\": {\n      \"hours\": 8492,\n      \"minutes\": 4813\n    },\n    \"dailyContract\": {\n      \"runOnlyWorkWeek\": false\n    },\n    \"weeklyContract\": {\n      \"daysOfWeek\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"monthlyContract\": {\n      \"simpleDayOfMonth\": false,\n      \"dayOfMonth\": \"string\",\n      \"occurrence\": \"string\",\n      \"dayOfWeek\": 2450\n    },\n    \"customContract\": {\n      \"daysOfMonth\": [\n        3161,\n        3177\n      ],\n      \"months\": [\n        3921,\n        561\n      ]\n    },\n    \"cronContract\": {\n      \"cronExpression\": \"string\"\n    }\n  },\n  \"name\": \"Example Title\",\n  \"comment\": \"example_value\",\n  \"workerTag\": \"example_value\",\n  \"credentialId\": \"500123\",\n  \"priority\": \"Low\",\n  \"enabled\": true,\n  \"timeZone\": \"example_value\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5e8af087-5397-4401-a577-375a8ff6fb76",
+          "name": "Partially Update a Schedule",
+          "request": {
+            "name": "Partially Update a Schedule",
+            "description": {
+              "content": "Update specific properties of an existing schedule without requiring all fields.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "schedules",
+                ":scheduleId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "scheduleId",
+                  "description": "(Required) Unique identifier of the schedule"
+                },
+                {
+                  "description": "Hostname of your Alteryx Server instance",
+                  "type": "any",
+                  "value": "{{serverHostname}}",
+                  "key": "serverHostname"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ownerId\": \"<string>\",\n  \"iteration\": {\n    \"iterationType\": \"<string>\",\n    \"startTime\": \"<dateTime>\",\n    \"endTime\": \"<dateTime>\",\n    \"hourlyContract\": {\n      \"hours\": \"<integer>\",\n      \"minutes\": \"<integer>\"\n    },\n    \"dailyContract\": {\n      \"runOnlyWorkWeek\": \"<boolean>\"\n    },\n    \"weeklyContract\": {\n      \"daysOfWeek\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"monthlyContract\": {\n      \"simpleDayOfMonth\": \"<boolean>\",\n      \"dayOfMonth\": \"<string>\",\n      \"occurrence\": \"<string>\",\n      \"dayOfWeek\": \"<integer>\"\n    },\n    \"customContract\": {\n      \"daysOfMonth\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"months\": [\n        \"<integer>\",\n        \"<integer>\"\n      ]\n    },\n    \"cronContract\": {\n      \"cronExpression\": \"<string>\"\n    }\n  },\n  \"name\": \"<string>\",\n  \"comment\": \"<string>\",\n  \"priority\": \"<string>\",\n  \"workerTag\": \"<string>\",\n  \"enabled\": \"<boolean>\",\n  \"credentialId\": \"<string>\",\n  \"timeZone\": \"<string>\",\n  \"questions\": [\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"value\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "79fd6db2-5f44-4c9f-8af8-e172d2c44b7f",
+              "name": "Schedule updated successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "schedules",
+                    ":scheduleId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "scheduleId",
+                      "description": "(Required) Unique identifier of the schedule"
+                    },
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ownerId\": \"500123\",\n  \"iteration\": {\n    \"iterationType\": \"Once\",\n    \"startTime\": \"2026-01-15T10:30:00Z\",\n    \"endTime\": \"2026-01-15T10:30:00Z\",\n    \"hourlyContract\": {\n      \"hours\": 1438,\n      \"minutes\": 1157\n    },\n    \"dailyContract\": {\n      \"runOnlyWorkWeek\": true\n    },\n    \"weeklyContract\": {\n      \"daysOfWeek\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"monthlyContract\": {\n      \"simpleDayOfMonth\": false,\n      \"dayOfMonth\": \"string\",\n      \"occurrence\": \"string\",\n      \"dayOfWeek\": 6800\n    },\n    \"customContract\": {\n      \"daysOfMonth\": [\n        7666,\n        5100\n      ],\n      \"months\": [\n        413,\n        5440\n      ]\n    },\n    \"cronContract\": {\n      \"cronExpression\": \"string\"\n    }\n  },\n  \"name\": \"Example Title\",\n  \"comment\": \"example_value\",\n  \"priority\": \"Low\",\n  \"workerTag\": \"example_value\",\n  \"enabled\": true,\n  \"credentialId\": \"500123\",\n  \"timeZone\": \"example_value\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"abc123\",\n  \"name\": \"Example Title\",\n  \"workflowId\": \"500123\",\n  \"versionId\": \"500123\",\n  \"ownerId\": \"500123\",\n  \"runDateTime\": \"2026-01-15T10:30:00Z\",\n  \"comment\": \"example_value\",\n  \"enabled\": true,\n  \"priority\": \"Low\",\n  \"workerTag\": \"example_value\",\n  \"status\": \"example_value\",\n  \"credentialId\": \"500123\",\n  \"creationTime\": \"2026-01-15T10:30:00Z\",\n  \"lastRunTime\": \"2026-01-15T10:30:00Z\",\n  \"state\": \"example_value\",\n  \"runCount\": 10,\n  \"iteration\": {\n    \"iterationType\": \"Once\",\n    \"startTime\": \"2026-01-15T10:30:00Z\",\n    \"endTime\": \"2026-01-15T10:30:00Z\",\n    \"hourlyContract\": {\n      \"hours\": 8393,\n      \"minutes\": 2007\n    },\n    \"dailyContract\": {\n      \"runOnlyWorkWeek\": true\n    },\n    \"weeklyContract\": {\n      \"daysOfWeek\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"monthlyContract\": {\n      \"simpleDayOfMonth\": false,\n      \"dayOfMonth\": \"string\",\n      \"occurrence\": \"string\",\n      \"dayOfWeek\": 6152\n    },\n    \"customContract\": {\n      \"daysOfMonth\": [\n        4111,\n        8675\n      ],\n      \"months\": [\n        5311,\n        7582\n      ]\n    },\n    \"cronContract\": {\n      \"cronExpression\": \"string\"\n    }\n  },\n  \"frequency\": \"example_value\",\n  \"lastError\": \"example_value\",\n  \"cpuName\": \"example_value\",\n  \"lastModifiedId\": \"500123\",\n  \"lastModifiedDate\": \"2026-01-15T10:30:00Z\",\n  \"canEdit\": true,\n  \"timeZone\": \"example_value\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5a8e3070-a363-4acc-b0d0-8e078872ab4e",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "schedules",
+                    ":scheduleId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "scheduleId",
+                      "description": "(Required) Unique identifier of the schedule"
+                    },
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ownerId\": \"500123\",\n  \"iteration\": {\n    \"iterationType\": \"Once\",\n    \"startTime\": \"2026-01-15T10:30:00Z\",\n    \"endTime\": \"2026-01-15T10:30:00Z\",\n    \"hourlyContract\": {\n      \"hours\": 1438,\n      \"minutes\": 1157\n    },\n    \"dailyContract\": {\n      \"runOnlyWorkWeek\": true\n    },\n    \"weeklyContract\": {\n      \"daysOfWeek\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"monthlyContract\": {\n      \"simpleDayOfMonth\": false,\n      \"dayOfMonth\": \"string\",\n      \"occurrence\": \"string\",\n      \"dayOfWeek\": 6800\n    },\n    \"customContract\": {\n      \"daysOfMonth\": [\n        7666,\n        5100\n      ],\n      \"months\": [\n        413,\n        5440\n      ]\n    },\n    \"cronContract\": {\n      \"cronExpression\": \"string\"\n    }\n  },\n  \"name\": \"Example Title\",\n  \"comment\": \"example_value\",\n  \"priority\": \"Low\",\n  \"workerTag\": \"example_value\",\n  \"enabled\": true,\n  \"credentialId\": \"500123\",\n  \"timeZone\": \"example_value\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "600d3033-d909-4064-9477-0123fa8b740c",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "schedules",
+                    ":scheduleId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "scheduleId",
+                      "description": "(Required) Unique identifier of the schedule"
+                    },
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ownerId\": \"500123\",\n  \"iteration\": {\n    \"iterationType\": \"Once\",\n    \"startTime\": \"2026-01-15T10:30:00Z\",\n    \"endTime\": \"2026-01-15T10:30:00Z\",\n    \"hourlyContract\": {\n      \"hours\": 1438,\n      \"minutes\": 1157\n    },\n    \"dailyContract\": {\n      \"runOnlyWorkWeek\": true\n    },\n    \"weeklyContract\": {\n      \"daysOfWeek\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"monthlyContract\": {\n      \"simpleDayOfMonth\": false,\n      \"dayOfMonth\": \"string\",\n      \"occurrence\": \"string\",\n      \"dayOfWeek\": 6800\n    },\n    \"customContract\": {\n      \"daysOfMonth\": [\n        7666,\n        5100\n      ],\n      \"months\": [\n        413,\n        5440\n      ]\n    },\n    \"cronContract\": {\n      \"cronExpression\": \"string\"\n    }\n  },\n  \"name\": \"Example Title\",\n  \"comment\": \"example_value\",\n  \"priority\": \"Low\",\n  \"workerTag\": \"example_value\",\n  \"enabled\": true,\n  \"credentialId\": \"500123\",\n  \"timeZone\": \"example_value\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e6dcd4f3-d784-4da6-a183-695ba0d0bf70",
+              "name": "Schedule not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "schedules",
+                    ":scheduleId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "scheduleId",
+                      "description": "(Required) Unique identifier of the schedule"
+                    },
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ownerId\": \"500123\",\n  \"iteration\": {\n    \"iterationType\": \"Once\",\n    \"startTime\": \"2026-01-15T10:30:00Z\",\n    \"endTime\": \"2026-01-15T10:30:00Z\",\n    \"hourlyContract\": {\n      \"hours\": 1438,\n      \"minutes\": 1157\n    },\n    \"dailyContract\": {\n      \"runOnlyWorkWeek\": true\n    },\n    \"weeklyContract\": {\n      \"daysOfWeek\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"monthlyContract\": {\n      \"simpleDayOfMonth\": false,\n      \"dayOfMonth\": \"string\",\n      \"occurrence\": \"string\",\n      \"dayOfWeek\": 6800\n    },\n    \"customContract\": {\n      \"daysOfMonth\": [\n        7666,\n        5100\n      ],\n      \"months\": [\n        413,\n        5440\n      ]\n    },\n    \"cronContract\": {\n      \"cronExpression\": \"string\"\n    }\n  },\n  \"name\": \"Example Title\",\n  \"comment\": \"example_value\",\n  \"priority\": \"Low\",\n  \"workerTag\": \"example_value\",\n  \"enabled\": true,\n  \"credentialId\": \"500123\",\n  \"timeZone\": \"example_value\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "354c4137-56d5-43cb-8144-32f1bc93de46",
+          "name": "Delete a Schedule",
+          "request": {
+            "name": "Delete a Schedule",
+            "description": {
+              "content": "Remove a schedule from the system.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v3",
+                "schedules",
+                ":scheduleId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "scheduleId",
+                  "description": "(Required) Unique identifier of the schedule"
+                },
+                {
+                  "description": "Hostname of your Alteryx Server instance",
+                  "type": "any",
+                  "value": "{{serverHostname}}",
+                  "key": "serverHostname"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "43032523-7f41-4b6c-9546-76f7c9d08d2b",
+              "name": "Schedule deleted successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "schedules",
+                    ":scheduleId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "scheduleId",
+                      "description": "(Required) Unique identifier of the schedule"
+                    },
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f37c4d57-19cc-4570-adb0-7b21f65e6a47",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "schedules",
+                    ":scheduleId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "scheduleId",
+                      "description": "(Required) Unique identifier of the schedule"
+                    },
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ae7770d3-1d84-4100-971e-86c983f41d44",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "schedules",
+                    ":scheduleId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "scheduleId",
+                      "description": "(Required) Unique identifier of the schedule"
+                    },
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f36eb174-8aa9-452a-bfd4-cc93ea694e83",
+              "name": "Schedule not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v3",
+                    "schedules",
+                    ":scheduleId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "scheduleId",
+                      "description": "(Required) Unique identifier of the schedule"
+                    },
+                    {
+                      "description": "Hostname of your Alteryx Server instance",
+                      "type": "any",
+                      "value": "{{serverHostname}}",
+                      "key": "serverHostname"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Hostname of your Alteryx Server instance",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "your-server.example.com",
+      "key": "serverHostname"
+    },
+    {
+      "type": "string",
+      "value": "https://{{serverHostname}}/webapi",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "accessTokenUrl",
+        "value": "https://{serverHostname}/webapi/oauth2/token"
+      },
+      {
+        "key": "grant_type",
+        "value": "client_credentials"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "aaa6531c-a26c-4c94-9080-e04262735d58",
+    "name": "Alteryx Server API V3 Collections Schedules API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Alteryx Server API V3 provides administrative capabilities for managing workflows, schedules, users, user groups, credentials, collections, and server connections. It uses OAuth 2 authentication and implements POST, PUT, GET, DELETE, and PATCH operations so administrators can automate tasks and integrate Server with existing API automation tools.\n\nContact Support:\n Name: Alteryx Support\n Email: support@alteryx.com",
+      "type": "text/plain"
+    }
+  }
+}

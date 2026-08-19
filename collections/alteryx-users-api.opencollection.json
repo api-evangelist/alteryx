@@ -1,0 +1,252 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Alteryx Server API V3 Collections Users API",
+    "version": "3.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://{serverHostname}/webapi/oauth2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Users",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve All Users",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{serverHostname}/webapi/v3/users",
+            "params": [
+              {
+                "name": "view",
+                "value": "",
+                "type": "query",
+                "description": "Level of detail in the response"
+              },
+              {
+                "name": "active",
+                "value": "",
+                "type": "query",
+                "description": "Filter by active status"
+              },
+              {
+                "name": "email",
+                "value": "",
+                "type": "query",
+                "description": "Filter by email address"
+              },
+              {
+                "name": "role",
+                "value": "",
+                "type": "query",
+                "description": "Filter by user role"
+              },
+              {
+                "name": "firstName",
+                "value": "",
+                "type": "query",
+                "description": "Filter by first name"
+              },
+              {
+                "name": "lastName",
+                "value": "",
+                "type": "query",
+                "description": "Filter by last name"
+              },
+              {
+                "name": "createdAfter",
+                "value": "",
+                "type": "query",
+                "description": "Filter users created after this date (ISO 8601)"
+              },
+              {
+                "name": "createdBefore",
+                "value": "",
+                "type": "query",
+                "description": "Filter users created before this date (ISO 8601)"
+              }
+            ]
+          },
+          "docs": "Retrieve information about all user records with optional filtering. Requires Curator role."
+        },
+        {
+          "info": {
+            "name": "Create a New User",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{serverHostname}/webapi/v3/users",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new user account on the Alteryx Server. Requires Curator role."
+        },
+        {
+          "info": {
+            "name": "Retrieve a Specific User",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{serverHostname}/webapi/v3/users/:userId",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the user"
+              }
+            ]
+          },
+          "docs": "Retrieve detailed information about a specific user. Requires Curator role."
+        },
+        {
+          "info": {
+            "name": "Update a User",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{serverHostname}/webapi/v3/users/:userId",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the user"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update user account details and permissions. Requires Curator role."
+        },
+        {
+          "info": {
+            "name": "Delete a User",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{serverHostname}/webapi/v3/users/:userId",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the user"
+              }
+            ]
+          },
+          "docs": "Delete a user from the system. The user must not own any assets or belong to any groups. Requires Curator role."
+        },
+        {
+          "info": {
+            "name": "Deactivate a User",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{serverHostname}/webapi/v3/users/:userId/deactivate",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the user"
+              }
+            ]
+          },
+          "docs": "Deactivate a user account and remove them from all user groups. Requires Curator role."
+        },
+        {
+          "info": {
+            "name": "Send Password Reset Email",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{serverHostname}/webapi/v3/users/:userId/passwordReset",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the user"
+              }
+            ]
+          },
+          "docs": "Send a password reset email to the user. Not available for Windows or SAML authentication methods. Requires Curator role."
+        },
+        {
+          "info": {
+            "name": "Retrieve User Assets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{serverHostname}/webapi/v3/users/:userId/assets",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the user"
+              },
+              {
+                "name": "assetType",
+                "value": "",
+                "type": "query",
+                "description": "Filter by asset type"
+              }
+            ]
+          },
+          "docs": "List all assets (workflows, schedules, collections) owned by a specific user. Requires Curator role."
+        },
+        {
+          "info": {
+            "name": "Transfer User Assets",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{serverHostname}/webapi/v3/users/:userId/assetTransfer",
+            "params": [
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the user"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Transfer all assets (workflows, schedules, and collections) owned by one user to another. The receiving user must have Artisan or Curator role. Requires Curator role."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

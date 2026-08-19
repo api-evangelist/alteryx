@@ -1,0 +1,377 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Alteryx Server API V3 Collections API",
+    "version": "3.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "client_credentials",
+      "accessTokenUrl": "https://{serverHostname}/webapi/oauth2/token",
+      "credentials": {
+        "clientId": "{{clientId}}",
+        "clientSecret": "{{clientSecret}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Collections",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve All Collections",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{serverHostname}/webapi/v3/collections",
+            "params": [
+              {
+                "name": "view",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve all collections with optional view level."
+        },
+        {
+          "info": {
+            "name": "Create a New Collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{serverHostname}/webapi/v3/collections",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new collection. Requires Curator role."
+        },
+        {
+          "info": {
+            "name": "Retrieve a Specific Collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{serverHostname}/webapi/v3/collections/:collectionId",
+            "params": [
+              {
+                "name": "collectionId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the collection"
+              }
+            ]
+          },
+          "docs": "Retrieve detailed information about a specific collection."
+        },
+        {
+          "info": {
+            "name": "Update a Collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{serverHostname}/webapi/v3/collections/:collectionId",
+            "params": [
+              {
+                "name": "collectionId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the collection"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update collection name and owner."
+        },
+        {
+          "info": {
+            "name": "Delete a Collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{serverHostname}/webapi/v3/collections/:collectionId",
+            "params": [
+              {
+                "name": "collectionId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the collection"
+              },
+              {
+                "name": "forceDelete",
+                "value": "",
+                "type": "query",
+                "description": "Force deletion"
+              }
+            ]
+          },
+          "docs": "Delete a collection from the system."
+        },
+        {
+          "info": {
+            "name": "Add a User to a Collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{serverHostname}/webapi/v3/collections/:collectionId/users",
+            "params": [
+              {
+                "name": "collectionId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the collection"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add a user to a collection with specified permissions."
+        },
+        {
+          "info": {
+            "name": "Update User Permissions in a Collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{serverHostname}/webapi/v3/collections/:collectionId/users/:userId/permissions",
+            "params": [
+              {
+                "name": "collectionId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the collection"
+              },
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the user"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a user's permission flags within a collection."
+        },
+        {
+          "info": {
+            "name": "Remove a User From a Collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{serverHostname}/webapi/v3/collections/:collectionId/users/:userId",
+            "params": [
+              {
+                "name": "collectionId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the collection"
+              },
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the user"
+              }
+            ]
+          },
+          "docs": "Remove a User From a Collection"
+        },
+        {
+          "info": {
+            "name": "Add a User Group to a Collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{serverHostname}/webapi/v3/collections/:collectionId/userGroups",
+            "params": [
+              {
+                "name": "collectionId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the collection"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add a User Group to a Collection"
+        },
+        {
+          "info": {
+            "name": "Update User Group Permissions in a Collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{serverHostname}/webapi/v3/collections/:collectionId/userGroups/:userGroupId/permissions",
+            "params": [
+              {
+                "name": "collectionId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the collection"
+              },
+              {
+                "name": "userGroupId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update User Group Permissions in a Collection"
+        },
+        {
+          "info": {
+            "name": "Remove a User Group From a Collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{serverHostname}/webapi/v3/collections/:collectionId/userGroups/:userGroupId",
+            "params": [
+              {
+                "name": "collectionId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the collection"
+              },
+              {
+                "name": "userGroupId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Remove a User Group From a Collection"
+        },
+        {
+          "info": {
+            "name": "Add a Workflow to a Collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{serverHostname}/webapi/v3/collections/:collectionId/workflows",
+            "params": [
+              {
+                "name": "collectionId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the collection"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add a Workflow to a Collection"
+        },
+        {
+          "info": {
+            "name": "Remove a Workflow From a Collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{serverHostname}/webapi/v3/collections/:collectionId/workflows/:appId",
+            "params": [
+              {
+                "name": "collectionId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the collection"
+              },
+              {
+                "name": "appId",
+                "value": "",
+                "type": "path",
+                "description": "Workflow application ID"
+              }
+            ]
+          },
+          "docs": "Remove a Workflow From a Collection"
+        },
+        {
+          "info": {
+            "name": "Add a Schedule to a Collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{serverHostname}/webapi/v3/collections/:collectionId/schedules",
+            "params": [
+              {
+                "name": "collectionId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the collection"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add a Schedule to a Collection"
+        },
+        {
+          "info": {
+            "name": "Remove a Schedule From a Collection",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{serverHostname}/webapi/v3/collections/:collectionId/schedules/:scheduleId",
+            "params": [
+              {
+                "name": "collectionId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the collection"
+              },
+              {
+                "name": "scheduleId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the schedule"
+              }
+            ]
+          },
+          "docs": "Remove a Schedule From a Collection"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
