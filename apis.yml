@@ -28,6 +28,15 @@ tags:
   - Data Preparation
   - Data Science
   - ETL
+  - Machine-Learning
+  - Predictive Analytics
+tags_raw:
+  - Analytics
+  - Automation
+  - Data Engineering
+  - Data Preparation
+  - Data Science
+  - ETL
   - Machine Learning
   - Predictive Analytics
 apis:
@@ -40,6 +49,12 @@ apis:
   humanURL: https://help.alteryx.com/current/en/server/api-overview.html
   baseURL: https://your-server/webapi
   tags:
+  - Automation
+  - Job
+  - Scheduling
+  - Server
+  - Workflows
+  tags_raw:
   - Automation
   - Jobs
   - Scheduling
@@ -174,6 +189,8 @@ apis:
   humanURL: https://help.alteryx.com/current/en/server/api-overview.html
   baseURL: https://your-server/webapi
   tags:
+  - Collection
+  tags_raw:
   - Collections
   properties:
   - type: OpenAPI
@@ -204,6 +221,8 @@ apis:
   humanURL: https://help.alteryx.com/current/en/server/api-overview.html
   baseURL: https://your-server/webapi
   tags:
+  - Job
+  tags_raw:
   - Jobs
   properties:
   - type: OpenAPI
@@ -234,6 +253,8 @@ apis:
   humanURL: https://help.alteryx.com/current/en/server/api-overview.html
   baseURL: https://your-server/webapi
   tags:
+  - User
+  tags_raw:
   - Users
   properties:
   - type: OpenAPI
