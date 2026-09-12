@@ -293,6 +293,8 @@ apis:
     url: >-
       https://help.alteryx.com/current/en/server/api-overview/alteryx-server-api-v3/server-api-configuration-and-authorization.html
 common:
+  - type: Website
+    url: https://www.alteryx.com/
   - type: PostmanWorkspace
     url: https://www.postman.com/kinlaneapi/alteryx/overview
   - type: AgenticAccess
