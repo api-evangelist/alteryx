@@ -64,7 +64,7 @@ apis:
   - Automation
   - Job
   - Scheduling
-  - Server
+  - Servers
   - Workflows
   tags_raw:
   - Automation
@@ -98,6 +98,11 @@ apis:
   - Admin
   - Audit
   - Migration
+  - Servers
+  tags_raw:
+  - Admin
+  - Audit
+  - Migration
   - Server
   properties:
   - type: Documentation
@@ -112,6 +117,11 @@ apis:
   humanURL: https://help.alteryx.com/developer-help/gallery-api-overview
   baseURL: https://gallery.alteryx.com/api
   tags:
+  - Gallery
+  - Public APIs
+  - Sharing
+  - Workflows
+  tags_raw:
   - Gallery
   - Public API
   - Sharing
@@ -250,6 +260,8 @@ apis:
   humanURL: https://help.alteryx.com/current/en/server/api-overview.html
   baseURL: https://your-server/webapi
   tags:
+  - Schedule
+  tags_raw:
   - Schedules
   properties:
   - type: OpenAPI
