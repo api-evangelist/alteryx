@@ -1,12 +1,7 @@
 {
   "provider": "alteryx",
   "sources": [
-    "alteryx-collections-api-openapi.yml",
-    "alteryx-credentials-api-openapi.yml",
-    "alteryx-jobs-api-openapi.yml",
-    "alteryx-schedules-api-openapi.yml",
-    "alteryx-users-api-openapi.yml",
-    "alteryx-workflows-api-openapi.yml"
+    "_original/alteryx-server-api-v3.yml"
   ],
   "outputs": [
     "alteryx-collections-api-openapi.yml",
@@ -19,6 +14,17 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "alteryx-server-api-v3.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "alteryx-collections-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "alteryx-credentials-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "alteryx-jobs-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "alteryx-schedules-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "alteryx-users-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "alteryx-workflows-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

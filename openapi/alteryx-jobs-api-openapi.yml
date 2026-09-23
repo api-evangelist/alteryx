@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Alteryx Server API V3 Collections Jobs API
+  title: Alteryx Server API V3 Jobs API
   description: The Alteryx Server API V3 provides administrative capabilities for managing workflows, schedules, users, user groups, credentials, collections, and server connections. It uses OAuth 2 authentication and implements POST, PUT, GET, DELETE, and PATCH operations so administrators can automate tasks and integrate Server with existing API automation tools.
   version: 3.0.0
   contact:
@@ -128,14 +128,6 @@ paths:
         delay: 0
         dispatcher: FALLBACK
 components:
-  parameters:
-    workflowId:
-      name: workflowId
-      in: path
-      required: true
-      description: Unique identifier of the workflow
-      schema:
-        type: string
   schemas:
     JobDetail:
       type: object
@@ -277,6 +269,14 @@ components:
           type: boolean
           description: Whether the job runs with AMP engine
           example: true
+  parameters:
+    workflowId:
+      name: workflowId
+      in: path
+      required: true
+      description: Unique identifier of the workflow
+      schema:
+        type: string
   securitySchemes:
     oauth2:
       type: oauth2
