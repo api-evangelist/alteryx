@@ -355,26 +355,37 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    CreateUserContract:
+    UpdateUserContract:
       type: object
-      description: Contract for creating a new user
+      description: Contract for updating an existing user
       required:
       - firstName
       - lastName
       - email
+      - role
+      - defaultWorkerTag
+      - canScheduleJobs
+      - canPrioritizeJobs
+      - canAssignJobs
+      - isApiEnabled
+      - defaultCredentialId
+      - isActive
+      - isValidated
+      - timeZone
       properties:
+        id:
+          type: string
+          description: User ID (optional, for verification)
+          example: abc123
         firstName:
           type: string
-          description: User's first name
           example: example_value
         lastName:
           type: string
-          description: User's last name
           example: example_value
         email:
           type: string
           format: email
-          description: User's email address
           example: user@example.com
         role:
           type: string
@@ -385,59 +396,66 @@ components:
           - Artisan
           - Curator
           - Evaluated
-          description: User role determining access level
           example: NoAccess
         defaultWorkerTag:
           type: string
-          description: Default worker tag for the user
           example: example_value
         canScheduleJobs:
           type: boolean
-          description: Whether the user can create schedules
           example: true
         canPrioritizeJobs:
           type: boolean
-          description: Whether the user can set job priority
           example: true
         canAssignJobs:
           type: boolean
-          description: Whether the user can assign jobs to workers
           example: true
         canCreateCollections:
           type: boolean
-          description: Whether the user can create collections
           example: true
         isApiEnabled:
           type: boolean
-          description: Whether API access is enabled for the user
           example: true
         defaultCredentialId:
           type: string
-          description: Default credential ID for the user
           example: '500123'
+        isAccountLocked:
+          type: boolean
+          description: Whether the account is locked
+          example: true
         isActive:
           type: boolean
-          description: Whether the user account is active
+          example: true
+        isValidated:
+          type: boolean
+          description: Whether the user's email has been validated
           example: true
         timeZone:
           type: string
-          description: User's preferred time zone
           example: example_value
+        language:
+          type: string
+          enum:
+          - de-de
+          - en-us
+          - es-es
+          - fr-fr
+          - it-it
+          - ja-jp
+          - pt-br
+          - zh-cn
+          description: User's preferred language
+          example: de-de
         canCreateAndUpdateDcm:
           type: boolean
-          description: Whether the user can create and update DCM connections
           example: true
         canShareForExecutionDcm:
           type: boolean
-          description: Whether the user can share DCM connections for execution
           example: true
         canShareForCollaborationDcm:
           type: boolean
-          description: Whether the user can share DCM connections for collaboration
           example: true
         canManageGenericVaultsDcm:
           type: boolean
-          description: Whether the user can manage generic DCM vaults
           example: true
     ErrorResponse:
       type: object
@@ -560,37 +578,26 @@ components:
           type: string
           description: Name of the asset
           example: Example Title
-    UpdateUserContract:
+    CreateUserContract:
       type: object
-      description: Contract for updating an existing user
+      description: Contract for creating a new user
       required:
       - firstName
       - lastName
       - email
-      - role
-      - defaultWorkerTag
-      - canScheduleJobs
-      - canPrioritizeJobs
-      - canAssignJobs
-      - isApiEnabled
-      - defaultCredentialId
-      - isActive
-      - isValidated
-      - timeZone
       properties:
-        id:
-          type: string
-          description: User ID (optional, for verification)
-          example: abc123
         firstName:
           type: string
+          description: User's first name
           example: example_value
         lastName:
           type: string
+          description: User's last name
           example: example_value
         email:
           type: string
           format: email
+          description: User's email address
           example: user@example.com
         role:
           type: string
@@ -601,66 +608,59 @@ components:
           - Artisan
           - Curator
           - Evaluated
+          description: User role determining access level
           example: NoAccess
         defaultWorkerTag:
           type: string
+          description: Default worker tag for the user
           example: example_value
         canScheduleJobs:
           type: boolean
+          description: Whether the user can create schedules
           example: true
         canPrioritizeJobs:
           type: boolean
+          description: Whether the user can set job priority
           example: true
         canAssignJobs:
           type: boolean
+          description: Whether the user can assign jobs to workers
           example: true
         canCreateCollections:
           type: boolean
+          description: Whether the user can create collections
           example: true
         isApiEnabled:
           type: boolean
+          description: Whether API access is enabled for the user
           example: true
         defaultCredentialId:
           type: string
+          description: Default credential ID for the user
           example: '500123'
-        isAccountLocked:
-          type: boolean
-          description: Whether the account is locked
-          example: true
         isActive:
           type: boolean
-          example: true
-        isValidated:
-          type: boolean
-          description: Whether the user's email has been validated
+          description: Whether the user account is active
           example: true
         timeZone:
           type: string
+          description: User's preferred time zone
           example: example_value
-        language:
-          type: string
-          enum:
-          - de-de
-          - en-us
-          - es-es
-          - fr-fr
-          - it-it
-          - ja-jp
-          - pt-br
-          - zh-cn
-          description: User's preferred language
-          example: de-de
         canCreateAndUpdateDcm:
           type: boolean
+          description: Whether the user can create and update DCM connections
           example: true
         canShareForExecutionDcm:
           type: boolean
+          description: Whether the user can share DCM connections for execution
           example: true
         canShareForCollaborationDcm:
           type: boolean
+          description: Whether the user can share DCM connections for collaboration
           example: true
         canManageGenericVaultsDcm:
           type: boolean
+          description: Whether the user can manage generic DCM vaults
           example: true
   parameters:
     userId:

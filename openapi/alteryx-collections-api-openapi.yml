@@ -446,28 +446,29 @@ paths:
         delay: 0
         dispatcher: FALLBACK
 components:
+  parameters:
+    userId:
+      name: userId
+      in: path
+      required: true
+      description: Unique identifier of the user
+      schema:
+        type: string
+    collectionId:
+      name: collectionId
+      in: path
+      required: true
+      description: Unique identifier of the collection
+      schema:
+        type: string
+    scheduleId:
+      name: scheduleId
+      in: path
+      required: true
+      description: Unique identifier of the schedule
+      schema:
+        type: string
   schemas:
-    Collection:
-      type: object
-      description: A collection of workflows, schedules, and users
-      properties:
-        id:
-          type: string
-          description: Unique collection identifier
-          example: abc123
-        name:
-          type: string
-          description: Name of the collection
-          example: Example Title
-        ownerId:
-          type: string
-          description: ID of the collection owner
-          example: '500123'
-        dateCreated:
-          type: string
-          format: date-time
-          description: Date the collection was created
-          example: '2026-01-15T10:30:00Z'
     CollectionUserPermission:
       type: object
       description: User permissions within a collection
@@ -524,28 +525,27 @@ components:
         canRemoveUsers:
           type: boolean
           example: true
-  parameters:
-    userId:
-      name: userId
-      in: path
-      required: true
-      description: Unique identifier of the user
-      schema:
-        type: string
-    collectionId:
-      name: collectionId
-      in: path
-      required: true
-      description: Unique identifier of the collection
-      schema:
-        type: string
-    scheduleId:
-      name: scheduleId
-      in: path
-      required: true
-      description: Unique identifier of the schedule
-      schema:
-        type: string
+    Collection:
+      type: object
+      description: A collection of workflows, schedules, and users
+      properties:
+        id:
+          type: string
+          description: Unique collection identifier
+          example: abc123
+        name:
+          type: string
+          description: Name of the collection
+          example: Example Title
+        ownerId:
+          type: string
+          description: ID of the collection owner
+          example: '500123'
+        dateCreated:
+          type: string
+          format: date-time
+          description: Date the collection was created
+          example: '2026-01-15T10:30:00Z'
   securitySchemes:
     oauth2:
       type: oauth2
