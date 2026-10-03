@@ -545,6 +545,133 @@ components:
           type: boolean
           description: Whether the workflow has a private data exemption
           example: true
+    UpdateWorkflowContract:
+      type: object
+      description: Contract for updating an existing workflow
+      required:
+      - name
+      - versionId
+      - ownerId
+      - workerTag
+      - districtTags
+      - comments
+      properties:
+        name:
+          type: string
+          description: Updated workflow name
+          example: Example Title
+        versionId:
+          type: string
+          description: Version ID to update
+          example: '500123'
+        makePublished:
+          type: boolean
+          description: Whether to make the specified version published
+          example: true
+        ownerId:
+          type: string
+          description: Updated owner ID
+          example: '500123'
+        workerTag:
+          type: string
+          description: Updated worker tag
+          example: example_value
+        districtTags:
+          type: array
+          items:
+            type: string
+          description: Updated district tags
+          example: []
+        comments:
+          type: string
+          description: Updated comments
+          example: example_value
+        isPublic:
+          type: boolean
+          example: true
+        isReadyForMigration:
+          type: boolean
+          example: true
+        othersMayDownload:
+          type: boolean
+          example: true
+        othersCanExecute:
+          type: boolean
+          example: true
+        executionMode:
+          type: string
+          enum:
+          - Safe
+          - SemiSafe
+          - Standard
+          example: Safe
+        hasPrivateDataExemption:
+          type: boolean
+          example: true
+        workflowCredentialType:
+          type: string
+          enum:
+          - Default
+          - Required
+          - Specific
+          example: Default
+        credentialId:
+          type: string
+          example: '500123'
+    ErrorResponse:
+      type: object
+      description: Standard error response
+      properties:
+        message:
+          type: string
+          description: Human-readable error message
+          example: example_value
+        errors:
+          type: array
+          description: Detailed error information
+          items:
+            type: object
+            properties:
+              field:
+                type: string
+              message:
+                type: string
+          example: []
+    WorkflowQuestion:
+      type: object
+      description: An analytic app question (input parameter)
+      properties:
+        name:
+          type: string
+          description: Name of the question
+          example: Example Title
+        questionType:
+          type: string
+          description: Type of the question input
+          example: example_value
+        description:
+          type: string
+          description: Description of the question
+          example: A sample description.
+        value:
+          type: string
+          description: Default value
+          example: example_value
+        multiple:
+          type: boolean
+          description: Whether multiple selections are allowed
+          example: true
+        items:
+          type: array
+          description: Available options for the question
+          items:
+            type: object
+            properties:
+              key:
+                type: string
+              value:
+                type: string
+          example: []
     WorkflowVersion:
       type: object
       description: A specific version of a workflow
@@ -657,98 +784,6 @@ components:
           - Standard
           description: Execution mode for the workflow
           example: Safe
-    ErrorResponse:
-      type: object
-      description: Standard error response
-      properties:
-        message:
-          type: string
-          description: Human-readable error message
-          example: example_value
-        errors:
-          type: array
-          description: Detailed error information
-          items:
-            type: object
-            properties:
-              field:
-                type: string
-              message:
-                type: string
-          example: []
-    UpdateWorkflowContract:
-      type: object
-      description: Contract for updating an existing workflow
-      required:
-      - name
-      - versionId
-      - ownerId
-      - workerTag
-      - districtTags
-      - comments
-      properties:
-        name:
-          type: string
-          description: Updated workflow name
-          example: Example Title
-        versionId:
-          type: string
-          description: Version ID to update
-          example: '500123'
-        makePublished:
-          type: boolean
-          description: Whether to make the specified version published
-          example: true
-        ownerId:
-          type: string
-          description: Updated owner ID
-          example: '500123'
-        workerTag:
-          type: string
-          description: Updated worker tag
-          example: example_value
-        districtTags:
-          type: array
-          items:
-            type: string
-          description: Updated district tags
-          example: []
-        comments:
-          type: string
-          description: Updated comments
-          example: example_value
-        isPublic:
-          type: boolean
-          example: true
-        isReadyForMigration:
-          type: boolean
-          example: true
-        othersMayDownload:
-          type: boolean
-          example: true
-        othersCanExecute:
-          type: boolean
-          example: true
-        executionMode:
-          type: string
-          enum:
-          - Safe
-          - SemiSafe
-          - Standard
-          example: Safe
-        hasPrivateDataExemption:
-          type: boolean
-          example: true
-        workflowCredentialType:
-          type: string
-          enum:
-          - Default
-          - Required
-          - Specific
-          example: Default
-        credentialId:
-          type: string
-          example: '500123'
     WorkflowVersionDetails:
       type: object
       description: Metadata details for a workflow version
@@ -794,41 +829,6 @@ components:
           type: string
           description: Display text for the related URL
           example: https://www.example.com
-    WorkflowQuestion:
-      type: object
-      description: An analytic app question (input parameter)
-      properties:
-        name:
-          type: string
-          description: Name of the question
-          example: Example Title
-        questionType:
-          type: string
-          description: Type of the question input
-          example: example_value
-        description:
-          type: string
-          description: Description of the question
-          example: A sample description.
-        value:
-          type: string
-          description: Default value
-          example: example_value
-        multiple:
-          type: boolean
-          description: Whether multiple selections are allowed
-          example: true
-        items:
-          type: array
-          description: Available options for the question
-          items:
-            type: object
-            properties:
-              key:
-                type: string
-              value:
-                type: string
-          example: []
   parameters:
     workflowId:
       name: workflowId

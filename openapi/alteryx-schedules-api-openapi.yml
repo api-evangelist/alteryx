@@ -217,6 +217,80 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    PatchScheduleContract:
+      type: object
+      description: Contract for partially updating a schedule
+      properties:
+        ownerId:
+          type: string
+          example: '500123'
+        iteration:
+          $ref: '#/components/schemas/ScheduleIteration'
+        name:
+          type: string
+          example: Example Title
+        comment:
+          type: string
+          example: example_value
+        priority:
+          type: string
+          enum:
+          - Low
+          - Medium
+          - High
+          - Critical
+          example: Low
+        workerTag:
+          type: string
+          example: example_value
+        enabled:
+          type: boolean
+          example: true
+        credentialId:
+          type: string
+          example: '500123'
+        timeZone:
+          type: string
+          example: example_value
+        questions:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              value:
+                type: string
+          example: []
+    ScheduleSummary:
+      type: object
+      description: Summary representation of a schedule
+      properties:
+        id:
+          type: string
+          description: Unique schedule identifier
+          example: abc123
+        name:
+          type: string
+          description: Name of the schedule
+          example: Example Title
+        workflowId:
+          type: string
+          description: ID of the associated workflow
+          example: '500123'
+        ownerId:
+          type: string
+          description: ID of the schedule owner
+          example: '500123'
+        runDateTime:
+          type: string
+          format: date-time
+          description: Next scheduled run date and time
+          example: '2026-01-15T10:30:00Z'
+        timeZone:
+          type: string
+          description: Time zone for the schedule
+          example: example_value
     ScheduleIteration:
       type: object
       description: Schedule iteration configuration defining when and how often a schedule runs
@@ -315,92 +389,25 @@ components:
               type: string
               description: 'Cron expression with 5 mandatory fields: minute, hour, day-of-month, month, day-of-week'
           example: example_value
-    UpdateScheduleContract:
+    ErrorResponse:
       type: object
-      description: Contract for fully updating a schedule (all required fields must be provided)
-      required:
-      - workflowId
-      - ownerId
-      - iteration
-      - name
-      - comment
-      - workerTag
-      - credentialId
+      description: Standard error response
       properties:
-        workflowId:
+        message:
           type: string
-          example: '500123'
-        ownerId:
-          type: string
-          example: '500123'
-        iteration:
-          $ref: '#/components/schemas/ScheduleIteration'
-        name:
-          type: string
-          example: Example Title
-        comment:
-          type: string
+          description: Human-readable error message
           example: example_value
-        priority:
-          type: string
-          enum:
-          - Low
-          - Medium
-          - High
-          - Critical
-          default: Low
-          example: Low
-        workerTag:
-          type: string
-          example: example_value
-        enabled:
-          type: boolean
-          example: true
-        credentialId:
-          type: string
-          example: '500123'
-        timeZone:
-          type: string
-          example: example_value
-        questions:
+        errors:
           type: array
+          description: Detailed error information
           items:
             type: object
             properties:
-              name:
+              field:
                 type: string
-              value:
+              message:
                 type: string
           example: []
-    ScheduleSummary:
-      type: object
-      description: Summary representation of a schedule
-      properties:
-        id:
-          type: string
-          description: Unique schedule identifier
-          example: abc123
-        name:
-          type: string
-          description: Name of the schedule
-          example: Example Title
-        workflowId:
-          type: string
-          description: ID of the associated workflow
-          example: '500123'
-        ownerId:
-          type: string
-          description: ID of the schedule owner
-          example: '500123'
-        runDateTime:
-          type: string
-          format: date-time
-          description: Next scheduled run date and time
-          example: '2026-01-15T10:30:00Z'
-        timeZone:
-          type: string
-          description: Time zone for the schedule
-          example: example_value
     ScheduleDetail:
       type: object
       description: Detailed representation of a schedule
@@ -575,29 +582,21 @@ components:
               value:
                 type: string
           example: []
-    ErrorResponse:
+    UpdateScheduleContract:
       type: object
-      description: Standard error response
+      description: Contract for fully updating a schedule (all required fields must be provided)
+      required:
+      - workflowId
+      - ownerId
+      - iteration
+      - name
+      - comment
+      - workerTag
+      - credentialId
       properties:
-        message:
+        workflowId:
           type: string
-          description: Human-readable error message
-          example: example_value
-        errors:
-          type: array
-          description: Detailed error information
-          items:
-            type: object
-            properties:
-              field:
-                type: string
-              message:
-                type: string
-          example: []
-    PatchScheduleContract:
-      type: object
-      description: Contract for partially updating a schedule
-      properties:
+          example: '500123'
         ownerId:
           type: string
           example: '500123'
@@ -616,6 +615,7 @@ components:
           - Medium
           - High
           - Critical
+          default: Low
           example: Low
         workerTag:
           type: string

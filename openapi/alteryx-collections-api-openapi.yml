@@ -447,6 +447,13 @@ paths:
         dispatcher: FALLBACK
 components:
   parameters:
+    scheduleId:
+      name: scheduleId
+      in: path
+      required: true
+      description: Unique identifier of the schedule
+      schema:
+        type: string
     userId:
       name: userId
       in: path
@@ -459,13 +466,6 @@ components:
       in: path
       required: true
       description: Unique identifier of the collection
-      schema:
-        type: string
-    scheduleId:
-      name: scheduleId
-      in: path
-      required: true
-      description: Unique identifier of the schedule
       schema:
         type: string
   schemas:
