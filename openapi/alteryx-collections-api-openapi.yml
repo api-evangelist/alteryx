@@ -447,18 +447,18 @@ paths:
         dispatcher: FALLBACK
 components:
   parameters:
-    scheduleId:
-      name: scheduleId
-      in: path
-      required: true
-      description: Unique identifier of the schedule
-      schema:
-        type: string
     userId:
       name: userId
       in: path
       required: true
       description: Unique identifier of the user
+      schema:
+        type: string
+    scheduleId:
+      name: scheduleId
+      in: path
+      required: true
+      description: Unique identifier of the schedule
       schema:
         type: string
     collectionId:
@@ -469,6 +469,28 @@ components:
       schema:
         type: string
   schemas:
+    CollectionPermissionFlags:
+      type: object
+      description: Permission flags for collection access
+      properties:
+        isAdmin:
+          type: boolean
+          example: true
+        canAddAssets:
+          type: boolean
+          example: true
+        canRemoveAssets:
+          type: boolean
+          example: true
+        canUpdateAssets:
+          type: boolean
+          example: true
+        canAddUsers:
+          type: boolean
+          example: true
+        canRemoveUsers:
+          type: boolean
+          example: true
     CollectionUserPermission:
       type: object
       description: User permissions within a collection
@@ -502,28 +524,6 @@ components:
         canRemoveUsers:
           type: boolean
           default: false
-          example: true
-    CollectionPermissionFlags:
-      type: object
-      description: Permission flags for collection access
-      properties:
-        isAdmin:
-          type: boolean
-          example: true
-        canAddAssets:
-          type: boolean
-          example: true
-        canRemoveAssets:
-          type: boolean
-          example: true
-        canUpdateAssets:
-          type: boolean
-          example: true
-        canAddUsers:
-          type: boolean
-          example: true
-        canRemoveUsers:
-          type: boolean
           example: true
     Collection:
       type: object

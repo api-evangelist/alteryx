@@ -355,6 +355,211 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    UserDetail:
+      type: object
+      description: Detailed representation of a user account
+      properties:
+        id:
+          type: string
+          description: Unique user identifier
+          example: abc123
+        firstName:
+          type: string
+          description: User's first name
+          example: example_value
+        lastName:
+          type: string
+          description: User's last name
+          example: example_value
+        email:
+          type: string
+          format: email
+          description: User's email address
+          example: user@example.com
+        role:
+          type: string
+          enum:
+          - NoAccess
+          - Viewer
+          - Member
+          - Artisan
+          - Curator
+          - Evaluated
+          description: User role
+          example: NoAccess
+        dateCreated:
+          type: string
+          format: date-time
+          description: Date the user was created
+          example: '2026-01-15T10:30:00Z'
+        defaultWorkerTag:
+          type: string
+          description: Default worker tag
+          example: example_value
+        canScheduleJobs:
+          type: boolean
+          example: true
+        canPrioritizeJobs:
+          type: boolean
+          example: true
+        canAssignJobs:
+          type: boolean
+          example: true
+        canCreateCollections:
+          type: boolean
+          example: true
+        isApiEnabled:
+          type: boolean
+          example: true
+        defaultCredentialId:
+          type: string
+          example: '500123'
+        isAccountLocked:
+          type: boolean
+          example: true
+        isActive:
+          type: boolean
+          example: true
+        isValidated:
+          type: boolean
+          example: true
+        timeZone:
+          type: string
+          example: example_value
+        language:
+          type: string
+          example: example_value
+        canCreateAndUpdateDcm:
+          type: boolean
+          example: true
+        canShareForExecutionDcm:
+          type: boolean
+          example: true
+        canShareForCollaborationDcm:
+          type: boolean
+          example: true
+        canManageGenericVaultsDcm:
+          type: boolean
+          example: true
+    CreateUserContract:
+      type: object
+      description: Contract for creating a new user
+      required:
+      - firstName
+      - lastName
+      - email
+      properties:
+        firstName:
+          type: string
+          description: User's first name
+          example: example_value
+        lastName:
+          type: string
+          description: User's last name
+          example: example_value
+        email:
+          type: string
+          format: email
+          description: User's email address
+          example: user@example.com
+        role:
+          type: string
+          enum:
+          - NoAccess
+          - Viewer
+          - Member
+          - Artisan
+          - Curator
+          - Evaluated
+          description: User role determining access level
+          example: NoAccess
+        defaultWorkerTag:
+          type: string
+          description: Default worker tag for the user
+          example: example_value
+        canScheduleJobs:
+          type: boolean
+          description: Whether the user can create schedules
+          example: true
+        canPrioritizeJobs:
+          type: boolean
+          description: Whether the user can set job priority
+          example: true
+        canAssignJobs:
+          type: boolean
+          description: Whether the user can assign jobs to workers
+          example: true
+        canCreateCollections:
+          type: boolean
+          description: Whether the user can create collections
+          example: true
+        isApiEnabled:
+          type: boolean
+          description: Whether API access is enabled for the user
+          example: true
+        defaultCredentialId:
+          type: string
+          description: Default credential ID for the user
+          example: '500123'
+        isActive:
+          type: boolean
+          description: Whether the user account is active
+          example: true
+        timeZone:
+          type: string
+          description: User's preferred time zone
+          example: example_value
+        canCreateAndUpdateDcm:
+          type: boolean
+          description: Whether the user can create and update DCM connections
+          example: true
+        canShareForExecutionDcm:
+          type: boolean
+          description: Whether the user can share DCM connections for execution
+          example: true
+        canShareForCollaborationDcm:
+          type: boolean
+          description: Whether the user can share DCM connections for collaboration
+          example: true
+        canManageGenericVaultsDcm:
+          type: boolean
+          description: Whether the user can manage generic DCM vaults
+          example: true
+    ErrorResponse:
+      type: object
+      description: Standard error response
+      properties:
+        message:
+          type: string
+          description: Human-readable error message
+          example: example_value
+        errors:
+          type: array
+          description: Detailed error information
+          items:
+            type: object
+            properties:
+              field:
+                type: string
+              message:
+                type: string
+          example: []
+    UserAsset:
+      type: object
+      description: An asset owned by a user
+      properties:
+        id:
+          type: string
+          description: Asset identifier
+          example: abc123
+        type:
+          type: string
+          description: Type of asset (workflow, schedule, collection)
+          example: example_value
+        name:
+          type: string
+          description: Name of the asset
+          example: Example Title
     UpdateUserContract:
       type: object
       description: Contract for updating an existing user
@@ -457,211 +662,6 @@ components:
         canManageGenericVaultsDcm:
           type: boolean
           example: true
-    ErrorResponse:
-      type: object
-      description: Standard error response
-      properties:
-        message:
-          type: string
-          description: Human-readable error message
-          example: example_value
-        errors:
-          type: array
-          description: Detailed error information
-          items:
-            type: object
-            properties:
-              field:
-                type: string
-              message:
-                type: string
-          example: []
-    CreateUserContract:
-      type: object
-      description: Contract for creating a new user
-      required:
-      - firstName
-      - lastName
-      - email
-      properties:
-        firstName:
-          type: string
-          description: User's first name
-          example: example_value
-        lastName:
-          type: string
-          description: User's last name
-          example: example_value
-        email:
-          type: string
-          format: email
-          description: User's email address
-          example: user@example.com
-        role:
-          type: string
-          enum:
-          - NoAccess
-          - Viewer
-          - Member
-          - Artisan
-          - Curator
-          - Evaluated
-          description: User role determining access level
-          example: NoAccess
-        defaultWorkerTag:
-          type: string
-          description: Default worker tag for the user
-          example: example_value
-        canScheduleJobs:
-          type: boolean
-          description: Whether the user can create schedules
-          example: true
-        canPrioritizeJobs:
-          type: boolean
-          description: Whether the user can set job priority
-          example: true
-        canAssignJobs:
-          type: boolean
-          description: Whether the user can assign jobs to workers
-          example: true
-        canCreateCollections:
-          type: boolean
-          description: Whether the user can create collections
-          example: true
-        isApiEnabled:
-          type: boolean
-          description: Whether API access is enabled for the user
-          example: true
-        defaultCredentialId:
-          type: string
-          description: Default credential ID for the user
-          example: '500123'
-        isActive:
-          type: boolean
-          description: Whether the user account is active
-          example: true
-        timeZone:
-          type: string
-          description: User's preferred time zone
-          example: example_value
-        canCreateAndUpdateDcm:
-          type: boolean
-          description: Whether the user can create and update DCM connections
-          example: true
-        canShareForExecutionDcm:
-          type: boolean
-          description: Whether the user can share DCM connections for execution
-          example: true
-        canShareForCollaborationDcm:
-          type: boolean
-          description: Whether the user can share DCM connections for collaboration
-          example: true
-        canManageGenericVaultsDcm:
-          type: boolean
-          description: Whether the user can manage generic DCM vaults
-          example: true
-    UserDetail:
-      type: object
-      description: Detailed representation of a user account
-      properties:
-        id:
-          type: string
-          description: Unique user identifier
-          example: abc123
-        firstName:
-          type: string
-          description: User's first name
-          example: example_value
-        lastName:
-          type: string
-          description: User's last name
-          example: example_value
-        email:
-          type: string
-          format: email
-          description: User's email address
-          example: user@example.com
-        role:
-          type: string
-          enum:
-          - NoAccess
-          - Viewer
-          - Member
-          - Artisan
-          - Curator
-          - Evaluated
-          description: User role
-          example: NoAccess
-        dateCreated:
-          type: string
-          format: date-time
-          description: Date the user was created
-          example: '2026-01-15T10:30:00Z'
-        defaultWorkerTag:
-          type: string
-          description: Default worker tag
-          example: example_value
-        canScheduleJobs:
-          type: boolean
-          example: true
-        canPrioritizeJobs:
-          type: boolean
-          example: true
-        canAssignJobs:
-          type: boolean
-          example: true
-        canCreateCollections:
-          type: boolean
-          example: true
-        isApiEnabled:
-          type: boolean
-          example: true
-        defaultCredentialId:
-          type: string
-          example: '500123'
-        isAccountLocked:
-          type: boolean
-          example: true
-        isActive:
-          type: boolean
-          example: true
-        isValidated:
-          type: boolean
-          example: true
-        timeZone:
-          type: string
-          example: example_value
-        language:
-          type: string
-          example: example_value
-        canCreateAndUpdateDcm:
-          type: boolean
-          example: true
-        canShareForExecutionDcm:
-          type: boolean
-          example: true
-        canShareForCollaborationDcm:
-          type: boolean
-          example: true
-        canManageGenericVaultsDcm:
-          type: boolean
-          example: true
-    UserAsset:
-      type: object
-      description: An asset owned by a user
-      properties:
-        id:
-          type: string
-          description: Asset identifier
-          example: abc123
-        type:
-          type: string
-          description: Type of asset (workflow, schedule, collection)
-          example: example_value
-        name:
-          type: string
-          description: Name of the asset
-          example: Example Title
   parameters:
     userId:
       name: userId

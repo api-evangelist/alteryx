@@ -262,6 +262,256 @@ components:
               value:
                 type: string
           example: []
+    ScheduleDetail:
+      type: object
+      description: Detailed representation of a schedule
+      properties:
+        id:
+          type: string
+          description: Unique schedule identifier
+          example: abc123
+        name:
+          type: string
+          description: Name of the schedule
+          example: Example Title
+        workflowId:
+          type: string
+          description: ID of the associated workflow
+          example: '500123'
+        versionId:
+          type: string
+          description: Specific workflow version ID
+          example: '500123'
+        ownerId:
+          type: string
+          description: ID of the schedule owner
+          example: '500123'
+        runDateTime:
+          type: string
+          format: date-time
+          description: Next scheduled run date and time
+          example: '2026-01-15T10:30:00Z'
+        comment:
+          type: string
+          description: Comments about the schedule
+          example: example_value
+        enabled:
+          type: boolean
+          description: Whether the schedule is active
+          example: true
+        priority:
+          type: string
+          enum:
+          - Low
+          - Medium
+          - High
+          - Critical
+          description: Execution priority
+          example: Low
+        workerTag:
+          type: string
+          description: Worker tag for execution routing
+          example: example_value
+        status:
+          type: string
+          description: Current status of the schedule
+          example: example_value
+        credentialId:
+          type: string
+          description: Credential used for execution
+          example: '500123'
+        creationTime:
+          type: string
+          format: date-time
+          description: When the schedule was created
+          example: '2026-01-15T10:30:00Z'
+        lastRunTime:
+          type: string
+          format: date-time
+          description: When the schedule last executed
+          example: '2026-01-15T10:30:00Z'
+        state:
+          type: string
+          description: Current state of the schedule
+          example: example_value
+        runCount:
+          type: integer
+          description: Total number of times the schedule has executed
+          example: 10
+        iteration:
+          $ref: '#/components/schemas/ScheduleIteration'
+        frequency:
+          type: string
+          description: Human-readable frequency description
+          example: example_value
+        lastError:
+          type: string
+          description: Last error message if any
+          example: example_value
+        cpuName:
+          type: string
+          description: Name of the worker node
+          example: example_value
+        lastModifiedId:
+          type: string
+          description: ID of the user who last modified the schedule
+          example: '500123'
+        lastModifiedDate:
+          type: string
+          format: date-time
+          description: Date of last modification
+          example: '2026-01-15T10:30:00Z'
+        canEdit:
+          type: boolean
+          description: Whether the current user can edit this schedule
+          example: true
+        timeZone:
+          type: string
+          description: Time zone for the schedule
+          example: example_value
+        questions:
+          type: array
+          description: Analytic app question values
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              value:
+                type: string
+          example: []
+    UpdateScheduleContract:
+      type: object
+      description: Contract for fully updating a schedule (all required fields must be provided)
+      required:
+      - workflowId
+      - ownerId
+      - iteration
+      - name
+      - comment
+      - workerTag
+      - credentialId
+      properties:
+        workflowId:
+          type: string
+          example: '500123'
+        ownerId:
+          type: string
+          example: '500123'
+        iteration:
+          $ref: '#/components/schemas/ScheduleIteration'
+        name:
+          type: string
+          example: Example Title
+        comment:
+          type: string
+          example: example_value
+        priority:
+          type: string
+          enum:
+          - Low
+          - Medium
+          - High
+          - Critical
+          default: Low
+          example: Low
+        workerTag:
+          type: string
+          example: example_value
+        enabled:
+          type: boolean
+          example: true
+        credentialId:
+          type: string
+          example: '500123'
+        timeZone:
+          type: string
+          example: example_value
+        questions:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              value:
+                type: string
+          example: []
+    ErrorResponse:
+      type: object
+      description: Standard error response
+      properties:
+        message:
+          type: string
+          description: Human-readable error message
+          example: example_value
+        errors:
+          type: array
+          description: Detailed error information
+          items:
+            type: object
+            properties:
+              field:
+                type: string
+              message:
+                type: string
+          example: []
+    CreateScheduleContract:
+      type: object
+      description: Contract for creating a new schedule
+      required:
+      - workflowId
+      - iteration
+      properties:
+        workflowId:
+          type: string
+          description: ID of the workflow to schedule
+          example: '500123'
+        iteration:
+          $ref: '#/components/schemas/ScheduleIteration'
+        name:
+          type: string
+          description: Name of the schedule
+          example: Example Title
+        comment:
+          type: string
+          description: Comments about the schedule
+          example: example_value
+        priority:
+          type: string
+          enum:
+          - Low
+          - Medium
+          - High
+          - Critical
+          default: Low
+          description: Execution priority
+          example: Low
+        workerTag:
+          type: string
+          default: none
+          description: Worker tag for execution routing
+          example: example_value
+        credentialId:
+          type: string
+          description: Credential to use for execution
+          example: '500123'
+        timeZone:
+          type: string
+          default: UTC
+          description: Time zone for the schedule (defaults to UTC-0)
+          example: example_value
+        questions:
+          type: array
+          description: Analytic app question values
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              value:
+                type: string
+          example: []
     ScheduleSummary:
       type: object
       description: Summary representation of a schedule
@@ -389,256 +639,6 @@ components:
               type: string
               description: 'Cron expression with 5 mandatory fields: minute, hour, day-of-month, month, day-of-week'
           example: example_value
-    ErrorResponse:
-      type: object
-      description: Standard error response
-      properties:
-        message:
-          type: string
-          description: Human-readable error message
-          example: example_value
-        errors:
-          type: array
-          description: Detailed error information
-          items:
-            type: object
-            properties:
-              field:
-                type: string
-              message:
-                type: string
-          example: []
-    ScheduleDetail:
-      type: object
-      description: Detailed representation of a schedule
-      properties:
-        id:
-          type: string
-          description: Unique schedule identifier
-          example: abc123
-        name:
-          type: string
-          description: Name of the schedule
-          example: Example Title
-        workflowId:
-          type: string
-          description: ID of the associated workflow
-          example: '500123'
-        versionId:
-          type: string
-          description: Specific workflow version ID
-          example: '500123'
-        ownerId:
-          type: string
-          description: ID of the schedule owner
-          example: '500123'
-        runDateTime:
-          type: string
-          format: date-time
-          description: Next scheduled run date and time
-          example: '2026-01-15T10:30:00Z'
-        comment:
-          type: string
-          description: Comments about the schedule
-          example: example_value
-        enabled:
-          type: boolean
-          description: Whether the schedule is active
-          example: true
-        priority:
-          type: string
-          enum:
-          - Low
-          - Medium
-          - High
-          - Critical
-          description: Execution priority
-          example: Low
-        workerTag:
-          type: string
-          description: Worker tag for execution routing
-          example: example_value
-        status:
-          type: string
-          description: Current status of the schedule
-          example: example_value
-        credentialId:
-          type: string
-          description: Credential used for execution
-          example: '500123'
-        creationTime:
-          type: string
-          format: date-time
-          description: When the schedule was created
-          example: '2026-01-15T10:30:00Z'
-        lastRunTime:
-          type: string
-          format: date-time
-          description: When the schedule last executed
-          example: '2026-01-15T10:30:00Z'
-        state:
-          type: string
-          description: Current state of the schedule
-          example: example_value
-        runCount:
-          type: integer
-          description: Total number of times the schedule has executed
-          example: 10
-        iteration:
-          $ref: '#/components/schemas/ScheduleIteration'
-        frequency:
-          type: string
-          description: Human-readable frequency description
-          example: example_value
-        lastError:
-          type: string
-          description: Last error message if any
-          example: example_value
-        cpuName:
-          type: string
-          description: Name of the worker node
-          example: example_value
-        lastModifiedId:
-          type: string
-          description: ID of the user who last modified the schedule
-          example: '500123'
-        lastModifiedDate:
-          type: string
-          format: date-time
-          description: Date of last modification
-          example: '2026-01-15T10:30:00Z'
-        canEdit:
-          type: boolean
-          description: Whether the current user can edit this schedule
-          example: true
-        timeZone:
-          type: string
-          description: Time zone for the schedule
-          example: example_value
-        questions:
-          type: array
-          description: Analytic app question values
-          items:
-            type: object
-            properties:
-              name:
-                type: string
-              value:
-                type: string
-          example: []
-    CreateScheduleContract:
-      type: object
-      description: Contract for creating a new schedule
-      required:
-      - workflowId
-      - iteration
-      properties:
-        workflowId:
-          type: string
-          description: ID of the workflow to schedule
-          example: '500123'
-        iteration:
-          $ref: '#/components/schemas/ScheduleIteration'
-        name:
-          type: string
-          description: Name of the schedule
-          example: Example Title
-        comment:
-          type: string
-          description: Comments about the schedule
-          example: example_value
-        priority:
-          type: string
-          enum:
-          - Low
-          - Medium
-          - High
-          - Critical
-          default: Low
-          description: Execution priority
-          example: Low
-        workerTag:
-          type: string
-          default: none
-          description: Worker tag for execution routing
-          example: example_value
-        credentialId:
-          type: string
-          description: Credential to use for execution
-          example: '500123'
-        timeZone:
-          type: string
-          default: UTC
-          description: Time zone for the schedule (defaults to UTC-0)
-          example: example_value
-        questions:
-          type: array
-          description: Analytic app question values
-          items:
-            type: object
-            properties:
-              name:
-                type: string
-              value:
-                type: string
-          example: []
-    UpdateScheduleContract:
-      type: object
-      description: Contract for fully updating a schedule (all required fields must be provided)
-      required:
-      - workflowId
-      - ownerId
-      - iteration
-      - name
-      - comment
-      - workerTag
-      - credentialId
-      properties:
-        workflowId:
-          type: string
-          example: '500123'
-        ownerId:
-          type: string
-          example: '500123'
-        iteration:
-          $ref: '#/components/schemas/ScheduleIteration'
-        name:
-          type: string
-          example: Example Title
-        comment:
-          type: string
-          example: example_value
-        priority:
-          type: string
-          enum:
-          - Low
-          - Medium
-          - High
-          - Critical
-          default: Low
-          example: Low
-        workerTag:
-          type: string
-          example: example_value
-        enabled:
-          type: boolean
-          example: true
-        credentialId:
-          type: string
-          example: '500123'
-        timeZone:
-          type: string
-          example: example_value
-        questions:
-          type: array
-          items:
-            type: object
-            properties:
-              name:
-                type: string
-              value:
-                type: string
-          example: []
   parameters:
     scheduleId:
       name: scheduleId
