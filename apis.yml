@@ -306,6 +306,12 @@ apis:
     url: >-
       https://help.alteryx.com/current/en/server/api-overview/alteryx-server-api-v3/server-api-configuration-and-authorization.html
 common:
+  - type: Plans
+    url: plans/alteryx-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/alteryx-rate-limits.yml
+  - type: FinOps
+    url: finops/alteryx-finops.yml
   - type: Website
     url: https://www.alteryx.com/
   - type: PostmanWorkspace
