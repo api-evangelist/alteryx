@@ -454,13 +454,6 @@ components:
       description: Unique identifier of the user
       schema:
         type: string
-    scheduleId:
-      name: scheduleId
-      in: path
-      required: true
-      description: Unique identifier of the schedule
-      schema:
-        type: string
     collectionId:
       name: collectionId
       in: path
@@ -468,7 +461,35 @@ components:
       description: Unique identifier of the collection
       schema:
         type: string
+    scheduleId:
+      name: scheduleId
+      in: path
+      required: true
+      description: Unique identifier of the schedule
+      schema:
+        type: string
   schemas:
+    Collection:
+      type: object
+      description: A collection of workflows, schedules, and users
+      properties:
+        id:
+          type: string
+          description: Unique collection identifier
+          example: abc123
+        name:
+          type: string
+          description: Name of the collection
+          example: Example Title
+        ownerId:
+          type: string
+          description: ID of the collection owner
+          example: '500123'
+        dateCreated:
+          type: string
+          format: date-time
+          description: Date the collection was created
+          example: '2026-01-15T10:30:00Z'
     CollectionPermissionFlags:
       type: object
       description: Permission flags for collection access
@@ -525,27 +546,6 @@ components:
           type: boolean
           default: false
           example: true
-    Collection:
-      type: object
-      description: A collection of workflows, schedules, and users
-      properties:
-        id:
-          type: string
-          description: Unique collection identifier
-          example: abc123
-        name:
-          type: string
-          description: Name of the collection
-          example: Example Title
-        ownerId:
-          type: string
-          description: ID of the collection owner
-          example: '500123'
-        dateCreated:
-          type: string
-          format: date-time
-          description: Date the collection was created
-          example: '2026-01-15T10:30:00Z'
   securitySchemes:
     oauth2:
       type: oauth2

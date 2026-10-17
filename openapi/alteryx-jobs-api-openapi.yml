@@ -128,7 +128,82 @@ paths:
         delay: 0
         dispatcher: FALLBACK
 components:
+  parameters:
+    workflowId:
+      name: workflowId
+      in: path
+      required: true
+      description: Unique identifier of the workflow
+      schema:
+        type: string
   schemas:
+    CreateJobContract:
+      type: object
+      description: Contract for creating a new execution job
+      properties:
+        workerTag:
+          type: string
+          default: none
+          description: Worker tag for routing
+          example: example_value
+        credentialId:
+          type: string
+          description: Credential to use for execution
+          example: '500123'
+        questions:
+          type: array
+          description: Analytic app question values
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              value:
+                type: string
+          example: []
+        priority:
+          type: string
+          enum:
+          - Low
+          - Medium
+          - High
+          - Critical
+          description: Job priority
+          example: Low
+    JobSummary:
+      type: object
+      description: Summary representation of an execution job
+      properties:
+        id:
+          type: string
+          description: Unique job identifier
+          example: abc123
+        createDate:
+          type: string
+          format: date-time
+          description: Date the job was created
+          example: '2026-01-15T10:30:00Z'
+        status:
+          type: string
+          description: Current job status
+          example: example_value
+        priority:
+          type: string
+          enum:
+          - Low
+          - Medium
+          - High
+          - Critical
+          description: Job priority
+          example: Low
+        workerTag:
+          type: string
+          description: Worker tag for execution routing
+          example: example_value
+        runWithE2:
+          type: boolean
+          description: Whether the job runs with AMP engine
+          example: true
     JobDetail:
       type: object
       description: Detailed representation of an execution job
@@ -202,81 +277,6 @@ components:
         runWithE2:
           type: boolean
           example: true
-    JobSummary:
-      type: object
-      description: Summary representation of an execution job
-      properties:
-        id:
-          type: string
-          description: Unique job identifier
-          example: abc123
-        createDate:
-          type: string
-          format: date-time
-          description: Date the job was created
-          example: '2026-01-15T10:30:00Z'
-        status:
-          type: string
-          description: Current job status
-          example: example_value
-        priority:
-          type: string
-          enum:
-          - Low
-          - Medium
-          - High
-          - Critical
-          description: Job priority
-          example: Low
-        workerTag:
-          type: string
-          description: Worker tag for execution routing
-          example: example_value
-        runWithE2:
-          type: boolean
-          description: Whether the job runs with AMP engine
-          example: true
-    CreateJobContract:
-      type: object
-      description: Contract for creating a new execution job
-      properties:
-        workerTag:
-          type: string
-          default: none
-          description: Worker tag for routing
-          example: example_value
-        credentialId:
-          type: string
-          description: Credential to use for execution
-          example: '500123'
-        questions:
-          type: array
-          description: Analytic app question values
-          items:
-            type: object
-            properties:
-              name:
-                type: string
-              value:
-                type: string
-          example: []
-        priority:
-          type: string
-          enum:
-          - Low
-          - Medium
-          - High
-          - Critical
-          description: Job priority
-          example: Low
-  parameters:
-    workflowId:
-      name: workflowId
-      in: path
-      required: true
-      description: Unique identifier of the workflow
-      schema:
-        type: string
   securitySchemes:
     oauth2:
       type: oauth2

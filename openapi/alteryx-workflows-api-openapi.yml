@@ -468,6 +468,153 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    WorkflowSummary:
+      type: object
+      description: Summary representation of an Alteryx workflow
+      properties:
+        id:
+          type: string
+          description: Unique workflow identifier
+          example: abc123
+        sourceAppId:
+          type: string
+          description: Source application identifier for migration tracking
+          example: '500123'
+        name:
+          type: string
+          description: Name of the workflow
+          example: Example Title
+        ownerId:
+          type: string
+          description: ID of the workflow owner
+          example: '500123'
+        dateCreated:
+          type: string
+          format: date-time
+          description: Date the workflow was created (ISO 8601)
+          example: '2026-01-15T10:30:00Z'
+        publishedVersionNumber:
+          type: integer
+          description: Version number of the published version
+          example: 10
+        isAmp:
+          type: boolean
+          description: Whether the workflow uses AMP engine
+          example: true
+        executionMode:
+          type: string
+          enum:
+          - Safe
+          - SemiSafe
+          - Standard
+          description: Execution mode for the workflow
+          example: Safe
+    WorkflowQuestion:
+      type: object
+      description: An analytic app question (input parameter)
+      properties:
+        name:
+          type: string
+          description: Name of the question
+          example: Example Title
+        questionType:
+          type: string
+          description: Type of the question input
+          example: example_value
+        description:
+          type: string
+          description: Description of the question
+          example: A sample description.
+        value:
+          type: string
+          description: Default value
+          example: example_value
+        multiple:
+          type: boolean
+          description: Whether multiple selections are allowed
+          example: true
+        items:
+          type: array
+          description: Available options for the question
+          items:
+            type: object
+            properties:
+              key:
+                type: string
+              value:
+                type: string
+          example: []
+    WorkflowVersion:
+      type: object
+      description: A specific version of a workflow
+      properties:
+        versionId:
+          type: string
+          description: Unique version identifier
+          example: '500123'
+        versionNumber:
+          type: integer
+          description: Sequential version number
+          example: 10
+        dateCreated:
+          type: string
+          format: date-time
+          description: Date the version was created
+          example: '2026-01-15T10:30:00Z'
+        uploadSource:
+          type: string
+          description: Source from which the version was uploaded
+          example: example_value
+        uploadDate:
+          type: string
+          format: date-time
+          description: Date the version was uploaded
+          example: '2026-01-15T10:30:00Z'
+        packageWorkflowType:
+          type: string
+          description: Type of workflow in the package
+          example: example_value
+        published:
+          type: boolean
+          description: Whether this version is the published version
+          example: true
+        comments:
+          type: string
+          description: Comments about this version
+          example: example_value
+        runDisabled:
+          type: boolean
+          description: Whether execution is disabled for this version
+          example: true
+        executionMode:
+          type: string
+          enum:
+          - Safe
+          - SemiSafe
+          - Standard
+          example: Safe
+        workflowCredentialType:
+          type: string
+          enum:
+          - Default
+          - Required
+          - Specific
+          example: Default
+        credentialId:
+          type: string
+          description: Credential ID if workflowCredentialType is Specific
+          example: '500123'
+        hasPrivateDataExemption:
+          type: boolean
+          example: true
+        othersMayDownload:
+          type: boolean
+          example: true
+        othersCanViewHistory:
+          type: boolean
+          example: true
+        details:
+          $ref: '#/components/schemas/WorkflowVersionDetails'
     WorkflowDetail:
       type: object
       description: Detailed representation of an Alteryx workflow including versions
@@ -545,118 +692,6 @@ components:
           type: boolean
           description: Whether the workflow has a private data exemption
           example: true
-    WorkflowVersion:
-      type: object
-      description: A specific version of a workflow
-      properties:
-        versionId:
-          type: string
-          description: Unique version identifier
-          example: '500123'
-        versionNumber:
-          type: integer
-          description: Sequential version number
-          example: 10
-        dateCreated:
-          type: string
-          format: date-time
-          description: Date the version was created
-          example: '2026-01-15T10:30:00Z'
-        uploadSource:
-          type: string
-          description: Source from which the version was uploaded
-          example: example_value
-        uploadDate:
-          type: string
-          format: date-time
-          description: Date the version was uploaded
-          example: '2026-01-15T10:30:00Z'
-        packageWorkflowType:
-          type: string
-          description: Type of workflow in the package
-          example: example_value
-        published:
-          type: boolean
-          description: Whether this version is the published version
-          example: true
-        comments:
-          type: string
-          description: Comments about this version
-          example: example_value
-        runDisabled:
-          type: boolean
-          description: Whether execution is disabled for this version
-          example: true
-        executionMode:
-          type: string
-          enum:
-          - Safe
-          - SemiSafe
-          - Standard
-          example: Safe
-        workflowCredentialType:
-          type: string
-          enum:
-          - Default
-          - Required
-          - Specific
-          example: Default
-        credentialId:
-          type: string
-          description: Credential ID if workflowCredentialType is Specific
-          example: '500123'
-        hasPrivateDataExemption:
-          type: boolean
-          example: true
-        othersMayDownload:
-          type: boolean
-          example: true
-        othersCanViewHistory:
-          type: boolean
-          example: true
-        details:
-          $ref: '#/components/schemas/WorkflowVersionDetails'
-    WorkflowSummary:
-      type: object
-      description: Summary representation of an Alteryx workflow
-      properties:
-        id:
-          type: string
-          description: Unique workflow identifier
-          example: abc123
-        sourceAppId:
-          type: string
-          description: Source application identifier for migration tracking
-          example: '500123'
-        name:
-          type: string
-          description: Name of the workflow
-          example: Example Title
-        ownerId:
-          type: string
-          description: ID of the workflow owner
-          example: '500123'
-        dateCreated:
-          type: string
-          format: date-time
-          description: Date the workflow was created (ISO 8601)
-          example: '2026-01-15T10:30:00Z'
-        publishedVersionNumber:
-          type: integer
-          description: Version number of the published version
-          example: 10
-        isAmp:
-          type: boolean
-          description: Whether the workflow uses AMP engine
-          example: true
-        executionMode:
-          type: string
-          enum:
-          - Safe
-          - SemiSafe
-          - Standard
-          description: Execution mode for the workflow
-          example: Safe
     ErrorResponse:
       type: object
       description: Standard error response
@@ -674,41 +709,6 @@ components:
               field:
                 type: string
               message:
-                type: string
-          example: []
-    WorkflowQuestion:
-      type: object
-      description: An analytic app question (input parameter)
-      properties:
-        name:
-          type: string
-          description: Name of the question
-          example: Example Title
-        questionType:
-          type: string
-          description: Type of the question input
-          example: example_value
-        description:
-          type: string
-          description: Description of the question
-          example: A sample description.
-        value:
-          type: string
-          description: Default value
-          example: example_value
-        multiple:
-          type: boolean
-          description: Whether multiple selections are allowed
-          example: true
-        items:
-          type: array
-          description: Available options for the question
-          items:
-            type: object
-            properties:
-              key:
-                type: string
-              value:
                 type: string
           example: []
     WorkflowVersionDetails:
