@@ -33,3 +33,33 @@
     detected: '2026-10-20'
   status: not-a-workflow
   arazzo: null
+- slug: alteryx-cran
+  label: CRAN
+  partner_name: CRAN
+  category: official SDK (R)
+  type: register
+  channel: package-registry
+  evidence: https://cran.r-project.org/package=promote
+  source: edge
+  relationship: distribution-channel
+  contract_reference:
+    register: CRAN (packages.rds, the public package metadata table)
+    spec_file: null
+    language: R
+    packages:
+    - name: promote
+      version: 1.1.1
+      title: Client for the 'Alteryx Promote' API
+      released: '2019-02-06'
+      released_field: Published
+      lapsed: true
+      page: https://cran.r-project.org/package=promote
+      repo_leg: github-org:alteryx
+      publisher_leg: email:alteryx.com
+      matched_by: domain+name-among-holders
+    current: false
+    signal_note: 'an official R package on CRAN: distribution, not an integration; lapsed = no release in 24 months'
+    detected_by: sweep-cran-r-packages.py
+    detected: '2026-10-22'
+  status: not-a-workflow
+  arazzo: null
