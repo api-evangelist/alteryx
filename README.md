@@ -1,4 +1,4 @@
-# Alteryx (alteryx)
+# Alteryx
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,203 +66,264 @@
 
 Alteryx is an analytics automation platform that enables data analysts and scientists to break data barriers, deliver insights, and experience the thrill of getting to the answer faster.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/alteryx/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/alteryx/refs/heads/main/apis.yml)
+**Areas:** Analytics · Automation · Data Engineering · Data Preparation · Data Science · ETL · Machine Learning · Predictive Analytics
 
-## Tags
+## Alteryx on APIs.io
 
-- Analytics
-- Automation
-- Data Engineering
-- Data Preparation
-- Data Science
-- ETL
-- Machine Learning
-- Predictive Analytics
+Everything profiled for Alteryx is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/alteryx/](https://apis.io/providers/alteryx/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (12)
 
-- **Created:** 2024-01-15
-- **Modified:** 2026-05-19
+- [Alteryx Server API](https://apis.io/apis/alteryx/alteryx-server-api/) — REST API for managing workflows, schedules, and jobs on Alteryx Server. Provides Subscription, User V2, Admin V1, Admin V2, and V3 API endpoints for…
+- [Alteryx Server API V1](https://apis.io/apis/alteryx/alteryx-server-api-v1/) — The V1 API for Alteryx Server provides endpoints for admins including the Migratable Endpoint for migrating workflows across Server environments and the…
+- [Alteryx Gallery API](https://apis.io/apis/alteryx/alteryx-gallery-api/) — API for interacting with Alteryx Analytics Gallery for workflow sharing and execution.
+- [Alteryx Connect API](https://apis.io/apis/alteryx/alteryx-connect-api/) — API for Alteryx Connect data catalog and collaboration platform.
+- [Alteryx AlteryxEngine API](https://apis.io/apis/alteryx/alteryx-alteryxengine-api/) — The AlteryxEngine API allows you to call into the Alteryx Engine to build applications that can programmatically execute Alteryx Designer workflows.…
+- [Alteryx Designer Cloud API](https://apis.io/apis/alteryx/alteryx-designer-cloud-api/) — REST API for Alteryx Designer Cloud (powered by Trifacta) providing data preparation, transformation, and pipeline management capabilities. Enables…
+- [Alteryx Collections API](https://apis.io/apis/alteryx/alteryx-collections-api/) — Manage collections of workflows, schedules, users, and user groups
+- [Alteryx Credentials API](https://apis.io/apis/alteryx/alteryx-credentials-api/) — Manage stored credentials and credential sharing
+- [Alteryx Jobs API](https://apis.io/apis/alteryx/alteryx-jobs-api/) — Manage and monitor workflow execution jobs
+- [Alteryx Schedules API](https://apis.io/apis/alteryx/alteryx-schedules-api/) — Create, retrieve, update, and delete workflow execution schedules
+- [Alteryx Users API](https://apis.io/apis/alteryx/alteryx-users-api/) — Manage user accounts, permissions, and asset transfers
+- [Alteryx Workflows API](https://apis.io/apis/alteryx/alteryx-workflows-api/) — Manage workflows including upload, retrieval, update, deletion, versioning, and job execution
 
-## APIs
+### Published properties
 
-### Alteryx Server API
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-REST API for managing workflows, schedules, and jobs on Alteryx Server. Provides Subscription, User V2, Admin V1, Admin V2, and V3 API endpoints for creating, updating, searching, and deleting users, user groups, schedules, credentials, collections, workflows, and Server connections.
+#### Agentic access (1)
 
-- **Human URL:** [https://help.alteryx.com/current/en/server/api-overview.html](https://help.alteryx.com/current/en/server/api-overview.html)
-- **Base URL:** `https://your-server/webapi`
+Which operations an agent can call, which act, and which need a human in the loop.
 
-#### Tags
+- [Alteryx Agentic Access](https://apis.io/agentic-access/alteryx/alteryx-agentic-access/)
 
-- Automation
-- Jobs
-- Scheduling
-- Server
-- Workflows
+#### JSON Schema (49)
 
-#### Properties
+The data models the API reads and writes.
 
-- [Documentation](https://help.alteryx.com/current/en/server/api-overview.html)
-- [API Reference](https://help.alteryx.com/developer-help/server-api-reference)
-- [Authentication](https://help.alteryx.com/current/en/server/api-overview/alteryx-server-api-v3/server-api-configuration-and-authorization.html)
-- [Getting Started](https://help.alteryx.com/current/en/developer-help/apis/get-started-with-apis.html)
-- [Postman Collection](collections/alteryx-server-api-v3.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/alteryx-server-api-v3.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Collection](https://apis.io/schemas/alteryx/alteryx-collection/)
+- [CollectionPermissionFlags](https://apis.io/schemas/alteryx/alteryx-collectionpermissionflags/)
+- [CollectionUserPermission](https://apis.io/schemas/alteryx/alteryx-collectionuserpermission/)
+- [CreateJobContract](https://apis.io/schemas/alteryx/alteryx-createjobcontract/)
+- [CreateScheduleContract](https://apis.io/schemas/alteryx/alteryx-createschedulecontract/)
+- [CreateUserContract](https://apis.io/schemas/alteryx/alteryx-createusercontract/)
+- [Credential](https://apis.io/schemas/alteryx/alteryx-credential/)
+- [ErrorResponse](https://apis.io/schemas/alteryx/alteryx-errorresponse/)
+- [JobDetail](https://apis.io/schemas/alteryx/alteryx-jobdetail/)
+- [JobSummary](https://apis.io/schemas/alteryx/alteryx-jobsummary/)
+- [PatchScheduleContract](https://apis.io/schemas/alteryx/alteryx-patchschedulecontract/)
+- [ScheduleDetail](https://apis.io/schemas/alteryx/alteryx-scheduledetail/)
+- [ScheduleIteration](https://apis.io/schemas/alteryx/alteryx-scheduleiteration/)
+- [ScheduleSummary](https://apis.io/schemas/alteryx/alteryx-schedulesummary/)
+- [Collection](https://apis.io/schemas/alteryx/alteryx-server-v3-collection/)
+- [CollectionPermissionFlags](https://apis.io/schemas/alteryx/alteryx-server-v3-collection-permission-flags/)
+- [CollectionUserPermission](https://apis.io/schemas/alteryx/alteryx-server-v3-collection-user-permission/)
+- [CreateJobContract](https://apis.io/schemas/alteryx/alteryx-server-v3-create-job-contract/)
+- [CreateScheduleContract](https://apis.io/schemas/alteryx/alteryx-server-v3-create-schedule-contract/)
+- [CreateUserContract](https://apis.io/schemas/alteryx/alteryx-server-v3-create-user-contract/)
+- [Credential](https://apis.io/schemas/alteryx/alteryx-server-v3-credential/)
+- [ErrorResponse](https://apis.io/schemas/alteryx/alteryx-server-v3-error-response/)
+- [JobDetail](https://apis.io/schemas/alteryx/alteryx-server-v3-job-detail/)
+- [JobSummary](https://apis.io/schemas/alteryx/alteryx-server-v3-job-summary/)
+- [PatchScheduleContract](https://apis.io/schemas/alteryx/alteryx-server-v3-patch-schedule-contract/)
+- …and 24 more published on APIs.io
 
-### Alteryx Server API V3
+#### JSON Structure (25)
 
-The V3 Admin API for Alteryx Server uses OAuth 2 authentication and implements POST, PUT, GET, and DELETE functionality for modifying assets, users, credentials, and connections so admins can automate tasks and integrate Server with their existing API automation tools.
+Data models expressed in JSON Structure.
 
-- **Human URL:** [https://help.alteryx.com/current/en/server/api-overview/alteryx-server-api-v3.html](https://help.alteryx.com/current/en/server/api-overview/alteryx-server-api-v3.html)
-- **Base URL:** `https://your-server/webapi/v3`
+- [Alteryx Server V3 Collection Permission Flags Structure](https://apis.io/json-structure/alteryx/alteryx-server-v3-collection-permission-flags-structure/)
+- [Alteryx Server V3 Collection Structure](https://apis.io/json-structure/alteryx/alteryx-server-v3-collection-structure/)
+- [Alteryx Server V3 Collection User Permission Structure](https://apis.io/json-structure/alteryx/alteryx-server-v3-collection-user-permission-structure/)
+- [Alteryx Server V3 Create Job Contract Structure](https://apis.io/json-structure/alteryx/alteryx-server-v3-create-job-contract-structure/)
+- [Alteryx Server V3 Create Schedule Contract Structure](https://apis.io/json-structure/alteryx/alteryx-server-v3-create-schedule-contract-structure/)
+- [Alteryx Server V3 Create User Contract Structure](https://apis.io/json-structure/alteryx/alteryx-server-v3-create-user-contract-structure/)
+- [Alteryx Server V3 Credential Structure](https://apis.io/json-structure/alteryx/alteryx-server-v3-credential-structure/)
+- [Alteryx Server V3 Error Response Structure](https://apis.io/json-structure/alteryx/alteryx-server-v3-error-response-structure/)
+- [Alteryx Server V3 Job Detail Structure](https://apis.io/json-structure/alteryx/alteryx-server-v3-job-detail-structure/)
+- [Alteryx Server V3 Job Summary Structure](https://apis.io/json-structure/alteryx/alteryx-server-v3-job-summary-structure/)
+- [Alteryx Server V3 Patch Schedule Contract Structure](https://apis.io/json-structure/alteryx/alteryx-server-v3-patch-schedule-contract-structure/)
+- [Alteryx Server V3 Schedule Detail Structure](https://apis.io/json-structure/alteryx/alteryx-server-v3-schedule-detail-structure/)
+- [Alteryx Server V3 Schedule Iteration Structure](https://apis.io/json-structure/alteryx/alteryx-server-v3-schedule-iteration-structure/)
+- [Alteryx Server V3 Schedule Summary Structure](https://apis.io/json-structure/alteryx/alteryx-server-v3-schedule-summary-structure/)
+- [Alteryx Server V3 Update Schedule Contract Structure](https://apis.io/json-structure/alteryx/alteryx-server-v3-update-schedule-contract-structure/)
+- [Alteryx Server V3 Update User Contract Structure](https://apis.io/json-structure/alteryx/alteryx-server-v3-update-user-contract-structure/)
+- [Alteryx Server V3 Update Workflow Contract Structure](https://apis.io/json-structure/alteryx/alteryx-server-v3-update-workflow-contract-structure/)
+- [Alteryx Server V3 User Asset Structure](https://apis.io/json-structure/alteryx/alteryx-server-v3-user-asset-structure/)
+- [Alteryx Server V3 User Detail Structure](https://apis.io/json-structure/alteryx/alteryx-server-v3-user-detail-structure/)
+- [Alteryx Server V3 Workflow Detail Structure](https://apis.io/json-structure/alteryx/alteryx-server-v3-workflow-detail-structure/)
+- [Alteryx Server V3 Workflow Question Structure](https://apis.io/json-structure/alteryx/alteryx-server-v3-workflow-question-structure/)
+- [Alteryx Server V3 Workflow Summary Structure](https://apis.io/json-structure/alteryx/alteryx-server-v3-workflow-summary-structure/)
+- [Alteryx Server V3 Workflow Version Details Structure](https://apis.io/json-structure/alteryx/alteryx-server-v3-workflow-version-details-structure/)
+- [Alteryx Server V3 Workflow Version Structure](https://apis.io/json-structure/alteryx/alteryx-server-v3-workflow-version-structure/)
+- [Alteryx Structure](https://apis.io/json-structure/alteryx/alteryx-structure/)
 
-#### Tags
+#### JSON-LD (2)
 
-- Admin
-- Credentials
-- OAuth2
-- Server
-- Users
-- Workflows
+Linked-data contexts for the provider's vocabulary.
 
-#### Properties
+- [Alteryx Context](https://apis.io/jsonld/alteryx/alteryx-context/)
+- [Alteryx Server V3 Context](https://apis.io/jsonld/alteryx/alteryx-server-v3-context/)
 
-- [Documentation](https://help.alteryx.com/current/en/server/api-overview/alteryx-server-api-v3.html)
-- [Authentication](https://help.alteryx.com/current/en/server/api-overview/alteryx-server-api-v3/server-api-configuration-and-authorization.html)
-- [OpenAPI](openapi/alteryx-server-api-v3.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/alteryx-server-api-v3.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/alteryx-server-api-v3.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### Vocabulary (1)
 
-### Alteryx Server API V1
+The provider's domain terms, defined.
 
-The V1 API for Alteryx Server provides endpoints for admins including the Migratable Endpoint for migrating workflows across Server environments and the Auditlog Endpoint for tracking changes to system entities.
+- [Alteryx Domain Vocabulary](https://apis.io/vocabularies/alteryx/alteryx-vocabulary/)
 
-- **Human URL:** [https://help.alteryx.com/current/en/server/api-overview/alteryx-server-api-v1.html](https://help.alteryx.com/current/en/server/api-overview/alteryx-server-api-v1.html)
-- **Base URL:** `https://your-server/webapi/v1`
+#### Examples (24)
 
-#### Tags
+Example requests and responses.
 
-- Admin
-- Audit
-- Migration
-- Server
+- [Alteryx Server V3 Collection Example](https://apis.io/examples/alteryx/alteryx-server-v3-collection-example/)
+- [Alteryx Server V3 Collection Permission Flags Example](https://apis.io/examples/alteryx/alteryx-server-v3-collection-permission-flags-example/)
+- [Alteryx Server V3 Collection User Permission Example](https://apis.io/examples/alteryx/alteryx-server-v3-collection-user-permission-example/)
+- [Alteryx Server V3 Create Job Contract Example](https://apis.io/examples/alteryx/alteryx-server-v3-create-job-contract-example/)
+- [Alteryx Server V3 Create Schedule Contract Example](https://apis.io/examples/alteryx/alteryx-server-v3-create-schedule-contract-example/)
+- [Alteryx Server V3 Create User Contract Example](https://apis.io/examples/alteryx/alteryx-server-v3-create-user-contract-example/)
+- [Alteryx Server V3 Credential Example](https://apis.io/examples/alteryx/alteryx-server-v3-credential-example/)
+- [Alteryx Server V3 Error Response Example](https://apis.io/examples/alteryx/alteryx-server-v3-error-response-example/)
+- [Alteryx Server V3 Job Detail Example](https://apis.io/examples/alteryx/alteryx-server-v3-job-detail-example/)
+- [Alteryx Server V3 Job Summary Example](https://apis.io/examples/alteryx/alteryx-server-v3-job-summary-example/)
+- [Alteryx Server V3 Patch Schedule Contract Example](https://apis.io/examples/alteryx/alteryx-server-v3-patch-schedule-contract-example/)
+- [Alteryx Server V3 Schedule Detail Example](https://apis.io/examples/alteryx/alteryx-server-v3-schedule-detail-example/)
+- [Alteryx Server V3 Schedule Iteration Example](https://apis.io/examples/alteryx/alteryx-server-v3-schedule-iteration-example/)
+- [Alteryx Server V3 Schedule Summary Example](https://apis.io/examples/alteryx/alteryx-server-v3-schedule-summary-example/)
+- [Alteryx Server V3 Update Schedule Contract Example](https://apis.io/examples/alteryx/alteryx-server-v3-update-schedule-contract-example/)
+- [Alteryx Server V3 Update User Contract Example](https://apis.io/examples/alteryx/alteryx-server-v3-update-user-contract-example/)
+- [Alteryx Server V3 Update Workflow Contract Example](https://apis.io/examples/alteryx/alteryx-server-v3-update-workflow-contract-example/)
+- [Alteryx Server V3 User Asset Example](https://apis.io/examples/alteryx/alteryx-server-v3-user-asset-example/)
+- [Alteryx Server V3 User Detail Example](https://apis.io/examples/alteryx/alteryx-server-v3-user-detail-example/)
+- [Alteryx Server V3 Workflow Detail Example](https://apis.io/examples/alteryx/alteryx-server-v3-workflow-detail-example/)
+- [Alteryx Server V3 Workflow Question Example](https://apis.io/examples/alteryx/alteryx-server-v3-workflow-question-example/)
+- [Alteryx Server V3 Workflow Summary Example](https://apis.io/examples/alteryx/alteryx-server-v3-workflow-summary-example/)
+- [Alteryx Server V3 Workflow Version Details Example](https://apis.io/examples/alteryx/alteryx-server-v3-workflow-version-details-example/)
+- [Alteryx Server V3 Workflow Version Example](https://apis.io/examples/alteryx/alteryx-server-v3-workflow-version-example/)
 
-#### Properties
+#### Collections (13)
 
-- [Documentation](https://help.alteryx.com/current/en/server/api-overview/alteryx-server-api-v1.html)
-- [Postman Collection](collections/alteryx-server-api-v3.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/alteryx-server-api-v3.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Postman and Open Collection request collections.
 
-### Alteryx Gallery API
+- [Alteryx Server API V3 Collections API](https://apis.io/collections/alteryx/open-alteryx-collections-api/)
+- [Alteryx Server API V3 Collections Credentials API](https://apis.io/collections/alteryx/open-alteryx-credentials-api/)
+- [Alteryx Server API V3 Collections Jobs API](https://apis.io/collections/alteryx/open-alteryx-jobs-api/)
+- [Alteryx Server API V3 Collections Schedules API](https://apis.io/collections/alteryx/open-alteryx-schedules-api/)
+- [Alteryx Server API V3](https://apis.io/collections/alteryx/open-alteryx-server-api-v3/)
+- [Alteryx Server API V3 Collections Users API](https://apis.io/collections/alteryx/open-alteryx-users-api/)
+- [Alteryx Server API V3 Collections Workflows API](https://apis.io/collections/alteryx/open-alteryx-workflows-api/)
+- [Alteryx Server API V3 Collections API](https://apis.io/collections/alteryx/postman-alteryx-collections-api/)
+- [Alteryx Server API V3 Collections Credentials API](https://apis.io/collections/alteryx/postman-alteryx-credentials-api/)
+- [Alteryx Server API V3 Collections Jobs API](https://apis.io/collections/alteryx/postman-alteryx-jobs-api/)
+- [Alteryx Server API V3 Collections Schedules API](https://apis.io/collections/alteryx/postman-alteryx-schedules-api/)
+- [Alteryx Server API V3 Collections Users API](https://apis.io/collections/alteryx/postman-alteryx-users-api/)
+- [Alteryx Server API V3 Collections Workflows API](https://apis.io/collections/alteryx/postman-alteryx-workflows-api/)
 
-API for interacting with Alteryx Analytics Gallery for workflow sharing and execution.
+#### Governance rules (2)
 
-- **Human URL:** [https://help.alteryx.com/developer-help/gallery-api-overview](https://help.alteryx.com/developer-help/gallery-api-overview)
-- **Base URL:** `https://gallery.alteryx.com/api`
+Spectral rulesets for the provider's contracts.
 
-#### Tags
+- [Alteryx — jsonschema rules](https://apis.io/rules/alteryx/alteryx-jsonschema-spectral-rules/)
+- [Alteryx API Rules](https://apis.io/rules/alteryx/alteryx-spectral-rules/)
 
-- Gallery
-- Public API
-- Sharing
-- Workflows
+#### Security (4)
 
-#### Properties
+Authentication, trust centre, and vulnerability disclosure.
 
-- [Documentation](https://help.alteryx.com/developer-help/gallery-api-overview)
-- [API Reference](https://help.alteryx.com/developer-help/gallery-api-reference)
-- [Authentication](https://help.alteryx.com/developer-help/gallery-api-authentication)
-- [Postman Collection](collections/alteryx-server-api-v3.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/alteryx-server-api-v3.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Alteryx Authentication](https://apis.io/security/alteryx/alteryx-authentication/)
+- [Alteryx Domain Security](https://apis.io/security/alteryx/alteryx-domain-security/)
+- [Alteryx Trust Center](https://apis.io/security/alteryx/alteryx-trust-center/)
+- [Alteryx Vulnerability Disclosure](https://apis.io/security/alteryx/alteryx-vulnerability-disclosure/)
 
-### Alteryx Connect API
+#### OAuth scopes (1)
 
-API for Alteryx Connect data catalog and collaboration platform.
+The permissions the API asks for.
 
-- **Human URL:** [https://help.alteryx.com/developer-help/connect-api](https://help.alteryx.com/developer-help/connect-api)
-- **Base URL:** `https://your-connect-server/api`
+- [Alteryx Scopes](https://apis.io/scopes/alteryx/alteryx-scopes/)
 
-#### Tags
+#### Plans and pricing (1)
 
-- Collaboration
-- Data Catalog
-- Governance
-- Metadata
+Published plans, tiers and prices.
 
-#### Properties
+- [Alteryx Plans Pricing](https://apis.io/plans/alteryx/alteryx-plans-pricing/)
 
-- [Documentation](https://help.alteryx.com/developer-help/connect-api)
-- [Authentication](https://help.alteryx.com/developer-help/connect-authentication)
-- [Postman Collection](collections/alteryx-server-api-v3.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/alteryx-server-api-v3.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### Rate limits (1)
 
-### Alteryx AlteryxEngine API
+Published request limits.
 
-The AlteryxEngine API allows you to call into the Alteryx Engine to build applications that can programmatically execute Alteryx Designer workflows. Workflows and applications can be executed as a separate child process or in-process.
+- [Alteryx Rate Limits](https://apis.io/rate-limits/alteryx/alteryx-rate-limits/)
 
-- **Human URL:** [https://help.alteryx.com/current/en/developer-help/apis/alteryxengine-api-overview.html](https://help.alteryx.com/current/en/developer-help/apis/alteryxengine-api-overview.html)
-- **Base URL:** `https://your-server/api`
+#### FinOps (1)
 
-#### Tags
+What the API costs to run, by operation.
 
-- Designer
-- Engine
-- Execution
-- Workflows
+- [Alteryx Finops](https://apis.io/finops/alteryx/alteryx-finops/)
 
-#### Properties
+## Where to find this API
 
-- [Documentation](https://help.alteryx.com/current/en/developer-help/apis/alteryxengine-api-overview.html)
-- [Getting Started](https://help.alteryx.com/current/en/developer-help/apis/alteryxengine-api-overview/alteryxengine-api-example.html)
-- [Postman Collection](collections/alteryx-server-api-v3.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/alteryx-server-api-v3.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-### Alteryx Designer Cloud API
-
-REST API for Alteryx Designer Cloud (powered by Trifacta) providing data preparation, transformation, and pipeline management capabilities. Enables programmatic access to data preparation workflows and job execution.
-
-- **Human URL:** [https://help.alteryx.com/dataprep/en/developer/api-reference.html](https://help.alteryx.com/dataprep/en/developer/api-reference.html)
-- **Base URL:** `https://api.trifacta.com`
-
-#### Tags
-
-- Cloud
-- Data Preparation
-- Pipelines
-- Transformation
-- Trifacta
-
-#### Properties
-
-- [Documentation](https://help.alteryx.com/dataprep/en/developer/api-reference.html)
-- [API Reference](https://api.trifacta.com/)
-- [Authentication](https://help.alteryx.com/Dataprep/en/developer/api-reference/manage-api-access-tokens.html)
-- [Postman Collection](collections/alteryx-server-api-v3.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/alteryx-server-api-v3.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-## Common Properties
-
-- [Developer Portal](https://help.alteryx.com/current/en/developer-help.html)
-- [Getting Started](https://help.alteryx.com/current/en/developer-help/apis/get-started-with-apis.html)
-- [SDK](https://help.alteryx.com/current/en/developer-help/platform-sdk.html)
-- [Status Page](https://status.alteryx.com)
+- [Website](https://www.alteryx.com/)
+- [Getting started](https://help.alteryx.com/current/en/developer-help/apis/get-started-with-apis.html)
+- [Pricing](https://www.alteryx.com/products/pricing)
 - [Support](https://community.alteryx.com)
 - [Blog](https://community.alteryx.com/t5/Engine-Works/bg-p/engine-works)
-- [X (Twitter)](https://twitter.com/alteryx)
-- [LinkedIn](https://www.linkedin.com/company/alteryx)
-- [GitHub Organization](https://github.com/alteryx)
-- [Pricing](https://www.alteryx.com/products/pricing)
-- [Trust Center](https://www.alteryx.com/trust)
-- [Terms of Service](https://www.alteryx.com/terms-and-conditions)
-- [Privacy Policy](https://www.alteryx.com/privacy-policy)
-- [Legal](https://www.alteryx.com/legal)
-- [Features](undefined)
-- [Use Cases](undefined)
-- [Integrations](undefined)
+- [Trust centre](https://www.alteryx.com/trust)
+- [Terms of service](https://www.alteryx.com/terms-and-conditions)
+- [Privacy policy](https://www.alteryx.com/privacy-policy)
+- [GitHub](https://github.com/alteryx)
+- [Status](https://status.alteryx.com)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
-**URL:** https://www.alteryx.com
+**Kin Score 47.5** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 57.1 |
+| Contract quality | 53.0 |
+| Contract governance | 13.6 |
+| Operational transparency | 26.3 |
+| Developer ergonomics | 53.6 |
+| Access clarity | 47.4 |
+
+**Agent readiness 27.1** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | negotiable (partial credit) |
+| Idempotency | — |
+| Error Semantics | verified |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | — |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 41.8** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/alteryx/](https://apis.io/providers/alteryx/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Alteryx: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/alteryx/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
